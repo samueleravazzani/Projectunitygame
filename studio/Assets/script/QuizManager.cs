@@ -63,20 +63,22 @@ public class QuizManager : MonoBehaviour
         //when you are right
         score += 1;
         qnA.RemoveAt(currentQuestion);
-        GenerateQuestion();
+        StartCoroutine(WaitForNext());
+
     }
 
     public void wrong()
     {
         //when you answer wrong
         qnA.RemoveAt(currentQuestion);
-        GenerateQuestion();
+        StartCoroutine(WaitForNext());
+
     }
     
     //There are methods Correct and wrong for handling correct
     //and incorrect answers, respectively.
 
-    IEnumerator waitForNext()
+    IEnumerator WaitForNext()
     {
         yield return new WaitForSeconds(1);
         GenerateQuestion();
@@ -90,7 +92,11 @@ public class QuizManager : MonoBehaviour
         {
             options[i].GetComponent<AnswerScript>().isCorrect = false; 
             options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = qnA[currentQuestion].answers[i];
-
+           
+            options[i].GetComponent<Image>().color = options[i].GetComponent<AnswerScript>().startColor;
+            
+            
+            
             if (qnA[currentQuestion].correctAnswer == i + 1)
             {
                 options[i].GetComponent<AnswerScript>().isCorrect = true; 
