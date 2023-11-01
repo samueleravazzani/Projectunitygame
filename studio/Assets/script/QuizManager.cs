@@ -8,17 +8,29 @@ using UnityEngine.SceneManagement;
 public class QuizManager : MonoBehaviour
 {
     public List<QuestionAndAnswer> qnA;
+    //It stores a list of QuestionAndAnswer objects (qnA)
+    //to represent the questions and answers for the quiz.
     public GameObject[] options;
+    //an array of GameObject options, which are used to
+    //display answer choices in the game.
     public int currentQuestion;
-
+    //variable keeps track of the current question being displayed.
+    
+    //two game panels
     public GameObject Quizpanel;
+    //panel where questions are displayed
     public GameObject GoPanel;
-
+    //panel shown when the game is over.
+    
     public TextMeshProUGUI questionTxt;
+    //for displaying the question text
     public TextMeshProUGUI ScoreTxt;
-
+    //for displaying the player's score.
+    
     int totalQuestions = 0;
+    // variable stores the total number of questions in the game
     public int score; 
+    //keeps track of the player's score.
     
     private void Start()
     {
@@ -26,11 +38,16 @@ public class QuizManager : MonoBehaviour
         GoPanel.SetActive(false);
         GenerateQuestion();
     }
+    //In the Start method, it initializes the game by setting totalQuestions,
+    //hiding GoPanel, and generating the first question using GenerateQuestion.
+    
 
     public void retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    //retry method to restart the game by reloading the current scene.
+    
 
     void GameOver()
     {
@@ -38,6 +55,8 @@ public class QuizManager : MonoBehaviour
         GoPanel.SetActive(true);
         ScoreTxt.text =  score + "/" + totalQuestions;
     }
+    //GameOver method displays the final score and switches
+    //between the game and game over panels.
 
     public void Correct()
     {
@@ -53,12 +72,17 @@ public class QuizManager : MonoBehaviour
         qnA.RemoveAt(currentQuestion);
         GenerateQuestion();
     }
+    
+    //There are methods Correct and wrong for handling correct
+    //and incorrect answers, respectively.
 
     IEnumerator waitForNext()
     {
         yield return new WaitForSeconds(1);
         GenerateQuestion();
     }
+    
+    //waitForNext coroutine waits for a short period before generating the next question.
 
     void SetAnswers()
     {
@@ -73,6 +97,9 @@ public class QuizManager : MonoBehaviour
             }
         }
     }
+    
+    //SetAnswers method sets the answer choices for the current question
+    //and determines which one is the correct answer
 
     void GenerateQuestion()
     {
@@ -88,8 +115,8 @@ public class QuizManager : MonoBehaviour
             Debug.Log("Out of Questions");
             GameOver();
         }
-        
-       
-        
     }
+    //GenerateQuestion method selects a random question from the list and updates the question text and answer choices.
+    //If no questions are left, it calls GameOver.
+    
 }
