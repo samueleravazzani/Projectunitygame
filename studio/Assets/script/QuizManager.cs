@@ -90,11 +90,9 @@ public class QuizManager : MonoBehaviour
     {
         for (int i = 0; i < options.Length; i++)
         {
+            options[i].GetComponent<Image>().color = options[i].GetComponent<AnswerScript>().startColor;
             options[i].GetComponent<AnswerScript>().isCorrect = false; 
             options[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = qnA[currentQuestion].answers[i];
-           
-            options[i].GetComponent<Image>().color = options[i].GetComponent<AnswerScript>().startColor;
-            
             
             
             if (qnA[currentQuestion].correctAnswer == i + 1)
