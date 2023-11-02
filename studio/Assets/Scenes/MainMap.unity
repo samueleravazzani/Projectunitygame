@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.008865028, g: 0.010727461, b: 0.010064061, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -364,7 +364,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd5814c5df39442ebb338be7bf03bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nCategory: 0
   Mushrooms:
   - {fileID: 2041962139, guid: 5225cdb704f352245b020446a3c584e8, type: 3}
   - {fileID: 2135595595, guid: 5225cdb704f352245b020446a3c584e8, type: 3}

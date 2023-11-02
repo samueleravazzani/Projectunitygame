@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class SpawnCollectableObjects : MonoBehaviour
 {
     [Header("Categories of Collectable Objects")]
-    public int nCategory; // n di categorie
+    private int nCategory=1; // n di categorie
     public Sprite[] Mushrooms;
 
     [Header("SpawnLocations")] 
