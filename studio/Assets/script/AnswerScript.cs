@@ -4,8 +4,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI; 
 
-//This script is attached to the answer choice GameObjects in the scene.
-
 public class AnswerScript : MonoBehaviour
 {
     public bool isCorrect = false;
@@ -14,11 +12,14 @@ public class AnswerScript : MonoBehaviour
     // a reference to the QuizManager to communicate with it.
 
     public Color startColor;
+    //reference to capture the object of the background. Used for buttons to switch from yellow background 
+    //to green when the question is correct and red when wrong
 
     private void Start()
     {
         startColor = GetComponent<Image>().color; 
     }
+    //acquire the beginning color of the button (yellow background) 
     
     public void Answer()
     {
@@ -39,4 +40,5 @@ public class AnswerScript : MonoBehaviour
     //The Answer method is called when the player selects an answer.
     //It checks if the answer is correct, and if so, it calls the Correct method in the QuizManager;
     //otherwise, it calls the wrong method.
+    //It also changes color to red and green according to wrong or correct to visualize it!
 }
