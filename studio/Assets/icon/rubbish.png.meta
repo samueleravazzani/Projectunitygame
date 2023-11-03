@@ -1,0 +1,1162 @@
+fileFormatVersion: 2
+guid: ab30ba6cc9bc0664984df4b04767a526
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1434072141298978032
+    second: rubbish_0
+  - first:
+      213: -9016776149293353528
+    second: rubbish_1
+  - first:
+      213: -6000015536162630991
+    second: rubbish_2
+  - first:
+      213: 4947070728180106438
+    second: rubbish_3
+  - first:
+      213: -6474991757170315163
+    second: rubbish_4
+  - first:
+      213: -8295610134093052577
+    second: rubbish_5
+  - first:
+      213: -3855996947805782262
+    second: rubbish_6
+  - first:
+      213: 1223463829955650687
+    second: rubbish_7
+  - first:
+      213: -92940676005674538
+    second: rubbish_8
+  - first:
+      213: 122739538473437789
+    second: rubbish_9
+  - first:
+      213: -3968019184825413710
+    second: rubbish_10
+  - first:
+      213: 9131283496608811420
+    second: rubbish_11
+  - first:
+      213: 3008937357504093280
+    second: rubbish_12
+  - first:
+      213: -7002121044199463023
+    second: rubbish_13
+  - first:
+      213: 7022505728773497076
+    second: rubbish_14
+  - first:
+      213: -5183428604837536019
+    second: rubbish_15
+  - first:
+      213: 805908185893725436
+    second: rubbish_16
+  - first:
+      213: -4821247904073448980
+    second: rubbish_17
+  - first:
+      213: 6072544669882457100
+    second: rubbish_18
+  - first:
+      213: -1512582948757208903
+    second: rubbish_19
+  - first:
+      213: -4822786255937868634
+    second: rubbish_20
+  - first:
+      213: -547141858583377819
+    second: rubbish_21
+  - first:
+      213: 6404253269747146459
+    second: rubbish_22
+  - first:
+      213: -4407318582713825805
+    second: rubbish_23
+  - first:
+      213: 6997428331298505272
+    second: rubbish_24
+  - first:
+      213: 2893834774239405676
+    second: rubbish_25
+  - first:
+      213: 98885812801922398
+    second: rubbish_26
+  - first:
+      213: 8082884194060639349
+    second: rubbish_27
+  - first:
+      213: 7536505653461545348
+    second: rubbish_28
+  - first:
+      213: -4724455921891562510
+    second: rubbish_29
+  - first:
+      213: 2934551040469605031
+    second: rubbish_30
+  - first:
+      213: -2553064360233724299
+    second: rubbish_31
+  - first:
+      213: -1105444902106435910
+    second: rubbish_32
+  - first:
+      213: 1062559711127008431
+    second: rubbish_33
+  - first:
+      213: -1475287123130804562
+    second: rubbish_34
+  - first:
+      213: -4693733587925024205
+    second: rubbish_35
+  - first:
+      213: 3213676231978852247
+    second: rubbish_36
+  - first:
+      213: -893713905476430434
+    second: rubbish_37
+  - first:
+      213: -5832010349444660323
+    second: rubbish_38
+  - first:
+      213: 1573498620680848257
+    second: rubbish_39
+  - first:
+      213: 8346714042258735053
+    second: rubbish_40
+  - first:
+      213: -2049229397622929055
+    second: rubbish_41
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: rubbish_0
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 176
+        width: 97
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9993d2cf0bf6e7744b2466efb0636f0e
+      internalID: 1242693386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_1
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 182
+        width: 120
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7039f6a126eb4de4a98d69fc700c7eb2
+      internalID: 733280756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_2
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 255
+        width: 42
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9b7e93e7a39e2c429719fe6636a2a80
+      internalID: 517412082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_3
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 246
+        width: 57
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59300c5e44dad4f419ee8a219116fde8
+      internalID: 1722373721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_4
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 288
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18361e5d18ade7847bc302052aed819c
+      internalID: 2073049485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_5
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 288
+        width: 27
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80b10477252879046b979e66c86f3094
+      internalID: -1436245256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_6
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 291
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76859683ca92bdd4ba733d91b057ee31
+      internalID: -782036213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_7
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 245
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 665edc955fc4a0f4a993a5e1aeba4b90
+      internalID: 267638059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_8
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 286
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faa9be716b284024ebcf96a115ba5d88
+      internalID: 396202226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_9
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 286
+        width: 68
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc74762fd6633c447a6dd05df8895207
+      internalID: 1449515512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_10
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 288
+        width: 15
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b940b02db5a34b34da55a8f004c39b2f
+      internalID: -1183691259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_11
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 216
+        width: 52
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 774d80ffb13e2cf429664b38db729937
+      internalID: -951380121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_12
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 196
+        width: 59
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b682b792dc293540802198efce9bdc1
+      internalID: 278646999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_13
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 248
+        width: 40
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f2e1d40d4037942a0500e2f558afb1
+      internalID: -936261090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_14
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 212
+        width: 27
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dbdb562fc471574e813bf19702fd5b7
+      internalID: -2035818742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_15
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 206
+        width: 41
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4c4be13e56e9104abbbb288ae4ec8a2
+      internalID: -372864559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_16
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 196
+        width: 60
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 522a5d69077b9914d8e5eced41c6dccf
+      internalID: 1489845892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_17
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 168
+        width: 64
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a11127d02b3ffb842a7d913f5af5cd6e
+      internalID: 1670331775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_18
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 201
+        width: 31
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0908498441462e458d0456a4f1c6466
+      internalID: 996135415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_19
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 191
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4761db7569aec745b5dfdcc20da1901
+      internalID: 1260863127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_20
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 179
+        width: 74
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ada4a9abf3c2062468b0dbb61d39175d
+      internalID: 13306706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_21
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 19
+        width: 90
+        height: 127
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73bd45f8226bebb4ea80566b3d9ea2ff
+      internalID: -1012151444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_22
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 19
+        width: 110
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15e9923e83919eb4a806f835827af935
+      internalID: 2007467463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_23
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 113
+        width: 57
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38027da18b25bcb46b800f1b43afa523
+      internalID: 885066325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_24
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 124
+        width: 83
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a648585311a772f4d97eaf23180680ad
+      internalID: -1589598013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_25
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 94
+        width: 49
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ccb5567647ba6540824fbbbf7643bef
+      internalID: -1177234378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_26
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 140
+        width: 58
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66bc68dcb6df47f48a033e943615397d
+      internalID: -396049290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_27
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 118
+        width: 59
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7662f3bfd13721147be41cdb08ed94ee
+      internalID: -42222843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_28
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 129
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a96e678633054c94f879f2b03ad463be
+      internalID: 1187133273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_29
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 60
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7487ba4f9f19ef940ad16e05e94038f1
+      internalID: 1365070476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_30
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 85
+        width: 57
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd76e18f3899ba4ea5c779c1db6f0c9
+      internalID: -889490934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_31
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 75
+        width: 46
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9be510b617856964c916fb4e6349d97b
+      internalID: 412836110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_32
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 78
+        width: 49
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96ae61d31b316424f85c847a7acb861c
+      internalID: -1097978888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_33
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 78
+        width: 48
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c130066e186072d46892034f8a83ea20
+      internalID: -1801760277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_34
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 23
+        width: 54
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 355b361b4580a8244b8c37f5b3ccdfbe
+      internalID: -1635716436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_35
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 54
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45635db1fa134684294d7dff74bf5c58
+      internalID: 2032179742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_36
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 25
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b438c07a7afb51468243b0c9eea2eb4
+      internalID: 1743884920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_37
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 21
+        width: 40
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42ac1ff17cdf17943af195ff528684dc
+      internalID: 15652577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_38
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 21
+        width: 77
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b543b78b90992b48b2d635d50fb1f26
+      internalID: -2031760220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_39
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 34
+        width: 33
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9827bc184aa145547a70d0cad345a372
+      internalID: 507692879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_40
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 25
+        width: 59
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43644d36019b8974fb8bc37c23a0061d
+      internalID: -70690707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rubbish_41
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 25
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fac8c6595c8ad45429860a1c534fc638
+      internalID: -551603463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 49fe12045d84eee478630bf4ee28919d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      rubbish_0: 1242693386
+      rubbish_1: 733280756
+      rubbish_10: -1183691259
+      rubbish_11: -951380121
+      rubbish_12: 278646999
+      rubbish_13: -936261090
+      rubbish_14: -2035818742
+      rubbish_15: -372864559
+      rubbish_16: 1489845892
+      rubbish_17: 1670331775
+      rubbish_18: 996135415
+      rubbish_19: 1260863127
+      rubbish_2: 517412082
+      rubbish_20: 13306706
+      rubbish_21: -1012151444
+      rubbish_22: 2007467463
+      rubbish_23: 885066325
+      rubbish_24: -1589598013
+      rubbish_25: -1177234378
+      rubbish_26: -396049290
+      rubbish_27: -42222843
+      rubbish_28: 1187133273
+      rubbish_29: 1365070476
+      rubbish_3: 1722373721
+      rubbish_30: -889490934
+      rubbish_31: 412836110
+      rubbish_32: -1097978888
+      rubbish_33: -1801760277
+      rubbish_34: -1635716436
+      rubbish_35: 2032179742
+      rubbish_36: 1743884920
+      rubbish_37: 15652577
+      rubbish_38: -2031760220
+      rubbish_39: 507692879
+      rubbish_4: 2073049485
+      rubbish_40: -70690707
+      rubbish_41: -551603463
+      rubbish_5: -1436245256
+      rubbish_6: -782036213
+      rubbish_7: 267638059
+      rubbish_8: 396202226
+      rubbish_9: 1449515512
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
