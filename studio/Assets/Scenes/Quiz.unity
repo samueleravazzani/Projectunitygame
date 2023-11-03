@@ -2148,6 +2148,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   qnA:
+  - question: Who is worried more about climate change?
+    answers:
+    - Children
+    - Teenagers
+    - Adults
+    correctAnswer: 2
   - question: Why are you here?
     answers:
     - To learn more about climate change
@@ -2155,20 +2161,11 @@ MonoBehaviour:
     - I do not know
     - To learn about meteo
     correctAnswer: 1
-  - question: Who is worried more about climate change?
-    answers:
-    - Children
-    - Teenagers
-    - Adults
-    - Elders
-    correctAnswer: 2
   - question: What can you do to improve the situation?
     answers:
-    - Use the car
+    - Reduce air pollution
     - Use more plastics
-    - Moderate air pollution
-    - Enhance air traffic
-    correctAnswer: 3
+    correctAnswer: 1
   options:
   - {fileID: 400584789}
   - {fileID: 500735239}
