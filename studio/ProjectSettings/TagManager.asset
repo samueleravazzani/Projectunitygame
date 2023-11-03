@@ -19,7 +19,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Post-processing
   - 
   - 
   - 
@@ -42,18 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: 1
-    uniqueID: 4003355677
+  - name: Character
+    uniqueID: 507522741
     locked: 0
-  - name: 2
-    uniqueID: 3075050749
-    locked: 0
-  - name: 3
-    uniqueID: 993965853
-    locked: 0
-  - name: 4
-    uniqueID: 2212952977
-    locked: 0
-  - name: 5
-    uniqueID: 3960954675
+  - name: Background
+    uniqueID: 3921008453
     locked: 0
