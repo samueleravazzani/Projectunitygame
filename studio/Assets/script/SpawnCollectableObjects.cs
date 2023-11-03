@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class SpawnCollectableObjects : MonoBehaviour
 {
     [Header("Categories of Collectable Objects")]
-    public int nCategory; // n di categorie
+    private int nCategory=1; // n di categorie
     public Sprite[] Mushrooms;
 
     [Header("SpawnLocations")] 
@@ -59,7 +59,7 @@ public class SpawnCollectableObjects : MonoBehaviour
             do
             {
                 // punto random 3D -> 2D
-                rndPoint3D = RandomPointInBounds(Locations.bounds, 1f);
+                rndPoint3D = RandomPointInBounds(Locations);
                 rndPoint2D = new Vector2(rndPoint3D.x, rndPoint3D.y);
 
                 // trovo il punto più vicino a quello trovato interno
@@ -79,12 +79,34 @@ public class SpawnCollectableObjects : MonoBehaviour
         }
     }
     
-    private Vector3 RandomPointInBounds(Bounds bounds, float scale) // prende un punto qualsiasi nei confini
+    private Vector3 RandomPointInBounds(PolygonCollider2D collider) // prende un punto qualsiasi nei confini
     {
-        return new Vector3(
-            Random.Range(bounds.min.x * scale, bounds.max.x * scale),
-            Random.Range(bounds.min.y * scale, bounds.max.y * scale),
-            0
-        );
+        if (collider != null && collider.pathCount > 0)
+        {
+            Bounds bounds = collider.bounds;
+            float minX = bounds.min.x;
+            float maxX = bounds.max.x;
+            float minY = bounds.min.y;
+            float maxY = bounds.max.y;
+
+            float randomX = Random.Range(minX, maxX);
+            float randomY = Random.Range(minY, maxY);
+
+            Vector3 randomPoint = new Vector3(randomX, randomY, 0);
+
+            if (IsPointInPolygon(collider, randomPoint))
+            {
+                return randomPoint;
+            }
+        }
+
+        // If no valid point is found, return Vector2.zero
+        return Vector3.zero;
+    }
+
+    bool IsPointInPolygon(PolygonCollider2D collider, Vector3 point)
+    {
+        // Check if a point is inside the PolygonCollider2D
+        return collider.OverlapPoint(point);
     }
 }
