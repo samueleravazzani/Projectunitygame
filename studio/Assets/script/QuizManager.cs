@@ -11,13 +11,8 @@ public class QuizManager : MonoBehaviour
     public TextAsset questionsCSV;
     
     private List<QuestionAndAnswer> qnA = new List<QuestionAndAnswer>();
-    
-    //public List<QuestionAndAnswer> qnA;
     //It stores a list of QuestionAndAnswer objects (qnA)
     //to represent the questions and answers for the quiz.
-    
-    //[SerializeField]
-    //private GameObject[] options = new GameObject[4];
     
     public GameObject[] options;
     //an array of GameObject options, which are used to
