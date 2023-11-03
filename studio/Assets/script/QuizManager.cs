@@ -10,6 +10,8 @@ public class QuizManager : MonoBehaviour
 {
     public TextAsset questionsCSV;
     
+    private int numberOfQuestionsToSelect;
+    
     private List<QuestionAndAnswer> qnA = new List<QuestionAndAnswer>();
     //It stores a list of QuestionAndAnswer objects (qnA)
     //to represent the questions and answers for the quiz.
@@ -44,6 +46,7 @@ public class QuizManager : MonoBehaviour
     
     private void Start()
     {
+        numberOfQuestionsToSelect = 5;
         LoadQuestionsFromCSV();
         totalQuestions = qnA.Count;
         GoPanel.SetActive(false);
@@ -52,37 +55,55 @@ public class QuizManager : MonoBehaviour
     //In the Start method, it initializes the game by setting totalQuestions,
     //hiding GoPanel, and generating the first question using GenerateQuestion.
     
-    private void LoadQuestionsFromCSV()
+private void LoadQuestionsFromCSV()
+{
+    try
     {
-        try
+        string[] csvLines = questionsCSV.text.Split(new char[] { '\n' }, System.StringSplitOptions.RemoveEmptyEntries);
+
+        // Determine the total number of questions in the CSV file
+        int totalQuestionsInFile = csvLines.Length - 1; // Subtract 1 for the header row
+
+        // Ensure that numberOfQuestionsToSelect doesn't exceed the total number of questions
+        numberOfQuestionsToSelect = Mathf.Min(numberOfQuestionsToSelect, totalQuestionsInFile);
+
+        // Create a list of unique random indices to select questions
+        List<int> randomIndices = new List<int>();
+        while (randomIndices.Count < numberOfQuestionsToSelect)
         {
-            string[] csvLines = questionsCSV.text.Split(new char[] { '\n' }, System.StringSplitOptions.RemoveEmptyEntries);
-
-            for (int i = 1; i < csvLines.Length; i++)
+            int randomIndex = Random.Range(1, totalQuestionsInFile + 1); // Random index, excluding the header
+            if (!randomIndices.Contains(randomIndex))
             {
-                string[] data = csvLines[i].Split(';'); // Use semicolon as the delimiter
-
-                if (data.Length >= maxAnswerOptions + 2)
-                {
-                    QuestionAndAnswer qa = new QuestionAndAnswer();
-                    qa.question = data[0];
-                    List<string> answersList = data.Skip(1).Take(maxAnswerOptions).ToList(); // Always take up to 4 answers
-                    answersList.RemoveAll(answer => string.IsNullOrWhiteSpace(answer)); // Remove empty answers
-                    qa.answers = answersList.ToArray();
-                    int.TryParse(data[data.Length - 1], out qa.correctAnswer);
-                    qnA.Add(qa);
-                }
-                else
-                {
-                    Debug.LogWarning("Invalid data in line " + i + ": " + csvLines[i]);
-                }
+                randomIndices.Add(randomIndex);
             }
         }
-        catch (System.Exception e)
+
+        for (int i = 0; i < numberOfQuestionsToSelect; i++)
         {
-            Debug.LogError("Error loading questions from CSV: " + e.Message);
+            int dataRowIndex = randomIndices[i];
+            string[] data = csvLines[dataRowIndex].Split(';'); // Use semicolon as the delimiter
+
+            if (data.Length >= maxAnswerOptions + 2)
+            {
+                QuestionAndAnswer qa = new QuestionAndAnswer();
+                qa.question = data[0];
+                List<string> answersList = data.Skip(1).Take(maxAnswerOptions).ToList(); // Always take up to 4 answers
+                answersList.RemoveAll(answer => string.IsNullOrWhiteSpace(answer)); // Remove empty answers
+                qa.answers = answersList.ToArray();
+                int.TryParse(data[data.Length - 1], out qa.correctAnswer);
+                qnA.Add(qa);
+            }
+            else
+            {
+                Debug.LogWarning("Invalid data in line " + dataRowIndex + ": " + csvLines[dataRowIndex]);
+            }
         }
     }
+    catch (System.Exception e)
+    {
+        Debug.LogError("Error loading questions from CSV: " + e.Message);
+    }
+}
     
     public void retry()
     {
