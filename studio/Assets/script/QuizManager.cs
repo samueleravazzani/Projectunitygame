@@ -4,12 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class QuizManager : MonoBehaviour
 {
-    public List<QuestionAndAnswer> qnA;
+    public TextAsset questionsCSV;
+    
+    private List<QuestionAndAnswer> qnA = new List<QuestionAndAnswer>();
+    
+    //public List<QuestionAndAnswer> qnA;
     //It stores a list of QuestionAndAnswer objects (qnA)
     //to represent the questions and answers for the quiz.
+    
+    //[SerializeField]
+    //private GameObject[] options = new GameObject[4];
+    
     public GameObject[] options;
     //an array of GameObject options, which are used to
     //display answer choices in the game.
@@ -36,8 +45,11 @@ public class QuizManager : MonoBehaviour
     //answerIndices is a list of integers used to keep track of the indices of answer options for the current question.
     //It will help with the randomization of answers associated to each question when displayed 
     
+    private const int maxAnswerOptions = 4; // Define a constant for maximum answer options
+    
     private void Start()
     {
+        LoadQuestionsFromCSV();
         totalQuestions = qnA.Count;
         GoPanel.SetActive(false);
         GenerateQuestion();
@@ -45,7 +57,38 @@ public class QuizManager : MonoBehaviour
     //In the Start method, it initializes the game by setting totalQuestions,
     //hiding GoPanel, and generating the first question using GenerateQuestion.
     
+    private void LoadQuestionsFromCSV()
+    {
+        try
+        {
+            string[] csvLines = questionsCSV.text.Split(new char[] { '\n' }, System.StringSplitOptions.RemoveEmptyEntries);
 
+            for (int i = 1; i < csvLines.Length; i++)
+            {
+                string[] data = csvLines[i].Split(';'); // Use semicolon as the delimiter
+
+                if (data.Length >= maxAnswerOptions + 2)
+                {
+                    QuestionAndAnswer qa = new QuestionAndAnswer();
+                    qa.question = data[0];
+                    List<string> answersList = data.Skip(1).Take(maxAnswerOptions).ToList(); // Always take up to 4 answers
+                    answersList.RemoveAll(answer => string.IsNullOrWhiteSpace(answer)); // Remove empty answers
+                    qa.answers = answersList.ToArray();
+                    int.TryParse(data[data.Length - 1], out qa.correctAnswer);
+                    qnA.Add(qa);
+                }
+                else
+                {
+                    Debug.LogWarning("Invalid data in line " + i + ": " + csvLines[i]);
+                }
+            }
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError("Error loading questions from CSV: " + e.Message);
+        }
+    }
+    
     public void retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
