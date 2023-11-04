@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Spawnarea
+  - To_Cave
   layers:
   - Default
   - TransparentFX
