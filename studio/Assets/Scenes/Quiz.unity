@@ -2147,25 +2147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b441c28e65945fa4fa8637ca5b317b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  qnA:
-  - question: Who is worried more about climate change?
-    answers:
-    - Children
-    - Teenagers
-    - Adults
-    correctAnswer: 2
-  - question: Why are you here?
-    answers:
-    - To learn more about climate change
-    - To play
-    - I do not know
-    - To learn about meteo
-    correctAnswer: 1
-  - question: What can you do to improve the situation?
-    answers:
-    - Reduce air pollution
-    - Use more plastics
-    correctAnswer: 1
+  questionsCSV: {fileID: 4900000, guid: 20f5d505bedbfb84c8af0c728e8b2fb1, type: 3}
   options:
   - {fileID: 400584789}
   - {fileID: 500735239}
