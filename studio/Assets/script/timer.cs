@@ -41,24 +41,24 @@ public class timer : MonoBehaviour
                 PhaseText.text = "";
             }
 
-            if (seconds>=1 && seconds <= 3)
+            if (seconds>=1 && seconds <= 4)
             {
                         PhaseText.text = "inhale";
                         TimerText.text = string.Format("{0:00}", seconds);
             }
             
-            if (seconds>3 && seconds <= 7)
+            if (seconds>4 && seconds <= 11)
             {
                         PhaseText.text = "hold";
-                        TimerText.text = string.Format("{0:00}", seconds-3);
+                        TimerText.text = string.Format("{0:00}", seconds-4);
             }
-            if (seconds>7 && seconds <= 14)
+            if (seconds>11 && seconds <= 19)
             {
                         PhaseText.text = "exhale";
-                        TimerText.text = string.Format("{0:00}", seconds-7);
+                        TimerText.text = string.Format("{0:00}", seconds-11);
             }
             
-            if (seconds == 15)
+            if (seconds == 20)
             {
                         PhaseText.text = "";
                         TimerText.text = "00";

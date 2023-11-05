@@ -7,10 +7,10 @@ public class ResizeObject : MonoBehaviour
 {
     public Vector3 initialScale;
     public Vector3 targetScale;
-    public float expandTime = 3f;
-    public float holdTime = 4f;
+    public float expandTime = 4f;
+    public float holdTime = 7f;
     public float holdTime1 = 0.5f;
-    public float returnTime = 7f;
+    public float returnTime = 8f;
     private float startTime;
     public int repeatCount = 3;
     private int currentRepeatCount = 0;
@@ -68,7 +68,7 @@ public class ResizeObject : MonoBehaviour
             yield return new WaitForSeconds(holdTime1);
 
 
-            // Espansione graduale per 3 secondi
+            // Espansione graduale per 4 secondi
             while (Time.time - startTime < expandTime)
             {
                 float progress = (Time.time - startTime) / expandTime;
@@ -76,7 +76,7 @@ public class ResizeObject : MonoBehaviour
                 yield return null;
             }
 
-            // Mantieni le dimensioni per 4 secondi
+            // Mantieni le dimensioni per 7 secondi
             yield return new WaitForSeconds(holdTime);
 
             startTime = Time.time;
