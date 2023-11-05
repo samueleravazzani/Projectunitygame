@@ -2282,6 +2282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionsCSV: {fileID: 4900000, guid: 20f5d505bedbfb84c8af0c728e8b2fb1, type: 3}
+  numberOfQuestionsToSelect: 5
   options:
   - {fileID: 400584789}
   - {fileID: 500735239}
@@ -2294,6 +2295,7 @@ MonoBehaviour:
   ScoreTxt: {fileID: 5423652}
   questionProgressText: {fileID: 1145519447}
   score: 0
+  selectedProblemType: 4
 --- !u!4 &1781012664
 Transform:
   m_ObjectHideFlags: 0
