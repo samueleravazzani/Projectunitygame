@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ResizeObject : MonoBehaviour
 {
@@ -16,8 +17,14 @@ public class ResizeObject : MonoBehaviour
     private bool done = false;
     public bool begin { get; private set; }
     
-    
+    [SerializeField] private TextMeshProUGUI RepeatText;
     private static ResizeObject instance;
+    
+    
+    [SerializeField]
+    private GameObject RepeatPanel;
+    [SerializeField]
+    private GameObject PhasePnael;
 
     private void Awake() //creation singleton
     {
@@ -56,7 +63,9 @@ public class ResizeObject : MonoBehaviour
         begin = true;
         while (currentRepeatCount < repeatCount)
         {
+            RepeatText.text=string.Format("Repeat: {00}",repeatCount-currentRepeatCount);
             startTime = Time.time;
+            yield return new WaitForSeconds(holdTime1);
 
 
             // Espansione graduale per 3 secondi
@@ -83,8 +92,10 @@ public class ResizeObject : MonoBehaviour
             
             currentRepeatCount++;
         }
-
         begin = false;
+        RepeatPanel.SetActive(false);
+        PhasePnael.SetActive(false);
+        timer.GetInstance().TimerText.text = "DONE!";
 
     }
 
