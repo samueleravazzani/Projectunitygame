@@ -57,4 +57,6 @@ public class playerMovement : MonoBehaviour
             SceneManager.LoadScene("Cave");
         }
     }
+    
+    
 }
