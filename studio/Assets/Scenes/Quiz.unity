@@ -2295,7 +2295,7 @@ MonoBehaviour:
   ScoreTxt: {fileID: 5423652}
   questionProgressText: {fileID: 1145519447}
   score: 0
-  selectedProblemType: 2
+  selectedProblemType: 4
 --- !u!4 &1781012664
 Transform:
   m_ObjectHideFlags: 0
