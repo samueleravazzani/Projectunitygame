@@ -55,10 +55,10 @@ public class SliderControl : MonoBehaviour
     // On button down -> save data + change scene
     public void changeScene()
     {
-        PlayerPrefs.SetInt("anxiety", (int)anxiety.value);
+        PlayerPrefs.SetFloat("anxiety", anxiety.value);
         // /!\ inverto la literacy per farlo coerente con gli altri -> "quanto poco sei litterato?"
-        PlayerPrefs.SetInt("literacy_inverted", (int)(literacy.maxValue-literacy.value));
-        PlayerPrefs.SetInt("climate_change_skept", (int)anxiety.value);
+        PlayerPrefs.SetFloat("literacy_inverted", (literacy.maxValue-literacy.value));
+        PlayerPrefs.SetFloat("climate_change_skept", anxiety.value);
         SceneManager.LoadScene(sceneName);
     }
 }
