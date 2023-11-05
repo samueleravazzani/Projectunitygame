@@ -9,10 +9,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Start_Scene.unity
     guid: 905acb1d71c9cbd48a47ab8ffea1b1b7
   - enabled: 1
+    path: Assets/Scenes/ParameterSliders.unity
+    guid: d0d327bf73a864c29b403aeb6bf81565
+  - enabled: 1
     path: Assets/Scenes/MainMap.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Quiz.unity
     guid: ccb6ccbc662d00f40a662d6cc53eea96
+  - enabled: 1
+    path: Assets/Scenes/Cave.unity
+    guid: 3878caecae6094111a36881610bc4323
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

@@ -416,7 +416,20 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      fish1-removebg-preview_0: -130565984331187397
+      fish1-removebg-preview_1: -4519908122145935375
+      fish1-removebg-preview_10: 8524605931176013346
+      fish1-removebg-preview_11: 5012682581503305261
+      fish1-removebg-preview_12: 415135154620328477
+      fish1-removebg-preview_2: -325998614491723189
+      fish1-removebg-preview_3: 6522991004592573567
+      fish1-removebg-preview_4: 7532315522900807091
+      fish1-removebg-preview_5: -3506500708727295300
+      fish1-removebg-preview_6: 5643692700879230822
+      fish1-removebg-preview_7: -3775734859276827873
+      fish1-removebg-preview_8: -5742709048320553227
+      fish1-removebg-preview_9: -8392450235710006110
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
