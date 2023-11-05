@@ -32,6 +32,7 @@ public class QuizManager : MonoBehaviour
     //for displaying the question text
     public TextMeshProUGUI ScoreTxt;
     //for displaying the player's score.
+    public TextMeshProUGUI questionProgressText;
     
     int totalQuestions = 0;
     // variable stores the total number of questions in the game
@@ -46,7 +47,7 @@ public class QuizManager : MonoBehaviour
     
     private void Start()
     {
-        numberOfQuestionsToSelect = 5;
+        numberOfQuestionsToSelect = 8;
         LoadQuestionsFromCSV();
         totalQuestions = qnA.Count;
         GoPanel.SetActive(false);
@@ -117,6 +118,9 @@ private void LoadQuestionsFromCSV()
         Quizpanel.SetActive(false);
         GoPanel.SetActive(true);
         ScoreTxt.text =  score + "/" + totalQuestions;
+        
+        // Hide the question progress text in the Go Panel
+        questionProgressText.gameObject.SetActive(false);
     }
     //GameOver method displays the final score and switches
     //between the game and game over panels.
@@ -232,6 +236,9 @@ private void LoadQuestionsFromCSV()
                     options[i].SetActive(false); //// Deactivate any extra buttons that are not needed.
                 }
             }
+            // Update the question progress text
+            int currentQuestionNumber = totalQuestions - qnA.Count + 1;
+            questionProgressText.text = currentQuestionNumber + "/" + totalQuestions;
         }
         else
         {
