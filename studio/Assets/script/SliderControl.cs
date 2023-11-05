@@ -45,6 +45,11 @@ public class SliderControl : MonoBehaviour
         anxiety_value.text = anxiety.value.ToString();
         literacy_value.text = literacy.value.ToString();
         climate_change_skept_value.text = climate_change_skept.value.ToString();
+        
+        // modifico la posizione del testo che rappresenta il valore dello slider
+        anxiety_value.rectTransform.position = new Vector3(anxiety.handleRect.position.x,anxiety_value.rectTransform.position.y, anxiety_value.rectTransform.position.z);
+        literacy_value.rectTransform.position = new Vector3(literacy.handleRect.position.x,literacy_value.rectTransform.position.y, literacy_value.rectTransform.position.z);
+        climate_change_skept_value.rectTransform.position = new Vector3(climate_change_skept.handleRect.position.x,climate_change_skept_value.rectTransform.position.y, climate_change_skept_value.rectTransform.position.z);
     }
     
     // On button down -> save data + change scene
