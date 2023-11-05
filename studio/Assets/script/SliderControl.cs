@@ -13,10 +13,9 @@ public class SliderControl : MonoBehaviour
     public Slider literacy;
     [FormerlySerializedAs("ccskepticism")] public Slider climate_change_skept;
     public string sceneName = "MainMap";
-    public TextMeshProUGUI greetings;
-    public TextMeshProUGUI anxiety_txt;
-    public TextMeshProUGUI literacy_txt;
-    public TextMeshProUGUI climate_change_txt;
+    public TextMeshProUGUI anxiety_value;
+    public TextMeshProUGUI literacy_value;
+    public TextMeshProUGUI climate_change_skept_value;
     public float animationduration=2.0f;
 
     private void Awake()
@@ -29,20 +28,25 @@ public class SliderControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        greetings.CrossFadeAlpha(1.0f, animationduration, true);
-        anxiety_txt.CrossFadeAlpha(1.0f, animationduration, true);
-        literacy_txt.CrossFadeAlpha(1.0f, animationduration, true);
-        climate_change_txt.CrossFadeAlpha(1.0f, animationduration, true);
         anxiety.gameObject.SetActive(true);
         literacy.gameObject.SetActive(true);
         climate_change_skept.gameObject.SetActive(true);
         
-        // set sliders to 0
-        anxiety.value = 0;
-        literacy.value = 0;
-        climate_change_skept.value = 0;
+        // set sliders to 1 (min value): 1 per non creare problemi poi con le task
+        anxiety.value = 1;
+        literacy.value = 1;
+        climate_change_skept.value = 1;
     }
-
+    
+    void Update()
+    {
+        // aggiorno scritta esterna:
+        // TextMeshPro.text (testo dell'oggett0) = slider.value (valore dello slider)
+        anxiety_value.text = anxiety.value.ToString();
+        literacy_value.text = literacy.value.ToString();
+        climate_change_skept_value.text = climate_change_skept.value.ToString();
+    }
+    
     // On button down -> save data + change scene
     public void changeScene()
     {
