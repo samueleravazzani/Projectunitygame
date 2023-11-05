@@ -119,8 +119,6 @@ private void LoadQuestionsFromCSV()
         GoPanel.SetActive(true);
         ScoreTxt.text =  score + "/" + totalQuestions;
         
-        // Hide the question progress text in the Go Panel
-        questionProgressText.gameObject.SetActive(false);
     }
     //GameOver method displays the final score and switches
     //between the game and game over panels.
