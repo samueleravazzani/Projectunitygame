@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerMovement : MonoBehaviour
 {
@@ -10,6 +11,25 @@ public class playerMovement : MonoBehaviour
     public Animator animator;
 
     private Vector2 movement;
+    
+    public static playerMovement instance;
+    // SINGLETON TYPE
+    void Awake()
+    {
+        // assure this is the only instance that it has been created.
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+    
+        instance = this;
+        DontDestroyOnLoad((this.gameObject)); // if I am changing this scene, do NOT destroy this object.
+        // otherwise this object will be destroyed
+    }
+
+    
+    
     // Update is called once per frame
     void Update()
     {//input
@@ -28,5 +48,13 @@ public class playerMovement : MonoBehaviour
             return;
         }
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    private void OnTriggerStay2D(Collider2D coll)
+    {
+        if (coll.gameObject.CompareTag("To_Cave") && Input.GetKeyDown(KeyCode.Return))
+        {
+            SceneManager.LoadScene("Cave");
+        }
     }
 }
