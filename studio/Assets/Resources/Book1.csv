@@ -1,17 +1,32 @@
-Question;Answer1;Answer2;Answer3;Answer4;CorrectAnswer
-Which of the following consequences can be directly linked to climate change?;Surface temperatures reach new record highs every year;Extreme weather events such as droughts, heatwaves, hurricanes increase;Both of the above;;3
-What is one of the effects of climate change?;Increase in precipitation;Increase in the frequency of wildfires;Decrease in temperature;All of the above;2
-Can wildfires release greenhouse gases into the atmosphere?;Yes;No;;;1
-What is the primary greenhouse gas responsible for global warming?;Oxygen;Carbon dioxide (CO2);Nitrogen;;2
-How does the loss of tropical forests due to wildfires affect the global climate?;Cools the climate;Warms the climate;Has no impact on the climate;;2
-How can climate change affect water availability in areas affected by wildfires?;Increasing water availability;Reducing water availability;No impact;;2
-What is the main negative impact of wildfires on animal species?;No impact;Destruction of habitats and animal deaths;Increase in biodiversity;;2
-What is one of the negative effects of forest wildfires on the air we breathe?;Improvement of air quality;Air pollution with fine particles;No effect on the air;;2
-Which areas are most susceptible to the impacts of climate change?;Only polar regions;Only coastal regions;All regions of the world;Only tropical regions;3
-How can people reduce the impact of climate change on the frequency of wildfires?;Igniting more fires;Using less plastic;Cannot influence the frequency of wildfires;Reducing greenhouse gas emissions;4
-What are the main benefits of a healthy and well-managed forest ecosystem?;Provides habitat for wildlife;Absorbs carbon dioxide (CO2);Contributes to the water cycle;All of the above;4
-What are the main air pollutants in wildfire smoke?;Radon and argon;Particulate matter, carbon monoxide, nitrogen oxides, volatile organic compounds;Methane and carbon dioxide;Ozone and hydrogen;2
-What association has been found between particulate levels during wildfire events and the risk of death from any cause?;No association;Increased risk of death;Decreased risk of death;Association only with specific causes;2
-What are the main health risks associated with exposure to wildfire particulate matter?;Impaired lung function;Common colds;Reduced blood pressure;;1
-How can climate change influence the duration of summer seasons and the risk of wildfires?;Shortening summer seasons and reducing the risk of wildfires;Prolonging summer seasons and increasing the risk of wildfires;Has no impact on summer seasons or wildfires;Summer seasons have become obsolete due to climate change;2
-What is one of the main reasons it is important to address climate change and reduce the risk of wildfires?;Wildfires are natural phenomena that cannot be prevented;To protect human health and biodiversity;To promote the wood industry;;2
+Question;Answer1;Answer2;Answer3;Answer4;CorrectAnswer;ProblemType
+Which of the following consequences can be directly linked to climate change?;Surface temperatures reach new record highs every year;Extreme weather events such as droughts, heatwaves, hurricanes increase;Both of the above;;3;1
+What is one of the effects of climate change?;Increase in precipitation;Increase in the frequency of wildfires;Decrease in temperature;All of the above;2;1
+Can wildfires release greenhouse gases into the atmosphere?;Yes;No;;;1;1
+What is the primary greenhouse gas responsible for global warming?;Oxygen;Carbon dioxide (CO2);Nitrogen;;2;1
+How does the loss of tropical forests due to wildfires affect the global climate?;Cools the climate;Warms the climate;Has no impact on the climate;;2;1
+How can climate change affect water availability in areas affected by wildfires?;Increasing water availability;Reducing water availability;No impact;;2;1
+What is the main negative impact of wildfires on animal species?;No impact;Destruction of habitats and animal deaths;Increase in biodiversity;;2;1
+What is one of the negative effects of forest wildfires on the air we breathe?;Improvement of air quality;Air pollution with fine particles;No effect on the air;;2;1
+Which areas are most susceptible to the impacts of climate change?;Only polar regions;Only coastal regions;All regions of the world;Only tropical regions;3;1
+How can people reduce the impact of climate change on the frequency of wildfires?;Igniting more fires;Using less plastic;Cannot influence the frequency of wildfires;Reducing greenhouse gas emissions;4;1
+What are the main benefits of a healthy and well-managed forest ecosystem?;Provides habitat for wildlife;Absorbs carbon dioxide (CO2);Contributes to the water cycle;All of the above;4;1
+What are the main air pollutants in wildfire smoke?;Radon and argon;Particulate matter, carbon monoxide, nitrogen oxides, volatile organic compounds;Methane and carbon dioxide;Ozone and hydrogen;2;1
+What association has been found between particulate levels during wildfire events and the risk of death from any cause?;No association;Increased risk of death;Decreased risk of death;Association only with specific causes;2;1
+What are the main health risks associated with exposure to wildfire particulate matter?;Impaired lung function;Common colds;Reduced blood pressure;;1;1
+How can climate change influence the duration of summer seasons and the risk of wildfires?;Shortening summer seasons and reducing the risk of wildfires;Prolonging summer seasons and increasing the risk of wildfires;Has no impact on summer seasons or wildfires;Summer seasons have become obsolete due to climate change;2;1
+What is one of the main reasons it is important to address climate change and reduce the risk of wildfires?;Wildfires are natural phenomena that cannot be prevented;To protect human health and biodiversity;To promote the wood industry;;2;1
+What is the main source of plastic pollution in the ocean?;Industrial waste;Household waste;Plastic bags;Plastic straws;3;2
+How long does it take for a plastic bottle to decompose?;10 years;100 years;500 years;1000 years;4;2
+How does plastic pollution contribute to climate change?;It releases greenhouse gases when it decomposes;It traps heat in the atmosphere;It causes ocean acidification;It doesn't contribute to climate change;2;2
+What is the impact of plastic pollution on marine life?;It causes marine animals to mistake plastic for food;It causes marine animals to become entangled in plastic;Both;;3;2
+What percentage of plastic waste is recycled globally?;10;25;50;75;1;2
+What is the most commonly found type of plastic in the ocean?;PET;HDPE;PVC;PP;1;2
+How much plastic waste is produced globally each year?;100 million tons;200 million tons;300 million tons;400 million tons;3;2
+What is the impact of plastic pollution on human health?;It causes cancer;It causes respiratory problems;It causes hormonal imbalances;All of the above;4;2
+What is the impact of plastic pollution on the economy?;It increases healthcare costs;It reduces tourism;Both ;;3;2
+What is the impact of plastic pollution on the environment?;It causes air pollution;It causes air pollution;Both;;3;2
+What is the impact of plastic pollution on climate change?;It has no impact;It increases greenhouse gas emissions;It decreases greenhouse gas emissions;It has a neutral impact on greenhouse gas emissions;2;2
+What is the impact of plastic pollution on human food sources? ;Plastic waste can contaminate fish and other seafood consumed by humans;No impact;;;1;2
+Are plastic waste and climate change related? ;Yes;No;;;1;2
+What is the impact of plastic pollution on air quality? ;Burning plastic waste can release toxic chemicals into the air, contributing to air pollution;It cleans the air;No impact;;1;2
+What are some ways to reduce plastic waste in our daily lives?;Using reusable bags, bottles, recycling properly;Using single-use plastic products;;;1;2
