@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class CardDisplay : MonoBehaviour
 {
     public static string medicine_name;
+    public static bool showcard = false;
     public Medicine_Card[] cards;
     private Medicine_Card card;
     public TextMeshProUGUI drug_name;
@@ -27,6 +28,13 @@ public class CardDisplay : MonoBehaviour
         background.gameObject.SetActive(false);
     }
 
+    void Update()
+    {
+        if (showcard)
+        {
+            ShowCard();
+        }
+    }
 
     public void ShowCard()
     {

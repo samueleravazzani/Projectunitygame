@@ -12,6 +12,7 @@ public class MedicineTrigger : MonoBehaviour
         if (coll.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Return))
         {
             CardDisplay.medicine_name = "Paracetamol";
+            CardDisplay.showcard = true;
         }
     }
 }

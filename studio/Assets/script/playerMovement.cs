@@ -52,7 +52,7 @@ public class playerMovement : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D coll)
     {
-        if (coll.gameObject.CompareTag("To_Cave") && Input.GetKeyDown(KeyCode.Return))
+        if (coll.gameObject.CompareTag("To_Cave"))
         {
             SceneManager.LoadScene("Cave");
         }

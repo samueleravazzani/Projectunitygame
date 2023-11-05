@@ -6404,12 +6404,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards:
   - {fileID: 11400000, guid: 9e18c65b1fb8a429c9e17a22179bffbe, type: 2}
-  drug_name: {fileID: 0}
-  drug_class: {fileID: 0}
-  drug_indication: {fileID: 0}
-  drug_warnings: {fileID: 0}
-  drug_image: {fileID: 0}
-  background: {fileID: 0}
+  drug_name: {fileID: 132629182}
+  drug_class: {fileID: 745340435}
+  drug_indication: {fileID: 807261291}
+  drug_warnings: {fileID: 802469898}
+  drug_image: {fileID: 2000096220}
+  background: {fileID: 2108287438}
 --- !u!1001 &1453242427
 PrefabInstance:
   m_ObjectHideFlags: 0
