@@ -32,12 +32,12 @@ public class QuizManager : MonoBehaviour
 
     public int selectedProblemType; // Default to fire
 
+    public string sceneName;
+    
     private void Start()
     {
         // Set the selected problem type (e.g., 1 for fire, 2 for floods, etc.)
-        //SetSelectedProblemType(2); // Set to 2 for floods (customize as needed)
         SetSelectedProblemType(selectedProblemType);
-        //numberOfQuestionsToSelect = 8;
         LoadQuestionsFromCSV(selectedProblemType, numberOfQuestionsToSelect);
         totalQuestions = qnA.Count;
         GoPanel.SetActive(false);
@@ -55,7 +55,7 @@ public class QuizManager : MonoBehaviour
             for (int i = 1; i < csvLines.Length; i++) // Start from 1 to skip the header
             {
                 string[] data = csvLines[i].Split(';');
-                int problemType = int.Parse(data[data.Length - 1]); // Assuming "ProblemType" is the last column
+                int problemType = int.Parse(data[data.Length - 1]); //"ProblemType" is the last column of csv file
 
                 if (problemType == selectedProblemType)
                 {
@@ -107,6 +107,11 @@ public class QuizManager : MonoBehaviour
     public void retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void changeScene()
+    {
+        SceneManager.LoadScene(sceneName);
     }
 
     void GameOver()
