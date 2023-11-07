@@ -19,28 +19,28 @@ public class redmovement : MonoBehaviour
     private void Update()
     {
         // Limita la posición en el eje Y
-        targetPos.y = Mathf.Clamp(targetPos.y, -3, 2);
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        // transform.position.y = Mathf.Clamp(transform.position.y, -3, 2);
+        if (Input.GetKey(KeyCode.DownArrow) && transform.position.y > -3)
         {
             MoveDown();
             
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Input.GetKey(KeyCode.UpArrow) && transform.position.y < 2)
         {
             MoveUp();
             
         }
         
-        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+       // transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
     }
 
     public void MoveUp()
     {
-        targetPos += new Vector2(0, increment);
+        transform.position += new Vector3(0, increment,0);
     }
 
     public void MoveDown()
     {
-        targetPos -= new Vector2(0, increment);
+        transform.position -= new Vector3(0, increment,0);
     }
 }

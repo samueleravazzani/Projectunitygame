@@ -6,13 +6,17 @@ using UnityEngine;
 public class Collect : MonoBehaviour
 {
     private ScoreUI scoreUI;
+    //private ScoreUI scoreUIfriend;
     private bool gameFinished = false;
-    public ParticleSystem particleSystem; // Arrastra tu sistema de partículas en el Inspector.
+    public ParticleSystem particleSystem; 
     public ParticleSystem particleSystemFriends;
+    public GameObject gameOverCanvas; // Referencia al objeto Canvas que muestra el mensaje de juego terminado.
 
     private void Start()
     {
         scoreUI = FindObjectOfType<ScoreUI>();
+        //scoreUIfriend = FindObjectOfType<ScoreUI>();
+        gameOverCanvas.SetActive(false); // Desactiva el Canvas al inicio del juego
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -28,8 +32,7 @@ public class Collect : MonoBehaviour
 
             // Mueve el sistema de partículas a la posición del objeto destruido.
             particleSystem.transform.position = other.transform.position;
-            // Activa el sistema de partículas.
-            particleSystem.Play();
+            particleSystem.Play(); // Activa el sistema de partículas.
             
             Destroy(other.gameObject);
             scoreUI.UpdateCount(1);
@@ -41,8 +44,6 @@ public class Collect : MonoBehaviour
 
             // Mueve el sistema de partículas a la posición del objeto destruido.
             particleSystemFriends.transform.position = other.transform.position;
-
-            // Activa el sistema de partículas.
             particleSystemFriends.Play();
 
             Destroy(other.gameObject);
@@ -50,11 +51,14 @@ public class Collect : MonoBehaviour
             Debug.Log("Collected Count: " + scoreUI.collectedCount);
         }
 
-        if (scoreUI.collectedCount == 10)
+        if (scoreUI.collectedCount == 5)
         {
-            Debug.Log("Counter reached 10! The game is finished.");
+            Debug.Log("Counter reached 5! The game is finished.");
             gameFinished = true;
             Time.timeScale = 0;
+            
+            // Activa el Canvas de Game Over y muestra el mensaje.
+            gameOverCanvas.SetActive(true);
         }
     }
 }
