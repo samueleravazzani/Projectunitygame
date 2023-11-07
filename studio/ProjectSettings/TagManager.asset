@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Spawnarea
+  - red
+  - trash
+  - enemies
+  - friends
   layers:
   - Default
   - TransparentFX
@@ -47,4 +51,7 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 3921008453
+    locked: 0
+  - name: game
+    uniqueID: 2450910619
     locked: 0

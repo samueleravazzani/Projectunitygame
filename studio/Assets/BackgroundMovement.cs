@@ -17,7 +17,7 @@ public class BackgroundMovement : MonoBehaviour
 
         if (transform.position.x <= -16)
         {
-            transform.position = new Vector2(16.06f, transform.position.y);
+            transform.position = new Vector2(9.75f, transform.position.y);
         }
     }
 }
