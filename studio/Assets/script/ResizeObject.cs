@@ -15,6 +15,7 @@ public class ResizeObject : MonoBehaviour
     public int repeatCount = 3;
     private int currentRepeatCount = 0;
     private bool done = false;
+    private bool go = false;
     public bool begin { get; private set; }
     
     [SerializeField] private TextMeshProUGUI RepeatText;
@@ -48,13 +49,13 @@ public class ResizeObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!DialogeManager.GetInstance().dialogueIsPlaying && !done)
+        if (!DialogeManager.GetInstance().dialogueIsPlaying && !done && go)
         {
             done = true;
             StartCoroutine(AnimateObject());
         }
 
-        
+        go = true;
     }
 
 

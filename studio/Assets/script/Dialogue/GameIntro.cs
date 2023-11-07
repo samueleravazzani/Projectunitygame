@@ -8,7 +8,13 @@ public class GameIntro : MonoBehaviour
 { //script attaccato al trigger dell'NPC
     
     [Header("Ink JSON")] [SerializeField] private TextAsset inkJSON;
-    private bool first = false;
+    private bool first;
+
+    private void Start()
+    {
+        first = false;
+    }
+
     private void Update()
     {
         if (!DialogeManager.GetInstance().dialogueIsPlaying && !first)
