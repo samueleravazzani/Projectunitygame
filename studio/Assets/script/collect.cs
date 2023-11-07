@@ -6,44 +6,55 @@ using UnityEngine;
 public class Collect : MonoBehaviour
 {
     private ScoreUI scoreUI;
-    private bool gameFinished = false; // Add a flag to track if the game has finished.
+    private bool gameFinished = false;
+    public ParticleSystem particleSystem; // Arrastra tu sistema de partículas en el Inspector.
+    public ParticleSystem particleSystemFriends;
 
     private void Start()
     {
-        scoreUI = FindObjectOfType<ScoreUI>(); // Encuentra el objeto con el script ScoreUI.
+        scoreUI = FindObjectOfType<ScoreUI>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-		if (gameFinished)
+        if (gameFinished)
         {
-            return; // If the game has finished, do not process further triggers.
-        }		
+            return;
+        }      
 
         if (other.CompareTag("trash"))
         {
-            
-            Debug.Log("Pice of rubbish collected!");
-            Destroy(other.gameObject);
-            scoreUI.UpdateCount(1); // Llama a la función UpdateCount con el valor 1 para aumentar el contador.
-            Debug.Log("Collected Count: " + scoreUI.collectedCount);
-                       
-        }
+            Debug.Log("Piece of rubbish collected!");
 
-		else if (other.CompareTag("friends"))
+            // Mueve el sistema de partículas a la posición del objeto destruido.
+            particleSystem.transform.position = other.transform.position;
+            // Activa el sistema de partículas.
+            particleSystem.Play();
+            
+            Destroy(other.gameObject);
+            scoreUI.UpdateCount(1);
+            Debug.Log("Collected Count: " + scoreUI.collectedCount);
+        }
+        else if (other.CompareTag("friends"))
         {
             Debug.Log("Friend collected!");
+
+            // Mueve el sistema de partículas a la posición del objeto destruido.
+            particleSystemFriends.transform.position = other.transform.position;
+
+            // Activa el sistema de partículas.
+            particleSystemFriends.Play();
+
             Destroy(other.gameObject);
-            scoreUI.UpdateCount(-1); // Resta 1 al contador cuando se recoja un amigo.
+            scoreUI.UpdateCount(-1);
             Debug.Log("Collected Count: " + scoreUI.collectedCount);
         }
 
-		if (scoreUI.collectedCount == 10)
+        if (scoreUI.collectedCount == 10)
         {
-            // Execute your desired action when the counter reaches 10.
             Debug.Log("Counter reached 10! The game is finished.");
-            gameFinished = true; // Set the gameFinished flag to true to prevent further processing.
-			Time.timeScale = 0; // Pause the game by setting Time.timeScale to 0.
+            gameFinished = true;
+            Time.timeScale = 0;
         }
     }
 }
