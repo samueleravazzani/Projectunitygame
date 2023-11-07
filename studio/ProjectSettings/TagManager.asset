@@ -5,6 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Spawnarea
+  - To_Cave
+  - Paracetamol
+  - Furosemide
+  - Diclofenac
+  - Atorvastatin
+  - Pantopraxole
+  - Bisoprolol
+  - Levothyroxine
+  - Metformin
+  - Acetylsalicylic acid
   - red
   - trash
   - enemies

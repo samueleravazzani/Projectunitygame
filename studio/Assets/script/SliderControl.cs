@@ -13,10 +13,9 @@ public class SliderControl : MonoBehaviour
     public Slider literacy;
     [FormerlySerializedAs("ccskepticism")] public Slider climate_change_skept;
     public string sceneName = "MainMap";
-    public TextMeshProUGUI greetings;
-    public TextMeshProUGUI anxiety_txt;
-    public TextMeshProUGUI literacy_txt;
-    public TextMeshProUGUI climate_change_txt;
+    public TextMeshProUGUI anxiety_value;
+    public TextMeshProUGUI literacy_value;
+    public TextMeshProUGUI climate_change_skept_value;
     public float animationduration=2.0f;
 
     private void Awake()
@@ -29,27 +28,37 @@ public class SliderControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        greetings.CrossFadeAlpha(1.0f, animationduration, true);
-        anxiety_txt.CrossFadeAlpha(1.0f, animationduration, true);
-        literacy_txt.CrossFadeAlpha(1.0f, animationduration, true);
-        climate_change_txt.CrossFadeAlpha(1.0f, animationduration, true);
         anxiety.gameObject.SetActive(true);
         literacy.gameObject.SetActive(true);
         climate_change_skept.gameObject.SetActive(true);
         
-        // set sliders to 0
-        anxiety.value = 0;
-        literacy.value = 0;
-        climate_change_skept.value = 0;
+        // set sliders to 1 (min value): 1 per non creare problemi poi con le task
+        anxiety.value = 1;
+        literacy.value = 1;
+        climate_change_skept.value = 1;
     }
-
+    
+    void Update()
+    {
+        // aggiorno scritta esterna:
+        // TextMeshPro.text (testo dell'oggett0) = slider.value (valore dello slider)
+        anxiety_value.text = anxiety.value.ToString();
+        literacy_value.text = literacy.value.ToString();
+        climate_change_skept_value.text = climate_change_skept.value.ToString();
+        
+        // modifico la posizione del testo che rappresenta il valore dello slider
+        anxiety_value.rectTransform.position = new Vector3(anxiety.handleRect.position.x,anxiety_value.rectTransform.position.y, anxiety_value.rectTransform.position.z);
+        literacy_value.rectTransform.position = new Vector3(literacy.handleRect.position.x,literacy_value.rectTransform.position.y, literacy_value.rectTransform.position.z);
+        climate_change_skept_value.rectTransform.position = new Vector3(climate_change_skept.handleRect.position.x,climate_change_skept_value.rectTransform.position.y, climate_change_skept_value.rectTransform.position.z);
+    }
+    
     // On button down -> save data + change scene
     public void changeScene()
     {
-        PlayerPrefs.SetInt("anxiety", (int)anxiety.value);
+        PlayerPrefs.SetFloat("anxiety", anxiety.value);
         // /!\ inverto la literacy per farlo coerente con gli altri -> "quanto poco sei litterato?"
-        PlayerPrefs.SetInt("literacy_inverted", (int)(literacy.maxValue-literacy.value));
-        PlayerPrefs.SetInt("climate_change_skept", (int)anxiety.value);
+        PlayerPrefs.SetFloat("literacy_inverted", (literacy.maxValue-literacy.value));
+        PlayerPrefs.SetFloat("climate_change_skept", anxiety.value);
         SceneManager.LoadScene(sceneName);
     }
 }
