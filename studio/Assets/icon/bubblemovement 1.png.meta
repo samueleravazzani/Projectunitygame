@@ -1352,7 +1352,59 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bubblemovement 1_0: 347946604369020501
+      bubblemovement 1_1: 4740047856557975405
+      bubblemovement 1_10: 4490719048300356250
+      bubblemovement 1_11: -6847081295812306238
+      bubblemovement 1_12: 4454585646485661849
+      bubblemovement 1_13: 7613667403869949586
+      bubblemovement 1_14: 4131353741686219077
+      bubblemovement 1_15: -4928363228281446010
+      bubblemovement 1_16: -2453619038499860051
+      bubblemovement 1_17: 6692727214629978784
+      bubblemovement 1_18: 5101843893930985488
+      bubblemovement 1_19: 1988525537225809767
+      bubblemovement 1_2: 7559006553309172115
+      bubblemovement 1_20: 4424076660127540846
+      bubblemovement 1_21: 4221984754552472606
+      bubblemovement 1_22: -9139334080844621913
+      bubblemovement 1_23: 6851434960435288401
+      bubblemovement 1_24: -7688460312993620858
+      bubblemovement 1_25: 8343838669137269812
+      bubblemovement 1_26: -5782584812799134080
+      bubblemovement 1_27: 8048387696128354741
+      bubblemovement 1_28: 1607391035308370277
+      bubblemovement 1_29: 83315076068539284
+      bubblemovement 1_3: 4237975455663238448
+      bubblemovement 1_30: 6420840416285937102
+      bubblemovement 1_31: 210701527306057901
+      bubblemovement 1_32: 3700140566260403788
+      bubblemovement 1_33: -7879909965385783537
+      bubblemovement 1_34: 3973009281052263645
+      bubblemovement 1_35: 6917216612386630660
+      bubblemovement 1_36: -7344931957462007336
+      bubblemovement 1_37: 3079349611010444816
+      bubblemovement 1_38: 5107834667550208474
+      bubblemovement 1_39: 5704993199638969383
+      bubblemovement 1_4: -5058305698472796116
+      bubblemovement 1_40: -3600793232426633569
+      bubblemovement 1_41: 5831071965243320752
+      bubblemovement 1_42: 2900311872677114703
+      bubblemovement 1_43: -7580693664279284213
+      bubblemovement 1_44: 5779158949060396248
+      bubblemovement 1_45: 1608929797891210523
+      bubblemovement 1_46: 2586753210453036386
+      bubblemovement 1_47: 6602135544559252092
+      bubblemovement 1_48: 4135280495138771867
+      bubblemovement 1_49: 9880120721383517
+      bubblemovement 1_5: -2802144543350428489
+      bubblemovement 1_50: 8450215999566121441
+      bubblemovement 1_51: -5156607334332138270
+      bubblemovement 1_6: 7098712931599713809
+      bubblemovement 1_7: -1309610896275727836
+      bubblemovement 1_8: -7073778098493187509
+      bubblemovement 1_9: 3755269333207487183
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

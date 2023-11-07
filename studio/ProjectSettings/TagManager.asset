@@ -6,6 +6,19 @@ TagManager:
   tags:
   - Spawnarea
   - To_Cave
+  - Paracetamol
+  - Furosemide
+  - Diclofenac
+  - Atorvastatin
+  - Pantopraxole
+  - Bisoprolol
+  - Levothyroxine
+  - Metformin
+  - Acetylsalicylic acid
+  - red
+  - trash
+  - enemies
+  - friends
   layers:
   - Default
   - TransparentFX
@@ -48,4 +61,7 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 3921008453
+    locked: 0
+  - name: game
+    uniqueID: 2450910619
     locked: 0
