@@ -8,40 +8,53 @@ using System.Linq;
 
 public class QuizManager : MonoBehaviour
 {
-    public TextAsset questionsCSV;
+    public TextAsset questionsCSV; //variable that holds the CSV file containing the quiz questions and answers.
+    //in the inspector we attach the file csv to this public variable 
+    
+    public int numberOfQuestionsToSelect; //how many questions should have our quiz game
+    //PAY ATTENTION THIS VARIABLE NOW IS PUBLIC AND DECIDED BY US BUT THEN HAS TO BE EQUAL 
+    //TO THE PARAMETRIZED VALUE ACCORDING TO SLIDERS 
 
-    public int numberOfQuestionsToSelect;
+    private List<QuestionAndAnswer> qnA = new List<QuestionAndAnswer>(); //objects that stores the loaded questions and answers.
+    //rom the other script
 
-    private List<QuestionAndAnswer> qnA = new List<QuestionAndAnswer>();
-
-    public GameObject[] options;
-    public int currentQuestion;
+    public GameObject[] options; //PAY ATTENTION: I WANTED IT TO BE PRIVATE 
+    //This should represent the number of buttons I can have in my quiz game 
+    //by default should be 4 and after in the methods is handled the fact that if there are less
+    //answers the button disappears but this variable was needed to fix at maximum 4 the option
+    //I don't now how to handle it private
+    private const int maxAnswerOptions = 4; //RELATED TO BEFORE!
+    public int currentQuestion; //nteger to keep track of the current question index.
 
     public GameObject Quizpanel;
     public GameObject GoPanel;
-
+    //GameObjects representing the quiz panel and game over panel. Attach in the inspector
+    
     public TextMeshProUGUI questionTxt;
     public TextMeshProUGUI ScoreTxt;
     public TextMeshProUGUI questionProgressText;
+    // TextMeshProUGUI elements for displaying the question, score, and question progress. Attach in the inspector
+    
+    int totalQuestions = 0; //integer to store the total number of questions.
+    public int score; //An integer to keep track of the player's score.
 
-    int totalQuestions = 0;
-    public int score;
-
-    private List<int> answerIndices = new List<int>();
-    private const int maxAnswerOptions = 4;
-
-    public int selectedProblemType; // Default to fire
-
+    private List<int> answerIndices = new List<int>(); //A list of integers to store the indices of answer options.
+    //????
+    
+    public int selectedProblemType; //An integer to store the selected problem type (e.g., 1 for fire, 2 for plastics).
+    //ATTENTION: actually this variable is public but then has to be connected to the randomized choice that is done at the beginning of 
+    //the game 
+    
+    public string sceneName; //A string variable to specify the name of the scene to load after the quiz ends.
+    
     private void Start()
     {
-        // Set the selected problem type (e.g., 1 for fire, 2 for floods, etc.)
-        //SetSelectedProblemType(2); // Set to 2 for floods (customize as needed)
-        SetSelectedProblemType(selectedProblemType);
-        //numberOfQuestionsToSelect = 8;
-        LoadQuestionsFromCSV(selectedProblemType, numberOfQuestionsToSelect);
-        totalQuestions = qnA.Count;
-        GoPanel.SetActive(false);
-        GenerateQuestion();
+        SetSelectedProblemType(selectedProblemType); // Call the method that sets the selected problem type, stored in the variable selectedproblem type  
+        LoadQuestionsFromCSV(selectedProblemType, numberOfQuestionsToSelect); //Call the method that load the questions from the CSV file indicating the problem type so that 
+        //questions are the ones that regard that problem and the number of question that has to be done 
+        totalQuestions = qnA.Count; //count how many question are in the quiz; this variable will be useful after to handle the display on the total of the score and of the questions
+        GoPanel.SetActive(false); //deactivate the gameoverpanel so to see only the one of the quiz
+        GenerateQuestion(); //call the generation of the question method 
     }
 
     private void LoadQuestionsFromCSV(int selectedProblemType, int numberOfQuestionsToSelect)
@@ -51,17 +64,28 @@ public class QuizManager : MonoBehaviour
             string[] csvLines = questionsCSV.text.Split(new char[] { '\n' }, System.StringSplitOptions.RemoveEmptyEntries);
 
             List<string> filteredLines = new List<string>();
-
+            //The content of the questionsCSV TextAsset is retrieved using questionsCSV.text. The CSV data is typically a string containing lines of text,
+            // where each line represents a question and its associated data.
+            // csvLines is an array that contains each line of the CSV file. It's split into lines using the newline character '\n'.
+            
+            
             for (int i = 1; i < csvLines.Length; i++) // Start from 1 to skip the header
             {
                 string[] data = csvLines[i].Split(';');
-                int problemType = int.Parse(data[data.Length - 1]); // Assuming "ProblemType" is the last column
+                int problemType = int.Parse(data[data.Length - 1]); //"ProblemType" is the last column of csv file
 
                 if (problemType == selectedProblemType)
                 {
                     filteredLines.Add(csvLines[i]);
                 }
             }
+            
+            //The method iterates through csvLines, starting from the second line (index 1) to skip the header row
+            //(in the csv the header row has Question,Answer1,Answer2,Answer3,Answer4,Correctanswer,ProblemType)).
+            //Each line is split into an array of data using the semicolon ';' as a delimiter.
+            //The code extracts the last element from the data array, that represents the "ProblemType" associated with the question.
+            //Questions are filtered based on the value of problemType, which is compared to the selectedProblemType parameter
+            //passed to the method. If the problemType matches the selected problem type, the line is added to the filteredLines list.
 
             // Shuffle filteredLines to randomize the order
             for (int i = filteredLines.Count - 1; i > 0; i--)
@@ -71,13 +95,15 @@ public class QuizManager : MonoBehaviour
                 filteredLines[i] = filteredLines[j];
                 filteredLines[j] = temp;
             }
+            
+            //Once the questions are filtered, the code shuffles the order of questions in the filteredLines list.
+            //This randomizes the order in which the questions will be presented to the player.
+            //The shuffling is done using the Fisher-Yates shuffle algorithm, which randomly swaps elements in the list.
 
             for (int i = 0; i < numberOfQuestionsToSelect && i < filteredLines.Count; i++)
             {
                 string[] data = filteredLines[i].Split(';');
-
-                if (data.Length >= maxAnswerOptions + 1) // Updated for the "ProblemType" column
-                {
+                
                     QuestionAndAnswer qa = new QuestionAndAnswer();
                     qa.question = data[0];
                     List<string> answersList = data.Skip(1).Take(maxAnswerOptions).ToList();
@@ -86,12 +112,15 @@ public class QuizManager : MonoBehaviour
                     int.TryParse(data[data.Length - 2], out qa.correctAnswer); // Correct answer is the second-to-last column
                     qa.correctAnswer -= 1; // Subtract 1 to match 0-based indexing
                     qnA.Add(qa);
-                }
-                else
-                {
-                    Debug.LogWarning("Invalid data in line " + i + ": " + filteredLines[i]);
-                }
             }
+            
+            //The method then iterates through the shuffled filteredLines list to process the questions and answers.
+            //If the line meets the criteria, a new QuestionAndAnswer object (qa) is created. The first element in the data array is assumed to be the question, so it's assigned to qa.question.
+            //The remaining elements are assumed to be answer options. They are extracted, removing any empty or whitespace-only answers.
+            //The correct answer index is the second-to-last element in the data array.
+            //It is parsed into an integer and subtracted by 1 to match the 0-based indexing used in the code.
+            //Finally, the qa object is added to the qnA list, which stores the loaded questions and answers
+            
         }
         catch (System.Exception e)
         {
@@ -103,11 +132,21 @@ public class QuizManager : MonoBehaviour
     {
         selectedProblemType = problemType;
     }
-
+    //Sets the selectedProblemType based on the provided parameter.
+    
     public void retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    //Reloads the current scene to restart the quiz.
+
+    public void changeScene()
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+    //Loads a different scene, after the quiz is completed.
+    //In the inspector to sceneName we will put MainMap
+    //I MADE IT PUBLIC AFTER UNDERSTAND IF PRIVATE!
 
     void GameOver()
     {
@@ -115,25 +154,31 @@ public class QuizManager : MonoBehaviour
         GoPanel.SetActive(true);
         ScoreTxt.text = score + "/" + totalQuestions;
     }
-
+    //Deactivates the quiz panel and activates the game over panel, displaying the player's score.
+    //Also is created a delay for the switching scene
+    
     public void Correct()
     {
         score += 1;
         qnA.RemoveAt(currentQuestion);
         StartCoroutine(WaitForNext());
     }
-
+    
     public void wrong()
     {
         qnA.RemoveAt(currentQuestion);
         StartCoroutine(WaitForNext());
     }
+    //Handle the player's response to a question by updating the score and removing the current question from the list of questions.
+    //They also trigger a delay before the next question is generated.
+    
 
     IEnumerator WaitForNext()
     {
         yield return new WaitForSeconds(1);
         GenerateQuestion();
     }
+    //Implements a delay before generating the next question.
 
     void GenerateQuestion()
     {
@@ -186,4 +231,38 @@ public class QuizManager : MonoBehaviour
             GameOver();
         }
     }
+    
+        //Check If There Are Remaining Questions:
+        //It begins by checking if there are any remaining questions in the qnA list. If there are no questions left
+        //(i.e., qnA.Count is zero), it means the quiz is over, and it calls the GameOver() method to handle the end of the game.
+
+    //Select a Random Question:
+    //If there are remaining questions, it proceeds to select a random question to present to the player.
+    //It uses Random.Range(0, qnA.Count) to generate a random index within the range of available questions.
+
+    //Display the Question:
+    //It sets the text of the questionTxt TextMeshProUGUI element to display the selected question from the qnA list using the currentQuestion index.
+
+    //Randomize Answer Option Order:
+    //To avoid having the answer options appear in the same order each time, the code shuffles the answerIndices list.
+    //This list is used to determine the order in which the answer options are displayed to the player.
+    //The shuffling is done using the Fisher-Yates shuffle algorithm.
+
+    //Populate Answer Options:
+    //It then iterates through the options array, which represents the answer buttons or choices in the game interface.
+    //For each answer button, it checks if the button index is within the range of the answerIndices list to ensure that it has a corresponding answer option.
+    //If there is an available answer option, it sets the button to be active (visible), sets its background color to its default color,
+    //and marks it as not correct (isCorrect is set to false).
+    //It also updates the text of the button to display the corresponding answer option from the qnA list, based on the shuffled order of answerIndices.
+    //It checks if the current answer option is the correct one by comparing the index in answerIndices to the correctAnswer index stored in the qnA list.
+    //If they match, the button is marked as correct (isCorrect is set to true).
+
+    //Update Question Progress:
+    //It calculates the current question number by subtracting the number of remaining questions in qnA from the total number of questions.
+    //This is used to display the player's progress, e.g., "Question 2/10," in the questionProgressText.
+
+   //Quiz Over Handling:
+   //If there are no more questions in the qnA list, the method logs a message to the Unity console ("Out of Questions")
+   //and then calls the GameOver() method to handle the end of the game.
+   
 }
