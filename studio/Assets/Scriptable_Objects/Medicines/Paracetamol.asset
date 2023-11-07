@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad15a25464d744a1f88babcaf14120cc, type: 3}
+  m_Name: Paracetamol
+  m_EditorClassIdentifier: 
+  name: Paracetamol
+  drug_class: Nonsteroidal Antiinflammatory Drugs
+  drug_indication: In general, it is used for the treatment of mild to moderate pain
+    and reduction of fever. Because of its low risk of causing allergic reactions,
+    this drug can be administered in patients who are intolerant to salicylates and
+    those with allergic tendencies, including bronchial asthmatics. Specific dosing
+    guidelines should be followed when administering to children.
+  drug_warnings: The U.S. Food and Drug Administration (FDA) is informing the public
+    that it has been associated with a risk of rare but serious skin reactions.
+  drug_image: {fileID: 21300012, guid: ddfbfa9216e072f42a7ce092e7779067, type: 3}
