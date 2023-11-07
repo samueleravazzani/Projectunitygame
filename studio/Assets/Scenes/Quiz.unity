@@ -2582,7 +2582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionsCSV: {fileID: 4900000, guid: 20f5d505bedbfb84c8af0c728e8b2fb1, type: 3}
-  numberOfQuestionsToSelect: 12
+  numberOfQuestionsToSelect: 5
   options:
   - {fileID: 400584789}
   - {fileID: 500735239}
