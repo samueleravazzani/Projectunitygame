@@ -10,13 +10,19 @@ public class Collect : MonoBehaviour
     private bool gameFinished = false;
     public ParticleSystem particleSystem; 
     public ParticleSystem particleSystemFriends;
-    public GameObject gameOverCanvas; // Referencia al objeto Canvas que muestra el mensaje de juego terminado.
+    public GameObject gameOverCanvas; // Reference to the Canvas object that displays the game over message.
+    public GameObject gameOverCanvas2;
+    private int trashCount = 0;
+    private int friendsCount = 0;
 
     private void Start()
     {
+        // Find and assign a reference to the ScoreUI script in the scene.
         scoreUI = FindObjectOfType<ScoreUI>();
         //scoreUIfriend = FindObjectOfType<ScoreUI>();
-        gameOverCanvas.SetActive(false); // Desactiva el Canvas al inicio del juego
+        // Deactivate the Canvas object at the start of the game.
+        gameOverCanvas.SetActive(false);
+        gameOverCanvas2.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -30,35 +36,47 @@ public class Collect : MonoBehaviour
         {
             Debug.Log("Piece of rubbish collected!");
 
-            // Mueve el sistema de partículas a la posición del objeto destruido.
+            // Position and play the particle system at the location of the collected trash.
             particleSystem.transform.position = other.transform.position;
-            particleSystem.Play(); // Activa el sistema de partículas.
-            
+            particleSystem.Play();
+
+            // Destroy the collected trash GameObject.
             Destroy(other.gameObject);
+            trashCount++; // Increment the "trash" counter by 1.
+            // Update the "trash" counter in the ScoreUI script.
             scoreUI.UpdateCount(1);
-            Debug.Log("Collected Count: " + scoreUI.collectedCount);
         }
         else if (other.CompareTag("friends"))
         {
             Debug.Log("Friend collected!");
 
-            // Mueve el sistema de partículas a la posición del objeto destruido.
+            // Position and play the particle system at the location of the collected friend.
             particleSystemFriends.transform.position = other.transform.position;
             particleSystemFriends.Play();
 
+            // Destroy the collected friend GameObject.
             Destroy(other.gameObject);
-            scoreUI.UpdateCount(-1);
-            Debug.Log("Collected Count: " + scoreUI.collectedCount);
+            friendsCount++; // Increment the "friends" counter by 1.
+            Debug.Log("Friends Count: " + friendsCount);
+
+            // Call the function to update the "friends" counter in the FriendsScoreUI script.
+            FindObjectOfType<FriendsScoreUI>().UpdateFriendsCount(1);
         }
 
-        if (scoreUI.collectedCount == 5)
+        if (trashCount == 5) 
         {
-            Debug.Log("Counter reached 5! The game is finished.");
+            Debug.Log("You either collected 3 friends or all the required rubbish! The game is finished.");
             gameFinished = true;
-            Time.timeScale = 0;
+            Time.timeScale = 0; // Pause the game.
+            gameOverCanvas.SetActive(true); // Activate the game over Canvas.
             
-            // Activa el Canvas de Game Over y muestra el mensaje.
-            gameOverCanvas.SetActive(true);
+        }
+        else if (friendsCount == 3)
+        {
+            Debug.Log("You either collected 3 friends or all the required rubbish! The game is finished.");
+            gameFinished = true;
+            Time.timeScale = 0; // Pause the game.
+            gameOverCanvas2.SetActive(true); // Activate the game over Canvas.
         }
     }
 }
