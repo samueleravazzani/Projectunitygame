@@ -19,7 +19,7 @@ public class EnvironmentControl : MonoBehaviour
     public int[] problems = new int[] { 1, 2, 3, 4, 5, 6 };
     // 1 = fire, 2 = plastic, 3 = water, 4 = pollution, 5 = air, 6 = rain;
     private int problem_now = 1;
-    private int N_tospawn;
+    private int N_tospawn = 200;
     
     // Start is called before the first frame update
     void Start()
