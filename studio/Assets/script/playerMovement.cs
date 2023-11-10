@@ -11,6 +11,7 @@ public class playerMovement : MonoBehaviour
     public Animator animator;
 
     private Vector2 movement;
+    private float[] xlim = new float[] {-20f, 28f}, ylim = new float[] {-15f, 20.5f};
     
     public static playerMovement instance;
     // SINGLETON TYPE
@@ -32,13 +33,17 @@ public class playerMovement : MonoBehaviour
     
     // Update is called once per frame
     void Update()
-    {//input
-        movement.x=Input.GetAxisRaw("Horizontal");
-        movement.y=Input.GetAxisRaw("Vertical");
-        
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
+    {
+        if (transform.position.x>xlim[0] && transform.position.x<xlim[1] && transform.position.y > ylim[0] && transform.position.y < ylim[1])
+        {
+            //input
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.y);
+            animator.SetFloat("Speed", movement.sqrMagnitude);
+        }
     }
 
     private void FixedUpdate()
