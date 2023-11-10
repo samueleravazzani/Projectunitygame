@@ -12,7 +12,7 @@ public class EnvironmentControl : MonoBehaviour
     public Sprite[] water; // 3
     public Sprite[] pollution; // 4
     public Sprite[] air; // 5
-    public Sprite[] rain; // 6
+    public ParticleSystem rain; // 6
     
     // vettore di colori
     private Color[] fireColors = {new Color(0.91509f, 0.3151032f, 0.3151032f), new Color (0.9433962f, 0.4850481f,  0.4850481f), new Color (1.0f,1.0f,1.0f)};
@@ -28,13 +28,18 @@ public class EnvironmentControl : MonoBehaviour
     public PolygonCollider2D Locations;
     private int[] problems = new int[] {0, 1, 2, 3, 4, 5, 6};
     // 1 = fire, 2 = plastic, 3 = water, 4 = pollution, 5 = air, 6 = rain;
-    private int problem_now = 3; // /!\ ATTUALE PROBLEMA
+    private int problem_now = 6; // /!\ ATTUALE PROBLEMA
     public static int N_tospawn = 200; // questo cambia durante il gioco /!\
     public static float level_anxiety = 0f, calibration_anxiety = -7f;
     public static bool update_camera_bool = true;
     public static int color_index=0;
     public static bool destroy_obj;
-    
+
+
+    void Awake()
+    {
+        rain.Stop();
+    }
 
     // Update is called once per frame
     void Update()
@@ -66,13 +71,16 @@ public class EnvironmentControl : MonoBehaviour
                 CameraEnvironment(waterColors[color_index]);
                 break;
             case 4: // POLLUTION
-                // nessun oggetto da spawnare
+                // Spawn(pollution, N_tospawn);
                 CameraEnvironment(pollutionColors[color_index]);
                 break;
             case 5: // AIR
+                // Spawn(air, N_tospawn);
                 CameraEnvironment(airColors[color_index]);
                 break;
             case 6: // RAIN
+                rain.Play();
+                CameraEnvironment(rainColors[color_index]);
                 break;
         }
         CameraAnxiety(level_anxiety * calibration_anxiety);
