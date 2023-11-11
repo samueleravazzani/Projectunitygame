@@ -13,6 +13,8 @@ public class playerMovement : MonoBehaviour
     public CinemachineVirtualCamera Camera;
     public Collider2D worldBorders;
     private Vector2 movement;
+    private float[] xlim = new float[] {-20f, 28f}, ylim = new float[] {-15f, 20.5f};
+    
     public static playerMovement instance;
 
     void Awake()
@@ -28,9 +30,9 @@ public class playerMovement : MonoBehaviour
     }
 
     void Update()
-    {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+    {//input
+        movement.x=Input.GetAxisRaw("Horizontal");
+        movement.y=Input.GetAxisRaw("Vertical");
         
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);

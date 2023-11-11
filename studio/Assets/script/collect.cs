@@ -6,44 +6,77 @@ using UnityEngine;
 public class Collect : MonoBehaviour
 {
     private ScoreUI scoreUI;
-    private bool gameFinished = false; // Add a flag to track if the game has finished.
+    //private ScoreUI scoreUIfriend;
+    private bool gameFinished = false;
+    public ParticleSystem particleSystem; 
+    public ParticleSystem particleSystemFriends;
+    public GameObject gameOverCanvas; // Reference to the Canvas object that displays the game over message.
+    public GameObject gameOverCanvas2;
+    private int trashCount = 0;
+    private int friendsCount = 0;
 
     private void Start()
     {
-        scoreUI = FindObjectOfType<ScoreUI>(); // Encuentra el objeto con el script ScoreUI.
+        // Find and assign a reference to the ScoreUI script in the scene.
+        scoreUI = FindObjectOfType<ScoreUI>();
+        //scoreUIfriend = FindObjectOfType<ScoreUI>();
+        // Deactivate the Canvas object at the start of the game.
+        gameOverCanvas.SetActive(false);
+        gameOverCanvas2.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-		if (gameFinished)
+        if (gameFinished)
         {
-            return; // If the game has finished, do not process further triggers.
-        }		
+            return;
+        }      
 
         if (other.CompareTag("trash"))
         {
-            
-            Debug.Log("Pice of rubbish collected!");
-            Destroy(other.gameObject);
-            scoreUI.UpdateCount(1); // Llama a la función UpdateCount con el valor 1 para aumentar el contador.
-            Debug.Log("Collected Count: " + scoreUI.collectedCount);
-                       
-        }
+            Debug.Log("Piece of rubbish collected!");
 
-		else if (other.CompareTag("friends"))
+            // Position and play the particle system at the location of the collected trash.
+            particleSystem.transform.position = other.transform.position;
+            particleSystem.Play();
+
+            // Destroy the collected trash GameObject.
+            Destroy(other.gameObject);
+            trashCount++; // Increment the "trash" counter by 1.
+            // Update the "trash" counter in the ScoreUI script.
+            scoreUI.UpdateCount(1);
+        }
+        else if (other.CompareTag("friends"))
         {
             Debug.Log("Friend collected!");
+
+            // Position and play the particle system at the location of the collected friend.
+            particleSystemFriends.transform.position = other.transform.position;
+            particleSystemFriends.Play();
+
+            // Destroy the collected friend GameObject.
             Destroy(other.gameObject);
-            scoreUI.UpdateCount(-1); // Resta 1 al contador cuando se recoja un amigo.
-            Debug.Log("Collected Count: " + scoreUI.collectedCount);
+            friendsCount++; // Increment the "friends" counter by 1.
+            Debug.Log("Friends Count: " + friendsCount);
+
+            // Call the function to update the "friends" counter in the FriendsScoreUI script.
+            FindObjectOfType<FriendsScoreUI>().UpdateFriendsCount(1);
         }
 
-		if (scoreUI.collectedCount == 10)
+        if (trashCount == 5) 
         {
-            // Execute your desired action when the counter reaches 10.
-            Debug.Log("Counter reached 10! The game is finished.");
-            gameFinished = true; // Set the gameFinished flag to true to prevent further processing.
-			Time.timeScale = 0; // Pause the game by setting Time.timeScale to 0.
+            Debug.Log("You either collected 3 friends or all the required rubbish! The game is finished.");
+            gameFinished = true;
+            Time.timeScale = 0; // Pause the game.
+            gameOverCanvas.SetActive(true); // Activate the game over Canvas.
+            
+        }
+        else if (friendsCount == 3)
+        {
+            Debug.Log("You either collected 3 friends or all the required rubbish! The game is finished.");
+            gameFinished = true;
+            Time.timeScale = 0; // Pause the game.
+            gameOverCanvas2.SetActive(true); // Activate the game over Canvas.
         }
     }
 }

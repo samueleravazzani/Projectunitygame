@@ -296,7 +296,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sprites_Menu2_0: 7376970459807485029
+      Sprites_Menu2_1: 3692526774989650813
+      Sprites_Menu2_2: -8021288434917108746
+      Sprites_Menu2_3: -6544962506160640273
+      Sprites_Menu2_4: 2627919746279077477
+      Sprites_Menu2_5: -8926653790231023247
+      Sprites_Menu2_6: -7399590019026118478
+      Sprites_Menu2_7: 5901768629121401530
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

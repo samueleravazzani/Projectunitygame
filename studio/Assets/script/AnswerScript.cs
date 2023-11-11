@@ -31,7 +31,12 @@ public class AnswerScript : MonoBehaviour
         }
         else
         {
+            // Mark the selected answer in red
             GetComponent<Image>().color = Color.red;
+
+            // Mark the correct answer in green
+            MarkCorrectAnswerGreen();
+
             Debug.Log("Wrong Answer");
             quizManager.wrong();
         }
@@ -41,4 +46,21 @@ public class AnswerScript : MonoBehaviour
     //It checks if the answer is correct, and if so, it calls the Correct method in the QuizManager;
     //otherwise, it calls the wrong method.
     //It also changes color to red and green according to wrong or correct to visualize it!
+    //In the case of wrong answer is collect the MarkCorrectAnswerGreen method 
+    //so that when the answer is wrong is shown also which one was correct 
+
+    private void MarkCorrectAnswerGreen()
+    {
+        // Iterate through the answer options to find and mark the correct answer in green
+        for (int i = 0; i < quizManager.options.Length; i++)
+        {
+            if (quizManager.options[i].GetComponent<AnswerScript>().isCorrect)
+            {
+                quizManager.options[i].GetComponent<Image>().color = Color.green;
+                break;  // Exit the loop after marking the correct answer
+            }
+        }
+    }
+    
+
 }
