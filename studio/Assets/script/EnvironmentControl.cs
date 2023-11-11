@@ -38,7 +38,7 @@ public class EnvironmentControl : MonoBehaviour
 
     void Awake()
     {
-        rain.Stop();
+        
     }
 
     // Update is called once per frame
@@ -79,7 +79,7 @@ public class EnvironmentControl : MonoBehaviour
                 CameraEnvironment(airColors[color_index]);
                 break;
             case 6: // RAIN
-                rain.Play();
+                Instantiate(rain, new Vector3(0, 30, -1), transform.rotation);
                 CameraEnvironment(rainColors[color_index]);
                 break;
         }
