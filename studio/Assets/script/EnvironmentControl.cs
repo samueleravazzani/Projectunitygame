@@ -10,7 +10,7 @@ public class EnvironmentControl : MonoBehaviour
     public Sprite[] fire; // 1
     public Sprite[] plastic; // 2
     public Sprite[] water; // 3
-    public Sprite[] pollution; // 4
+    public ParticleSystem pollution; // 4
     public ParticleSystem air; // 5
     public ParticleSystem rain; // 6
     
@@ -77,7 +77,7 @@ public class EnvironmentControl : MonoBehaviour
                 CameraEnvironment(waterColors[color_index]);
                 break;
             case 4: // POLLUTION
-                // Spawn(pollution, N_tospawn);
+                Instantiate(pollution, new Vector3(-31.5f, 4.5f, -1f), Quaternion.Euler(0,90,90));
                 CameraEnvironment(pollutionColors[color_index]);
                 break;
             case 5: // AIR
