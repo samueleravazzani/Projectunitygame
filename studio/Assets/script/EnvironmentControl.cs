@@ -46,7 +46,7 @@ public class EnvironmentControl : MonoBehaviour
     {
         if (update_camera_bool)
         {
-            destroy_obj = false; // lo risetto false nella scena dopo
+            destroy_obj = true; // lo risetto false nella scena dopo
             UpdateEnvironment();
             
         }
@@ -88,6 +88,7 @@ public class EnvironmentControl : MonoBehaviour
         // regulate saturation according to anxiety level
         CameraAnxiety(level_anxiety * calibration_anxiety);
         update_camera_bool = false;
+        destroy_obj = false;
     }
 
     private void CameraAnxiety(float level) // changes saturation
