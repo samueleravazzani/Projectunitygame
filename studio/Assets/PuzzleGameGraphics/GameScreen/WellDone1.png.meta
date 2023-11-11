@@ -296,7 +296,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WellDone1_0: 6164170776177442528
+      WellDone1_1: -8090423071847434441
+      WellDone1_2: 3280363435887037230
+      WellDone1_3: 6730956669114246835
+      WellDone1_4: 1569126457689380916
+      WellDone1_5: -2018380505958093684
+      WellDone1_6: -8121713013144022602
+      WellDone1_7: 5683115463772220446
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

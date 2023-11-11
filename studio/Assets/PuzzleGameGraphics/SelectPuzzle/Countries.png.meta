@@ -320,7 +320,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Countries_0: -4760350020625174829
+      Countries_1: 7590097944493757293
+      Countries_2: -731542715379066718
+      Countries_3: -3874365807600382364
+      Countries_4: 7881419151526966814
+      Countries_5: 53868141798047410
+      Countries_6: 3002899696176538571
+      Countries_7: -1858900462188625199
+      Countries_8: -1873198423858041624
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
