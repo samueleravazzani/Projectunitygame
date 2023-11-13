@@ -32,7 +32,6 @@ public class EnvironmentControl : MonoBehaviour
     public int N_tospawn = 200; // questo cambia durante il gioco /!\
     public static float level_anxiety = 0f, calibration_anxiety = -7f;
     public bool update_camera_bool = true;
-    public static int color_index=0;
     public static bool destroy_obj;
 
 
@@ -46,7 +45,7 @@ public class EnvironmentControl : MonoBehaviour
     {
         if (update_camera_bool)
         {
-            if (color_index == 2)
+            if (GameManager.instance.task_index == 2)
             {
                 problem_now = 0; // tutto a posto
             }
@@ -66,27 +65,27 @@ public class EnvironmentControl : MonoBehaviour
                 break;
             case 1: // FIRE
                 SpawnWithinCollider(fire, N_tospawn);
-                CameraEnvironment(fireColors[color_index]);
+                CameraEnvironment(fireColors[GameManager.instance.task_index]);
                 break;
             case 2: // PLASTIC
                 Spawn(plastic, N_tospawn);
-                CameraEnvironment(plasticColors[color_index]);
+                CameraEnvironment(plasticColors[GameManager.instance.task_index]);
                 break;
             case 3: // WATER
                 Spawn(water, N_tospawn);
-                CameraEnvironment(waterColors[color_index]);
+                CameraEnvironment(waterColors[GameManager.instance.task_index]);
                 break;
             case 4: // POLLUTION
                 Instantiate(pollution, new Vector3(-31.5f, 4.5f, -1f), Quaternion.Euler(0,90,90));
-                CameraEnvironment(pollutionColors[color_index]);
+                CameraEnvironment(pollutionColors[GameManager.instance.task_index]);
                 break;
             case 5: // AIR
                 Instantiate(air, new Vector3(-30, -2, -1), Quaternion.Euler(0,90,90));
-                CameraEnvironment(airColors[color_index]);
+                CameraEnvironment(airColors[GameManager.instance.task_index]);
                 break;
             case 6: // RAIN
                 Instantiate(rain, new Vector3(0, 30, -1), transform.rotation);
-                CameraEnvironment(rainColors[color_index]);
+                CameraEnvironment(rainColors[GameManager.instance.task_index]);
                 break;
         }
         // regulate saturation according to anxiety level
