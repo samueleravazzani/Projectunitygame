@@ -29,7 +29,7 @@ public class EnvironmentControl : MonoBehaviour
     private int[] problems = new int[] {0, 1, 2, 3, 4, 5, 6};
     // 1 = fire, 2 = plastic, 3 = water, 4 = pollution, 5 = air, 6 = rain;
     public int problem_now = 6; // /!\ ATTUALE PROBLEMA
-    public int N_tospawn = 200; // questo cambia durante il gioco /!\
+    private int[] N_tospawn; // questo cambia durante il gioco /!\
     public static float level_anxiety = 0f, calibration_anxiety = -7f;
     public bool update_camera_bool = true;
     public static bool destroy_obj;
@@ -43,6 +43,14 @@ public class EnvironmentControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.instance.task_index == 0)
+        {
+           N_tospawn[0] = (int)GameManager.instance.sum_parameters * 10;
+           N_tospawn[1] = (int)GameManager.instance.sum_parameters * 6;
+           N_tospawn[2] = (int)GameManager.instance.sum_parameters * 3;
+           N_tospawn[3] = 0;
+        }
+        
         if (update_camera_bool)
         {
             if (GameManager.instance.task_index == 2)
@@ -64,15 +72,15 @@ public class EnvironmentControl : MonoBehaviour
                 CameraEnvironment(new Color (1.0f,1.0f,1.0f));
                 break;
             case 1: // FIRE
-                SpawnWithinCollider(fire, N_tospawn);
+                SpawnWithinCollider(fire, N_tospawn[GameManager.instance.task_index]);
                 CameraEnvironment(fireColors[GameManager.instance.task_index]);
                 break;
             case 2: // PLASTIC
-                Spawn(plastic, N_tospawn);
+                Spawn(plastic, N_tospawn[GameManager.instance.task_index]);
                 CameraEnvironment(plasticColors[GameManager.instance.task_index]);
                 break;
             case 3: // WATER
-                Spawn(water, N_tospawn);
+                Spawn(water, N_tospawn[GameManager.instance.task_index]);
                 CameraEnvironment(waterColors[GameManager.instance.task_index]);
                 break;
             case 4: // POLLUTION
