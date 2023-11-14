@@ -23,5 +23,8 @@ public class GameManager : MonoBehaviour
     
         instance = this;
         DontDestroyOnLoad(this.gameObject);
+        
+        //
+        sum_parameters = 15;
     }
 }
