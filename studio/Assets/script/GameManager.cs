@@ -8,10 +8,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     
     // parameters that control environment effects
-    public float anxiety; // settato in SliderControl
-    public float literacy_inverted; // settato in SliderControl
-    public float climate_change_skept; // settato in SliderControl
-    public float sum_parameters; // settato in SliderControl
+    public float anxiety = 5; // settato in SliderControl
+    public float literacy_inverted = 5; // settato in SliderControl
+    public float climate_change_skept = 5; // settato in SliderControl
+    public float sum_parameters = 15; // settato in SliderControl
     public int task_index = 0;
     void Awake()
     {
