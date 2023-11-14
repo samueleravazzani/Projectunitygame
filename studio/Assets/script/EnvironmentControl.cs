@@ -31,7 +31,7 @@ public class EnvironmentControl : MonoBehaviour
     public PolygonCollider2D Locations;
     private int[] problems = new int[] {0, 1, 2, 3, 4, 5, 6};
     // 1 = fire, 2 = plastic, 3 = water, 4 = pollution, 5 = air, 6 = rain;
-    public int problem_now = 6; // /!\ ATTUALE PROBLEMA
+    public int problem_now = 4; // /!\ ATTUALE PROBLEMA
     private int[] N_tospawn; // questo cambia durante il gioco /!\
     private float[] smokeRot;
     private float[] windRot;
@@ -63,59 +63,56 @@ public class EnvironmentControl : MonoBehaviour
             }
             destroy_obj = false; // lo risetto false nella scena dopo
             
-            UpdateEnvironment();
+            StartCoroutine(UpdateEnvironment());
             
         }
     }
 
-    private void UpdateEnvironment()
+    IEnumerator UpdateEnvironment()
     {
-        int problem_tmp = problem_now; // mi salvo il problema
+        destroy_obj = false; // nel caso del secondo giro non distrugge gli oggetti 
         
-        for(int i=0; i<=1; i++)
+        // Process case 0
+        destroy_obj = true;
+        CameraEnvironment(new Color(1.0f, 1.0f, 1.0f));
+        yield return null; // Wait for the end of the frame
+
+        // Process another case (1, 2, or 3)
+        destroy_obj = false;
+        switch (problem_now)
         {
-            destroy_obj = false; // nel caso del secondo giro non distrugge gli oggetti 
-            
-            if(i == 0)
-                problem_now = 0; // cancello tutto
-            else
-                problem_now = problem_tmp; // se ha già distrutto tutto (= primo giro in base 0, secondo in base 1) allora resetto il problema per ricreare
-            Debug.Log(destroy_obj.ToString());
-            
-            switch (problem_now)
-            {
-                case 0:
-                    destroy_obj = true; 
-                    CameraEnvironment(new Color(1.0f, 1.0f, 1.0f));
-                    break;
-                case 1: // FIRE
-                    SpawnWithinCollider(fire, N_tospawn[GameManager.instance.task_index]);
-                    CameraEnvironment(fireColors[GameManager.instance.task_index]);
-                    break;
-                case 2: // PLASTIC
-                    Spawn(plastic, N_tospawn[GameManager.instance.task_index]);
-                    CameraEnvironment(plasticColors[GameManager.instance.task_index]);
-                    break;
-                case 3: // POLLUTION
-                    ParticleSystem ptspoll = Instantiate(pollution, new Vector3(-31.5f, 4.5f, -1f),
-                        Quaternion.Euler(0, 90, 90));
-                    var emissionpoll =
-                        ptspoll.emission; // /!\ PURTROPPO non si può modificare direttamente ma va estratto così
-                    emissionpoll.rateOverTime = smokeRot[GameManager.instance.task_index];
-                    CameraEnvironment(pollutionColors[GameManager.instance.task_index]);
-                    break;
-                case 4: // AIR + RAIN
-                    ParticleSystem ptsair = Instantiate(air, new Vector3(-30, -2, -1), Quaternion.Euler(0, 90, 90));
-                    var emissionair = ptsair.emission;
-                    emissionair.rateOverTime = windRot[GameManager.instance.task_index];
-                    CameraEnvironment(airColors[GameManager.instance.task_index]);
-                    ParticleSystem ptsrain = Instantiate(rain, new Vector3(0, 30, -1), transform.rotation);
-                    /*var emissionrain = ptsrain.emission;
-                    emissionrain.rateOverTime = rainRot[GameManager.instance.task_index]; */
-                    CameraEnvironment(rainColors[GameManager.instance.task_index]);
-                    break;
-            }
+            case 0: // tutto a posto
+                destroy_obj = true;
+                CameraEnvironment(new Color(1.0f, 1.0f, 1.0f));
+                break;
+            case 1: // FIRE
+                SpawnWithinCollider(fire, N_tospawn[GameManager.instance.task_index]);
+                CameraEnvironment(fireColors[GameManager.instance.task_index]);
+                break;
+            case 2: // PLASTIC
+                Spawn(plastic, N_tospawn[GameManager.instance.task_index]);
+                CameraEnvironment(plasticColors[GameManager.instance.task_index]);
+                break;
+            case 3: // POLLUTION
+                ParticleSystem ptspoll = Instantiate(pollution, new Vector3(-31.5f, 4.5f, -1f),
+                    Quaternion.Euler(0, 90, 90));
+                var emissionpoll =
+                    ptspoll.emission; // /!\ PURTROPPO non si può modificare direttamente ma va estratto così
+                emissionpoll.rateOverTime = smokeRot[GameManager.instance.task_index];
+                CameraEnvironment(pollutionColors[GameManager.instance.task_index]);
+                break;
+            case 4: // AIR + RAIN
+                ParticleSystem ptsair = Instantiate(air, new Vector3(-30, -2, -1), Quaternion.Euler(0, 90, 90));
+                var emissionair = ptsair.emission;
+                emissionair.rateOverTime = windRot[GameManager.instance.task_index];
+                CameraEnvironment(airColors[GameManager.instance.task_index]);
+                ParticleSystem ptsrain = Instantiate(rain, new Vector3(0, 30, -1), transform.rotation);
+                /*var emissionrain = ptsrain.emission;
+                emissionrain.rateOverTime = rainRot[GameManager.instance.task_index]; */
+                CameraEnvironment(rainColors[GameManager.instance.task_index]);
+                break;
         }
+
         // regulate saturation according to anxiety level
         CameraAnxiety(level_anxiety * calibration_anxiety);
         update_camera_bool = false;
