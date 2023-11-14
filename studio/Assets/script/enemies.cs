@@ -28,7 +28,7 @@ public class Spawners : MonoBehaviour
     void SpawnObject()
     {
         // Generate a random position on the screen
-        Vector2 randomPosition = new Vector2(Random.Range(-3f, 2f), Random.Range(-3f, 2f));
+        Vector2 randomPosition = new Vector2(Random.Range(2f, 7f), Random.Range(-3f, 2f));
 
         // Instantiate the object at the random position
         GameObject spawnedObject = Instantiate(rubbish, randomPosition, Quaternion.identity);

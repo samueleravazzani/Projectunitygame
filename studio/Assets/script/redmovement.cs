@@ -18,6 +18,16 @@ public class redmovement : MonoBehaviour
         {
             MoveUp();
         }
+        
+        if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x > -6)
+        {
+            MoveLeft();
+        }
+        else if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < 3)
+        {
+            MoveRight();
+        }
+        
 
         // Mover con el mouse
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -35,6 +45,16 @@ public class redmovement : MonoBehaviour
     public void MoveDown()
     {
         transform.position -= Vector3.up * speed * Time.deltaTime;
+    }
+    
+    void MoveLeft()
+    {
+        transform.Translate(Vector3.left * Time.deltaTime * speed);
+    }
+
+    void MoveRight()
+    {
+        transform.Translate(Vector3.right * Time.deltaTime * speed);
     }
 
     public void MoveTowardsMouse(Vector3 targetPosition)
