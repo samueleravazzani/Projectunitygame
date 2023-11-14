@@ -19,6 +19,7 @@ TagManager:
   - trash
   - enemies
   - friends
+  - To_MainMap
   layers:
   - Default
   - TransparentFX
