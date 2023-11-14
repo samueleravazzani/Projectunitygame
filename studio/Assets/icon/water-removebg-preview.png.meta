@@ -872,7 +872,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      water-removebg-preview_0: -6860487137229460656
+      water-removebg-preview_1: -5277220536919869763
+      water-removebg-preview_10: 1411396317588009439
+      water-removebg-preview_11: -5753321133259377323
+      water-removebg-preview_12: -5110584761824662764
+      water-removebg-preview_13: -459555574151130169
+      water-removebg-preview_14: 5264702967772066018
+      water-removebg-preview_15: -6069574076130181172
+      water-removebg-preview_16: 2702757939174827566
+      water-removebg-preview_17: -5274301216419658521
+      water-removebg-preview_18: 4746546582889211531
+      water-removebg-preview_19: -7276666377210764174
+      water-removebg-preview_2: 7630843995920431675
+      water-removebg-preview_20: 2332779083862617825
+      water-removebg-preview_21: 3822765867386347594
+      water-removebg-preview_22: -3844674741398189020
+      water-removebg-preview_23: -2772245010711323551
+      water-removebg-preview_24: 5033737351134580641
+      water-removebg-preview_25: 4997524904155107069
+      water-removebg-preview_26: 4358821629369692319
+      water-removebg-preview_27: -2989037136581745354
+      water-removebg-preview_28: 3639868301452991019
+      water-removebg-preview_29: -2401040294793423253
+      water-removebg-preview_3: 6474709782150735786
+      water-removebg-preview_30: -6927566910495323925
+      water-removebg-preview_31: 3984272491332637052
+      water-removebg-preview_4: 3432619402653835079
+      water-removebg-preview_5: 2059509333592282386
+      water-removebg-preview_6: -8400821144513856488
+      water-removebg-preview_7: -1235075871342352184
+      water-removebg-preview_8: -5421309797892036861
+      water-removebg-preview_9: -2215005004040765085
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

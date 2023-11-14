@@ -24,6 +24,8 @@ public class DialogeManager : MonoBehaviour
    private static DialogeManager instance;
 
    public GameObject speakingNPC;
+   public bool choiceismade = false;
+   public int choicemade;
 
    private void Awake() //creation singleton
    {
@@ -135,6 +137,8 @@ public class DialogeManager : MonoBehaviour
    {
       // currentNPC.GetComponent<NPCScript>().PassChoice(questionIndex, choiceIndex);
       Debug.Log("choice number " + choiceIndex.ToString());
+      choiceismade = true;
+      choicemade = choiceIndex;
       currentStory.ChooseChoiceIndex(choiceIndex);
    }
    

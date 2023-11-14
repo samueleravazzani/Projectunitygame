@@ -20,6 +20,7 @@ TagManager:
   - enemies
   - friends
   - To_MainMap
+  - Albero
   layers:
   - Default
   - TransparentFX

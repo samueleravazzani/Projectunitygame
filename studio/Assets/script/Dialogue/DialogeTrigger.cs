@@ -11,6 +11,7 @@ public class DialogeTrigger : MonoBehaviour
     [Header("Ink JSON")] [SerializeField] private TextAsset[] inkJSON;
 
     private bool playerInRange;
+    private string nameNPC;
 
     private void Awake()
     {
@@ -25,6 +26,8 @@ public class DialogeTrigger : MonoBehaviour
             visualCue.SetActive(true);
             if (Input.GetKeyDown(KeyCode.Return))
             {
+                name = gameObject.tag;
+                Debug.Log("sono "+name.ToString());
                 DialogeManager.GetInstance().EnterDialogueMode(inkJSON[0]);
             }
         }
@@ -32,6 +35,20 @@ public class DialogeTrigger : MonoBehaviour
         {
             visualCue.SetActive(false);
         }
+
+       /* if (DialogeManager.GetInstance().choiceismade)
+        {
+            if (DialogeManager.GetInstance().choicemade == 0)
+            {
+                Debug.Log(" sono albero e ho visto che hai scelto si ");
+            }
+            else if (DialogeManager.GetInstance().choicemade == 1)
+            {
+                Debug.Log(" sono albero e ho visto che hai scelto no ");
+            }
+            
+        }
+        */
            
     }
 
