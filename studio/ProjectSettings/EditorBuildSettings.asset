@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMap.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Fishing.unity
+    guid: db2c9003671e6fe4eb311fc975f4b3e6
+  - enabled: 1
     path: Assets/Scenes/Quiz.unity
     guid: ccb6ccbc662d00f40a662d6cc53eea96
   - enabled: 1

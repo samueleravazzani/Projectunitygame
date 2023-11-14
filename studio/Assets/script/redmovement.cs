@@ -5,42 +5,61 @@ using UnityEngine;
 
 public class redmovement : MonoBehaviour
 {
-    public float increment;
-
-    public Vector2 targetPos;
-
     public float speed;
-
-    private void Awake()
-    {
-        targetPos = transform.position;
-    }
 
     private void Update()
     {
-        // Limita la posición en el eje Y
-        targetPos.y = Mathf.Clamp(targetPos.y, -3, 2);
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        // Mover con las flechas del teclado
+        if (Input.GetKey(KeyCode.DownArrow) && transform.position.y > -3)
         {
             MoveDown();
-            
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Input.GetKey(KeyCode.UpArrow) && transform.position.y < 2)
         {
             MoveUp();
-            
         }
         
-        transform.position = Vector2.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+        if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x > -6)
+        {
+            MoveLeft();
+        }
+        else if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < 3)
+        {
+            MoveRight();
+        }
+        
+
+        // Mover con el mouse
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (Input.GetMouseButton(0) && Mathf.Abs(mousePos.y - transform.position.y) > 0.01f)
+        {
+            MoveTowardsMouse(mousePos);
+        }
     }
 
     public void MoveUp()
     {
-        targetPos += new Vector2(0, increment);
+        transform.position += Vector3.up * speed * Time.deltaTime;
     }
 
     public void MoveDown()
     {
-        targetPos -= new Vector2(0, increment);
+        transform.position -= Vector3.up * speed * Time.deltaTime;
+    }
+    
+    void MoveLeft()
+    {
+        transform.Translate(Vector3.left * Time.deltaTime * speed);
+    }
+
+    void MoveRight()
+    {
+        transform.Translate(Vector3.right * Time.deltaTime * speed);
+    }
+
+    public void MoveTowardsMouse(Vector3 targetPosition)
+    {
+        // Mueve el objeto hacia la posición del mouse con una velocidad específica
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
     }
 }
