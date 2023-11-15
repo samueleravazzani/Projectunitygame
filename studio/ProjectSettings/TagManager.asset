@@ -20,6 +20,7 @@ TagManager:
   - enemies
   - friends
   - To_MainMap
+  - Medicine
   layers:
   - Default
   - TransparentFX

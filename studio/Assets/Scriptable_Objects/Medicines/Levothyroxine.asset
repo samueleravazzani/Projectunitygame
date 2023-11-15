@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad15a25464d744a1f88babcaf14120cc, type: 3}
+  m_Name: Levothyroxine
+  m_EditorClassIdentifier: 
+  name: Levothyroxine
+  drug_class: Thyroid hormones and antithyroid medicines
+  drug_indication: Levothyroxine is indicated as replacement therapy in primary (thyroidal),
+    secondary (pituitary) and tertiary (hypothalamic) congenital or acquired hypothyroidism.
+    It is also indicated as an adjunct to surgery and radioiodine therapy in the
+    management of thyrotropin-dependent well-differentiated thyroid cancer.
+  drug_warnings: Not for treatment of obesity or for weight loss. Thyroid hormones,
+    including Levothyroxine for Injection, should not be used for the treatment of
+    obesity or for weight loss. Larger doses may produce serious or even life threatening
+    manifestations of toxicity. However, caution is necessary in interpreting results
+    of thyroid function tests in neonates.
+  drug_image: {fileID: 21300000, guid: fe7111a6ff325854ab10d5ef113db591, type: 3}

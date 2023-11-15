@@ -7,10 +7,7 @@ using UnityEngine.UI;
 
 public class CardDisplay : MonoBehaviour
 {
-    public static string medicine_name;
-    public static bool showcard = false;
-    public Medicine_Card[] cards;
-    private Medicine_Card card;
+    public static Medicine_Card card_toshow;
     public TextMeshProUGUI drug_name;
     public TextMeshProUGUI drug_class;
     public TextMeshProUGUI drug_indication;
@@ -28,23 +25,9 @@ public class CardDisplay : MonoBehaviour
         background.gameObject.SetActive(false);
     }
 
-    void Update()
+    
+    public static void ShowCard(Medicine_Card card)
     {
-        if (showcard)
-        {
-            ShowCard();
-        }
-    }
-
-    public void ShowCard()
-    {
-        switch (medicine_name)
-        {
-            case "Paracetamol": card=cards[0];
-                break;
-        }
-        
-        
         drug_name.text = card.name;
         drug_class.text = card.drug_class;
         drug_indication.text = card.drug_indication;

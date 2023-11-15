@@ -6,13 +6,14 @@ using UnityEngine.UI;
 
 public class MedicineTrigger : MonoBehaviour
 {
+    public Medicine_Card medicine;
     
     private void OnTriggerStay2D(Collider2D coll)
     {
-        if (coll.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Return))
+        medicine = GetComponent<Medicine_Card>();
+        if (coll.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
         {
-            CardDisplay.medicine_name = "Paracetamol";
-            CardDisplay.showcard = true;
+            CardDisplay.ShowCard(medicine);
         }
     }
 }
