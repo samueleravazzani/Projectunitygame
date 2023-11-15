@@ -35,7 +35,7 @@ public class EnvironmentControl : MonoBehaviour
     private float[] windRot;
     private float[] rainRot;
     private float[] level_anxiety = new float[] {0,0,0,0};
-    private  float calibration_anxiety = -7f;
+    private  float calibration_anxiety = -70/9f;
     public bool update_camera_bool = true; // /!\ IMPORTANTE, lo devo aggiornare anche dove faccio GameManager.instance.task_index++
     public static bool destroy_obj;
     
