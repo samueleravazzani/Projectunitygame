@@ -34,7 +34,8 @@ public class EnvironmentControl : MonoBehaviour
     private float[] smokeRot;
     private float[] windRot;
     private float[] rainRot;
-    public static float level_anxiety = 0f, calibration_anxiety = -7f;
+    private float[] level_anxiety = new float[] {0,0,0,0};
+    private  float calibration_anxiety = -7f;
     public bool update_camera_bool = true; // /!\ IMPORTANTE, lo devo aggiornare anche dove faccio GameManager.instance.task_index++
     public static bool destroy_obj;
     
@@ -51,6 +52,12 @@ public class EnvironmentControl : MonoBehaviour
             smokeRot = new float[] {GameManager.instance.sum_parameters * 4, GameManager.instance.sum_parameters * 3, GameManager.instance.sum_parameters * 2, 0};
             windRot = new float[] {GameManager.instance.sum_parameters * 7, GameManager.instance.sum_parameters * 5, GameManager.instance.sum_parameters * 3, 0};
             rainRot = new float[] {GameManager.instance.sum_parameters * 10, GameManager.instance.sum_parameters * 6, GameManager.instance.sum_parameters * 3, 0};
+
+            level_anxiety = new float[] { GameManager.instance.anxiety, GameManager.instance.anxiety*2/3, GameManager.instance.anxiety/3, 0 };
+            if (GameManager.instance.anxiety == 1) // 1:minimo dell'ansia -> non ha ansia
+            {
+                level_anxiety = new float[] {0,0,0,0};
+            }
         }
         
         if (update_camera_bool) // /!\ IMPORTANTE, lo devo aggiornare anche dove faccio GameManager.instance.task_index++
@@ -111,7 +118,7 @@ public class EnvironmentControl : MonoBehaviour
         }
 
         // regulate saturation according to anxiety level
-        CameraAnxiety(level_anxiety * calibration_anxiety);
+        CameraAnxiety(level_anxiety[GameManager.instance.task_index] * calibration_anxiety);
         update_camera_bool = false;
         
     }
