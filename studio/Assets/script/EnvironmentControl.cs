@@ -46,7 +46,7 @@ public class EnvironmentControl : MonoBehaviour
         if (GameManager.instance.task_index == 0)
         {
             /* A GIOCO PRONTO */ 
-            N_tospawn = new int[] {(int) GameManager.instance.sum_parameters * 10, (int) GameManager.instance.sum_parameters * 6, (int) GameManager.instance.sum_parameters * 3, 0};
+            N_tospawn = new int[] {(int) GameManager.instance.sum_parameters * 14, (int) GameManager.instance.sum_parameters * 9, (int) GameManager.instance.sum_parameters * 6, 0};
             
             smokeRot = new float[] {GameManager.instance.sum_parameters * 4, GameManager.instance.sum_parameters * 3, GameManager.instance.sum_parameters * 2, 0};
             windRot = new float[] {GameManager.instance.sum_parameters * 7, GameManager.instance.sum_parameters * 5, GameManager.instance.sum_parameters * 3, 0};
