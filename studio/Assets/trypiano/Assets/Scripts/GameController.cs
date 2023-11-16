@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
     public Note notePrefab;
     private Vector3 noteLocalScale;
     private float noteSpawnStartPosX;
-    public float noteSpeed = 5f;
+    public float noteSpeed = 3f;
     public const int NotesToSpawn = 20;
     private int prevRandomIndex = -1;
     public static GameController Instance { get; private set; }
@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     public int LastPlayedNoteId { get; set; } = 0;
     public AudioSource audioSource;
     private Coroutine playSongSegmentCoroutine;
-    private float songSegmentLength = 0.8f;
+    private float songSegmentLength = 1.5f;
     private bool lastNote = false;
     private bool lastSpawn = false;
     public ReactiveProperty<bool> ShowGameOverScreen { get; set; }
@@ -48,7 +48,7 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        DetectNoteClicks();
+        DetectNoteKeyPress();
         DetectStart();
     }
 
@@ -60,24 +60,45 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private void DetectNoteClicks()
+    private void DetectNoteKeyPress()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            var origin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            var hit = Physics2D.Raycast(origin, Vector2.zero);
-            if (hit)
+            AttemptNotePlay(0); 
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            AttemptNotePlay(1); 
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            AttemptNotePlay(2); // Attempt to play note in the middle right position
+        }
+        else if (Input.GetKeyDown(KeyCode.F))
+        {
+            AttemptNotePlay(3); // Attempt to play note in the right position
+        }
+    }
+
+    private void AttemptNotePlay(int column)
+    {
+        bool correctNoteClicked = false;
+
+        foreach (Transform note in noteContainer.transform)
+        {
+            if (note.CompareTag("Note"))
             {
-                var gameObject = hit.collider.gameObject;
-                if (gameObject.CompareTag("Note"))
+                var noteComponent = note.GetComponent<Note>();
+                if (noteComponent.Visible && noteComponent.Column == column && !noteComponent.Played)
                 {
-                    var note = gameObject.GetComponent<Note>();
-                    note.Play();
+                    noteComponent.Play();
+                    correctNoteClicked = true;
+                    break;
                 }
             }
         }
     }
-
+    
 
     private void SetDataForNoteGeneration()
     {
@@ -116,6 +137,7 @@ public class GameController : MonoBehaviour
             for (int j = 0; j < 4; j++)
             {
                 note = Instantiate(notePrefab, noteContainer.transform);
+                note.Column = j;
                 note.transform.localScale = noteLocalScale;
                 note.transform.position = new Vector2(noteSpawnStartPosX + noteWidth * j, noteSpawnStartPosY);
                 note.Visible = (j == randomIndex);

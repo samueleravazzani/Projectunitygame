@@ -19,6 +19,8 @@ public class Note : MonoBehaviour
 
     public bool Played { get; set; }
     public int Id { get; set; }
+    
+    public int Column { get; set; }
 
     private void Awake()
     {
@@ -47,11 +49,12 @@ public class Note : MonoBehaviour
                     GameController.Instance.PlaySomeOfSong();
                     animator.Play("Played");
                 }
-            }
-            else
-            {
-                StartCoroutine(GameController.Instance.EndGame());
-                animator.Play("Missed");
+                else
+                {
+                    StartCoroutine(GameController.Instance.EndGame());
+                    Debug.Log("You pressed the wrong button");
+                    //animator.Play("Missed");
+                }
             }
         }
     }
@@ -62,6 +65,8 @@ public class Note : MonoBehaviour
         {
             StartCoroutine(GameController.Instance.EndGame());
             animator.Play("Missed");
+            Debug.Log("You missed");
         }
     }
+    
 }

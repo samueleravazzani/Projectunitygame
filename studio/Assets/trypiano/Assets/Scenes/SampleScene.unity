@@ -991,14 +991,14 @@ RectTransform:
   m_GameObject: {fileID: 818927189}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1218935132}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 235}
+  m_AnchoredPosition: {x: 0, y: 150}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &818927191
@@ -1053,7 +1053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.0047169924, g: 0.6194372, b: 1, a: 1}
+  m_Color: {r: 0.454902, g: 0.5764706, b: 0.050980397, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1073,7 +1073,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Congratulations!!
+  m_Text: CONGRATULATIONS!!
 --- !u!222 &818927195
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1790,7 +1790,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2e627355d5c1cfd4fb07a494cf97deeb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 24ed4e63b0e5fec47954779eabac50e8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -1937,7 +1937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lastSpawnedNote: {fileID: 1615839895}
   notePrefab: {fileID: 488409528093874390, guid: cc5784239cd157a409348feda7deac8b, type: 3}
-  noteSpeed: 10
+  noteSpeed: 5
   noteContainer: {fileID: 473242142}
   audioSource: {fileID: 1956723004}
 --- !u!1 &2037090371
@@ -2099,15 +2099,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 488409528093874391, guid: cc5784239cd157a409348feda7deac8b, type: 3}
       propertyPath: m_Color.b
-      value: 0.20787342
+      value: 0.9490197
       objectReference: {fileID: 0}
     - target: {fileID: 488409528093874391, guid: cc5784239cd157a409348feda7deac8b, type: 3}
       propertyPath: m_Color.g
-      value: 0.20787342
+      value: 0.98823535
       objectReference: {fileID: 0}
     - target: {fileID: 488409528093874391, guid: cc5784239cd157a409348feda7deac8b, type: 3}
       propertyPath: m_Color.r
-      value: 0.8584906
+      value: 0.9803922
       objectReference: {fileID: 0}
     - target: {fileID: 488409528093874392, guid: cc5784239cd157a409348feda7deac8b, type: 3}
       propertyPath: m_RootOrder
