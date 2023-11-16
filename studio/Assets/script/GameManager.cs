@@ -12,6 +12,10 @@ public class GameManager : MonoBehaviour
     public float literacy_inverted = 5; // settato in SliderControl
     public float climate_change_skept = 5; // settato in SliderControl
     public float sum_parameters = 15; // settato in SliderControl
+    
+    /* PROBLEMA ATTUALE */
+    public int problem_now;
+    /* TASK ATTUALE */
     public int task_index = 0;
     void Awake()
     {
@@ -26,5 +30,11 @@ public class GameManager : MonoBehaviour
         
         //
         sum_parameters = 15;
+        /* PROBLEMA ATTUALE */
+        if (task_index == 0)
+        {
+            problem_now = Random.Range(1, 4);
+        }
     }
+    
 }

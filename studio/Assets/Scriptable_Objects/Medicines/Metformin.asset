@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad15a25464d744a1f88babcaf14120cc, type: 3}
+  m_Name: Metformin
+  m_EditorClassIdentifier: 
+  name: Metformin
+  drug_class: Antidiabetic Agents
+  drug_indication: "Metformin immediate-release formulations Metformin is indicated
+    as an adjunct to diet and exercise to improve glycemic control in adults and
+    pediatric patients \u226510 years old with type 2 diabetes mellitus.  "
+  drug_warnings: 'Lactic Acidosis: Lactic acidosis is a rare, but serious, metabolic
+    complication that can occur due to metformin accumulation during treatment with
+    metformin; when it occurs, it is fatal in approximately 50% of cases. Metformin
+    tablets, USP treatment should not be initiated in patients = 80 years of age
+    unless measurement of creatinine clearance demonstrates that renal function is
+    not reduced, as these patients are more susceptible to developing lactic acidosis.'
+  drug_image: {fileID: 21300004, guid: ddfbfa9216e072f42a7ce092e7779067, type: 3}
