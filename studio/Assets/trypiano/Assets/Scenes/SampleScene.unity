@@ -1937,7 +1937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lastSpawnedNote: {fileID: 1615839895}
   notePrefab: {fileID: 488409528093874390, guid: cc5784239cd157a409348feda7deac8b, type: 3}
-  noteSpeed: 5
+  noteSpeed: 4
   noteContainer: {fileID: 473242142}
   audioSource: {fileID: 1956723004}
 --- !u!1 &2037090371

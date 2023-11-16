@@ -53,7 +53,6 @@ public class Note : MonoBehaviour
                 {
                     StartCoroutine(GameController.Instance.EndGame());
                     Debug.Log("You pressed the wrong button");
-                    //animator.Play("Missed");
                 }
             }
         }
