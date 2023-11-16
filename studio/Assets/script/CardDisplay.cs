@@ -14,16 +14,18 @@ public class CardDisplay : MonoBehaviour
     public TextMeshProUGUI drug_warnings;
     public Image drug_image;
     public Image background;
-    public static CardDisplay instance;
+    public bool showable = false;
     
+    public static CardDisplay instance;
     private void Awake() //creation singleton
     {
         if (instance != null)
         {
-            Debug.LogWarning("foundd more than one dialogue Manager in the scene");
+            Debug.LogWarning("found more than one dialogue Manager in the scene");
         }
         instance = this;
     }
+    
     private void Start()
     {
         HideCard();
@@ -53,6 +55,6 @@ public class CardDisplay : MonoBehaviour
         drug_warnings.gameObject.SetActive(false);
         drug_image.gameObject.SetActive((false));
         background.gameObject.SetActive(false);
-        MedicineTrigger.show = false;
+        showable = false;
     }
 }

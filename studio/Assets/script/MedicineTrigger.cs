@@ -8,27 +8,26 @@ using UnityEngine.UI;
 public class MedicineTrigger : MonoBehaviour
 {
     public Medicine_Card medicine;
-    public static bool show=false;
     private void Update()
     {
-        if (show)
+        if (CardDisplay.instance.showable && Input.GetKeyDown(KeyCode.Space)) // se è in range e preme spazio -> show
         {
             CardDisplay.instance.ShowCard(medicine);
         }
     }
 
-    private void OnTriggerStay2D(Collider2D coll)
+    private void OnTriggerEnter2D(Collider2D coll) // se è in range può mostrare
     {
-        if (coll.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
+        if (coll.gameObject.CompareTag("Player"))
         {
-            show = true;
+            CardDisplay.instance.showable = true;
         }
     }
-    private void OnTriggerExit2D(Collider2D coll)
+    private void OnTriggerExit2D(Collider2D coll) // se esce dal range non può mostrare
     {
-        if (coll.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
+        if (coll.gameObject.CompareTag("Player"))
         {
-            show = false;
+            CardDisplay.instance.showable = false;
         }
     }
 }

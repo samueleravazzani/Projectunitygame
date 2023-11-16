@@ -1,16 +1,29 @@
 using System.Collections;
 using UnityEngine;
 
-public class InstantiatePrefab : MonoBehaviour
+public class SpawnsMedicine : MonoBehaviour
 {
     public GameObject prefab; // Medicine prefab
     public Medicine_Card[] medicines; // Assign your Medicine_card attributes in the Unity Editor
     // Positions
     public Transform[] positions;
     
-    
+    public static SpawnsMedicine instance;
+    private void Awake() //creation singleton
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("found more than one dialogue Manager in the scene");
+        }
+        instance = this;
+    }
 
     private void Start()
+    {
+        SpawnMedicines();
+    }
+
+    public void SpawnMedicines()
     {
         // shuffle medicines to randomize them and to then spawn them in random position
         ShuffleMedicines(medicines);
