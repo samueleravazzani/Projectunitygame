@@ -245,8 +245,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -725, y: 361}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -722.28094, y: 362.81274}
+  m_SizeDelta: {x: 285.1967, y: 46.3746}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &132629182
 MonoBehaviour:
@@ -1141,66 +1141,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_wizard
       objectReference: {fileID: 0}
-    - target: {fileID: 1945953164291997125, guid: be6074682f924da4191471b68d36b689, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1945953164291997125, guid: be6074682f924da4191471b68d36b689, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2341510582282536660, guid: be6074682f924da4191471b68d36b689, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2341510582282536660, guid: be6074682f924da4191471b68d36b689, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2341510582282536660, guid: be6074682f924da4191471b68d36b689, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2341510582282536660, guid: be6074682f924da4191471b68d36b689, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2601768275860892093, guid: be6074682f924da4191471b68d36b689, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -550732012, guid: 68ad2a8f16c1f3a4d93bd87597c15ca3, type: 3}
-    - target: {fileID: 2601768275860892093, guid: be6074682f924da4191471b68d36b689, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4466914630196928883, guid: be6074682f924da4191471b68d36b689, type: 3}
-      propertyPath: m_Size.x
-      value: 0.36558986
-      objectReference: {fileID: 0}
-    - target: {fileID: 4466914630196928883, guid: be6074682f924da4191471b68d36b689, type: 3}
-      propertyPath: m_Size.y
-      value: 0.60466665
-      objectReference: {fileID: 0}
-    - target: {fileID: 4466914630196928883, guid: be6074682f924da4191471b68d36b689, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.00000011920929
-      objectReference: {fileID: 0}
-    - target: {fileID: 4466914630196928883, guid: be6074682f924da4191471b68d36b689, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.13634619
-      objectReference: {fileID: 0}
-    - target: {fileID: 4482006626029265391, guid: be6074682f924da4191471b68d36b689, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5384478151559890178, guid: be6074682f924da4191471b68d36b689, type: 3}
-      propertyPath: inkJSON.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5384478151559890178, guid: be6074682f924da4191471b68d36b689, type: 3}
-      propertyPath: 'inkJSON.Array.data[0]'
-      value: 
-      objectReference: {fileID: 4900000, guid: 3d5c6856f818742e392eaaf641599005, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8054,7 +7994,6 @@ MonoBehaviour:
   drug_warnings: {fileID: 802469898}
   drug_image: {fileID: 2000096220}
   background: {fileID: 2108287438}
-  showable: 0
 --- !u!1 &1656986485
 GameObject:
   m_ObjectHideFlags: 0
