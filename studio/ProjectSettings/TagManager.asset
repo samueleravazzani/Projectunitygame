@@ -11,6 +11,7 @@ TagManager:
   - enemies
   - friends
   - To_MainMap
+  - Fondo
   - Medicine
   - Note
   layers:

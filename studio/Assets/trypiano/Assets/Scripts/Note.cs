@@ -5,6 +5,7 @@ using UnityEngine;
 public class Note : MonoBehaviour
 {
     Animator animator;
+    
 
     private bool visible;
     public bool Visible
@@ -53,6 +54,7 @@ public class Note : MonoBehaviour
                 {
                     StartCoroutine(GameController.Instance.EndGame());
                     Debug.Log("You pressed the wrong button");
+                    GameController.Instance.wrongbutton = true;
                 }
             }
         }
@@ -65,6 +67,7 @@ public class Note : MonoBehaviour
             StartCoroutine(GameController.Instance.EndGame());
             animator.Play("Missed");
             Debug.Log("You missed");
+            GameController.Instance.missed = true;
         }
     }
     

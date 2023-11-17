@@ -4,6 +4,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
@@ -30,7 +31,15 @@ public class GameController : MonoBehaviour
     private bool lastSpawn = false;
     public ReactiveProperty<bool> ShowGameOverScreen { get; set; }
     public bool PlayerWon { get; set; } = false;
+    public string scenename;
 
+    public float TimeGame;
+    public bool missed = false;
+    public bool wrongbutton = false;
+    
+    public TextMeshProUGUI missedText;
+    public TextMeshProUGUI wrongButtonText; 
+    
     private void Awake()
     {
         Instance = this;
@@ -38,6 +47,8 @@ public class GameController : MonoBehaviour
         GameOver = new ReactiveProperty<bool>();
         Score = new ReactiveProperty<int>();
         ShowGameOverScreen = new ReactiveProperty<bool>();
+        missedText.gameObject.SetActive(false);
+        wrongButtonText.gameObject.SetActive(false);
     }
 
     void Start()
@@ -124,7 +135,7 @@ public class GameController : MonoBehaviour
 
         var noteSpawnStartPosY = lastSpawnedNote.position.y + noteHeight;
         Note note = null;
-        var timeTillEnd = audioSource.clip.length - audioSource.time;
+        var timeTillEnd = TimeGame - audioSource.time;
         int notesToSpawn = NotesToSpawn;
         if (timeTillEnd < NotesToSpawn)
         {
@@ -166,7 +177,7 @@ public class GameController : MonoBehaviour
         {
             audioSource.Play();
         }
-        if (audioSource.clip.length - audioSource.time <= songSegmentLength)
+        if (TimeGame - audioSource.time <= songSegmentLength)
         {
             lastNote = true;
         }
@@ -193,7 +204,22 @@ public class GameController : MonoBehaviour
     public IEnumerator EndGame()
     {
         GameOver.Value = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0);
         ShowGameOverScreen.Value = true;
+        if (missed)
+        {
+            missedText.gameObject.SetActive(true);
+        }
+
+        if (wrongbutton)
+        {
+            wrongButtonText.gameObject.SetActive(true);
+        }
+    }
+    
+    public void Quit()
+    {
+        SceneManager.LoadScene(scenename);
     }
 }
+
