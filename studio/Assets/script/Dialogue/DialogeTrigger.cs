@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DialogeTrigger : MonoBehaviour
@@ -11,14 +12,29 @@ public class DialogeTrigger : MonoBehaviour
     [Header("Ink JSON")] [SerializeField] private TextAsset[] inkJSON;
 
     private bool playerInRange;
-    private string nameNPC;
+   // private string name
+    public string name;
+    private static DialogeTrigger instance;
+    public int randomIndex;
 
     private void Awake()
     {
+        if (instance != null)
+        {
+            Debug.LogWarning("find more than one dialogue Manager in the scene");
+        }
+        instance = this;
+        
         playerInRange = false;
         visualCue.SetActive(false);
         
     }
+    
+    public static DialogeTrigger GetInstance()
+    {
+        return instance;
+    }
+    
     private void Update()
     {
         if (playerInRange && !DialogeManager.GetInstance().dialogueIsPlaying)
@@ -27,8 +43,24 @@ public class DialogeTrigger : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 name = gameObject.tag;
-                Debug.Log("sono "+name.ToString());
-                DialogeManager.GetInstance().EnterDialogueMode(inkJSON[0]);
+                Debug.Log("sono " + name.ToString());
+                //check della lista degli impostori???
+                randomIndex = UnityEngine.Random.Range(0, inkJSON.Length);
+
+
+               if (AnswerManager.GetInstance()._impostors.Contains(name) &&
+                    AnswerManager.GetInstance().alreadyTalk[AnswerManager.GetInstance()._impostors.IndexOf(name)])
+                {
+                    Debug.Log("hai già parlato con questo NPC");
+                }
+               
+                if (!AnswerManager.GetInstance()._impostors.Contains(name) ||
+                    (AnswerManager.GetInstance()._impostors.Contains(name) &&
+                     !AnswerManager.GetInstance().alreadyTalk[AnswerManager.GetInstance()._impostors.IndexOf(name)]))
+                {
+                    DialogeManager.GetInstance().EnterDialogueMode(inkJSON[randomIndex]);
+                }
+                //DialogeManager.GetInstance().EnterDialogueMode(inkJSON[randomIndex]);
             }
         }
         else
@@ -36,20 +68,6 @@ public class DialogeTrigger : MonoBehaviour
             visualCue.SetActive(false);
         }
 
-       /* if (DialogeManager.GetInstance().choiceismade)
-        {
-            if (DialogeManager.GetInstance().choicemade == 0)
-            {
-                Debug.Log(" sono albero e ho visto che hai scelto si ");
-            }
-            else if (DialogeManager.GetInstance().choicemade == 1)
-            {
-                Debug.Log(" sono albero e ho visto che hai scelto no ");
-            }
-            
-        }
-        */
-           
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

@@ -21,6 +21,8 @@ TagManager:
   - friends
   - To_MainMap
   - Albero
+  - To_Castle
+  - Pippo
   layers:
   - Default
   - TransparentFX

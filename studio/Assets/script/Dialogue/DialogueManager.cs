@@ -23,7 +23,7 @@ public class DialogeManager : MonoBehaviour
    
    private static DialogeManager instance;
 
-   public GameObject speakingNPC;
+   //public GameObject speakingNPC;
    public bool choiceismade = false;
    public int choicemade;
 
@@ -139,6 +139,8 @@ public class DialogeManager : MonoBehaviour
       Debug.Log("choice number " + choiceIndex.ToString());
       choiceismade = true;
       choicemade = choiceIndex;
+      AnswerManager.GetInstance().Answertracking(DialogeTrigger.GetInstance().name,choicemade,
+         DialogeTrigger.GetInstance().randomIndex);
       currentStory.ChooseChoiceIndex(choiceIndex);
    }
    
