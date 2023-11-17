@@ -10,6 +10,7 @@ public class redmovement : MonoBehaviour
     private void Update()
     {
         // Mover con las flechas del teclado
+        /*
         if (Input.GetKey(KeyCode.DownArrow) && transform.position.y > -3)
         {
             MoveDown();
@@ -27,7 +28,7 @@ public class redmovement : MonoBehaviour
         {
             MoveRight();
         }
-        
+        */
 
         // Mover con el mouse
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -36,7 +37,7 @@ public class redmovement : MonoBehaviour
             MoveTowardsMouse(mousePos);
         }
     }
-
+/*
     public void MoveUp()
     {
         transform.position += Vector3.up * speed * Time.deltaTime;
@@ -56,7 +57,7 @@ public class redmovement : MonoBehaviour
     {
         transform.Translate(Vector3.right * Time.deltaTime * speed);
     }
-
+*/
     public void MoveTowardsMouse(Vector3 targetPosition)
     {
         // Mueve el objeto hacia la posición del mouse con una velocidad específica
