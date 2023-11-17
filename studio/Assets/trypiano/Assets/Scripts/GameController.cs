@@ -4,6 +4,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
@@ -32,7 +33,12 @@ public class GameController : MonoBehaviour
     public bool PlayerWon { get; set; } = false;
     public string scenename;
 
-    public float TimeGame; 
+    public float TimeGame;
+    public bool missed = false;
+    public bool wrongbutton = false;
+    
+    public TextMeshProUGUI missedText;
+    public TextMeshProUGUI wrongButtonText; 
     
     private void Awake()
     {
@@ -41,6 +47,8 @@ public class GameController : MonoBehaviour
         GameOver = new ReactiveProperty<bool>();
         Score = new ReactiveProperty<int>();
         ShowGameOverScreen = new ReactiveProperty<bool>();
+        missedText.gameObject.SetActive(false);
+        wrongButtonText.gameObject.SetActive(false);
     }
 
     void Start()
@@ -196,8 +204,17 @@ public class GameController : MonoBehaviour
     public IEnumerator EndGame()
     {
         GameOver.Value = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0);
         ShowGameOverScreen.Value = true;
+        if (missed)
+        {
+            missedText.gameObject.SetActive(true);
+        }
+
+        if (wrongbutton)
+        {
+            wrongButtonText.gameObject.SetActive(true);
+        }
     }
     
     public void Quit()
@@ -205,3 +222,4 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(scenename);
     }
 }
+
