@@ -14,10 +14,21 @@ public class AnswerScript : MonoBehaviour
     public Color startColor;
     //reference to capture the object of the background. Used for buttons to switch from yellow background 
     //to green when the question is correct and red when wrong
+    
+    // Make AudioSource variables public to assign them in the Unity inspector
+    public AudioSource correctAudioSource;
+    public AudioSource wrongAudioSource;
 
     private void Start()
     {
         startColor = GetComponent<Image>().color; 
+        
+        // Assign AudioSource components for correct and wrong sounds
+        correctAudioSource = quizManager.gameObject.AddComponent<AudioSource>();
+        correctAudioSource.clip = quizManager.correctSound;
+
+        wrongAudioSource = quizManager.gameObject.AddComponent<AudioSource>();
+        wrongAudioSource.clip = quizManager.wrongSound;
     }
     //acquire the beginning color of the button (yellow background) 
     
@@ -28,6 +39,7 @@ public class AnswerScript : MonoBehaviour
             GetComponent<Image>().color = Color.green;
             Debug.Log("Correct Answer");
             quizManager.Correct();
+            correctAudioSource.Play(); // Play correct sound
         }
         else
         {
@@ -39,6 +51,7 @@ public class AnswerScript : MonoBehaviour
 
             Debug.Log("Wrong Answer");
             quizManager.wrong();
+            wrongAudioSource.Play(); // Play wrong sound
         }
     }
     

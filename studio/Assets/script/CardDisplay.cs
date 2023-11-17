@@ -7,44 +7,33 @@ using UnityEngine.UI;
 
 public class CardDisplay : MonoBehaviour
 {
-    public static string medicine_name;
-    public static bool showcard = false;
-    public Medicine_Card[] cards;
-    private Medicine_Card card;
+    public static Medicine_Card card_toshow;
     public TextMeshProUGUI drug_name;
     public TextMeshProUGUI drug_class;
     public TextMeshProUGUI drug_indication;
     public TextMeshProUGUI drug_warnings;
     public Image drug_image;
     public Image background;
-
+    
+    public static CardDisplay instance;
+    private void Awake() //creation singleton
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("found more than one dialogue Manager in the scene");
+        }
+        instance = this;
+    }
+    
     private void Start()
     {
-        drug_name.gameObject.SetActive(false);
-        drug_class.gameObject.SetActive(false);
-        drug_indication.gameObject.SetActive(false);
-        drug_warnings.gameObject.SetActive(false);
-        drug_image.gameObject.SetActive((false));
-        background.gameObject.SetActive(false);
+        HideCard();
     }
 
-    void Update()
+    
+    public void ShowCard(Medicine_Card card)
     {
-        if (showcard)
-        {
-            ShowCard();
-        }
-    }
-
-    public void ShowCard()
-    {
-        switch (medicine_name)
-        {
-            case "Paracetamol": card=cards[0];
-                break;
-        }
-        
-        
+        // Debug.Log(card.name);
         drug_name.text = card.name;
         drug_class.text = card.drug_class;
         drug_indication.text = card.drug_indication;
@@ -65,6 +54,6 @@ public class CardDisplay : MonoBehaviour
         drug_indication.gameObject.SetActive(false);
         drug_warnings.gameObject.SetActive(false);
         drug_image.gameObject.SetActive((false));
-        background.gameObject.SetActive(true);
+        background.gameObject.SetActive(false);
     }
 }

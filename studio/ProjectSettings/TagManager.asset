@@ -21,6 +21,7 @@ TagManager:
   - friends
   - To_MainMap
   - Fondo
+  - Medicine
   layers:
   - Default
   - TransparentFX

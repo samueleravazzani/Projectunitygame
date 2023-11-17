@@ -198,3 +198,5 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1.4968458}
   m_EdgeRadius: 0
+
+  m_CorrespondingSourceObject: {fileID: 0}
