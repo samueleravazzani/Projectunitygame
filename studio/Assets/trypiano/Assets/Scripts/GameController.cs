@@ -30,7 +30,10 @@ public class GameController : MonoBehaviour
     private bool lastSpawn = false;
     public ReactiveProperty<bool> ShowGameOverScreen { get; set; }
     public bool PlayerWon { get; set; } = false;
+    public string scenename;
 
+    public float TimeGame; 
+    
     private void Awake()
     {
         Instance = this;
@@ -124,7 +127,7 @@ public class GameController : MonoBehaviour
 
         var noteSpawnStartPosY = lastSpawnedNote.position.y + noteHeight;
         Note note = null;
-        var timeTillEnd = audioSource.clip.length - audioSource.time;
+        var timeTillEnd = TimeGame - audioSource.time;
         int notesToSpawn = NotesToSpawn;
         if (timeTillEnd < NotesToSpawn)
         {
@@ -166,7 +169,7 @@ public class GameController : MonoBehaviour
         {
             audioSource.Play();
         }
-        if (audioSource.clip.length - audioSource.time <= songSegmentLength)
+        if (TimeGame - audioSource.time <= songSegmentLength)
         {
             lastNote = true;
         }
@@ -195,5 +198,10 @@ public class GameController : MonoBehaviour
         GameOver.Value = true;
         yield return new WaitForSeconds(1);
         ShowGameOverScreen.Value = true;
+    }
+    
+    public void Quit()
+    {
+        SceneManager.LoadScene(scenename);
     }
 }
