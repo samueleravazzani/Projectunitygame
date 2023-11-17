@@ -7,13 +7,16 @@ using UnityEngine.UI;
 
 public class CardDisplay : MonoBehaviour
 {
-    public static Medicine_Card card_toshow;
+    public static Medicine_Card card_shown;
     public TextMeshProUGUI drug_name;
     public TextMeshProUGUI drug_class;
     public TextMeshProUGUI drug_indication;
     public TextMeshProUGUI drug_warnings;
     public Image drug_image;
     public Image background;
+    
+    public Image medicine_taken;
+    public TextMeshProUGUI result;
     
     public static CardDisplay instance;
     private void Awake() //creation singleton
@@ -28,8 +31,30 @@ public class CardDisplay : MonoBehaviour
     private void Start()
     {
         HideCard();
+        medicine_taken.gameObject.SetActive(false);
     }
 
+    public void TakeMedicine()
+    {
+        // se la medicina scelta dal DisplayEnigma (che decide l'enigma) è uguale alla medicine che viene mostrata
+        // (che viene passata qui dal ShowCard) e che cambia quella 
+        if (DisplayEnigma.instance.chosen_medicine == card_shown)
+        {
+            // GameManager.instance.task_index++;
+            // EnvironmentControl.instance.update_environment = true;
+            // GameManager.instance.literacy += GameManager.instance.incremento;
+            result.text = "Congratulations! \nYou have chosen the right potion to save the world";
+        }
+        else
+        {
+            // GameManager.instance.task_index--;
+            // EnvironmentControl.instance.update_environment = true;
+            // GameManager.instance.literacy += GameManager.instance.incremento;
+            result.text = "Oh no, you have picked the wrong potion. \nBe careful, it can be dangerous to take the wrong one!";
+        }
+        medicine_taken.gameObject.SetActive(true);
+    }
+    
     
     public void ShowCard(Medicine_Card card)
     {
@@ -45,6 +70,7 @@ public class CardDisplay : MonoBehaviour
         drug_warnings.gameObject.SetActive(true);
         drug_image.gameObject.SetActive((true));
         background.gameObject.SetActive(true);
+        card_shown = card;
     }
     
     public void HideCard()

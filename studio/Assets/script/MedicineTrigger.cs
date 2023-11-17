@@ -9,6 +9,8 @@ public class MedicineTrigger : MonoBehaviour
 {
     public Medicine_Card medicine;
     public bool showable=false;
+    private bool itischosen = false;
+    
     private void Update()
     {
         if (showable && Input.GetKeyDown(KeyCode.Space)) // se è in range e preme spazio -> show
@@ -16,8 +18,15 @@ public class MedicineTrigger : MonoBehaviour
             CardDisplay.instance.ShowCard(medicine);
             // Debug.Log(medicine.name);
         }
+
+        if (DisplayEnigma.instance.chosen_medicine == medicine)
+        {
+            itischosen = true;
+        }
     }
 
+    
+    
     private void OnTriggerEnter2D(Collider2D coll) // se è in range può mostrare
     {
         if (coll.gameObject.CompareTag("Player"))
