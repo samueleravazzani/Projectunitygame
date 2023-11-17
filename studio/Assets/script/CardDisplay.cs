@@ -14,7 +14,6 @@ public class CardDisplay : MonoBehaviour
     public TextMeshProUGUI drug_warnings;
     public Image drug_image;
     public Image background;
-    public bool showable = false;
     
     public static CardDisplay instance;
     private void Awake() //creation singleton
@@ -34,6 +33,7 @@ public class CardDisplay : MonoBehaviour
     
     public void ShowCard(Medicine_Card card)
     {
+        // Debug.Log(card.name);
         drug_name.text = card.name;
         drug_class.text = card.drug_class;
         drug_indication.text = card.drug_indication;
@@ -55,6 +55,5 @@ public class CardDisplay : MonoBehaviour
         drug_warnings.gameObject.SetActive(false);
         drug_image.gameObject.SetActive((false));
         background.gameObject.SetActive(false);
-        showable = false;
     }
 }
