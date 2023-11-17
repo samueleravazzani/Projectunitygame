@@ -28,8 +28,9 @@ public class GameManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(this.gameObject);
         
-        //
-        sum_parameters = 15;
+        // somma dei parametri
+        sum_parameters = anxiety+literacy_inverted+climate_change_skept;
+        
         /* PROBLEMA ATTUALE */
         if (task_index == 0)
         {
@@ -38,3 +39,4 @@ public class GameManager : MonoBehaviour
     }
     
 }
+
