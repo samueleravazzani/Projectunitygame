@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad15a25464d744a1f88babcaf14120cc, type: 3}
-  m_Name: Pantopraxole
+  m_Name: Pantoprazole
   m_EditorClassIdentifier: 
-  name: Pantopraxole
+  name: Pantoprazole
   drug_class: Antiulcer Agents
   drug_indication: 'Treatment of gastroesophageal reflux disease associated with
     a history of erosive esophagitis. Pantoprazole for injection is indicated for
