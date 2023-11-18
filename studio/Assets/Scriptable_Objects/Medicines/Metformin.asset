@@ -24,3 +24,4 @@ MonoBehaviour:
     unless measurement of creatinine clearance demonstrates that renal function is
     not reduced, as these patients are more susceptible to developing lactic acidosis.'
   drug_image: {fileID: 21300004, guid: ddfbfa9216e072f42a7ce092e7779067, type: 3}
+  enigmas: []
