@@ -25,6 +25,7 @@ public class DisplayEnigma : MonoBehaviour
     public int medicine_wrong = 0;
     
     public static DisplayEnigma instance;
+    private static bool showable=false;
     private void Awake() //creation singleton
     {
         if (instance != null)
@@ -41,16 +42,24 @@ public class DisplayEnigma : MonoBehaviour
         ChooseEnigma(); // devo fare in modo che questo avvenga solo quando viene cambiato il valore di medicines_to_guess
         // MA non ogni volta che guarda l'indizio
         medicines_to_guess = (int) Mathf.RoundToInt(GameManager.instance.literacy_inverted * calibration);
-        
-        
     }
 
-    public void OnTriggerStay2D(Collider2D other)
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (showable && Input.GetKeyDown(KeyCode.Return))
         {
             ShowEnigma();
         }
+    }
+
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        showable = true;
+    }
+    
+    public void OnTriggerExit2D(Collider2D other)
+    {
+        showable = false;
     }
 
     public void ChooseEnigma()
