@@ -71,9 +71,7 @@ public class CardDisplay : MonoBehaviour
         if (DisplayEnigma.instance.chosen_medicine == card_shown)
         {
             result.text = "Congratulations! \nYou have chosen the right potion to save the world! \n It was " + card_shown.name;
-            result_img.sprite = card_shown.drug_image; // /!\ image.sprite = sprite
             DisplayEnigma.instance.medicine_guessed++;
-            potions_tf.text = "Potions to find: " + (DisplayEnigma.instance.medicines_to_guess - DisplayEnigma.instance.medicine_guessed).ToString();
             if (DisplayEnigma.instance.medicine_guessed == DisplayEnigma.instance.medicines_to_guess){
                 // GameManager.instance.task_index++;
                 // EnvironmentControl.instance.update_environment = true;
@@ -83,12 +81,13 @@ public class CardDisplay : MonoBehaviour
         else
         {
             result.text = "Oh no, you have picked the wrong potion. \nBe careful, it can be dangerous to take the wrong one! \nIt was not " + card_shown.name;
-            result_img.sprite = card_shown.drug_image; // /!\ image.sprite = sprite
             if (DisplayEnigma.instance.medicine_guessed == DisplayEnigma.instance.medicines_to_guess){
                 
                 // GameManager.instance.literacy -= GameManager.instance.incremento;
             }
         }
+        result_img.sprite = card_shown.drug_image; // /!\ image.sprite = sprite
+        potions_tf.text = "Potions to find: " + (DisplayEnigma.instance.medicines_to_guess - DisplayEnigma.instance.medicine_guessed).ToString();
         HideCard();
         medicine_taken.gameObject.SetActive(true);
     }
