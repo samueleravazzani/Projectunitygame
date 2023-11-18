@@ -41,9 +41,7 @@ public class DisplayEnigma : MonoBehaviour
         ChooseEnigma(); // devo fare in modo che questo avvenga solo quando viene cambiato il valore di medicines_to_guess
         // MA non ogni volta che guarda l'indizio
         medicines_to_guess = (int) Mathf.RoundToInt(GameManager.instance.literacy_inverted * calibration);
-        Debug.Log(GameManager.instance.literacy_inverted.ToString());
-        Debug.Log((GameManager.instance.literacy_inverted * calibration).ToString());
-        Debug.Log(medicines_to_guess.ToString());
+        
         
     }
 
