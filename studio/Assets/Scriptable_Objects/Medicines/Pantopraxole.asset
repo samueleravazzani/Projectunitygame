@@ -26,3 +26,4 @@ MonoBehaviour:
     severe dermatologic reactions, including erythema multiforme, Stevens-Johnson
     syndrome, and toxic epidermal necrolysis (TEN, some fatal).
   drug_image: {fileID: 21300000, guid: ddfbfa9216e072f42a7ce092e7779067, type: 3}
+  enigmas: []
