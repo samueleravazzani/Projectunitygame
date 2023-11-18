@@ -13,6 +13,7 @@ public class DisplayEnigma : MonoBehaviour
     public Medicine_Card chosen_medicine;
     public Image paper;
     public TextMeshProUGUI enigma;
+    public TextMeshProUGUI potions_to_find;
     public int chosen_number;
     public string chosen_enigma;
     public int time_enigma_shown = 0;
@@ -40,6 +41,7 @@ public class DisplayEnigma : MonoBehaviour
         ChooseEnigma(); // devo fare in modo che questo avvenga solo quando viene cambiato il valore di medicines_to_guess
         // MA non ogni volta che guarda l'indizio
         medicines_to_guess = Mathf.RoundToInt(GameManager.instance.literacy_inverted * calibration);
+        
     }
 
     public void OnTriggerStay2D(Collider2D other)
