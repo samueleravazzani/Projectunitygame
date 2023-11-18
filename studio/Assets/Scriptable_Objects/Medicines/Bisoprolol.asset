@@ -22,6 +22,3 @@ MonoBehaviour:
     Special caution should be exercised when administering bisoprolol to patients
     with a history of severe heart failure.
   drug_image: {fileID: 21300000, guid: 6a75c99f48687db46a0570b6e6ba9c93, type: 3}
-  enigmas:
-  - It helps cardiovascular tension problems, but needs attention for people with
-    other heart issues.

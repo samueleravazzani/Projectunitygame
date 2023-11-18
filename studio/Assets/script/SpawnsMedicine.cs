@@ -20,7 +20,7 @@ public class SpawnsMedicine : MonoBehaviour
 
     private void Start()
     {
-        
+        SpawnMedicines();
     }
 
     public void SpawnMedicines()

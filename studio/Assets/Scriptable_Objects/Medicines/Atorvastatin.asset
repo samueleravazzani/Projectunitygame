@@ -22,6 +22,3 @@ MonoBehaviour:
   drug_warnings: It is contraindicated in women who are or may become pregnant. Statins
     may cause fetal harm when administered to a pregnant woman
   drug_image: {fileID: 21300014, guid: ddfbfa9216e072f42a7ce092e7779067, type: 3}
-  enigmas:
-  - It reduces the level of lipids in blood, and thus it is not indicated for pregnant
-    women.

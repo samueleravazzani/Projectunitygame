@@ -8,20 +8,11 @@ using Random = UnityEngine.Random;
 
 public class DisplayEnigma : MonoBehaviour
 {
-    /* attaccato alla chest */
     public Medicine_Card[] medicines;
     public Medicine_Card chosen_medicine;
     public Image paper;
     public TextMeshProUGUI enigma;
     public int chosen_number;
-    public string chosen_enigma;
-    public int time_enigma_shown = 0;
-    
-    /* parametrization */
-    public int medicines_to_guess;
-    private static float calibration = 8/9;
-    public int medicine_guessed = 0;
-    public int medicine_wrong = 0;
     
     public static DisplayEnigma instance;
     private void Awake() //creation singleton
@@ -31,15 +22,13 @@ public class DisplayEnigma : MonoBehaviour
             Debug.LogWarning("found more than one dialogue Manager in the scene");
         }
         instance = this;
-        medicines_to_guess = Mathf.RoundToInt(GameManager.instance.anxiety * calibration);
     }
     
     // Start is called before the first frame update
     void Start()
     {
         HideEnigma();
-        ChooseEnigma(); // devo fare in modo che questo avvenga solo quando viene cambiato il valore di medicines_to_guess
-        // MA non ogni volta che guarda l'indizio
+        ChooseEnigma();
     }
 
     public void OnTriggerStay2D(Collider2D other)
@@ -54,22 +43,14 @@ public class DisplayEnigma : MonoBehaviour
     {
         chosen_number = Random.Range(0, medicines.Length - 1);
         {
-            // medicina scelta
             chosen_medicine = medicines[chosen_number];
-            // enigma scelto
-            chosen_enigma = chosen_medicine.enigmas[Random.Range(0,chosen_medicine.enigmas.Length-1)];
         }
     }
 
     public void ShowEnigma()
     {
-        enigma.text = chosen_enigma;
+        enigma.text = "";
         paper.gameObject.SetActive(true);
-        if (time_enigma_shown == 0)
-        {
-            SpawnsMedicine.instance.SpawnMedicines();
-        }
-        time_enigma_shown++;
     }
     public void HideEnigma()
     {
