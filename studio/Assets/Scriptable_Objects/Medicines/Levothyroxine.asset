@@ -26,3 +26,14 @@ MonoBehaviour:
   drug_image: {fileID: 21300000, guid: fe7111a6ff325854ab10d5ef113db591, type: 3}
   enigmas:
   - Not adapt for people with weight issues, nor for very young people.
+  - This primarily serves as replacement therapy for congenital or acquired hypothyroidism,
+    with indications spanning primary, secondary, and tertiary levels of thyroid
+    dysfunction.
+  - Classified outside the realm of treatments for obesity or weight loss, this is
+    specifically focused on addressing thyroid-related issues, not pain or inflammation.
+  - When it comes to thyroid cancer management, this plays a supportive role as an
+    adjunct to surgery and radioiodine therapy, showcasing its specialized function
+    in endocrine health.
+  - A noteworthy cautionary note discourages the use of larger doses for weight loss,
+    emphasizing the potential for serious or life-threatening toxicity. This distinctive
+    warning sets it apart from others with different therapeutic purposes.

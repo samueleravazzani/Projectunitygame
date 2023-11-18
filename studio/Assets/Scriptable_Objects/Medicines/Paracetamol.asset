@@ -24,3 +24,15 @@ MonoBehaviour:
   drug_image: {fileID: 21300012, guid: ddfbfa9216e072f42a7ce092e7779067, type: 3}
   enigmas:
   - It can reduce not too strong pain, even for children.
+  - This is commonly employed for the treatment of mild to moderate pain and the
+    reduction of fever, making it a go-to choice for general pain management.
+  - Classified under the Nonsteroidal Antiinflammatory Drugs class, this is distinctively
+    positioned among medications that address pain and inflammation without the use
+    of steroids, differentiating it from other classes.
+  - A notable advantage is its low risk of causing allergic reactions, allowing administration
+    to patients intolerant to salicylates and those with allergic tendencies, including
+    individuals with bronchial asthma. This characteristic serves as a key identifier,
+    distinguishing it from others with different considerations for allergic reactions.
+  - A cautionary note from the U.S. Food and Drug Administration (FDA) highlights
+    a rare but serious risk of skin reactions associated with this. This specific
+    warning sets it apart from others without such reported risks.

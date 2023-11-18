@@ -29,3 +29,16 @@ MonoBehaviour:
   enigmas:
   - It is used for stomach problems, but may lead to some contraindication to some
     other parts of the body.
+  - Focused on the treatment of gastroesophageal reflux disease (GERD) with a history
+    of erosive esophagitis, this stands out for its specific indication in managing
+    this gastrointestinal condition.
+  - As a member of the Antiulcer Agents class, this is tailored for addressing issues
+    related to ulcers, setting it apart from medications with different therapeutic
+    purposes such as pain relief or anti-inflammatory effects.
+  - Watch out for potential adverse effects, with diarrhea and hyperglycemia being
+    more common in patients receiving this. This characteristic distinguishes it
+    from drugs with different reported side effects
+  - Unique warnings highlight rare but serious adverse events, including angioedema,
+    anterior ischemic optic neuropathy, and severe dermatologic reactions like erythema
+    multiforme, Stevens-Johnson syndrome, and toxic epidermal necrolysis (TEN). These
+    specific warnings help differentiate this from others in its class.
