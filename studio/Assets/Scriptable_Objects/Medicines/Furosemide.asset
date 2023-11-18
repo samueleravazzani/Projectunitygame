@@ -28,4 +28,6 @@ MonoBehaviour:
     faintness, mental confusion, lassitude, muscle cramps, headache, paresthesia,
     thirst, anorexia, nausea, and/or vomiting occur.
   drug_image: {fileID: 21300006, guid: ddfbfa9216e072f42a7ce092e7779067, type: 3}
-  enigmas: []
+  enigmas:
+  - It can be used to treat cardiovascular problems, but may lead to important losses
+    of liquids.

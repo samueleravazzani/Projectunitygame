@@ -22,4 +22,5 @@ MonoBehaviour:
     increased risk of fetal abnormalities despite adverse findings in animals, or,
     in the absence of adequate human studies, animal studies show no fetal risk. '
   drug_image: {fileID: 21300002, guid: ddfbfa9216e072f42a7ce092e7779067, type: 3}
-  enigmas: []
+  enigmas:
+  - It is used to treat pain and inflammation even in pregnant women.
