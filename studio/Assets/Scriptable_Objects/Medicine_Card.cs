@@ -10,5 +10,6 @@ public class Medicine_Card : ScriptableObject
     public string drug_indication;
     public string drug_warnings;
     public Sprite drug_image;
-    
+    public string[] enigmas;
+
 }
