@@ -20,7 +20,7 @@ public class DisplayEnigma : MonoBehaviour
     
     /* parametrization */
     public int medicines_to_guess;
-    private static float calibration = 8/9;
+    private static float calibration = 8/9f;
     public int medicine_guessed = 0;
     public int medicine_wrong = 0;
     
@@ -40,7 +40,10 @@ public class DisplayEnigma : MonoBehaviour
         HideEnigma();
         ChooseEnigma(); // devo fare in modo che questo avvenga solo quando viene cambiato il valore di medicines_to_guess
         // MA non ogni volta che guarda l'indizio
-        medicines_to_guess = Mathf.RoundToInt(GameManager.instance.literacy_inverted * calibration);
+        medicines_to_guess = (int) Mathf.RoundToInt(GameManager.instance.literacy_inverted * calibration);
+        Debug.Log(GameManager.instance.literacy_inverted.ToString());
+        Debug.Log((GameManager.instance.literacy_inverted * calibration).ToString());
+        Debug.Log(medicines_to_guess.ToString());
         
     }
 
@@ -67,6 +70,8 @@ public class DisplayEnigma : MonoBehaviour
     {
         enigma.text = chosen_enigma;
         paper.gameObject.SetActive(true);
+        potions_to_find.text = "Potions to find: " + (medicines_to_guess - medicine_guessed).ToString();
+        
         if (time_enigma_shown == 0)
         {
             SpawnsMedicine.instance.SpawnMedicines();

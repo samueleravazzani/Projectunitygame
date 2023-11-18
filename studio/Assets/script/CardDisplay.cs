@@ -19,6 +19,7 @@ public class CardDisplay : MonoBehaviour
     public Image medicine_taken;
     public TextMeshProUGUI result;
     public Image result_img;
+    public TextMeshProUGUI potions_tf;
     
     public static CardDisplay instance;
     private void Awake() //creation singleton
@@ -72,6 +73,7 @@ public class CardDisplay : MonoBehaviour
             result.text = "Congratulations! \nYou have chosen the right potion to save the world! \n It was " + card_shown.name;
             result_img.sprite = card_shown.drug_image; // /!\ image.sprite = sprite
             DisplayEnigma.instance.medicine_guessed++;
+            potions_tf.text = "Potions to find: " + (DisplayEnigma.instance.medicines_to_guess - DisplayEnigma.instance.medicine_guessed).ToString();
             if (DisplayEnigma.instance.medicine_guessed == DisplayEnigma.instance.medicines_to_guess){
                 // GameManager.instance.task_index++;
                 // EnvironmentControl.instance.update_environment = true;
@@ -83,9 +85,8 @@ public class CardDisplay : MonoBehaviour
             result.text = "Oh no, you have picked the wrong potion. \nBe careful, it can be dangerous to take the wrong one! \nIt was not " + card_shown.name;
             result_img.sprite = card_shown.drug_image; // /!\ image.sprite = sprite
             if (DisplayEnigma.instance.medicine_guessed == DisplayEnigma.instance.medicines_to_guess){
-                // GameManager.instance.task_index--;
-                // EnvironmentControl.instance.update_environment = true;
-                // GameManager.instance.literacy += GameManager.instance.incremento;
+                
+                // GameManager.instance.literacy -= GameManager.instance.incremento;
             }
         }
         HideCard();
