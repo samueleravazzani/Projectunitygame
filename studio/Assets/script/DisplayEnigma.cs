@@ -31,7 +31,6 @@ public class DisplayEnigma : MonoBehaviour
             Debug.LogWarning("found more than one dialogue Manager in the scene");
         }
         instance = this;
-        medicines_to_guess = Mathf.RoundToInt(GameManager.instance.anxiety * calibration);
     }
     
     // Start is called before the first frame update
@@ -40,6 +39,7 @@ public class DisplayEnigma : MonoBehaviour
         HideEnigma();
         ChooseEnigma(); // devo fare in modo che questo avvenga solo quando viene cambiato il valore di medicines_to_guess
         // MA non ogni volta che guarda l'indizio
+        medicines_to_guess = Mathf.RoundToInt(GameManager.instance.literacy_inverted * calibration);
     }
 
     public void OnTriggerStay2D(Collider2D other)
