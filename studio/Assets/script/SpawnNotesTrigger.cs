@@ -16,7 +16,7 @@ public class SpawnNotesTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == GameController.Instance.lastSpawnedNote.gameObject)
+        if (GameController.Instance.lastSpawnedNote != null && collision.gameObject == GameController.Instance.lastSpawnedNote.gameObject)
         {
             GameController.Instance.SpawnNotes();
         }
