@@ -10,5 +10,6 @@ True or False: "Gamification" in healthcare involves incorporating game elements
 
 
 ===answer===
-Gamification in healthcare involves incorporating game elements to motivate behavior change and increase engagement in health-related activities.
+Gamification in healthcare involves incorporating game elements to motivate behavior change
+and increase engagement in health-related activities.
 ->END

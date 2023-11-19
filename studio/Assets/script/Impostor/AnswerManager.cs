@@ -47,12 +47,6 @@ public class AnswerManager : MonoBehaviour
      {
          alreadyTalk= new bool[impostors.Count]; //inizializzazione del vettore di buleani
          //deve avere la stessa lunghezza della lista di impostori
-         
-         //Inizializzazione del vettore di booleani a false
-         /*for (int i = 0; i < impostors.Count; i++)
-         {
-             alreadyTalk[i] = false;
-         }*/
      }
 
      //FUNZIONE CHE MI PERMETTE DI GESTIRE LE RISPOSTE

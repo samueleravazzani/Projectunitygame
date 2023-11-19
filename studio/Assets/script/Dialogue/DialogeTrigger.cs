@@ -22,26 +22,6 @@ public class DialogeTrigger : MonoBehaviour //script attaccato al trigger dell'N
     
     private static DialogeTrigger instance;
     
-
-   //
-    private void Awake() //creazione del Singleton
-    {
-        if (instance != null)
-        {
-            Debug.LogWarning("find more than one dialogue Manager in the scene");
-        }
-        instance = this;
-        
-        playerInRange = false;
-        visualCue.SetActive(false);
-        
-    }
-    
-    public static DialogeTrigger GetInstance()
-    {
-        return instance;
-    }
-    
     //
     
     private void Update()
@@ -58,6 +38,8 @@ public class DialogeTrigger : MonoBehaviour //script attaccato al trigger dell'N
                 
                 randomIndex = UnityEngine.Random.Range(0, inkJSON.Length); //genero il numero per scegliere il Dialogo
                 //il numero è compreso tra 0 e la lunghezza del vettore dei dialoghi
+                
+                DialogeManager.GetInstance().PlayerInteracted(this);
 
                 //Verifico che se l'NPC fa parte degli impostori e se ho già interagito, allora non ci posso parlare ancora
                if (AnswerManager.GetInstance().impostors.Contains(nameNPC) &&
@@ -73,6 +55,7 @@ public class DialogeTrigger : MonoBehaviour //script attaccato al trigger dell'N
                      !AnswerManager.GetInstance().alreadyTalk[AnswerManager.GetInstance().impostors.IndexOf(nameNPC)]))
                 {
                     DialogeManager.GetInstance().EnterDialogueMode(inkJSON[randomIndex]);
+                   
                 }
             }
         }

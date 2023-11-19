@@ -2,7 +2,9 @@
 
 //file JSON indice pari
 ===main===
-Digital Literacy Question: What is the purpose of a cookie in internet terms? Cookies are small text files that websites store on your computer to remember your preferences and login information for future visits.
+Digital Literacy Question:
+What is the purpose of a cookie in internet terms?
+Cookies are small text files that websites store on your computer to remember your preferences and login information for future visits.
     + [True]
         Correct,->answer
     +[False]

@@ -33,6 +33,7 @@ public class DialogeManager : MonoBehaviour
     
    public string nameNPC; //variabile di debug per salvare la variabile nameNPC del Dialogue Trigger
    public int randomIndex; //variabile di debug per salvare la variabile randomIndex del Dialogue Trigger
+   private DialogeTrigger currentDialogeTrigger;
 
    //INIZIO CODICE
    
@@ -86,7 +87,25 @@ public class DialogeManager : MonoBehaviour
    
    
    //FUNZIONE PER ENTRARE NEL DIALOGO
+   
+   
+   //funzione che serve per prendere le informazioni dal dialogue trigger riguardanti l'NPC
+   //con cui il player ha interagito e l'indice del file inkJSON che è stato passato.
+   public void PlayerInteracted(DialogeTrigger dialogeTrigger)
+   {
+      // Il player ha interagito con un NPC, riceviamo il riferimento a DialogeTrigger
+      currentDialogeTrigger = dialogeTrigger;
 
+      // Ora puoi accedere a nameNPC o altre variabili specifiche di quest'NPC
+      if (currentDialogeTrigger != null)
+      {
+         nameNPC = currentDialogeTrigger.nameNPC;
+         Debug.Log("Nome dell'NPC: " + nameNPC);
+         randomIndex = currentDialogeTrigger.randomIndex;
+         Debug.Log("randomIndex: "+randomIndex.ToString());
+      }
+   }
+   
    public void EnterDialogueMode(TextAsset inkJSON)  
    {  //Prende in ingresso il file ink attaccato al trigger dell'NPC; questa funzione viene chiamata
       //all'interno del Dialogue Trigger
@@ -186,21 +205,11 @@ public class DialogeManager : MonoBehaviour
       
       choicemade = choiceIndex; //variabile che salva l'indice della scelta effettuata
       
-      //salvataggio delle variabili di debug
-      nameNPC = DialogeTrigger.GetInstance().nameNPC.ToString();
-      randomIndex = DialogeTrigger.GetInstance().randomIndex;
-      
-      Debug.Log("nome salvato:"+nameNPC.ToString());
-      Debug.Log("randomIndex salvato:"+randomIndex.ToString());
-      
-      
       //Una volta effettuata la scelta viene chiamata la funzione presente nell'AnswerManager che mi permette
       //di gestire il gioco vero o falso, tenendo traccia della scelta che ha effettuato il player, oltre al file
       //a cui ha risposto e all'NPC con cui il player ha interagito.
       
-      AnswerManager.GetInstance().Answertracking(DialogeTrigger.GetInstance().nameNPC,choicemade,
-         DialogeTrigger.GetInstance().randomIndex);
-      
+      AnswerManager.GetInstance().Answertracking(nameNPC,choicemade,randomIndex);
       
       currentStory.ChooseChoiceIndex(choiceIndex); //fa andare avanti il dialogo in base alla scelta effettuata
    }
