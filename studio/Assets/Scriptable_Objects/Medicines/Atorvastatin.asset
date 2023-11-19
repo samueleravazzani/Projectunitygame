@@ -19,6 +19,25 @@ MonoBehaviour:
     hypertriglyceridemia, primary dysbetalipoproteinemia, homozygous familial hypercholesterolemia,
     and heterozygous familial hypercholesterolemia in adolescent patients with failed
     dietary modifications.
-  drug_warnings: It is contraindicated in women who are or may become pregnant. Statins
-    may cause fetal harm when administered to a pregnant woman
+  drug_warnings: Lactic acidosis is a rare, but serious, metabolic complication that
+    can occur due to metformin accumulation during treatment with metformin; when
+    it occurs, it is fatal in approximately 50% of cases. Metformin tablets, USP
+    treatment should not be initiated in patients = 80 years of age unless measurement
+    of clearance demonstrates that renal function is not reduced, as these patients
+    are more susceptible to developing lactic acidosis.
   drug_image: {fileID: 21300014, guid: ddfbfa9216e072f42a7ce092e7779067, type: 3}
+  enigmas:
+  - It reduces the level of lipids in blood, and thus it is not indicated for pregnant
+    women.
+  - Tailored for the treatment of various dyslipidemias, including primary hyperlipidemia
+    and mixed dyslipidemia in adults, this has a broad spectrum of use in managing
+    lipid-related disorders.
+  - As a representative of the Antilipemic Agents class, this is specifically designed
+    to address lipid imbalances, setting it apart from drugs with different therapeutic
+    focuses such as pain relief or anti-inflammatory effects.
+  - A crucial warning stands out, highlighting the contraindication for use in women
+    who are pregnant or may become pregnant. This notable precaution helps distinguish
+    it from others with different considerations for pregnant individuals.
+  - Particularly relevant for adolescent patients with failed dietary modifications,
+    this extends its application to treat heterozygous familial hypercholesterolemia,
+    showcasing its versatility in managing lipid disorders in different age groups.

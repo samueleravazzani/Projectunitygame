@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Cameranodestroy : MonoBehaviour
 {
     public static Cameranodestroy instance;
+    public static CinemachineConfiner2D confine;
     
     void Awake()
     {
@@ -17,5 +20,7 @@ public class Cameranodestroy : MonoBehaviour
         instance = this;
         DontDestroyOnLoad((this.gameObject)); // if I am changing this scene, do NOT destroy this object.
         // otherwise this object will be destroyed
-    }   
+    }
+
+    
 }

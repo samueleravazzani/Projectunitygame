@@ -13,9 +13,22 @@ MonoBehaviour:
   m_Name: Acetylsalicylic acid
   m_EditorClassIdentifier: 
   name: 'Acetylsalicylic acid '
-  drug_class: Antithrombotic Agents, Antiinflammatory Agents, Salicylates
-  drug_indication: Pain, fever, and inflammation
-  drug_warnings: It is recommended that salicylate therapy not be initiated in febrile
-    pediatric or adolescent patients until after the presence of such an illness
-    has been ruled out.
+  drug_class: Antithrombotic Agents, Antiinflammatory Agents, Salicylates.
+  drug_indication: Pain, fever, and inflammation.
+  drug_warnings: It is recommended not to initiate therapy in febrile pediatric or
+    adolescent patients until after the presence of such an illness has been ruled
+    out.
   drug_image: {fileID: 21300000, guid: 606b04b3b76269142b2dc03a8d212b4e, type: 3}
+  enigmas:
+  - 'Can reduce pain but cannot be managed by young people. It can reduce pain and
+    inflammation of many kinds. '
+  - This is is a multi-tasker, addressing pain, fever, and inflammation, making it
+    a versatile option for various conditions.
+  - Belonging to the classes of Antithrombotic Agents, Antiinflammatory Agents, and
+    Salicylates, this is a powerful player in managing a range of health issues.
+  - "If you're considering this for young ones with a fever, exercise caution \u2013
+    it's advised to rule out other illnesses before initiating therapy in febrile
+    pediatric or adolescent patients."
+  - 'Here''s a clue: think of the common household remedy for pain relief; if it
+    fits the bill for pain, fever, and inflammation, and falls under the mentioned
+    medication classes, you might have the answer.'
