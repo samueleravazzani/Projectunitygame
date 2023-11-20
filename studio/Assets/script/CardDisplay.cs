@@ -72,6 +72,7 @@ public class CardDisplay : MonoBehaviour
         {
             result.text = "Congratulations! \nYou have chosen the right potion to save the world! \n It was " + card_shown.name;
             DisplayEnigma.instance.medicine_guessed++;
+            DisplayEnigma.instance.HideLittleChest();
             if (DisplayEnigma.instance.medicine_guessed == DisplayEnigma.instance.medicines_to_guess){
                 // GameManager.instance.task_index++;
                 // EnvironmentControl.instance.update_environment = true;

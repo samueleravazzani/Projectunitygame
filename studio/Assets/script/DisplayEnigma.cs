@@ -56,7 +56,10 @@ public class DisplayEnigma : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        showable = true;
+        if (medicine_guessed != medicines_to_guess)
+        {
+            showable = true;
+        }
     }
     
     public void OnTriggerExit2D(Collider2D other)
@@ -86,6 +89,7 @@ public class DisplayEnigma : MonoBehaviour
             SpawnsMedicine.instance.SpawnMedicines();
         }
         time_enigma_shown++;
+        ShowLittleChest();
     }
     public void HideEnigma()
     {
