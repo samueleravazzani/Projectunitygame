@@ -12,7 +12,7 @@ public class ScoreUI : MonoBehaviour
     private void Update()
     {
         // Update the text of the counter with the current value of collectedCount.
-        scoreText.text = "Rubbish collected: " + collectedCount;
+        scoreText.text = "Rubbish to collect: " + collectedCount;
     }
 
     public void UpdateCount(int amount)

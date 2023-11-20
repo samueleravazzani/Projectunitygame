@@ -7,23 +7,20 @@ using UnityEngine.SceneManagement;
 public class Collect : MonoBehaviour
 {
     private ScoreUI scoreUI;
-    //private ScoreUI scoreUIfriend;
+    
     private bool gameFinished = false;
     public ParticleSystem particleSystem; 
     public ParticleSystem particleSystemFriends;
     public GameObject gameOverCanvas; // Reference to the Canvas object that displays the game over message.
-    public GameObject gameOverCanvas2;
-    private int trashCount = 0;
-    private int friendsCount = 0;
+  
 
     private void Start()
     {
         // Find and assign a reference to the ScoreUI script in the scene.
         scoreUI = FindObjectOfType<ScoreUI>();
-        //scoreUIfriend = FindObjectOfType<ScoreUI>();
+        
         // Deactivate the Canvas object at the start of the game.
         gameOverCanvas.SetActive(false);
-        gameOverCanvas2.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -43,9 +40,7 @@ public class Collect : MonoBehaviour
 
             // Destroy the collected trash GameObject.
             Destroy(other.gameObject);
-            trashCount++; // Increment the "trash" counter by 1.
-            // Update the "trash" counter in the ScoreUI script.
-            scoreUI.UpdateCount(1);
+            scoreUI.UpdateCount(-1);
         }
         else if (other.CompareTag("friends"))
         {
@@ -57,39 +52,26 @@ public class Collect : MonoBehaviour
 
             // Destroy the collected friend GameObject.
             Destroy(other.gameObject);
-            friendsCount++; // Increment the "friends" counter by 1.
-            Debug.Log("Friends Count: " + friendsCount);
-
-            // Call the function to update the "friends" counter in the FriendsScoreUI script.
-            FindObjectOfType<FriendsScoreUI>().UpdateFriendsCount(1);
-        }
-
-        if (trashCount == 5) 
-        {
-            Debug.Log("You either collected 3 friends or all the required rubbish! The game is finished.");
-            gameFinished = true;
-            //Time.timeScale = 0f; // Pause the game.
-            gameOverCanvas.SetActive(true); // Activate the game over Canvas.
-            // Invoca la función para cambiar a la escena 'MainMap' después de 5 segundos.
-            Invoke("ChangeToMainMap", 5f);
+            scoreUI.UpdateCount(1);
             
         }
-        else if (friendsCount == 3)
+
+        if (scoreUI.collectedCount == 0)
         {
-            Debug.Log("You either collected 3 friends or all the required rubbish! The game is finished.");
+            Debug.Log("Counter reached 0! The game is finished.");
             gameFinished = true;
-            //Time.timeScale = 0f; // Pause the game.
-            gameOverCanvas2.SetActive(true); // Activate the game over Canvas.
-            // Invoca la función para cambiar a la escena 'MainMap' después de 5 segundos.
+            
+            // Activa el Canvas de Game Over y muestra el mensaje.
+            gameOverCanvas.SetActive(true);
             Invoke("ChangeToMainMap", 5f);
         }
+
+        
     }
     
     private void ChangeToMainMap()
     {
-       // Restaura el tiempo del juego a su velocidad normal antes de cambiar a la escena 'MainMap'.
-        //Time.timeScale = 1f;
-
+      
         // Cambia a la escena 'MainMap'
         SceneManager.LoadScene("MainMap");
     }

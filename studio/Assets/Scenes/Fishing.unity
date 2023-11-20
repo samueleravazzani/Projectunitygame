@@ -1242,7 +1242,6 @@ MonoBehaviour:
   particleSystem: {fileID: 1289655475}
   particleSystemFriends: {fileID: 1088706640}
   gameOverCanvas: {fileID: 1377819465}
-  gameOverCanvas2: {fileID: 1941342967}
 --- !u!50 &438418646
 Rigidbody2D:
   serializedVersion: 4
@@ -7955,7 +7954,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -467, y: -427}
+  m_AnchoredPosition: {x: -479, y: -515}
   m_SizeDelta: {x: 922.131, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1233576718
@@ -7991,7 +7990,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Rubbish Collected: 0'
+  m_Text: 'Rubbish to collect: '
 --- !u!222 &1233576719
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13525,7 +13524,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1429637876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14089,7 +14088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1233576718}
-  collectedCount: 0
+  collectedCount: 5
 --- !u!222 &1638642498
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14961,8 +14960,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -487, y: -559}
-  m_SizeDelta: {x: 876.1012, y: 211.4613}
+  m_AnchoredPosition: {x: -1469.801, y: -605.89026}
+  m_SizeDelta: {x: 700.4991, y: 71.2419}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1875455790
 MonoBehaviour:
