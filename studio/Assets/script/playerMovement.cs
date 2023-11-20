@@ -13,7 +13,8 @@ public class playerMovement : MonoBehaviour
     public CinemachineVirtualCamera Camera;
     public Collider2D worldBorders;
     private Vector2 movement;
-    private float[] xlim = new float[] {-20f, 28f}, ylim = new float[] {-15f, 20.5f};
+    // private float[] xlim = new float[] {-20f, 28f}, ylim = new float[] {-15f, 20.5f};
+    private float tolerance = 1f;
     
     public static playerMovement instance;
 
@@ -31,12 +32,15 @@ public class playerMovement : MonoBehaviour
 
     void Update()
     {//input
-        movement.x=Input.GetAxisRaw("Horizontal");
-        movement.y=Input.GetAxisRaw("Vertical");
         
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+        
+
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", movement.sqrMagnitude);
+    
     }
 
     private void FixedUpdate()
@@ -45,7 +49,30 @@ public class playerMovement : MonoBehaviour
         {
             return;
         }
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+
+        Vector2 nextPosition = rb.position + movement * moveSpeed * Time.fixedDeltaTime;
+
+        if (SceneManager.GetActiveScene().name == "MainMap") // check the scene is the MainMap
+        { 
+            // Check if the next position is within the specified bounds 
+        if (IsWithinBounds(nextPosition))
+        {
+            // Move the player
+            rb.MovePosition(nextPosition);
+        }
+        }
+        else // if it is not the MainMap = it is a scene with colliders around -> move
+        {
+            rb.MovePosition(nextPosition);
+        }
+    }
+
+    private bool IsWithinBounds(Vector2 position)
+    {
+        return position.x < worldBorders.bounds.max.x - tolerance &&
+               position.x > worldBorders.bounds.min.x + tolerance &&
+               position.y < worldBorders.bounds.max.y - tolerance &&
+               position.y > worldBorders.bounds.min.y + tolerance;
     }
 
     private void OnTriggerStay2D(Collider2D coll)

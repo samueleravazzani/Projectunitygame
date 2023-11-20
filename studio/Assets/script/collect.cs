@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Collect : MonoBehaviour
 {
@@ -67,16 +68,29 @@ public class Collect : MonoBehaviour
         {
             Debug.Log("You either collected 3 friends or all the required rubbish! The game is finished.");
             gameFinished = true;
-            Time.timeScale = 0; // Pause the game.
+            //Time.timeScale = 0f; // Pause the game.
             gameOverCanvas.SetActive(true); // Activate the game over Canvas.
+            // Invoca la función para cambiar a la escena 'MainMap' después de 5 segundos.
+            Invoke("ChangeToMainMap", 5f);
             
         }
         else if (friendsCount == 3)
         {
             Debug.Log("You either collected 3 friends or all the required rubbish! The game is finished.");
             gameFinished = true;
-            Time.timeScale = 0; // Pause the game.
+            //Time.timeScale = 0f; // Pause the game.
             gameOverCanvas2.SetActive(true); // Activate the game over Canvas.
+            // Invoca la función para cambiar a la escena 'MainMap' después de 5 segundos.
+            Invoke("ChangeToMainMap", 5f);
         }
+    }
+    
+    private void ChangeToMainMap()
+    {
+       // Restaura el tiempo del juego a su velocidad normal antes de cambiar a la escena 'MainMap'.
+        //Time.timeScale = 1f;
+
+        // Cambia a la escena 'MainMap'
+        SceneManager.LoadScene("MainMap");
     }
 }

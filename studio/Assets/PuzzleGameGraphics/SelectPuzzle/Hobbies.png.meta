@@ -272,7 +272,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Hobbies_0: 4815584827769185919
+      Hobbies_1: -6513786357811312694
+      Hobbies_2: 7701550360041979572
+      Hobbies_3: -780540809964257321
+      Hobbies_4: 2442874168377627499
+      Hobbies_5: -1807738713017977546
+      Hobbies_6: 1273398946789407052
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

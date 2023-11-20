@@ -25,7 +25,7 @@ public class QuizManager : MonoBehaviour
     //I don't now how to handle it private
     private const int maxAnswerOptions = 4; //RELATED TO BEFORE!
     public int currentQuestion; //nteger to keep track of the current question index.
-
+    
     public GameObject Quizpanel;
     public GameObject GoPanel;
     //GameObjects representing the quiz panel and game over panel. Attach in the inspector
@@ -47,6 +47,17 @@ public class QuizManager : MonoBehaviour
     
     public string sceneName; //A string variable to specify the name of the scene to load after the quiz ends.
     
+    // Reference to the AudioSource component
+    private AudioSource audioSource;
+
+    // Reference to the audio clip
+    public AudioClip myAudioClip;
+    
+    
+    // Make audio clips public to assign them in the Unity inspector
+    public AudioClip correctSound;
+    public AudioClip wrongSound;
+    
     private void Start()
     {
         SetSelectedProblemType(selectedProblemType); // Call the method that sets the selected problem type, stored in the variable selectedproblem type  
@@ -55,6 +66,15 @@ public class QuizManager : MonoBehaviour
         totalQuestions = qnA.Count; //count how many question are in the quiz; this variable will be useful after to handle the display on the total of the score and of the questions
         GoPanel.SetActive(false); //deactivate the gameoverpanel so to see only the one of the quiz
         GenerateQuestion(); //call the generation of the question method 
+        
+        // Get the AudioSource component on this GameObject
+        audioSource = GetComponent<AudioSource>();
+
+        // Assign the audio clip to the AudioSource component
+        audioSource.clip = myAudioClip;
+
+        // Play the audio
+        audioSource.Play();
     }
 
     private void LoadQuestionsFromCSV(int selectedProblemType, int numberOfQuestionsToSelect)

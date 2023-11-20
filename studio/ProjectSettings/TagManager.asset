@@ -6,21 +6,14 @@ TagManager:
   tags:
   - Spawnarea
   - To_Cave
-  - Paracetamol
-  - Furosemide
-  - Diclofenac
-  - Atorvastatin
-  - Pantopraxole
-  - Bisoprolol
-  - Levothyroxine
-  - Metformin
-  - Acetylsalicylic acid
   - red
   - trash
   - enemies
   - friends
   - To_MainMap
-  - Cell
+  - Fondo
+  - Medicine
+  - Note
   layers:
   - Default
   - TransparentFX

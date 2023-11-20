@@ -9,82 +9,118 @@ public class EnvironmentControl : MonoBehaviour
     public GameObject effect_empty;
     public Sprite[] fire; // 1
     public Sprite[] plastic; // 2
-    public Sprite[] water; // 3
-    public Sprite[] pollution; // 4
-    public Sprite[] air; // 5
-    public ParticleSystem rain; // 6
+    public ParticleSystem pollution; // 3
+    public ParticleSystem air; // 4
+    public ParticleSystem rain; // 4
     
     // vettore di colori
-    private Color[] fireColors = {new Color(0.91509f, 0.3151032f, 0.3151032f), new Color (0.9433962f, 0.4850481f,  0.4850481f), new Color (1.0f,1.0f,1.0f)};
+    // caso 1
+    private Color[] fireColors = {new Color(0.91509f, 0.3151032f, 0.3151032f), new Color (0.9433962f, 0.3850481f,  0.3850481f), new Color (0.9433962f, 0.4850481f,  0.4850481f)};
+    // caso 2
     private Color[] plasticColors = {new Color (1.0f,1.0f,1.0f), new Color (1.0f,1.0f,1.0f), new Color (1.0f,1.0f,1.0f)};
-    private Color[] waterColors = {new Color(0.3495016f, 0.6860042f, 0.9622642f), new Color (0.5189569f, 0.7425412f,  0.9245283f), new Color (1.0f,1.0f,1.0f)};
-    private Color[] pollutionColors = {new Color (0.3018868f,0.3018868f,0.3018868f), new Color (0.5849056f,0.5849056f,0.5849056f), new Color (1.0f,1.0f,1.0f)};
-    private Color[] airColors = {new Color(0.7075472f, 0.7075472f, 0.7075472f), new Color (0.8679245f, 0.8679245f,  0.8679245f), new Color (1.0f,1.0f,1.0f)};
-    private Color[] rainColors = {new Color(0.3495016f, 0.6860042f, 0.9622642f), new Color (0.5189569f, 0.7425412f,  0.9245283f), new Color (1.0f,1.0f,1.0f)};
+    // caso 3
+    private Color[] pollutionColors = {new Color (0.3018868f,0.3018868f,0.3018868f), new Color (0.45f,0.45f,0.45f), new Color (0.5849056f,0.5849056f,0.5849056f)};
+    // caso 4
+    private Color[] rainColors = {new Color(0.3495016f, 0.6860042f, 0.9622642f), new Color (0.4189569f, 0.7025412f,  0.9245283f), new Color (0.5189569f, 0.7425412f,  0.9245283f)};
     
     private float[] xlim = new float[] {-20f, 28f}, ylim = new float[] {-15f, 20.5f};
 
 
     public PolygonCollider2D Locations;
-    private int[] problems = new int[] {0, 1, 2, 3, 4, 5, 6};
+    /* PROBLEMS */
     // 1 = fire, 2 = plastic, 3 = water, 4 = pollution, 5 = air, 6 = rain;
-    private int problem_now = 6; // /!\ ATTUALE PROBLEMA
-    public static int N_tospawn = 200; // questo cambia durante il gioco /!\
-    public static float level_anxiety = 0f, calibration_anxiety = -7f;
-    public static bool update_camera_bool = true;
-    public static int color_index=0;
+     // /!\ ATTUALE PROBLEMA
+    private int[] N_tospawn; // questo cambia durante il gioco /!\
+    private float[] smokeRot;
+    private float[] windRot;
+    private float[] rainRot;
+    private float[] level_anxiety = new float[] {0,0,0,0};
+    private  float calibration_anxiety = -70/9f;
+    public bool update_camera_bool = true; // /!\ IMPORTANTE, lo devo aggiornare anche dove faccio GameManager.instance.task_index++
     public static bool destroy_obj;
-
-
-    void Awake()
-    {
-        
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
-        if (update_camera_bool)
+  
+        if (GameManager.instance.task_index == 0)
         {
+            /* A GIOCO PRONTO */ 
+            N_tospawn = new int[] {(int) GameManager.instance.sum_parameters * 14, (int) GameManager.instance.sum_parameters * 9, (int) GameManager.instance.sum_parameters * 6, 0};
+            
+            smokeRot = new float[] {GameManager.instance.sum_parameters * 4, GameManager.instance.sum_parameters * 3, GameManager.instance.sum_parameters * 2, 0};
+            windRot = new float[] {GameManager.instance.sum_parameters * 7, GameManager.instance.sum_parameters * 5, GameManager.instance.sum_parameters * 3, 0};
+            rainRot = new float[] {GameManager.instance.sum_parameters * 10, GameManager.instance.sum_parameters * 6, GameManager.instance.sum_parameters * 3, 0};
+
+            level_anxiety = new float[] { GameManager.instance.anxiety, GameManager.instance.anxiety*2/3, GameManager.instance.anxiety/3, 0 };
+            if (GameManager.instance.anxiety == 1) // 1:minimo dell'ansia -> non ha ansia
+            {
+                level_anxiety = new float[] {0,0,0,0};
+            }
+        }
+        
+        if (update_camera_bool) // /!\ IMPORTANTE, lo devo aggiornare anche dove faccio GameManager.instance.task_index++
+        {
+            if (GameManager.instance.task_index == 3)
+            {
+                GameManager.instance.problem_now = 0; // tutto a posto
+            }
             destroy_obj = false; // lo risetto false nella scena dopo
-            UpdateEnvironment();
+            
+            StartCoroutine(UpdateEnvironment());
+            
         }
     }
 
-    private void UpdateEnvironment()
+    IEnumerator UpdateEnvironment()
     {
-        switch (problem_now)
+        destroy_obj = false; // nel caso del secondo giro non distrugge gli oggetti 
+        
+        // Process case 0
+        destroy_obj = true;
+        CameraEnvironment(new Color(1.0f, 1.0f, 1.0f));
+        update_camera_bool = false;
+        yield return null; // Wait for the end of the frame
+
+        // Process another case (1, 2, or 3)
+        destroy_obj = false;
+        switch (GameManager.instance.problem_now)
         {
-            case 0:
+            case 0: // tutto a posto
                 destroy_obj = true;
+                CameraEnvironment(new Color(1.0f, 1.0f, 1.0f));
                 break;
             case 1: // FIRE
-                SpawnWithinCollider(fire, N_tospawn);
-                CameraEnvironment(fireColors[color_index]);
+                SpawnWithinCollider(fire, N_tospawn[GameManager.instance.task_index]);
+                CameraEnvironment(fireColors[GameManager.instance.task_index]);
                 break;
             case 2: // PLASTIC
-                Spawn(plastic, N_tospawn);
-                CameraEnvironment(plasticColors[color_index]);
+                Spawn(plastic, N_tospawn[GameManager.instance.task_index]);
+                CameraEnvironment(plasticColors[GameManager.instance.task_index]);
                 break;
-            case 3: // WATER
-                Spawn(water, N_tospawn);
-                CameraEnvironment(waterColors[color_index]);
+            case 3: // POLLUTION
+                ParticleSystem ptspoll = Instantiate(pollution, new Vector3(-31.5f, 4.5f, -1f),
+                    Quaternion.Euler(0, 90, 90));
+                var emissionpoll = ptspoll.emission; // /!\ PURTROPPO non si può modificare direttamente ma va estratto così
+                emissionpoll.rateOverTime = smokeRot[GameManager.instance.task_index];
+                CameraEnvironment(pollutionColors[GameManager.instance.task_index]);
                 break;
-            case 4: // POLLUTION
-                // Spawn(pollution, N_tospawn);
-                CameraEnvironment(pollutionColors[color_index]);
-                break;
-            case 5: // AIR
-                // Spawn(air, N_tospawn);
-                CameraEnvironment(airColors[color_index]);
-                break;
-            case 6: // RAIN
-                Instantiate(rain, new Vector3(0, 30, -1), transform.rotation);
-                CameraEnvironment(rainColors[color_index]);
+            case 4: // AIR + RAIN
+                ParticleSystem ptsair = Instantiate(air, new Vector3(-30, -2, -1), Quaternion.Euler(0, 90, 90));
+                var emissionair = ptsair.emission;
+                emissionair.rateOverTime = windRot[GameManager.instance.task_index];
+                ParticleSystem ptsrain = Instantiate(rain, new Vector3(0, 30, -1), transform.rotation);
+                var emissionrain = ptsrain.emission;
+                emissionrain.rateOverTime = rainRot[GameManager.instance.task_index];
+                CameraEnvironment(rainColors[GameManager.instance.task_index]);
                 break;
         }
-        CameraAnxiety(level_anxiety * calibration_anxiety);
+
+        // regulate saturation according to anxiety level
+        CameraAnxiety(level_anxiety[GameManager.instance.task_index] * calibration_anxiety);
         update_camera_bool = false;
+        
     }
 
     private void CameraAnxiety(float level) // changes saturation

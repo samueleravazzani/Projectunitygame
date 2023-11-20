@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ResetGameProgressButton_0: 1919077439033282384
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

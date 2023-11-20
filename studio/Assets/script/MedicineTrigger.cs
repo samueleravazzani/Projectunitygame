@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,13 +7,38 @@ using UnityEngine.UI;
 
 public class MedicineTrigger : MonoBehaviour
 {
+    public Medicine_Card medicine;
+    public bool showable=false;
+    private bool itischosen = false;
     
-    private void OnTriggerStay2D(Collider2D coll)
+    private void Update()
     {
-        if (coll.gameObject.CompareTag("Player") && Input.GetKeyDown(KeyCode.Return))
+        if (showable && Input.GetKeyDown(KeyCode.Return)) // se è in range e preme spazio -> show
         {
-            CardDisplay.medicine_name = "Paracetamol";
-            CardDisplay.showcard = true;
+            CardDisplay.instance.ShowCard(medicine);
+            // Debug.Log(medicine.name);
+        }
+
+        if (DisplayEnigma.instance.chosen_medicine == medicine)
+        {
+            itischosen = true;
+        }
+    }
+
+    
+    
+    private void OnTriggerEnter2D(Collider2D coll) // se è in range può mostrare
+    {
+        if (coll.gameObject.CompareTag("Player"))
+        {
+            showable = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D coll) // se esce dal range non può mostrare
+    {
+        if (coll.gameObject.CompareTag("Player"))
+        {
+            showable = false;
         }
     }
 }

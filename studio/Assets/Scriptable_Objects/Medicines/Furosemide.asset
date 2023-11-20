@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad15a25464d744a1f88babcaf14120cc, type: 3}
+  m_Name: Furosemide
+  m_EditorClassIdentifier: 
+  name: Furosemide
+  drug_class: Diuretics/Medicine used in heart failure
+  drug_indication: 'Furosemide is indicated for the treatment of edema associated
+    with congestive heart failure, cirrhosis of the liver, and renal disease, including
+    the nephrotic syndrome, in adults and pediatric patients. Oral furosemide is
+    indicated alone for the management of mild to moderate hypertension or severe
+    hypertension in combination with other antihypertensive medications. '
+  drug_warnings: It is a potent diuretic which, if given in excessive amounts, can
+    lead to a profound diuresis with water and electrolyte depletion. Excessive diuresis
+    may cause dehydration and blood volume reduction with circulatory collapse and
+    possibly vascular thrombosis and embolism, particularly in elderly patients.
+    Patients should be informed of the signs and symptoms of electrolyte imbalance
+    and instructed to report to their physicians if weakness, dizziness, fatigue,
+    faintness, mental confusion, lassitude, muscle cramps, headache, paresthesia,
+    thirst, anorexia, nausea, and/or vomiting occur.
+  drug_image: {fileID: 21300006, guid: ddfbfa9216e072f42a7ce092e7779067, type: 3}
+  enigmas:
+  - It can be used to treat cardiovascular problems, but may lead to important losses
+    of liquids.
+  - This takes the spotlight in treating edema associated with congestive heart failure,
+    cirrhosis of the liver, and renal diseases, encompassing both adult and pediatric
+    patients.
+  - Classified under Diuretics and Medicines used in heart failure, this is specifically
+    designed to address fluid retention and heart-related issues, setting it apart
+    from others with different therapeutic focuses.
+  - A potent diuretic, if administered excessively, it can lead to profound diuresis,
+    risking water and electrolyte depletion. This cautionary note distinguishes it
+    from others with different mechanisms of action or potential side effects.
+  - Patients using this should be vigilant for signs and symptoms of electrolyte
+    imbalance, including weakness, dizziness, fatigue, and muscle cramps. This emphasis
+    on monitoring and reporting specific symptoms serves as a crucial identifier
+    for this.
