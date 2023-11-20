@@ -77,6 +77,10 @@ public class CardDisplay : MonoBehaviour
                 // EnvironmentControl.instance.update_environment = true;
                 // GameManager.instance.literacy += GameManager.instance.incremento;
             }
+            else{
+                DisplayEnigma.instance.ChooseEnigma(); // scelgo un altro enigma solo se ho altri enigmi da trovare
+            }
+            
         }
         else
         {

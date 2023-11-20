@@ -17,6 +17,7 @@ public class DisplayEnigma : MonoBehaviour
     public int chosen_number;
     public string chosen_enigma;
     public int time_enigma_shown = 0;
+    public Button little_chest;
     
     /* parametrization */
     public int medicines_to_guess;
@@ -39,6 +40,7 @@ public class DisplayEnigma : MonoBehaviour
     void Start()
     {
         HideEnigma();
+        HideLittleChest();
         ChooseEnigma(); // devo fare in modo che questo avvenga solo quando viene cambiato il valore di medicines_to_guess
         // MA non ogni volta che guarda l'indizio
         medicines_to_guess = (int) Mathf.RoundToInt(GameManager.instance.literacy_inverted * calibration);
@@ -88,5 +90,15 @@ public class DisplayEnigma : MonoBehaviour
     public void HideEnigma()
     {
         paper.gameObject.SetActive(false);
+    }
+    
+    public void ShowLittleChest()
+    {
+        little_chest.gameObject.SetActive(true);
+    }
+    
+    public void HideLittleChest()
+    {
+        little_chest.gameObject.SetActive(false);
     }
 }
