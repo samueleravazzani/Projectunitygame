@@ -272,7 +272,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tornado_0: 715368135737836640
+      tornado_1: -6309994406216402850
+      tornado_2: -8146329417134413000
+      tornado_3: 6174124654450928253
+      tornado_4: -8508149933846727963
+      tornado_5: -1986224622491227114
+      tornado_6: 6961960587225321616
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
