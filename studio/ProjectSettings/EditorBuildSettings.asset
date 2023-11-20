@@ -23,5 +23,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Cave.unity
     guid: 3878caecae6094111a36881610bc4323
+  - enabled: 1
+    path: Assets/Scenes/Leaf.unity
+    guid: b023a4bb34cd2dc49856fcdb6143680a
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

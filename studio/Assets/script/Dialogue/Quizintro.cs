@@ -12,7 +12,7 @@ public class Quizintro : MonoBehaviour
     private bool first;
     
     public string sceneName;
-
+    
     private void Start()
     {
         first = false;

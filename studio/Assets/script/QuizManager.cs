@@ -25,7 +25,7 @@ public class QuizManager : MonoBehaviour
     //I don't now how to handle it private
     private const int maxAnswerOptions = 4; //RELATED TO BEFORE!
     public int currentQuestion; //nteger to keep track of the current question index.
-
+    
     public GameObject Quizpanel;
     public GameObject GoPanel;
     //GameObjects representing the quiz panel and game over panel. Attach in the inspector

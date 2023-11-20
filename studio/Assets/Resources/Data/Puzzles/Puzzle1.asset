@@ -13,66 +13,73 @@ MonoBehaviour:
   m_Name: Puzzle1
   m_EditorClassIdentifier: 
   timeInSeconds: 0
-  Columns: 5
-  Rows: 10
+  Columns: 8
+  Rows: 6
   Board:
-  - Size: 10
+  - Size: 6
     Row:
-    - 
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-  - Size: 10
+    - C
+    - A
+    - L
+    - M
+    - U
+    - S
+  - Size: 6
     Row:
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-  - Size: 10
+    - R
+    - S
+    - N
+    - U
+    - K
+    - E
+  - Size: 6
     Row:
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-  - Size: 10
+    - U
+    - Y
+    - N
+    - L
+    - J
+    - R
+  - Size: 6
     Row:
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-  - Size: 10
+    - Z
+    - V
+    - E
+    - W
+    - A
+    - E
+  - Size: 6
     Row:
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
-    - ' '
+    - C
+    - L
+    - S
+    - W
+    - K
+    - N
+  - Size: 6
+    Row:
+    - H
+    - W
+    - F
+    - G
+    - M
+    - I
+  - Size: 6
+    Row:
+    - H
+    - I
+    - C
+    - S
+    - J
+    - T
+  - Size: 6
+    Row:
+    - W
+    - J
+    - J
+    - M
+    - P
+    - Y
+  SearchWords:
+  - Word: SERENITY
+  - Word: CALM
