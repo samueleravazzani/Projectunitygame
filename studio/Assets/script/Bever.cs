@@ -5,37 +5,32 @@ public class Bever : MonoBehaviour
     public float movementSpeed = 5f;
     public Transform playerTransform;
     public Collider2D triggerCollider;
-    public float startDelay = 2f; // Delay before the Bever starts moving
+    
+    public static Bever instance;
 
-
-    private bool canMove = false;
-
-    void Start()
+    void Awake()
     {
-        Invoke("EnableMovement", startDelay);
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+    
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
-
+    
     void Update()
     {
-        if (canMove)
+        if (!IsPlayerInsideTrigger())
         {
-            if (!IsPlayerInsideTrigger())
-            {
-                MoveTowardsPlayer();
-            }
+            MoveTowardsPlayer();
         }
-        
     }
-
-    void EnableMovement()
-    {
-        canMove = true;
-    }
-
     
     bool IsPlayerInsideTrigger()
     {
-        return triggerCollider.bounds.Contains(playerTransform.position);
+        return triggerCollider.OverlapPoint(playerTransform.position);
     }
 
     void MoveTowardsPlayer()
