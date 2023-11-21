@@ -117,5 +117,20 @@ public class playerMovement : MonoBehaviour
                 Debug.LogError("Componente CinemachineVirtualCamera non trovato.");
             }
         }
+        
+        if (coll.gameObject.CompareTag("To_Castle"))
+        {
+            transform.position = new Vector3(-1.36f, -5.4f, 0);
+            GameObject sceneLoaderCanvas = GameObject.Find("SceneLoaderCanvas");
+            if (sceneLoaderCanvas != null)
+            {
+                sceneLoaderCanvas.SetActive(true);
+                SceneManager.LoadScene("Impostor");
+            }
+            else
+            {
+                Debug.LogError("SceneLoaderCanvas non trovato nella scena.");
+            }
+        }
     }
 }
