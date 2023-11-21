@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Quiz.unity
     guid: ccb6ccbc662d00f40a662d6cc53eea96
   - enabled: 1
+    path: Assets/Scenes/Introforfishing.unity
+    guid: f3845e83f4620de4aa7e11121d59821b
+  - enabled: 1
     path: Assets/Scenes/Cave.unity
     guid: 3878caecae6094111a36881610bc4323
   - enabled: 1
