@@ -2,27 +2,45 @@ using UnityEngine;
 
 public class Bever : MonoBehaviour
 {
-    public float triggerRadius = 5f; // Adjust the radius as needed
-    public float moveSpeed = 2f; // Adjust the movement speed as needed
-    private Transform player;
+    public float movementSpeed = 5f;
+    public Transform playerTransform;
+    public Collider2D triggerCollider;
+    public float startDelay = 2f; // Delay before the Bever starts moving
 
-    private void Start()
+
+    private bool canMove = false;
+
+    void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        Invoke("EnableMovement", startDelay);
     }
 
-    private void Update()
+    void Update()
     {
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-
-        if (distanceToPlayer > triggerRadius)
+        if (canMove)
         {
-            // Calculate the direction towards the player
-            Vector3 directionToPlayer = player.position - transform.position;
-            directionToPlayer.Normalize();
-
-            // Move towards the player
-            transform.position += directionToPlayer * moveSpeed * Time.deltaTime;
+            if (!IsPlayerInsideTrigger())
+            {
+                MoveTowardsPlayer();
+            }
         }
+        
+    }
+
+    void EnableMovement()
+    {
+        canMove = true;
+    }
+
+    
+    bool IsPlayerInsideTrigger()
+    {
+        return triggerCollider.bounds.Contains(playerTransform.position);
+    }
+
+    void MoveTowardsPlayer()
+    {
+        Vector3 direction = (playerTransform.position - transform.position).normalized;
+        transform.Translate(direction * movementSpeed * Time.deltaTime);
     }
 }
