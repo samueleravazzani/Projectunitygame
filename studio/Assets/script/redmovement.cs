@@ -7,59 +7,37 @@ public class redmovement : MonoBehaviour
 {
     public float speed;
 
+    private float minX = -7f;
+    private float maxX = 3f;
+    private float minY = -3f;
+    private float maxY = 2.5f;
+
     private void Update()
     {
-        // Mover con las flechas del teclado
-        if (Input.GetKey(KeyCode.DownArrow) && transform.position.y > -3)
-        {
-            MoveDown();
-        }
-        else if (Input.GetKey(KeyCode.UpArrow) && transform.position.y < 2)
-        {
-            MoveUp();
-        }
-        
-        if (Input.GetKey(KeyCode.LeftArrow) && transform.position.x > -6)
-        {
-            MoveLeft();
-        }
-        else if (Input.GetKey(KeyCode.RightArrow) && transform.position.x < 3)
-        {
-            MoveRight();
-        }
-        
-
         // Mover con el mouse
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetMouseButton(0) && Mathf.Abs(mousePos.y - transform.position.y) > 0.01f)
+        if (Input.GetMouseButton(0))
         {
             MoveTowardsMouse(mousePos);
         }
-    }
 
-    public void MoveUp()
-    {
-        transform.position += Vector3.up * speed * Time.deltaTime;
-    }
-
-    public void MoveDown()
-    {
-        transform.position -= Vector3.up * speed * Time.deltaTime;
-    }
-    
-    void MoveLeft()
-    {
-        transform.Translate(Vector3.left * Time.deltaTime * speed);
-    }
-
-    void MoveRight()
-    {
-        transform.Translate(Vector3.right * Time.deltaTime * speed);
+        // Limitar la posición del objeto
+        LimitPosition();
     }
 
     public void MoveTowardsMouse(Vector3 targetPosition)
     {
         // Mueve el objeto hacia la posición del mouse con una velocidad específica
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+    }
+
+    void LimitPosition()
+    {
+        // Limita la posición del objeto en los ejes x e y
+        float clampedX = Mathf.Clamp(transform.position.x, minX, maxX);
+        float clampedY = Mathf.Clamp(transform.position.y, minY, maxY);
+
+        // Asigna la posición limitada al objeto
+        transform.position = new Vector3(clampedX, clampedY, transform.position.z);
     }
 }
