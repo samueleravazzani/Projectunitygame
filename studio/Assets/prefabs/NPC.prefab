@@ -211,7 +211,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visualCue: {fileID: 6974199670057448649}
   inkJSON:
-  - {fileID: 4900000, guid: 3d5c6856f818742e392eaaf641599005, type: 3}
+  - {fileID: 4900000, guid: 8fb05f55fcc876341a63c3f88317c34c, type: 3}
+  nameNPC: 
+  randomIndex: 0
 --- !u!1 &7986723203349124035
 GameObject:
   m_ObjectHideFlags: 0
