@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -5,6 +6,7 @@ public class WaterGameManager : MonoBehaviour
 {
     public Tilemap terrainTilemap;
     
+
     public TileBase tileTerrain;
     public TileBase tileHouse;
     public TileBase tileWater;
@@ -21,55 +23,94 @@ public class WaterGameManager : MonoBehaviour
     {
         if (gameStarted)
         {
-            // Expand water every second
-            ExpandWater();
+            StartCoroutine(ExpandWaterRoutine());
         }
-        else if (Input.GetMouseButtonDown(0))
+
+        if (Input.GetMouseButtonDown(0))
         {
-            // On mouse click, convert terrain to fence
             ConvertTerrainToFence();
         }
     }
 
     void InitializeGame()
     {
-        // Set initial house positions
-        SetRandomHousePositions();
+        SetRandomHouseTiles();
+        SetInitialWaterTile();
 
-        // Set initial water position
-        SetInitialWaterPosition();
-
-        // Start the game
         gameStarted = true;
     }
 
-    void SetRandomHousePositions()
+    void SetRandomHouseTiles()
     {
-        for (int i = 0; i < 5; i++)
+        int numberOfHouseTiles = 2; // Change this to the desired number
+        for (int i = 0; i < numberOfHouseTiles; i++)
         {
-            Vector3Int randomPosition = new Vector3Int(
-                Random.Range(-10, 10),
-                Random.Range(-10, 10),
-                0);
-
+            Vector3Int randomPosition = GetRandomTerrainPosition();
             terrainTilemap.SetTile(randomPosition, tileHouse);
         }
     }
 
-    void SetInitialWaterPosition()
+    void SetInitialWaterTile()
     {
-        Vector3Int randomPosition = new Vector3Int(
-            Random.Range(-10, 10),
-            Random.Range(-10, 10),
-            0);
-
+        Vector3Int randomPosition = GetRandomTerrainPosition();
         terrainTilemap.SetTile(randomPosition, tileWater);
     }
 
-    void ExpandWater()
+    Vector3Int GetRandomTerrainPosition()
     {
-        // Your logic to expand water tiles
-        // You would need to track the water tiles and expand them accordingly
+        Vector3Int randomPosition;
+        do
+        {
+            randomPosition = new Vector3Int(
+                Random.Range(terrainTilemap.cellBounds.x, terrainTilemap.cellBounds.xMax),
+                Random.Range(terrainTilemap.cellBounds.y, terrainTilemap.cellBounds.yMax),
+                0);
+        } while (terrainTilemap.GetTile(randomPosition) != tileTerrain);
+
+        return randomPosition;
+    }
+
+    IEnumerator ExpandWaterRoutine()
+    {
+        yield return new WaitForSeconds(3f);
+
+        Vector3Int waterPosition = GetWaterPosition();
+        ExpandWater(waterPosition);
+
+        yield return null;
+    }
+
+    void ExpandWater(Vector3Int waterPosition)
+    {
+        Vector3Int[] adjacentTiles = new Vector3Int[]
+        {
+            waterPosition + new Vector3Int(0, 1, 0), // Up
+            waterPosition + new Vector3Int(0, -1, 0), // Down
+            waterPosition + new Vector3Int(1, 0, 0), // Right
+            waterPosition + new Vector3Int(-1, 0, 0) // Left
+        };
+
+        foreach (Vector3Int adjacentTile in adjacentTiles)
+        {
+            TileBase tile = terrainTilemap.GetTile(adjacentTile);
+            if (tile == tileTerrain || tile == tileHouse)
+            {
+                terrainTilemap.SetTile(adjacentTile, tileWater);
+            }
+        }
+    }
+
+    Vector3Int GetWaterPosition()
+    {
+        foreach (Vector3Int position in terrainTilemap.cellBounds.allPositionsWithin)
+        {
+            if (terrainTilemap.GetTile(position) == tileWater)
+            {
+                return position;
+            }
+        }
+
+        return Vector3Int.zero;
     }
 
     void ConvertTerrainToFence()
@@ -85,14 +126,12 @@ public class WaterGameManager : MonoBehaviour
         }
         else if (terrainTile == tileHouse)
         {
-            // Player lost if a house tile becomes water
             GameOver();
         }
     }
 
     void GameOver()
     {
-        // Your logic for handling game over
         gameStarted = false;
         Debug.Log("Game Over!");
     }
