@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      wooden-paper-floor-background_0: -1880882794388160239
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
