@@ -170,7 +170,10 @@ MonoBehaviour:
   - {fileID: 1008598917}
   - {fileID: 1193431549}
   - {fileID: 650961657}
-  speakingNPC: {fileID: 0}
+  choiceismade: 0
+  choicemade: 0
+  nameNPC: 
+  randomIndex: 0
 --- !u!1 &37071017
 GameObject:
   m_ObjectHideFlags: 0
@@ -2160,6 +2163,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -550732012, guid: 68ad2a8f16c1f3a4d93bd87597c15ca3, type: 3}
+    - target: {fileID: 5384478151559890178, guid: be6074682f924da4191471b68d36b689, type: 3}
+      propertyPath: inkJSON.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384478151559890178, guid: be6074682f924da4191471b68d36b689, type: 3}
+      propertyPath: 'inkJSON.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4900000, guid: 3d5c6856f818742e392eaaf641599005, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

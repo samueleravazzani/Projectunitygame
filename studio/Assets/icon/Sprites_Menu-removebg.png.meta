@@ -920,7 +920,41 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sprites_Menu-removebg_0: -6685822908474529360
+      Sprites_Menu-removebg_1: 6528724852196635311
+      Sprites_Menu-removebg_10: 600303749136179701
+      Sprites_Menu-removebg_11: 3698975269560436235
+      Sprites_Menu-removebg_12: 3661388877300269751
+      Sprites_Menu-removebg_13: 3908134701065379171
+      Sprites_Menu-removebg_14: 1648409684238041363
+      Sprites_Menu-removebg_15: 8081638606372380063
+      Sprites_Menu-removebg_16: 5242560427613007026
+      Sprites_Menu-removebg_17: -6840377406614981405
+      Sprites_Menu-removebg_18: -4229807587653888467
+      Sprites_Menu-removebg_19: 8243006052523370508
+      Sprites_Menu-removebg_2: 2600639779418096726
+      Sprites_Menu-removebg_20: 4725098588014235605
+      Sprites_Menu-removebg_21: 8260605534150161884
+      Sprites_Menu-removebg_22: -3093770180813459623
+      Sprites_Menu-removebg_23: -7776401405892086873
+      Sprites_Menu-removebg_24: -7693375459679803567
+      Sprites_Menu-removebg_25: 8506119199963711970
+      Sprites_Menu-removebg_26: 6099458801472373851
+      Sprites_Menu-removebg_27: -7903722938984039736
+      Sprites_Menu-removebg_28: 839496222200204239
+      Sprites_Menu-removebg_29: -4118097529031021824
+      Sprites_Menu-removebg_3: 3708333744698189541
+      Sprites_Menu-removebg_30: 663346456978855992
+      Sprites_Menu-removebg_31: 8150498606972260394
+      Sprites_Menu-removebg_32: -5754232719157300970
+      Sprites_Menu-removebg_33: -8737425063692241636
+      Sprites_Menu-removebg_4: 9167671508051402025
+      Sprites_Menu-removebg_5: 1797204281781793605
+      Sprites_Menu-removebg_6: 4703038066549468068
+      Sprites_Menu-removebg_7: 1190142396715333778
+      Sprites_Menu-removebg_8: -7477327861815559197
+      Sprites_Menu-removebg_9: -4410268047475423307
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
