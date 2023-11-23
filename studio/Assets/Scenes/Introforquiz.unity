@@ -442,7 +442,10 @@ MonoBehaviour:
   choices:
   - {fileID: 78142924}
   - {fileID: 284612031}
-  speakingNPC: {fileID: 0}
+  choiceismade: 0
+  choicemade: 0
+  nameNPC: 
+  randomIndex: 0
 --- !u!1 &284612031
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,7 +829,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8546749890009390222, guid: 9d9fdad3ab16e23438e587640624a540, type: 3}
+  m_Sprite: {fileID: 2512748427455253356, guid: 9d9fdad3ab16e23438e587640624a540, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
