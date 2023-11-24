@@ -1,138 +1,152 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class WaterGameManager : MonoBehaviour
 {
-    public Tilemap terrainTilemap;
-    
-
-    public TileBase tileTerrain;
-    public TileBase tileHouse;
-    public TileBase tileWater;
-    public TileBase tileFence;
-
-    private bool gameStarted = false;
+    public Tilemap tilemap;
+    public Tile tile_terrain;
+    public Tile tile_house;
+    public Tile tile_water;
+    public Tile tile_fence;
+    private Vector3Int housePosition;
+    private List<Vector3Int> waterPositions = new List<Vector3Int>();
+    private List<Vector3Int> nextwaterPositions = new List<Vector3Int>();
+    private int N = 2;
+    public bool ingame;
 
     void Start()
     {
-        InitializeGame();
+        // Cambia N caselle casuali in "tile_house"
+        for (int i = 0; i < N; i++)
+        {
+            housePosition = GetRandomTerrainTile();
+            tilemap.SetTile(housePosition, tile_house);
+        }
+
+        
+        CreateNewWater();
+        ingame = true;
     }
 
     void Update()
     {
-        if (gameStarted)
+        if (ingame)
         {
-            StartCoroutine(ExpandWaterRoutine());
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            ConvertTerrainToFence();
-        }
-    }
-
-    void InitializeGame()
-    {
-        SetRandomHouseTiles();
-        SetInitialWaterTile();
-
-        gameStarted = true;
-    }
-
-    void SetRandomHouseTiles()
-    {
-        int numberOfHouseTiles = 2; // Change this to the desired number
-        for (int i = 0; i < numberOfHouseTiles; i++)
-        {
-            Vector3Int randomPosition = GetRandomTerrainPosition();
-            terrainTilemap.SetTile(randomPosition, tileHouse);
-        }
-    }
-
-    void SetInitialWaterTile()
-    {
-        Vector3Int randomPosition = GetRandomTerrainPosition();
-        terrainTilemap.SetTile(randomPosition, tileWater);
-    }
-
-    Vector3Int GetRandomTerrainPosition()
-    {
-        Vector3Int randomPosition;
-        do
-        {
-            randomPosition = new Vector3Int(
-                Random.Range(terrainTilemap.cellBounds.x, terrainTilemap.cellBounds.xMax),
-                Random.Range(terrainTilemap.cellBounds.y, terrainTilemap.cellBounds.yMax),
-                0);
-        } while (terrainTilemap.GetTile(randomPosition) != tileTerrain);
-
-        return randomPosition;
-    }
-
-    IEnumerator ExpandWaterRoutine()
-    {
-        yield return new WaitForSeconds(3f);
-
-        Vector3Int waterPosition = GetWaterPosition();
-        ExpandWater(waterPosition);
-
-        yield return null;
-    }
-
-    void ExpandWater(Vector3Int waterPosition)
-    {
-        Vector3Int[] adjacentTiles = new Vector3Int[]
-        {
-            waterPosition + new Vector3Int(0, 1, 0), // Up
-            waterPosition + new Vector3Int(0, -1, 0), // Down
-            waterPosition + new Vector3Int(1, 0, 0), // Right
-            waterPosition + new Vector3Int(-1, 0, 0) // Left
-        };
-
-        foreach (Vector3Int adjacentTile in adjacentTiles)
-        {
-            TileBase tile = terrainTilemap.GetTile(adjacentTile);
-            if (tile == tileTerrain || tile == tileHouse)
+            // Controlla l'input del mouse
+            if (Input.GetMouseButtonDown(0))
             {
-                terrainTilemap.SetTile(adjacentTile, tileWater);
+                Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector3Int clickPosition = tilemap.WorldToCell(mouseWorldPos);
+
+                if (tilemap.GetTile(clickPosition) == tile_terrain)
+                {
+                    tilemap.SetTile(clickPosition, tile_fence);
+                }
             }
+
+            // Inizia la routine di espansione dell'acqua
+            StartCoroutine(ExpandWater());
+        }
+        else
+        {
+            StopCoroutine(ExpandWater());
         }
     }
 
-    Vector3Int GetWaterPosition()
+    IEnumerator ExpandWater()
     {
-        foreach (Vector3Int position in terrainTilemap.cellBounds.allPositionsWithin)
+        while (ingame)
         {
-            if (terrainTilemap.GetTile(position) == tileWater)
+            yield return new WaitForSeconds(2);
+
+            // Trova tutte le caselle adiacenti all'acqua che non sono ancora acqua
+            GetAdjacentTiles(waterPositions);
+
+            // Cambia le caselle adiacenti in "tile_water"
+            foreach (Vector3Int pos in nextwaterPositions)
             {
-                return position;
+                // probability
+                int probability = Random.Range(0, 100);
+                if (probability <= 50)
+                {
+                    if (tilemap.GetTile(pos) == tile_house)
+                    {
+                        ingame = false;
+                        Debug.Log("Game Over");
+                    }
+                    ConvertToWater(pos);
+                }
+            }
+            nextwaterPositions.Clear();
+        }
+    }
+
+    private void CreateNewWater()
+    {
+        // Cambia una casella casuale in "tile_water"
+        Vector3Int vv = GetRandomTerrainTile();
+        Debug.Log(vv.ToString());
+        ConvertToWater(vv);
+    }
+
+    private void ConvertToWater(Vector3Int vv)
+    {
+        waterPositions.Add(vv);
+        tilemap.SetTile(vv, tile_water);
+    }
+
+    private Vector3Int GetRandomTerrainTile()
+    {
+        // Ottieni tutte le caselle di terreno
+        List<Vector3Int> terrainTiles = new List<Vector3Int>();
+
+        for (int n = tilemap.cellBounds.xMin; n < tilemap.cellBounds.xMax; n++)
+        {
+            for (int p = tilemap.cellBounds.yMin; p < tilemap.cellBounds.yMax; p++)
+            {
+                Vector3Int localPlace = (new Vector3Int(n, p, (int)tilemap.transform.position.y));
+                Vector3 place = tilemap.CellToWorld(localPlace);
+                if (tilemap.HasTile(localPlace))
+                {
+                    if (tilemap.GetTile(localPlace) == tile_terrain)
+                    {
+                        terrainTiles.Add(localPlace);
+                    }
+                }
             }
         }
 
-        return Vector3Int.zero;
+        // Scegli una casella casuale
+        int randomIndex = Random.Range(0, terrainTiles.Count);
+        return terrainTiles[randomIndex];
     }
 
-    void ConvertTerrainToFence()
+    private void GetAdjacentTiles(List<Vector3Int> water)
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector3Int cellPosition = terrainTilemap.WorldToCell(mousePosition);
-
-        TileBase terrainTile = terrainTilemap.GetTile(cellPosition);
-
-        if (terrainTile == tileTerrain)
+        foreach (Vector3Int el in water)
         {
-            terrainTilemap.SetTile(cellPosition, tileFence);
+            // check up
+            Vector3Int up = el + new Vector3Int(0, 1, 0);
+            if(tilemap.GetTile(up) != tile_water && tilemap.GetTile(up) !=tile_fence)
+                nextwaterPositions.Add(up);
+            
+            // check down
+            Vector3Int down = el + new Vector3Int(0, -1, 0);
+            if(tilemap.GetTile(down) != tile_water && tilemap.GetTile(down) !=tile_fence)
+                nextwaterPositions.Add(down);
+            
+            // check right
+            Vector3Int right = el + new Vector3Int(1, 0, 0);
+            if(tilemap.GetTile(right) != tile_water && tilemap.GetTile(right) !=tile_fence)
+                nextwaterPositions.Add(right);
+            
+            // check down
+            Vector3Int left = el + new Vector3Int(-1, 0, 0);
+            if(tilemap.GetTile(left) != tile_water && tilemap.GetTile(left) !=tile_fence)
+                nextwaterPositions.Add(left);
         }
-        else if (terrainTile == tileHouse)
-        {
-            GameOver();
-        }
-    }
 
-    void GameOver()
-    {
-        gameStarted = false;
-        Debug.Log("Game Over!");
     }
 }
