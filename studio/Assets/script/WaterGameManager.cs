@@ -15,6 +15,7 @@ public class WaterGameManager : MonoBehaviour
     private List<Vector3Int> nextwaterPositions = new List<Vector3Int>();
     private int N = 2;
     public bool ingame;
+    private bool startcoroutine;
 
     void Start()
     {
@@ -28,13 +29,14 @@ public class WaterGameManager : MonoBehaviour
         
         CreateNewWater();
         ingame = true;
+        startcoroutine = true;
     }
 
     void Update()
     {
         if (ingame)
         {
-            // Controlla l'input del mouse
+            // Input del mouse
             if (Input.GetMouseButtonDown(0))
             {
                 Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -45,9 +47,12 @@ public class WaterGameManager : MonoBehaviour
                     tilemap.SetTile(clickPosition, tile_fence);
                 }
             }
-
-            // Inizia la routine di espansione dell'acqua
-            StartCoroutine(ExpandWater());
+            if (startcoroutine)
+            {
+                // Espansione dell'acqua
+                StartCoroutine(ExpandWater());
+                startcoroutine = false;
+            }
         }
         else
         {
@@ -59,7 +64,7 @@ public class WaterGameManager : MonoBehaviour
     {
         while (ingame)
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1f);
 
             // Trova tutte le caselle adiacenti all'acqua che non sono ancora acqua
             GetAdjacentTiles(waterPositions);
