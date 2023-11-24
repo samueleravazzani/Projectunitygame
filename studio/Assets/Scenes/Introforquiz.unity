@@ -733,6 +733,7 @@ MonoBehaviour:
   - Guardia
   alreadyTalk: 0000000000000000
   inkJSON: {fileID: 0}
+  CastleDoor: {fileID: 0}
 --- !u!4 &683125029
 Transform:
   m_ObjectHideFlags: 0
@@ -1426,7 +1427,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1060701662, guid: 1bc1f521cfaa96449a34bc56095c8e98, type: 3}
+  m_Sprite: {fileID: -398183097, guid: ffe52c5eafd4ecc4a98b6e2539f0b701, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

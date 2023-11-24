@@ -1116,6 +1116,7 @@ MonoBehaviour:
   - Guardia
   alreadyTalk: 
   inkJSON: {fileID: 0}
+  CastleDoor: {fileID: 0}
 --- !u!4 &1571646812
 Transform:
   m_ObjectHideFlags: 0
@@ -1437,7 +1438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -68, y: -205}
+  m_AnchoredPosition: {x: 36, y: -201}
   m_SizeDelta: {x: 250, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2043350482
@@ -1460,7 +1461,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1060701662, guid: 1bc1f521cfaa96449a34bc56095c8e98, type: 3}
+  m_Sprite: {fileID: 650957044, guid: 4bd8ba305ea133e4b99a16ea88601922, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
