@@ -13,21 +13,25 @@ public class WaterGameManager : MonoBehaviour
     private Vector3Int housePosition;
     private List<Vector3Int> waterPositions = new List<Vector3Int>();
     private List<Vector3Int> nextwaterPositions = new List<Vector3Int>();
-    private int N = 2;
+    private int N_houses = 6;
+    private int N_water = 4;
     public bool ingame;
     private bool startcoroutine;
 
     void Start()
     {
         // Cambia N caselle casuali in "tile_house"
-        for (int i = 0; i < N; i++)
+        for (int i = 0; i < N_houses; i++)
         {
             housePosition = GetRandomTerrainTile();
             tilemap.SetTile(housePosition, tile_house);
         }
 
-        
-        CreateNewWater();
+        for (int i = 0; i < N_water; i++)
+        {
+            CreateNewWater();
+        }
+
         ingame = true;
         startcoroutine = true;
     }
@@ -37,7 +41,7 @@ public class WaterGameManager : MonoBehaviour
         if (ingame)
         {
             // Input del mouse
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
                 Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector3Int clickPosition = tilemap.WorldToCell(mouseWorldPos);
@@ -92,7 +96,6 @@ public class WaterGameManager : MonoBehaviour
     {
         // Cambia una casella casuale in "tile_water"
         Vector3Int vv = GetRandomTerrainTile();
-        Debug.Log(vv.ToString());
         ConvertToWater(vv);
     }
 
