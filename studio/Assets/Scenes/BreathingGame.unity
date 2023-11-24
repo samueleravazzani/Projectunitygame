@@ -1135,6 +1135,10 @@ MonoBehaviour:
   - {fileID: 48060767}
   - {fileID: 101923100}
   - {fileID: 322808375}
+  choiceismade: 0
+  choicemade: 0
+  nameNPC: 
+  randomIndex: 0
 --- !u!1 &546824930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1889,6 +1893,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126686753}
   m_CullTransparentMesh: 1
+--- !u!1 &1168859504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1168859506}
+  - component: {fileID: 1168859505}
+  m_Layer: 0
+  m_Name: AnswerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1168859505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168859504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d98c1e76547a8745a0fa231afbc4d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impostors:
+  - Gigetto
+  - Pietro
+  - Jack
+  - Lupetto
+  - Gina
+  - Rocky
+  - Bianca
+  - Guardia
+  alreadyTalk: 0000000000000000
+  inkJSON: {fileID: 0}
+--- !u!4 &1168859506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168859504}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: -60, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1391310355
 GameObject:
   m_ObjectHideFlags: 0
@@ -2567,3 +2626,4 @@ SceneRoots:
   - {fileID: 710456855}
   - {fileID: 2036791203}
   - {fileID: 459393518}
+  - {fileID: 1168859506}
