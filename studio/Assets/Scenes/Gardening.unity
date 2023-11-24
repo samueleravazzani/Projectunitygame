@@ -165,6 +165,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &79785587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 79785588}
+  - component: {fileID: 79785589}
+  m_Layer: 0
+  m_Name: Answer Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &79785588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79785587}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 567327873}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &79785589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79785587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d98c1e76547a8745a0fa231afbc4d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  impostors:
+  - Gigetto
+  - Pietro
+  - Jack
+  - Lupetto
+  - Gina
+  - Rocky
+  - Bianca
+  - Guardia
+  alreadyTalk: 
+  inkJSON: {fileID: 0}
+  CastleDoor: {fileID: 0}
 --- !u!1 &194147183
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,6 +689,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1848923872}
+  - {fileID: 79785588}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &727541769
@@ -3115,7 +3172,7 @@ Tilemap:
       - {fileID: 452622848, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
       - {fileID: 1554640037, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
       - {fileID: 831551130, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -10, y: 5, z: 0}
@@ -3130,7 +3187,7 @@ Tilemap:
       - {fileID: 452622848, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
       - {fileID: 1554640037, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
       - {fileID: 831551130, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -9, y: 5, z: 0}
@@ -3145,7 +3202,7 @@ Tilemap:
       - {fileID: 452622848, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
       - {fileID: 1554640037, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
       - {fileID: 831551130, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -8, y: 5, z: 0}
@@ -3220,7 +3277,7 @@ Tilemap:
       - {fileID: 452622848, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
       - {fileID: 1554640037, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
       - {fileID: 831551130, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   m_TileAssetArray:
@@ -4472,6 +4529,13 @@ MonoBehaviour:
   plantTilemap: {fileID: 1442227807}
   nonFertileTile: {fileID: 11400000, guid: 477b88156749f3d41943e0ac46dd6cd8, type: 2}
   fertileTile: {fileID: 11400000, guid: ec063831fc7182b45bb84b266da69b0a, type: 2}
+  missTile: {fileID: 11400000, guid: d00ae9e06f3875c45872be59e4b31568, type: 2}
+  Talpe:
+  - {fileID: 21300000, guid: a28f1294c30b2e743b2a4310d813d046, type: 3}
+  - {fileID: 21300000, guid: e88e139a3b07668459c9cd346979ff3d, type: 3}
+  - {fileID: 21300000, guid: 88b65498ed4bd9a429c87b09e5d3682a, type: 3}
+  - {fileID: 21300000, guid: daa57d91359fb554b8ec98b04e4ea008, type: 3}
+  Talpa_prefab: {fileID: 4322621169382167942, guid: 1b31cabd7c64dbe46a40555b4505c36e, type: 3}
   plantTile:
   - {fileID: 11400000, guid: c129c33bd7b23154d9122f5ed6546551, type: 2}
   - {fileID: 11400000, guid: 30022aa0d26774b4eb2bd87b581871ab, type: 2}
@@ -6086,7 +6150,7 @@ Tilemap:
       - {fileID: -1234287421, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
       - {fileID: -596495375, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
       - {fileID: -2033347757, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -8, y: 0, z: 0}
@@ -7050,6 +7114,10 @@ MonoBehaviour:
   - {fileID: 194147183}
   - {fileID: 1762667299}
   - {fileID: 390809482}
+  choiceismade: 0
+  choicemade: 0
+  nameNPC: 
+  randomIndex: 0
 --- !u!1 &1868687155
 GameObject:
   m_ObjectHideFlags: 0
