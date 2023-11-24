@@ -24,6 +24,9 @@ public class AnswerManager : MonoBehaviour
     //File inkJSON contenuto nell'AnswerManager contenente delle risposte nel caso in cui il player
     //abbia già interagito con quell'NPC
     
+    [Header("Castle Door")] [SerializeField]
+    private GameObject CastleDoor;
+    
     //CREAZIONE DEL SINGLETON
 
      private void Awake()
@@ -60,6 +63,11 @@ public class AnswerManager : MonoBehaviour
          Debug.Log("nome passato : "+ name.ToString());
          Debug.Log("scelta fatta: "+choicemade.ToString());
          Debug.Log("indice passato: "+randomindex.ToString());
+         
+         if (name == "Pippo")
+         {
+             CastleDoor.SetActive(false);
+         }
          
          
          
