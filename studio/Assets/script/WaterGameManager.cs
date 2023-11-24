@@ -13,29 +13,35 @@ public class WaterGameManager : MonoBehaviour
     private Vector3Int housePosition;
     private List<Vector3Int> waterPositions = new List<Vector3Int>();
     private List<Vector3Int> nextwaterPositions = new List<Vector3Int>();
-    private int N = 2;
+    private int N_houses = 6;
+    private int N_water = 4;
     public bool ingame;
+    private bool startcoroutine;
 
     void Start()
     {
         // Cambia N caselle casuali in "tile_house"
-        for (int i = 0; i < N; i++)
+        for (int i = 0; i < N_houses; i++)
         {
             housePosition = GetRandomTerrainTile();
             tilemap.SetTile(housePosition, tile_house);
         }
 
-        
-        CreateNewWater();
+        for (int i = 0; i < N_water; i++)
+        {
+            CreateNewWater();
+        }
+
         ingame = true;
+        startcoroutine = true;
     }
 
     void Update()
     {
         if (ingame)
         {
-            // Controlla l'input del mouse
-            if (Input.GetMouseButtonDown(0))
+            // Input del mouse
+            if (Input.GetMouseButton(0))
             {
                 Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector3Int clickPosition = tilemap.WorldToCell(mouseWorldPos);
@@ -45,9 +51,12 @@ public class WaterGameManager : MonoBehaviour
                     tilemap.SetTile(clickPosition, tile_fence);
                 }
             }
-
-            // Inizia la routine di espansione dell'acqua
-            StartCoroutine(ExpandWater());
+            if (startcoroutine)
+            {
+                // Espansione dell'acqua
+                StartCoroutine(ExpandWater());
+                startcoroutine = false;
+            }
         }
         else
         {
@@ -59,7 +68,7 @@ public class WaterGameManager : MonoBehaviour
     {
         while (ingame)
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1f);
 
             // Trova tutte le caselle adiacenti all'acqua che non sono ancora acqua
             GetAdjacentTiles(waterPositions);
@@ -87,7 +96,6 @@ public class WaterGameManager : MonoBehaviour
     {
         // Cambia una casella casuale in "tile_water"
         Vector3Int vv = GetRandomTerrainTile();
-        Debug.Log(vv.ToString());
         ConvertToWater(vv);
     }
 
