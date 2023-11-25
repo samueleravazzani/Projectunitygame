@@ -15,63 +15,74 @@ public class WaterGameManagerNew : MonoBehaviour
     private List<Vector3Int> nextwaterPositions = new List<Vector3Int>();
     private int N_water = 4;
     public bool ingame;
-    private bool startcoroutine;
+    
 
     void Start()
     {
+        for (int i = 0; i < N_water; i++)
+        {
+            CreateNewWater();
+        }
+        
         ingame = true;
-        startcoroutine = true;
+        
+    }
+    
+    public static WaterGameManagerNew instance;
+
+    void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+    
+        instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
 
+    // /!\ gestisco l'espansione dell'acqua in TetrisBlock, dal blocco che è appena stato disabilitato
     void Update()
     {
+        
+        /*
         if (ingame)
         {
-            if (startcoroutine)
-            {
-                // Espansione dell'acqua
-                StartCoroutine(ExpandWater());
-                startcoroutine = false;
-            }
-        }
-        else
-        {
-            StopCoroutine(ExpandWater());
-        }
+            // Espansione dell'acqua
+            ExpandWater();
+        } */
+        
     }
 
-    IEnumerator ExpandWater()
+    public void ExpandWater()
     {
-        while (ingame)
+        // Trova tutte le caselle adiacenti all'acqua che non sono ancora acqua
+        GetAdjacentTiles(waterPositions);
+
+        // Cambia le caselle adiacenti in "tile_water"
+        foreach (Vector3Int pos in nextwaterPositions)
         {
-            yield return new WaitForSeconds(1f);
-
-            // Trova tutte le caselle adiacenti all'acqua che non sono ancora acqua
-            GetAdjacentTiles(waterPositions);
-
-            // Cambia le caselle adiacenti in "tile_water"
-            foreach (Vector3Int pos in nextwaterPositions)
+            // probability
+            int probability = Random.Range(0, 100);
+            if (probability <= 50)
             {
-                // probability
-                int probability = Random.Range(0, 100);
-                if (probability <= 50)
+                if (tilemap_water.GetTile(pos) == tile_house)
                 {
-                    if (tilemap_water.GetTile(pos) == tile_house)
-                    {
-                        ingame = false;
-                        Debug.Log("Game Over");
-                    }
-                    ConvertToWater(pos);
+                    ingame = false;
+                    Debug.Log("Game Over");
                 }
+                ConvertToWater(pos);
             }
-            nextwaterPositions.Clear();
         }
+        nextwaterPositions.Clear();
+    
     }
 
     private void CreateNewWater()
     {
         // Cambia una casella casuale in "tile_water"
-        Vector3Int vv = GetRandomTerrainTile();
+        Vector3Int vv = GetRandomTerrainTileInALine();
         ConvertToWater(vv);
     }
 
@@ -79,6 +90,31 @@ public class WaterGameManagerNew : MonoBehaviour
     {
         waterPositions.Add(vv);
         tilemap_water.SetTile(vv, tile_water);
+    }
+
+    private Vector3Int GetRandomTerrainTileInALine()
+    {
+        // Ottieni tutte le caselle di terreno una linea
+        List<Vector3Int> terrainTiles = new List<Vector3Int>();
+
+    
+        for (int p = 0; p < TetrisBlock.height; p++)
+        {
+            Vector3Int localPlace = (new Vector3Int(0, p, 0));
+            Vector3 place = tilemap_water.CellToWorld(localPlace);
+            if (tilemap_water.HasTile(localPlace))
+            {
+                if (tilemap_water.GetTile(localPlace) == tile_terrain)
+                {
+                    terrainTiles.Add(localPlace);
+                }
+            }
+        }
+    
+
+        // Scegli una casella casuale
+        int randomIndex = Random.Range(0, terrainTiles.Count);
+        return terrainTiles[randomIndex];
     }
 
     private Vector3Int GetRandomTerrainTile()
@@ -111,10 +147,25 @@ public class WaterGameManagerNew : MonoBehaviour
     {
         foreach (Vector3Int el in water)
         {
-           // check right
+            // check up
+            Vector3Int up = el + new Vector3Int(0, 1, 0);
+            if(tilemap_water.GetTile(up) != tile_water && tilemap_water.GetTile(up) !=tile_fence)
+                nextwaterPositions.Add(up);
+            
+            // check down
+            Vector3Int down = el + new Vector3Int(0, -1, 0);
+            if(tilemap_water.GetTile(down) != tile_water && tilemap_water.GetTile(down) !=tile_fence)
+                nextwaterPositions.Add(down);
+            
+            // check right
             Vector3Int right = el + new Vector3Int(1, 0, 0);
             if(tilemap_water.GetTile(right) != tile_water && tilemap_water.GetTile(right) !=tile_fence)
                 nextwaterPositions.Add(right);
+            
+            // check down
+            Vector3Int left = el + new Vector3Int(-1, 0, 0);
+            if(tilemap_water.GetTile(left) != tile_water && tilemap_water.GetTile(left) !=tile_fence)
+                nextwaterPositions.Add(left);
         }
 
     }
