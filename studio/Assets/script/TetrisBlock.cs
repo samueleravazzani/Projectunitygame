@@ -7,8 +7,9 @@ public class TetrisBlock : MonoBehaviour
     public Vector3 rotationPoint;
     private float previousTime;
     public float fallTime = 0.8f;
-    public static int height = 18;
-    public static int width = 35;
+    public static int height = 20;
+    public static int width = 27;
+    private static Transform[,] grid = new Transform[width, height]; // static: makes the value to be the same among all tetrominoes
     
     // Start is called before the first frame update
     void Start()
@@ -55,8 +56,73 @@ public class TetrisBlock : MonoBehaviour
             if (!ValidMove()) // if it is not valid: revert the movement
             {
                 transform.position -= new Vector3(-1, 0, 0);
+                AddToGrid();
+                CheckForLines();
+
+                WaterGameManagerNew.instance.ExpandWater();
+                this.enabled = false; // /!\ disabilita lo script
+                FindObjectOfType<SpawnTetrominos>().NewTetromino();  // cerco l'oggetto di tipo SpawnTetrominos -> ne chiao la funzione
             }
             previousTime = Time.time;
+        }
+    }
+
+    void AddToGrid()
+    {
+        foreach (Transform children in transform)
+        {
+            int roundedX = Mathf.RoundToInt(children.transform.position.x);
+            int roundedY = Mathf.RoundToInt(children.transform.position.y);
+
+            grid[roundedX, roundedY] = children; // popolo la griglia
+        }
+    }
+
+    void CheckForLines()
+    {
+        for (int i = width-1; i >= 0; i--) // IMPORTANTE: da qui invertite righe e colonne rispetto al video, e width e height
+        {
+            if (HasLine(i))
+            {
+                DeleteLine(i);
+                RowLeft(i);
+            }
+        }
+    }
+
+    bool HasLine(int i) 
+    {
+        for (int j = 0; j < height; j++)
+        {
+            if (grid[i, j] == null)
+                return false;
+        }
+
+        return true;
+    }
+
+    void DeleteLine(int i)
+    {
+        for (int j = 0; j < height; j++)
+        {
+            Destroy(grid[i,j].gameObject);
+            grid[i, j] = null;
+        }
+    }
+
+    void RowLeft(int i)
+    {
+        for (int y = i; y < width; y++)
+        {
+            for (int j = 0; j > height; j++)
+            {
+                if (grid[y, j] != null)
+                {
+                    grid[y-1, j] = grid[y, j];
+                    grid[y, j] = null;
+                    grid[y-1, j].transform.position -= new Vector3(1, 0, 0);
+                }
+            }
         }
     }
 
@@ -65,9 +131,20 @@ public class TetrisBlock : MonoBehaviour
         foreach (Transform children in transform)
         {
             int roundedX = Mathf.RoundToInt(children.transform.position.x);
-            int roundedY = Mathf.RoundToInt(children.transform.position.x);
+            int roundedY = Mathf.RoundToInt(children.transform.position.y);
+            /*Debug.Log("X: " + roundedX);
+            Debug.Log("Y: " + roundedY);
+            Debug.Log(roundedX<0);
+            Debug.Log(roundedY<0);
+            Debug.Log(roundedX>width);
+            Debug.Log(roundedY>height);  */
 
-            if (roundedX < 0 || roundedX >= width || roundedY<0 || roundedY>height)
+            if (roundedX < 0 || roundedX >= width || roundedY<0 || roundedY>=height)
+            {
+                return false;
+            }
+
+            if (grid[roundedX, roundedY] != null)
             {
                 return false;
             }
