@@ -24,5 +24,10 @@ public class Dontdestroy : MonoBehaviour
         {
             instance.gameObject.SetActive(false);
         }
+        if(SceneManager.GetActiveScene().name != "MainMap")
+        {
+            instance.gameObject.SetActive(true);
+            Debug.Log("Dovrei essere active");
+        }
     }
 }
