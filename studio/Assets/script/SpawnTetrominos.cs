@@ -5,10 +5,17 @@ using UnityEngine;
 public class SpawnTetrominos : MonoBehaviour
 {
     public GameObject[] Tetrominoes;
-    // Start is called before the first frame update
-    void Start()
+
+    public static SpawnTetrominos instance;
+    void Awake()
     {
-        NewTetromino();
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+    
+        instance = this;
     }
 
     public void NewTetromino()

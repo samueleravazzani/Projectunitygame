@@ -26,6 +26,7 @@ TagManager:
   - Fondo
   - Medicine
   - Note
+  - Water
   layers:
   - Default
   - TransparentFX
