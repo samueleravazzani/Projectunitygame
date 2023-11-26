@@ -8326,7 +8326,7 @@ Transform:
   m_GameObject: {fileID: 481710529}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23, y: 9, z: 0}
+  m_LocalPosition: {x: 32, y: 10.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8421,14 +8421,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 877982246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 835e7379416d24ac3a79c21d8d6e13a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 3373ea6b6a0f94d7f9e4977a4e55b51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemap_water: {fileID: 0}
-  tile_terrain: {fileID: 0}
-  tile_house: {fileID: 0}
-  tile_water: {fileID: 0}
-  tile_fence: {fileID: 0}
+  water_prefab: {fileID: 0}
   ingame: 0
 --- !u!1 &885832870
 GameObject:
