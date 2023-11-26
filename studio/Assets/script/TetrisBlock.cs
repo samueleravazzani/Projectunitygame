@@ -7,8 +7,8 @@ public class TetrisBlock : MonoBehaviour
     public Vector3 rotationPoint;
     private float previousTime;
     public float fallTime = 0.8f;
-    public static int height = 18;
-    public static int width = 34;
+    public static int height = 19;
+    public static int width = 35;
     // static: makes the value to be the same among all tetrominoes
     
     // Start is called before the first frame update
@@ -59,12 +59,12 @@ public class TetrisBlock : MonoBehaviour
                 AddToGrid();
                 /////////////////////////////////////////// CheckForLines();
 
-                WaterGameManagerNew.instance.ExpandWater();
+                WaterTetris.instance.ExpandWater();
                 this.enabled = false; // /!\ disabilita lo script
                 if (WaterTetris.instance.ingame)
                 {
-                    FindObjectOfType<SpawnTetrominos>()
-                        .NewTetromino(); // cerco l'oggetto di tipo SpawnTetrominos -> ne chiao la funzione
+                    SpawnTetrominos.instance.NewTetromino();
+                    //FindObjectOfType<SpawnTetrominos>().NewTetromino(); // cerco l'oggetto di tipo SpawnTetrominos -> ne chiao la funzione
                 }
             }
             previousTime = Time.time;

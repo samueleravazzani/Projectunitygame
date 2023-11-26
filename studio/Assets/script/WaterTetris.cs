@@ -27,7 +27,6 @@ public class WaterTetris : MonoBehaviour
         }
     
         instance = this;
-        DontDestroyOnLoad(this.gameObject);
     }
 
     void Start()
@@ -37,6 +36,7 @@ public class WaterTetris : MonoBehaviour
             CreateNewWater();
         }
         ingame = true;
+        SpawnTetrominos.instance.NewTetromino();
     }
     
     
@@ -88,9 +88,12 @@ public class WaterTetris : MonoBehaviour
 
     private void ConvertToWater(Vector3Int vv)
     {
-        grid[vv.x, vv.y].transform.position = vv;
+        var obj = new GameObject();
+        obj.transform.position = new Vector3(vv.x, vv.y, 0);
+        grid[vv.x, vv.y] = obj.transform;
+        Destroy(obj);
         grid_string[vv.x, vv.y] = "water";
-        Instantiate(water_prefab, vv, Quaternion.identity);
+        Instantiate(water_prefab, new Vector3(vv.x, vv.y, 0), Quaternion.identity);
         
     }
 
@@ -100,6 +103,7 @@ public class WaterTetris : MonoBehaviour
         int randomX = Random.Range(0, max_water_spawn_width);
         int randomY = Random.Range(0, max_water_spawn_height);
         Vector3Int pos = new Vector3Int(randomX, randomY, 0);
+        Debug.Log(pos);
         return pos;
     }
 
@@ -114,32 +118,50 @@ public class WaterTetris : MonoBehaviour
             {
                 if (grid_string[i,j] == "water")
                 {
+                    /*Debug.Log("i: " + i.ToString());
+                    Debug.Log("j: " + j.ToString());
+                    Debug.Log("grid_string: " + TetrisBlock.width.ToString() + TetrisBlock.height.ToString());
+                    */
+                    
                     // check up
-                    if (grid_string[i - 1, j] != "water" && grid_string[i - 1, j] != "block")
+                    if (i > 0)
                     {
-                        Vector3Int up = new Vector3Int(i - 1, j, 0);
-                        nextwaterPositions.Add(up);
+                        // controllo sopra se non sto guardando il blocco più in alto
+                        if (grid_string[i - 1, j] != "water" && grid_string[i - 1, j] != "block")
+                        {
+                            Vector3Int up = new Vector3Int(i - 1, j, 0);
+                            nextwaterPositions.Add(up);
+                        }
                     }
 
-                    // check down
-                    if (grid_string[i + 1, j] != "water" && grid_string[i + 1, j] != "block")
+                    if (i < TetrisBlock.height-1)
                     {
-                        Vector3Int down = new Vector3Int(i + 1, j, 0);
-                        nextwaterPositions.Add(down);
+                        // check down
+                        if (grid_string[i + 1, j] != "water" && grid_string[i + 1, j] != "block")
+                        {
+                            Vector3Int down = new Vector3Int(i + 1, j, 0);
+                            nextwaterPositions.Add(down);
+                        }
                     }
 
-                    // check right
-                    if (grid_string[i, j+1] != "water" && grid_string[i, j+1] != "block")
+                    if (j < TetrisBlock.width)
                     {
-                        Vector3Int right = new Vector3Int(i, j + 1, 0);
-                        nextwaterPositions.Add(right);
+                        // check right
+                        if (grid_string[i, j + 1] != "water" && grid_string[i, j + 1] != "block")
+                        {
+                            Vector3Int right = new Vector3Int(i, j + 1, 0);
+                            nextwaterPositions.Add(right);
+                        }
                     }
 
-                    // check left
-                    if (grid_string[i, j-1] != "water" && grid_string[i, j-1] != "block")
+                    if (j > 0)
                     {
-                        Vector3Int left = new Vector3Int(i, j-1, 0);
-                        nextwaterPositions.Add(left);
+                        // check left
+                        if (grid_string[i, j - 1] != "water" && grid_string[i, j - 1] != "block")
+                        {
+                            Vector3Int left = new Vector3Int(i, j - 1, 0);
+                            nextwaterPositions.Add(left);
+                        }
                     }
                 }
             }
