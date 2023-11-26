@@ -59,10 +59,11 @@ public class TetrisBlock : MonoBehaviour
                 AddToGrid();
                 /////////////////////////////////////////// CheckForLines();
 
-                WaterTetris.instance.ExpandWater();
+                
                 this.enabled = false; // /!\ disabilita lo script
                 if (WaterTetris.instance.ingame)
                 {
+                    WaterTetris.instance.ExpandWater();
                     SpawnTetrominos.instance.NewTetromino();
                     //FindObjectOfType<SpawnTetrominos>().NewTetromino(); // cerco l'oggetto di tipo SpawnTetrominos -> ne chiao la funzione
                 }
@@ -83,27 +84,7 @@ public class TetrisBlock : MonoBehaviour
         }
     }
 
-    void RowLeft(int i)
-    {
-        for (int y = i; y < width; y++)
-        {
-            for (int j = 0; j > height; j++)
-            {
-                if (WaterTetris.instance.grid_string[y, j] != "block" && WaterTetris.instance.grid_string[y, j] != "water")
-                {
-                    // matrice di transform
-                    WaterTetris.instance.grid[y-1, j] = WaterTetris.instance.grid[y, j];
-                    WaterTetris.instance.grid[y, j] = null;
-                    WaterTetris.instance.grid[y-1, j].transform.position -= new Vector3(1, 0, 0);
-                    
-                    // matrice di string per il tipo
-                    WaterTetris.instance.grid_string[y-1, j] = WaterTetris.instance.grid_string[y, j];
-                    WaterTetris.instance.grid_string[y, j] = null;
-                    // questa ultima riga non credo serva...spero
-                }
-            }
-        }
-    }
+    
 
     bool ValidMove() // check if the position of every square of the form is inside of the grid -> return true or false
     {
@@ -125,9 +106,9 @@ public class TetrisBlock : MonoBehaviour
             }
 
             // check che il blocco non sia occupato
-            if (WaterTetris.instance.grid_string[roundedX, roundedY] != "block" && WaterTetris.instance.grid_string[roundedX, roundedY] != "water")
+            if (WaterTetris.instance.grid_string[roundedX, roundedY] == "block" || WaterTetris.instance.grid_string[roundedX, roundedY] == "water")
             {
-                return false;
+                return false; // prima era: è diverso da null? -> è occupato. Quindi ora devo mettere == E mettere || anziché &&
             }
         }
 
@@ -149,7 +130,8 @@ public class TetrisBlock : MonoBehaviour
             }
         }
     }
-
+    
+    
     bool HasLine(int i) 
     {
         for (int j = 0; j < height; j++)
@@ -160,6 +142,33 @@ public class TetrisBlock : MonoBehaviour
 
         return true;
     }
+
+    void RowLeft(int i)
+    {
+        for (int y = i; y < width; y++)
+        {
+            for (int j = 0; j > height; j++)
+            {
+                if (WaterTetris.instance.grid_string[y, j] == "block" || WaterTetris.instance.grid_string[y, j] == "water")
+                {
+                    // prima era: è diverso da null? -> è occupato. Quindi ora devo mettere == E mettere || anziché &&
+                    
+                    
+                    // matrice di transform
+                    WaterTetris.instance.grid[y-1, j] = WaterTetris.instance.grid[y, j];
+                    WaterTetris.instance.grid[y, j] = null;
+                    WaterTetris.instance.grid[y-1, j].transform.position -= new Vector3(1, 0, 0);
+                    
+                    // matrice di string per il tipo
+                    WaterTetris.instance.grid_string[y-1, j] = WaterTetris.instance.grid_string[y, j];
+                    WaterTetris.instance.grid_string[y, j] = "";
+                    // questa ultima riga non credo serva...spero
+                }
+            }
+        }
+    }
+    
+    
 
     void DeleteLine(int i)
     {

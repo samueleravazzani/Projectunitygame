@@ -12,7 +12,7 @@ public class WaterTetris : MonoBehaviour
     
     private List<Vector3Int> nextwaterPositions = new List<Vector3Int>();
     public GameObject water_prefab; // prefab da inserire
-    private int N_water = 4;
+    private int N_water = 10;
     private int max_water_spawn_width = 5, max_water_spawn_height = TetrisBlock.height;
     public bool ingame;
 
@@ -31,6 +31,8 @@ public class WaterTetris : MonoBehaviour
 
     void Start()
     {
+        InitializeGrid();
+        
         for (int i = 0; i < N_water; i++)
         {
             CreateNewWater();
@@ -38,8 +40,18 @@ public class WaterTetris : MonoBehaviour
         ingame = true;
         SpawnTetrominos.instance.NewTetromino();
     }
-    
-    
+
+    private void InitializeGrid()
+    {
+        for (int i = 0; i < TetrisBlock.width; i++)
+        {
+            for (int j = 0; j < TetrisBlock.height; j++)
+            {
+                grid_string[i, j] = "";
+            }
+        }
+
+    }
 
     // /!\ gestisco l'espansione dell'acqua in TetrisBlock, dal blocco che è appena stato disabilitato
     void Update()
@@ -82,28 +94,28 @@ public class WaterTetris : MonoBehaviour
     private void CreateNewWater()
     {
         // Cambia una casella casuale in "tile_water"
-        Vector3Int vv = GetRandomTerrainPositionInASubGrid();
+        Vector3 vv = GetRandomTerrainPositionInASubGrid();
         ConvertToWater(vv);
     }
 
-    private void ConvertToWater(Vector3Int vv)
+    private void ConvertToWater(Vector3 vv)
     {
         var obj = new GameObject();
         obj.transform.position = new Vector3(vv.x, vv.y, 0);
-        grid[vv.x, vv.y] = obj.transform;
+        grid[Mathf.RoundToInt(vv.x), Mathf.RoundToInt(vv.y)] = obj.transform;
         Destroy(obj);
-        grid_string[vv.x, vv.y] = "water";
-        Instantiate(water_prefab, new Vector3(vv.x, vv.y, 0), Quaternion.identity);
+        grid_string[Mathf.RoundToInt(vv.x), Mathf.RoundToInt(vv.y)] = "water";
+        Instantiate(water_prefab, new Vector3(Mathf.RoundToInt(vv.x), Mathf.RoundToInt(vv.y), 0), Quaternion.identity);
         
     }
 
-    private Vector3Int GetRandomTerrainPositionInASubGrid()
+    private Vector3 GetRandomTerrainPositionInASubGrid()
     {
         // Scegli una casella casuale
         int randomX = Random.Range(0, max_water_spawn_width);
         int randomY = Random.Range(0, max_water_spawn_height);
-        Vector3Int pos = new Vector3Int(randomX, randomY, 0);
-        Debug.Log(pos);
+        Vector3 pos = new Vector3(randomX, randomY, 0);
+        // Debug.Log(pos);
         return pos;
     }
 
@@ -124,42 +136,42 @@ public class WaterTetris : MonoBehaviour
                     */
                     
                     // check up
-                    if (i > 0)
+                    if (j < TetrisBlock.height-1)
                     {
                         // controllo sopra se non sto guardando il blocco più in alto
-                        if (grid_string[i - 1, j] != "water" && grid_string[i - 1, j] != "block")
+                        if (grid_string[i, j+1] != "water" && grid_string[i, j+1] != "block")
                         {
-                            Vector3Int up = new Vector3Int(i - 1, j, 0);
+                            Vector3Int up = new Vector3Int(i, j+1, 0);
                             nextwaterPositions.Add(up);
                         }
                     }
-
-                    if (i < TetrisBlock.height-1)
+                    
+                    // check down
+                    if (j > 0)
                     {
-                        // check down
-                        if (grid_string[i + 1, j] != "water" && grid_string[i + 1, j] != "block")
+                        if (grid_string[i, j-1] != "water" && grid_string[i, j-1] != "block")
                         {
-                            Vector3Int down = new Vector3Int(i + 1, j, 0);
+                            Vector3Int down = new Vector3Int(i, j-1, 0);
                             nextwaterPositions.Add(down);
                         }
                     }
 
-                    if (j < TetrisBlock.width)
+                    // check right
+                    if (i<TetrisBlock.width-1)
                     {
-                        // check right
-                        if (grid_string[i, j + 1] != "water" && grid_string[i, j + 1] != "block")
+                        if (grid_string[i+1,j] != "water" && grid_string[i+1, j] != "block")
                         {
-                            Vector3Int right = new Vector3Int(i, j + 1, 0);
+                            Vector3Int right = new Vector3Int(i+1, j, 0);
                             nextwaterPositions.Add(right);
                         }
                     }
 
-                    if (j > 0)
+                    // check left
+                    if (i > 0)
                     {
-                        // check left
-                        if (grid_string[i, j - 1] != "water" && grid_string[i, j - 1] != "block")
+                        if (grid_string[i-1, j] != "water" && grid_string[i-1, j] != "block")
                         {
-                            Vector3Int left = new Vector3Int(i, j - 1, 0);
+                            Vector3Int left = new Vector3Int(i-1, j, 0);
                             nextwaterPositions.Add(left);
                         }
                     }
