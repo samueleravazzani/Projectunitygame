@@ -7,7 +7,7 @@ public class TetrisBlock : MonoBehaviour
     public Vector3 rotationPoint;
     private float previousTime;
     public float fallTime = 0.8f;
-    public static int height = 19;
+    public static int height = 20;
     public static int width = 35;
     // static: makes the value to be the same among all tetrominoes
     

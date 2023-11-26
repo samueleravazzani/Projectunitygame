@@ -262,7 +262,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3771483260092302131}
   - component: {fileID: 5700098061527487032}
-  - component: {fileID: 844775272571504990}
   m_Layer: 0
   m_Name: S_inverse tetromino
   m_TagString: Untagged
@@ -301,63 +300,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77a05e00c3ca1475b9806aa0e3e662d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationPoint: {x: 0, y: 0.5, z: 0}
+  rotationPoint: {x: 0, y: 0, z: 0}
   fallTime: 0.8
---- !u!60 &844775272571504990
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4539999555500801290}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.5265994, y: 0.5132227}
-      - {x: 0.5132749, y: 1.525794}
-      - {x: -1.5060697, y: 1.5081472}
-      - {x: -1.5009634, y: 0.48402214}
-      - {x: -0.50037605, y: 0.4968002}
-      - {x: -0.5126719, y: -0.5085639}
-      - {x: 1.501665, y: -0.50856376}
-      - {x: 1.514407, y: 0.5093202}
-  m_UseDelaunayMesh: 0
 --- !u!1 &6546978207682169356
 GameObject:
   m_ObjectHideFlags: 0
