@@ -2785,6 +2785,9 @@ MonoBehaviour:
   literacy_value_final: {fileID: 1547928052}
   climate_change_skept_value_final: {fileID: 125021596}
   animationduration: 2
+  anxietyValue_final: 0
+  literacyValue_final: 0
+  climateValue_final: 0
 --- !u!1 &1304271373
 GameObject:
   m_ObjectHideFlags: 0
@@ -4016,7 +4019,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4155195387293132626, guid: 377cbcd66eefc4159b3fe4f86f5d4a7b, type: 3}
+  m_Sprite: {fileID: 4155195387293132626, guid: bf0790fbdd346e3438781c66b15ddf83, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
