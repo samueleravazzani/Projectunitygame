@@ -7,13 +7,16 @@ public class WaterTetris : MonoBehaviour
 {
     public Transform[,] grid = new Transform[TetrisBlock.width, TetrisBlock.height]; // per creare/gestire i blocchi
     public string[,] grid_string = new string[TetrisBlock.width, TetrisBlock.height];
+    public string[,] grid_string_houses = new string[TetrisBlock.width, TetrisBlock.height];
+    public GameObject[] houses;
+    private int min_x_houses = 25, max_x_houses = 35; /* PARAMETRIZATION!!!!!!!!!!*/
     // a sx crivo le quadre e la virgola per dire che è una matrice
     // a dx scrivo le dimensioni della matrice
     
     private List<Vector3Int> nextwaterPositions = new List<Vector3Int>();
     public GameObject water_prefab; // prefab da inserire
-    private int N_water = 10;
-    private int max_water_spawn_width = 5, max_water_spawn_height = TetrisBlock.height;
+    private int N_water = 10;   /* PARAMETRIZATION!!!!!!!!!!*/
+    private int max_water_spawn_width = 5, max_water_spawn_height = TetrisBlock.height; /* PARAMETRIZATION della width!!!!!!!!!!*/
     public bool ingame;
 
     public static WaterTetris instance;
@@ -31,7 +34,9 @@ public class WaterTetris : MonoBehaviour
 
     void Start()
     {
-        InitializeGrid();
+        InitializeGrid(grid_string);
+        InitializeGrid(grid_string_houses);
+        SetHouses();
         
         for (int i = 0; i < N_water; i++)
         {
@@ -41,16 +46,29 @@ public class WaterTetris : MonoBehaviour
         SpawnTetrominos.instance.NewTetromino();
     }
 
-    private void InitializeGrid()
+    private void InitializeGrid(string[,] grid_to_initialize)
     {
         for (int i = 0; i < TetrisBlock.width; i++)
         {
             for (int j = 0; j < TetrisBlock.height; j++)
             {
-                grid_string[i, j] = "";
+                grid_to_initialize[i, j] = "";
             }
         }
 
+    }
+
+    private void SetHouses()
+    {
+        // red house
+        int x_red = Random.Range(min_x_houses, max_x_houses);
+        houses[0].transform.position = new Vector3Int(x_red, 16, 0);
+        // bordeaux house
+        int x_bordeaux = Random.Range(min_x_houses, max_x_houses);
+        houses[1].transform.position = new Vector3Int(x_bordeaux, 8, 0);
+        // blue house
+        int x_blue = Random.Range(min_x_houses, max_x_houses);
+        houses[2].transform.position = new Vector3Int(x_blue, 0, 0);
     }
 
     // /!\ gestisco l'espansione dell'acqua in TetrisBlock, dal blocco che è appena stato disabilitato
