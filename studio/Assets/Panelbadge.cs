@@ -4,26 +4,32 @@ using TMPro;
 
 public class Panelbadge : MonoBehaviour
 {
-    public Image fireLockImage;
-    public Image waterLockImage;
-    public Image airLockImage;
-    public Image plasticLockImage;
+    public Image fireLockImage; //lock to the fire 
+    public Image waterLockImage; //lock to the water
+    public Image airLockImage; //lock to the air
+    public Image plasticLockImage; //lock to the plastic
 
-    public Image fireImage;
-    public Image waterImage;
-    public Image airImage;
-    public Image plasticImage;
+    public Image fireImage; //firebadge
+    public Image waterImage; //waterebadge
+    public Image airImage; //airbadge
+    public Image plasticImage; //plasticbadge
 
     public TextMeshProUGUI fireCounterText;
     public TextMeshProUGUI waterCounterText;
     public TextMeshProUGUI airCounterText;
     public TextMeshProUGUI plasticCounterText;
 
-    private int fireCounter = 0;
+    
+    //counter to display how many times solved the task of the world for each problem
+    private int fireCounter = 0; 
     private int waterCounter = 0;
     private int airCounter = 0;
     private int plasticCounter = 0;
 
+    //Variable set  to keep into account that is the first time the task is solved
+    // so only the first time the lock will be deactivated and the badge activated,
+    // other times instead the counter simply increments
+    //Each one for each variable
     private bool fireSet = false;
     private bool waterSet = false;
     private bool airSet = false;
@@ -31,9 +37,8 @@ public class Panelbadge : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Panelbadge Start() called.");
 
-        // Initially, display the lock image and hide the new image with counter
+        // Initially, display the lock image and hide the badge image with counter
         fireLockImage.gameObject.SetActive(true);
         fireImage.gameObject.SetActive(false);
         fireCounterText.gameObject.SetActive(false);
@@ -47,33 +52,11 @@ public class Panelbadge : MonoBehaviour
         plasticImage.gameObject.SetActive(false);
         plasticCounterText.gameObject.SetActive(false);
     }
-
-    public void StartSimulation()
-    {
-        Debug.Log("StartSimulation() called.");
-        // Simulating variable setting after a delay (for demonstration purposes)
-        Invoke("SimulateVariableSetting", 2f);
-    }
-
-    void SimulateVariableSetting()
-    {
-        Debug.Log("SimulateVariableSetting() called.");
-
-        // Here, you can call the SetVariable function with different variables
-        SetVariable("fire");
-
-
-        // Simulating setting 'fire' again after a delay
-        Invoke("SimulateFireIncrement", 2f);
-    }
-
-    void SimulateFireIncrement()
-    {
-        Debug.Log("SimulateFireIncrement() called.");
-        // Simulate incrementing 'fire'
-        SetVariable("fire");
-    }
     
+    //Function called in the GameManager when solved the problem 
+    //For example the problem extracted fire -> you call this function and so if false la prima volta tolgo il lock
+    //metto il badge e faccio vedere il counter che viene messo a 1 + metto la variabile set a true perchè ho passato il caso della prima volta in vui c'è
+    //il lucchetto
     public void SetVariable(string variable)
     {
         switch (variable)
