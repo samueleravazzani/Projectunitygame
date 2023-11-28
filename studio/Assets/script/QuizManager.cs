@@ -37,7 +37,9 @@ public class QuizManager : MonoBehaviour
     
     int totalQuestions = 0; //integer to store the total number of questions.
     public int score; //An integer to keep track of the player's score.
-
+    public int error; //An integer to keep track of the error's made by the player
+    public bool errormade;
+    
     private List<int> answerIndices = new List<int>(); //A list of integers to store the indices of answer options.
     //????
     
@@ -53,6 +55,7 @@ public class QuizManager : MonoBehaviour
     // Reference to the audio clip
     public AudioClip myAudioClip;
     
+    public Button retryButton; //button that makes possible to repeat the game 
     
     // Make audio clips public to assign them in the Unity inspector
     public AudioClip correctSound;
@@ -75,6 +78,9 @@ public class QuizManager : MonoBehaviour
 
         // Play the audio
         audioSource.Play();
+
+        errormade = false;
+        retryButton.gameObject.SetActive(true);
     }
 
     private void LoadQuestionsFromCSV(int selectedProblemType, int numberOfQuestionsToSelect)
@@ -171,6 +177,10 @@ public class QuizManager : MonoBehaviour
     void GameOver()
     {
         Quizpanel.SetActive(false);
+        if (!errormade)
+        {
+            retryButton.gameObject.SetActive(false);
+        }
         GoPanel.SetActive(true);
         ScoreTxt.text = score + "/" + totalQuestions;
     }
@@ -186,6 +196,12 @@ public class QuizManager : MonoBehaviour
     
     public void wrong()
     {
+        error += 1;
+        if (error == 2)
+        {
+            errormade = true;
+            GameOver();
+        }
         qnA.RemoveAt(currentQuestion);
         StartCoroutine(WaitForNext());
     }

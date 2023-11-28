@@ -39,6 +39,9 @@ public class GameController : MonoBehaviour
     
     public TextMeshProUGUI missedText;
     public TextMeshProUGUI wrongButtonText; 
+    public TextMeshProUGUI outroText;
+    
+    public Button yourButton;
     
     private void Awake()
     {
@@ -49,6 +52,7 @@ public class GameController : MonoBehaviour
         ShowGameOverScreen = new ReactiveProperty<bool>();
         missedText.gameObject.SetActive(false);
         wrongButtonText.gameObject.SetActive(false);
+        outroText.gameObject.SetActive(false);
     }
 
     void Start()
@@ -214,6 +218,12 @@ public class GameController : MonoBehaviour
         if (wrongbutton)
         {
             wrongButtonText.gameObject.SetActive(true);
+        }
+
+        if (PlayerWon)
+        {
+            yourButton.gameObject.SetActive(false);
+            outroText.gameObject.SetActive(true);
         }
     }
     
