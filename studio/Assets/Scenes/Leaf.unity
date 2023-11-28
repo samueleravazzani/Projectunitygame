@@ -2430,7 +2430,7 @@ MonoBehaviour:
   noteContainer: {fileID: 473242142}
   audioSource: {fileID: 1956723004}
   scenename: MainMap
-  TimeGame: 5
+  TimeGame: 20
   missed: 0
   wrongbutton: 0
   missedText: {fileID: 1963391014}
