@@ -22,6 +22,7 @@ public class DialogeTrigger : MonoBehaviour //script attaccato al trigger dell'N
     
     private static DialogeTrigger instance;
     
+    
     //
     
     private void Update()
@@ -35,6 +36,10 @@ public class DialogeTrigger : MonoBehaviour //script attaccato al trigger dell'N
             {
                 nameNPC = gameObject.tag;//salvo il nome dell'NPC con cui ho interagito
                 Debug.Log("sono " + nameNPC.ToString());
+                if (nameNPC == "Bever")
+                {
+                    DialogueBever.GetInstance().DialogueBeverManager(inkJSON);
+                }
                 
                 randomIndex = UnityEngine.Random.Range(0, inkJSON.Length); //genero il numero per scegliere il Dialogo
                 //il numero è compreso tra 0 e la lunghezza del vettore dei dialoghi
@@ -50,9 +55,10 @@ public class DialogeTrigger : MonoBehaviour //script attaccato al trigger dell'N
                 }
                 //Verifico che se invece l'NPC non fa parte della lista, oppure se fa parte della lista e non ci ho ancora
                 //parlato, allora posso far partire il dialogo scelto dal randomIndex
-                if (!AnswerManager.GetInstance().impostors.Contains(nameNPC) ||
+                if ((!AnswerManager.GetInstance().impostors.Contains(nameNPC)||
                     (AnswerManager.GetInstance().impostors.Contains(nameNPC) &&
                      !AnswerManager.GetInstance().alreadyTalk[AnswerManager.GetInstance().impostors.IndexOf(nameNPC)]))
+                    && nameNPC !="Bever")
                 {
                     DialogeManager.GetInstance().EnterDialogueMode(inkJSON[randomIndex]);
                    
