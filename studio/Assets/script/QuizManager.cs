@@ -61,6 +61,9 @@ public class QuizManager : MonoBehaviour
     public AudioClip correctSound;
     public AudioClip wrongSound;
     
+    public TextMeshProUGUI retryText;
+    public TextMeshProUGUI outroText;
+    
     private void Start()
     {
         SetSelectedProblemType(selectedProblemType); // Call the method that sets the selected problem type, stored in the variable selectedproblem type  
@@ -81,6 +84,8 @@ public class QuizManager : MonoBehaviour
 
         errormade = false;
         retryButton.gameObject.SetActive(true);
+        retryText.gameObject.SetActive(false);
+        outroText.gameObject.SetActive(false);
     }
 
     private void LoadQuestionsFromCSV(int selectedProblemType, int numberOfQuestionsToSelect)
@@ -177,9 +182,12 @@ public class QuizManager : MonoBehaviour
     void GameOver()
     {
         Quizpanel.SetActive(false);
+        retryText.gameObject.SetActive(true);
         if (!errormade)
         {
             retryButton.gameObject.SetActive(false);
+            outroText.gameObject.SetActive(true);
+            retryText.gameObject.SetActive(false);
         }
         GoPanel.SetActive(true);
         ScoreTxt.text = score + "/" + totalQuestions;
