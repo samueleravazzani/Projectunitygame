@@ -6,16 +6,11 @@ public class TetrisBlock : MonoBehaviour
 {
     public Vector3 rotationPoint;
     private float previousTime;
-    public float fallTime = 0.8f;
+    public float fallTime = 0.6f;
     public static int height = 20;
     public static int width = 35;
     // static: makes the value to be the same among all tetrominoes
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -64,8 +59,11 @@ public class TetrisBlock : MonoBehaviour
                 if (WaterTetris.instance.ingame)
                 {
                     WaterTetris.instance.ExpandWater();
-                    SpawnTetrominos.instance.NewTetromino();
-                    //FindObjectOfType<SpawnTetrominos>().NewTetromino(); // cerco l'oggetto di tipo SpawnTetrominos -> ne chiao la funzione
+                    if (WaterTetris.instance.ingame) // perché ExpandWater può far diventare ingame false
+                    {
+                        SpawnTetrominos.instance.NewTetromino();
+                        //FindObjectOfType<SpawnTetrominos>().NewTetromino(); // cerco l'oggetto di tipo SpawnTetrominos -> ne chiao la funzione
+                    }
                 }
             }
             previousTime = Time.time;
