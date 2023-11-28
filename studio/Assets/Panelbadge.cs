@@ -37,7 +37,6 @@ public class Panelbadge : MonoBehaviour
 
     void Start()
     {
-
         // Initially, display the lock image and hide the badge image with counter
         fireLockImage.gameObject.SetActive(true);
         fireImage.gameObject.SetActive(false);
