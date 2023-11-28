@@ -1,8 +1,14 @@
 fileFormatVersion: 2
 guid: 340901a9d8d97bd43abdfe247e210193
-timeCreated: 1454365387
-licenseType: Store
+AssetOrigin:
+  serializedVersion: 1
+  productId: 34938
+  packageName: Rain Maker - 2D and 3D Rain Particle System for Unity
+  packageVersion: 2.1.2
+  assetPath: Assets/RainMaker/Prefab/RainScript2D.cs
+  uploadId: 500403
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
   defaultReferences:
   - Camera: {instanceID: 0}
@@ -14,15 +20,8 @@ MonoImporter:
   - RainMistParticleSystem: {instanceID: 0}
   - WindSound: {instanceID: 0}
   - WindZone: {instanceID: 0}
-  executionOrder: 0
+  executionOrder: 800
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 34938
-  packageName: Rain Maker - 2D and 3D Rain Particle System for Unity
-  packageVersion: 2.1.2
-  assetPath: Assets/RainMaker/Prefab/RainScript2D.cs
-  uploadId: 500403
