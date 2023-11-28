@@ -9,14 +9,14 @@ public class WaterTetris : MonoBehaviour
     public string[,] grid_string = new string[TetrisBlock.width, TetrisBlock.height];
     public string[,] grid_string_houses = new string[TetrisBlock.width, TetrisBlock.height];
     public GameObject[] houses;
-    private int min_x_houses = 25, max_x_houses = 35; /* PARAMETRIZATION!!!!!!!!!!*/
+    private int min_x_houses = 29, max_x_houses = 35; /* PARAMETRIZATION!!!!!!!!!!*/
     // a sx crivo le quadre e la virgola per dire che è una matrice
     // a dx scrivo le dimensioni della matrice
-    
+    private int probability_threshold = 80;
     private List<Vector3Int> nextwaterPositions = new List<Vector3Int>();
     public GameObject water_prefab; // prefab da inserire
-    private int N_water = 10;   /* PARAMETRIZATION!!!!!!!!!!*/
-    private int max_water_spawn_width = 5, max_water_spawn_height = TetrisBlock.height; /* PARAMETRIZATION della width!!!!!!!!!!*/
+    private int N_water = 60;   /* PARAMETRIZATION!!!!!!!!!!*/
+    private int max_water_spawn_width = 24, max_water_spawn_height = TetrisBlock.height; /* PARAMETRIZATION della width!!!!!!!!!!*/
     public bool ingame;
 
     public static WaterTetris instance;
@@ -63,12 +63,29 @@ public class WaterTetris : MonoBehaviour
         // red house
         int x_red = Random.Range(min_x_houses, max_x_houses);
         houses[0].transform.position = new Vector3Int(x_red, 16, 0);
+        AddToGrid(houses[0].transform);
+        
         // bordeaux house
         int x_bordeaux = Random.Range(min_x_houses, max_x_houses);
         houses[1].transform.position = new Vector3Int(x_bordeaux, 8, 0);
+        AddToGrid(houses[1].transform);
+        
         // blue house
         int x_blue = Random.Range(min_x_houses, max_x_houses);
         houses[2].transform.position = new Vector3Int(x_blue, 0, 0);
+        AddToGrid(houses[2].transform);
+    }
+    
+    void AddToGrid(Transform subtransform)
+    {
+        foreach (Transform children in subtransform)
+        {
+            int roundedX = Mathf.RoundToInt(children.transform.position.x);
+            int roundedY = Mathf.RoundToInt(children.transform.position.y);
+
+            grid[roundedX, roundedY] = children; // popolo la griglia
+            grid_string_houses[roundedX, roundedY] = "house";
+        }
     }
 
     // /!\ gestisco l'espansione dell'acqua in TetrisBlock, dal blocco che è appena stato disabilitato
@@ -94,15 +111,16 @@ public class WaterTetris : MonoBehaviour
         {
             // probability
             int probability = Random.Range(0, 100);
-            if (probability <= 50)
+            if (probability <= probability_threshold)
             {
                 ConvertToWater(pos);
-                /* GAMEOVER
-                if (tilemap_water.GetTile(pos) == tile_house)
+                // GAMEOVER  !!!!!!!!!!
+                if (grid_string_houses[pos.x, pos.y] == "house")
                 {
                     ingame = false;
                     Debug.Log("Game Over");
-                } */
+                    return;
+                } 
             }
         }
         nextwaterPositions.Clear();
