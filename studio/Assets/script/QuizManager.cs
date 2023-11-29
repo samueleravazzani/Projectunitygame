@@ -66,7 +66,8 @@ public class QuizManager : MonoBehaviour
     
     private void Start()
     {
-        SetSelectedProblemType(selectedProblemType); // Call the method that sets the selected problem type, stored in the variable selectedproblem type  
+        selectedProblemType= GameManager.instance.problem_now; //Call from the gamemanager to know which problem should regard the questions of the quiz
+        //SetSelectedProblemType(selectedProblemType); // Call the method that sets the selected problem type, stored in the variable selectedproblem type  
         LoadQuestionsFromCSV(selectedProblemType, numberOfQuestionsToSelect); //Call the method that load the questions from the CSV file indicating the problem type so that 
         //questions are the ones that regard that problem and the number of question that has to be done 
         totalQuestions = qnA.Count; //count how many question are in the quiz; this variable will be useful after to handle the display on the total of the score and of the questions
@@ -158,12 +159,6 @@ public class QuizManager : MonoBehaviour
             Debug.LogError("Error loading questions from CSV: " + e.Message);
         }
     }
-
-    public void SetSelectedProblemType(int problemType)
-    {
-        selectedProblemType = problemType;
-    }
-    //Sets the selectedProblemType based on the provided parameter.
     
     public void retry()
     {
