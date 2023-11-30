@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class QuizManager : MonoBehaviour
 {
@@ -56,6 +57,9 @@ public class QuizManager : MonoBehaviour
     
     public TextMeshProUGUI retryText;
     public TextMeshProUGUI outroText;
+    
+    public GameObject error1; //image to display the first error
+    public GameObject error2; //image to display the second error made 
 
     private float m = 5/9f; //parameter for the calibration
     private float q = 40/9f; //parameter for the calibration
@@ -80,8 +84,11 @@ public class QuizManager : MonoBehaviour
 
         // Play the audio
         audioSource.Play();
-
+        
         errormade = false;
+        
+        error1.gameObject.SetActive(false);
+        error2.gameObject.SetActive(false);
 
     }
 
@@ -194,16 +201,24 @@ public class QuizManager : MonoBehaviour
     public void wrong()
     {
         error += 1;
+        error1.gameObject.SetActive(true);
         if (error == 2)
         {
+            error2.gameObject.SetActive(true);
             errormade = true;
-            GameOver();
+            StartCoroutine(DelayGameOver()); 
         }
         qnA.RemoveAt(currentQuestion);
         StartCoroutine(WaitForNext());
     }
     //Handle the player's response to a question by updating the score and removing the current question from the list of questions.
-    //They also trigger a delay before the next question is generated.
+    
+    private IEnumerator DelayGameOver()
+    {
+        yield return new WaitForSeconds(1f); // Wait for 1 second
+        GameOver(); // Call GameOver after the delay
+    }
+    //trigger a delay before the next question is generated.
     
 
     IEnumerator WaitForNext()
