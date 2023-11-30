@@ -11,20 +11,18 @@ public class QuizManager : MonoBehaviour
     public TextAsset questionsCSV; //variable that holds the CSV file containing the quiz questions and answers.
     //in the inspector we attach the file csv to this public variable 
     
-    public int numberOfQuestionsToSelect; //how many questions should have our quiz game
-    //PAY ATTENTION THIS VARIABLE NOW IS PUBLIC AND DECIDED BY US BUT THEN HAS TO BE EQUAL 
-    //TO THE PARAMETRIZED VALUE ACCORDING TO SLIDERS 
+    private int numberOfQuestionsToSelect; //how many questions should have our quiz game
+  
 
     private List<QuestionAndAnswer> qnA = new List<QuestionAndAnswer>(); //objects that stores the loaded questions and answers.
     //rom the other script
 
-    public GameObject[] options; //PAY ATTENTION: I WANTED IT TO BE PRIVATE 
+    public GameObject[] options; 
     //This should represent the number of buttons I can have in my quiz game 
     //by default should be 4 and after in the methods is handled the fact that if there are less
     //answers the button disappears but this variable was needed to fix at maximum 4 the option
-    //I don't now how to handle it private
     private const int maxAnswerOptions = 4; //RELATED TO BEFORE!
-    public int currentQuestion; //nteger to keep track of the current question index.
+    public int currentQuestion; //integer to keep track of the current question index.
     
     public GameObject Quizpanel;
     public GameObject GoPanel;
@@ -41,13 +39,8 @@ public class QuizManager : MonoBehaviour
     public bool errormade;
     
     private List<int> answerIndices = new List<int>(); //A list of integers to store the indices of answer options.
-    //????
     
-    public int selectedProblemType; //An integer to store the selected problem type (e.g., 1 for fire, 2 for plastics).
-    //ATTENTION: actually this variable is public but then has to be connected to the randomized choice that is done at the beginning of 
-    //the game 
-    
-    public string sceneName; //A string variable to specify the name of the scene to load after the quiz ends.
+    private int selectedProblemType; //An integer to store the selected problem type (e.g., 1 for fire, 2 for plastics).
     
     // Reference to the AudioSource component
     private AudioSource audioSource;
@@ -63,9 +56,14 @@ public class QuizManager : MonoBehaviour
     
     public TextMeshProUGUI retryText;
     public TextMeshProUGUI outroText;
+
+    private float m = 5/9f; //parameter for the calibration
+    private float q = 40/9f; //parameter for the calibration
     
     private void Start()
     {
+        numberOfQuestionsToSelect = Mathf.RoundToInt(m * GameManager.instance.climate_change_skept + q);
+        
         selectedProblemType= GameManager.instance.problem_now; //Call from the gamemanager to know which problem should regard the questions of the quiz
         //SetSelectedProblemType(selectedProblemType); // Call the method that sets the selected problem type, stored in the variable selectedproblem type  
         LoadQuestionsFromCSV(selectedProblemType, numberOfQuestionsToSelect); //Call the method that load the questions from the CSV file indicating the problem type so that 
@@ -165,14 +163,7 @@ public class QuizManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     //Reloads the current scene to restart the quiz.
-
-    public void changeScene()
-    {
-        SceneManager.LoadScene(sceneName);
-    }
-    //Loads a different scene, after the quiz is completed.
-    //In the inspector to sceneName we will put MainMap
-    //I MADE IT PUBLIC AFTER UNDERSTAND IF PRIVATE!
+    
 
     void GameOver()
     {
