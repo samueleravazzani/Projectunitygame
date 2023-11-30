@@ -27,6 +27,7 @@ TagManager:
   - Medicine
   - Note
   - Water
+  - Bever
   layers:
   - Default
   - TransparentFX

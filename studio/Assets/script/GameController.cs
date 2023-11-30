@@ -31,14 +31,19 @@ public class GameController : MonoBehaviour
     private bool lastSpawn = false;
     public ReactiveProperty<bool> ShowGameOverScreen { get; set; }
     public bool PlayerWon { get; set; } = false;
-    public string scenename;
 
-    public float TimeGame;
+    private float TimeGame; //time to last the game
     public bool missed = false;
     public bool wrongbutton = false;
     
     public TextMeshProUGUI missedText;
     public TextMeshProUGUI wrongButtonText; 
+    public TextMeshProUGUI outroText;
+    
+    public Button yourButton;
+
+    private float m = 7.0f; // coefficient of the calibration
+    private float q = 23.0f; //for the calibration
     
     private void Awake()
     {
@@ -49,6 +54,8 @@ public class GameController : MonoBehaviour
         ShowGameOverScreen = new ReactiveProperty<bool>();
         missedText.gameObject.SetActive(false);
         wrongButtonText.gameObject.SetActive(false);
+        outroText.gameObject.SetActive(false);
+        TimeGame = Mathf.RoundToInt( m * GameManager.instance.anxiety + q); //calibration according to the value of anxiety 
     }
 
     void Start()
@@ -215,11 +222,13 @@ public class GameController : MonoBehaviour
         {
             wrongButtonText.gameObject.SetActive(true);
         }
+
+        if (PlayerWon)
+        {
+            yourButton.gameObject.SetActive(false);
+            outroText.gameObject.SetActive(true);
+        }
     }
     
-    public void Quit()
-    {
-        SceneManager.LoadScene(scenename);
-    }
 }
 
