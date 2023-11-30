@@ -571,7 +571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scenetoload: MainMap
   playeractive: 1
-  playerposition: {x: -29, y: -7, z: 0}
+  playerposition: {x: -28.5, y: -6, z: 0}
 --- !u!1 &255014211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2855,7 +2855,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questionsCSV: {fileID: 4900000, guid: 20f5d505bedbfb84c8af0c728e8b2fb1, type: 3}
-  numberOfQuestionsToSelect: 8
   options:
   - {fileID: 400584789}
   - {fileID: 500735239}
@@ -2870,8 +2869,6 @@ MonoBehaviour:
   score: 0
   error: 0
   errormade: 0
-  selectedProblemType: 1
-  sceneName: MainMap
   myAudioClip: {fileID: 8300000, guid: 759b489d474f2f04989ecb6f270ce77a, type: 3}
   retryButton: {fileID: 1948553603}
   correctSound: {fileID: 8300000, guid: 1266c97e9f4d73f4099100ddde396cc2, type: 3}

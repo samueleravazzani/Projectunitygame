@@ -82,9 +82,7 @@ public class QuizManager : MonoBehaviour
         audioSource.Play();
 
         errormade = false;
-        retryButton.gameObject.SetActive(true);
-        retryText.gameObject.SetActive(false);
-        outroText.gameObject.SetActive(false);
+
     }
 
     private void LoadQuestionsFromCSV(int selectedProblemType, int numberOfQuestionsToSelect)
@@ -168,12 +166,17 @@ public class QuizManager : MonoBehaviour
     void GameOver()
     {
         Quizpanel.SetActive(false);
-        retryText.gameObject.SetActive(true);
         if (!errormade)
         {
             retryButton.gameObject.SetActive(false);
             outroText.gameObject.SetActive(true);
             retryText.gameObject.SetActive(false);
+        }
+        else
+        {
+            retryText.gameObject.SetActive(true);
+            retryButton.gameObject.SetActive(true);
+            outroText.gameObject.SetActive(false);
         }
         GoPanel.SetActive(true);
         ScoreTxt.text = score + "/" + totalQuestions;
