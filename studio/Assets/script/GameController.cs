@@ -33,7 +33,7 @@ public class GameController : MonoBehaviour
     public bool PlayerWon { get; set; } = false;
     public string scenename;
 
-    public float TimeGame;
+    private float TimeGame; //time to last the game
     public bool missed = false;
     public bool wrongbutton = false;
     
@@ -42,6 +42,9 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI outroText;
     
     public Button yourButton;
+
+    private float m = 7.0f; // coefficient of the calibration
+    private float q = 23.0f; //for the calibration
     
     private void Awake()
     {
@@ -53,6 +56,7 @@ public class GameController : MonoBehaviour
         missedText.gameObject.SetActive(false);
         wrongButtonText.gameObject.SetActive(false);
         outroText.gameObject.SetActive(false);
+        TimeGame = Mathf.RoundToInt( m * GameManager.instance.anxiety + q); //calibration according to the value of anxiety 
     }
 
     void Start()
