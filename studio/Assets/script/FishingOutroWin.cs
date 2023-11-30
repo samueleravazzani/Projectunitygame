@@ -5,7 +5,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class Feashingintro : MonoBehaviour
+public class FeashingOutroWin : MonoBehaviour
 { 
     
     [Header("Ink JSON")] [SerializeField] private TextAsset inkJSON;
