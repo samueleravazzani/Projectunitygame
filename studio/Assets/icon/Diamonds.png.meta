@@ -416,7 +416,20 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Diamonds_0: 1930839287912332762
+      Diamonds_1: -4180039516846402663
+      Diamonds_10: 7169267357523271611
+      Diamonds_11: 2280115057347858601
+      Diamonds_12: -3158540903589798737
+      Diamonds_2: -7550446514286331383
+      Diamonds_3: -1189264683318500452
+      Diamonds_4: 5489425550423852611
+      Diamonds_5: -129344682377229948
+      Diamonds_6: 4706147864203298530
+      Diamonds_7: -8609163736557127468
+      Diamonds_8: 2271373999398222149
+      Diamonds_9: -9054866390690767207
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
