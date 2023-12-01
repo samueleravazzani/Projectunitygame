@@ -72,7 +72,7 @@ public class Collect : MonoBehaviour
             //Time.timeScale = 0f; // Pause the game.
             gameOverCanvas.SetActive(true); // Activate the game over Canvas.
             // Invoca la función para cambiar a la escena 'MainMap' después de 5 segundos.
-            Invoke("ChangeToMainMap", 5f);
+            //Invoke("ChangeToMainMap", 5f);
             
         }
        
@@ -84,10 +84,10 @@ public class Collect : MonoBehaviour
             //Time.timeScale = 0f; // Pause the game.
             gameOverCanvas2.SetActive(true); // Activate the game over Canvas.
             // Invoca la función para cambiar a la escena 'MainMap' después de 5 segundos.
-            Invoke("ChangeToMainMap", 5f);
+            //Invoke("ChangeToMainMap", 5f);
         }
     }
-    
+    /*
     private void ChangeToMainMap()
     {
        // Restaura el tiempo del juego a su velocidad normal antes de cambiar a la escena 'MainMap'.
@@ -95,5 +95,5 @@ public class Collect : MonoBehaviour
 
         // Cambia a la escena 'MainMap'
         SceneManager.LoadScene("MainMap");
-    }
+    }*/
 }
