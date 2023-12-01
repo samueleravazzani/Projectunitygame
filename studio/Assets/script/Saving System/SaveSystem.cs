@@ -18,9 +18,44 @@ public static class SaveSystem // static class can't be instantiated
     
     public static void Save(string saveString)
     {
-            
+        int saveNumber = 1;
+        while (File.Exists("save" + saveNumber + ".txt"))
+        {
+            saveNumber++;
+        }
+        File.WriteAllText(SAVE_FOLEDER + "/save" + saveNumber + ".txt", saveString);
     }
-    
+
+    public static string Load()
+    {
+        DirectoryInfo directoryInfo = new DirectoryInfo(SAVE_FOLEDER); // create directory info nel SAVE_FOLDER path
+        FileInfo[] saveFiles = directoryInfo.GetFiles(".txt"); // returns an array of file info, all the files of type .txt
+        FileInfo mostRecentFile = null;
+        foreach (FileInfo fileInfo in saveFiles) // cerca il file + recente
+        {
+            if (mostRecentFile == null) // se è null (e.g. la prima volta (?) ) -> setto l'attuale file trovato come mostRecent
+            {
+                mostRecentFile = fileInfo; 
+            }
+            else
+            {
+                if (fileInfo.LastWriteTime > mostRecentFile.LastWriteTime) // se fileInfo non è null e sto guardando un file che è più recente -> lo setto come file
+                {
+                    mostRecentFile = fileInfo;
+                }
+            }
+        }
+
+        if (mostRecentFile != null) // se != null -> abbiamo un most recent file -> esiste il file più recenteda caricare
+        {
+            string saveString = File.ReadAllText(SAVE_FOLEDER + mostRecentFile.FullName);
+            return saveString;
+        }
+        else
+        {
+            return null;
+        }
+    }
     
     
     /* public static void SavePlayer(GameManager gm, string name)

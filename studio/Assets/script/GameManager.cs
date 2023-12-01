@@ -61,31 +61,48 @@ public class GameManager : MonoBehaviour
 
     public void Save()
     {
+        // creo un SaveObject in cui setto le cose da salvare del SaveObject rispetto alle variabili del GameManager etc.;
+        // che poi converto in un JSON con JsonUtility.ToJson
+        // e poi chiamo la funzione SaveSystem.Save passandogli la stringa json da salvare
+        
         SaveObject saveObject = new SaveObject
         {
             anxiety = anxiety,
         };
         
         string json = JsonUtility.ToJson(saveObject);
-        File.WriteAllText(SAVE_FOLEDER + "/save.txt", json);
+        SaveSystem.Save(json);
     }
 
     public void Load()
     {
-        if (File.Exists(SAVE_FOLEDER + "/save.txt"))
+        // carico i dati dalla funzione SaveSystem.Load(), che mi restituisce una stringa ->
+        // -> se non è nulla la converto in un SaveObject che contiene tutte le cose 
+        string saveString = SaveSystem.Load();
+        if (saveString != null)
+        {
+            SaveObject saveObject =JsonUtility.FromJson<SaveObject>(saveString);
+        }
+        
+        
+        /* CODICE PER CARICARE LE VARIE COSE */
+        
+        
+        /*if (File.Exists(SAVE_FOLEDER + "/save.txt"))
         {
             string saveString = File.ReadAllText(SAVE_FOLEDER + "/save.txt");
 
             SaveObject saveObject =JsonUtility.FromJson<SaveObject>(saveString);
             
-        }
+        } */
     }
 
-    private class SaveObject
+    private class SaveObject // è la classe che creo per contenere tutte le info che andranno salvate in un JSON
     {
         public float anxiety, literacy_inverted, climate_change_skepticism, sum_parameters;
         public Vector3 position;
         public int problem_now;
+        public int previous_problem;
         public int task_index;
         public string[] task_done;
         public int[] task_picked;
