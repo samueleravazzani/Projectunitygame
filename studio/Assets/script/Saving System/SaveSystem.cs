@@ -6,7 +6,7 @@ public static class SaveSystem // static class can't be instantiated
 {
     private static readonly string SAVE_FOLEDER = Application.persistentDataPath + "/Saves/"; // this will be our save folder
 
-    public static void Initialize()
+    public static void InitializeSaveFolder()
     {
         // check che esiste la riectory
         if (!Directory.Exists(SAVE_FOLEDER)) // se la cartella non esiste
@@ -16,18 +16,44 @@ public static class SaveSystem // static class can't be instantiated
         }
     }
     
-    public static void Save(string saveString)
+    public static void Save(string profile, string saveString)
     {
-        int saveNumber = 1;
-        while (File.Exists("save" + saveNumber + ".txt"))
+        // pezzo di codice per salvare più versioni successive in file diversi
+        /* while (File.Exists("save" + profile + ".txt"))
         {
             saveNumber++;
-        }
-        File.WriteAllText(SAVE_FOLEDER + "/save" + saveNumber + ".txt", saveString);
+        } */
+        
+        File.WriteAllText(SAVE_FOLEDER + "/save" + profile + ".txt", saveString);
+        // se esiste già quel file -> lo sovrascrive
     }
 
-    public static string Load()
+    public static string Load(string profile)
     {
+        DirectoryInfo directoryInfo = new DirectoryInfo(SAVE_FOLEDER); // create directory info nel SAVE_FOLDER path
+        FileInfo[] saveFiles = directoryInfo.GetFiles(".txt"); // returns an array of file info, all the files of type .txt
+        FileInfo fileToLoad = null;
+        foreach (FileInfo fileInfo in saveFiles) // cerca il file + recente
+        {
+            if (fileInfo.Name == profile)
+            {
+                fileToLoad = fileInfo;
+            }
+        }
+
+        if (fileToLoad != null) // se != null -> abbiamo un most recent file -> esiste il file da caricare
+        {
+            string saveString = File.ReadAllText(SAVE_FOLEDER + fileToLoad.FullName);
+            return saveString;
+        }
+        else
+        {
+            return null;
+        }
+        
+        
+        // PARTE PER CARICARE IL FILE PIù recente
+        /*
         DirectoryInfo directoryInfo = new DirectoryInfo(SAVE_FOLEDER); // create directory info nel SAVE_FOLDER path
         FileInfo[] saveFiles = directoryInfo.GetFiles(".txt"); // returns an array of file info, all the files of type .txt
         FileInfo mostRecentFile = null;
@@ -54,7 +80,7 @@ public static class SaveSystem // static class can't be instantiated
         else
         {
             return null;
-        }
+        } */
     }
     
     

@@ -38,7 +38,19 @@ public class EnvironmentControl : MonoBehaviour
     private  float calibration_anxiety = -70/9f;
     public bool update_camera_bool = true; // /!\ IMPORTANTE, lo devo aggiornare anche dove faccio GameManager.instance.task_index++
     public static bool destroy_obj;
-    
+
+    public static EnvironmentControl instance;
+    void Awake()
+    {
+        // singleton
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        instance = this;
+    }
 
     // Update is called once per frame
     void Update()
