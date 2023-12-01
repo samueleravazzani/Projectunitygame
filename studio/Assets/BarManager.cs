@@ -46,20 +46,16 @@ public class BarManager : MonoBehaviour
     public void SetValue(float value)
     {
         currentValue = Mathf.Clamp(value, 1f, maxValue);
-        float invertedValue = maxValue - (currentValue - 1f); // in questo moodo se il currengt value dell'ansia è 1 allora il valore che lo slider vedrà è 10 
-        //l'idea infatti è che se hai poca ansia stai bene per cui lo slider è pieno 
-        //quando invece il valore della tua ansia è a 10  allora il valore dello slider è a 1 quindi è basso
-        // per cui l'obiettivo è riempire lo slider 
-        slider.value = invertedValue;
+        slider.value = currentValue;
     }
 
-    public void TakeDamage(float damage) // il damage diminuisce per cui lo slider aumenta quindi questa va chiamata quando la task viene svolta correttamente
+    public void TakeDamage(float damage)
     {
         currentValue -= damage;
         SetValue(currentValue);
     }
 
-    public void TakeIncrement(float increment) //esatto contrario 
+    public void TakeIncrement(float increment)
     {
         currentValue += increment;
         SetValue(currentValue);

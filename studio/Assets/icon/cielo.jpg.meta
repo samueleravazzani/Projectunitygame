@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1cc93faa92302ac4f8e4622c80ecc4ab
+guid: f9a2fff98c219d342a98284aab1d3ed8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7390276628861415271
-    second: Medicine Card_0
+      213: -5510333123701120307
+    second: cielo_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Medicine Card_0
+      name: cielo_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 4096
-        height: 2475
+        width: 448
+        height: 442
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76fe72740798f8660800000000000000
-      internalID: 7390276628861415271
+      spriteID: dc2e9bf083d5783b0800000000000000
+      internalID: -5510333123701120307
       vertices: []
       indices: 
       edges: []
