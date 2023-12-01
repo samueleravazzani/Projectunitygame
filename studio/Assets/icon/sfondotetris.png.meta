@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sfondotetris_0: -2431166984550795870
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
