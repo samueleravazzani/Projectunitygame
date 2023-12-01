@@ -599,8 +599,8 @@ MonoBehaviour:
 
     What do you want to do?'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c377b15a7b0884ac584d92427c372ec5, type: 2}
-  m_sharedMaterial: {fileID: 1615715506258409819, guid: c377b15a7b0884ac584d92427c372ec5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9f2ae776bc624f143945bc1ac5690e53, type: 2}
+  m_sharedMaterial: {fileID: 4678962729701240233, guid: 9f2ae776bc624f143945bc1ac5690e53, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1260,7 +1260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 140}
+  m_AnchoredPosition: {x: 0, y: 130}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &818927191
@@ -1323,12 +1323,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 808307c7f83ec204f84a650bda7469d3, type: 3}
-    m_FontSize: 45
+    m_Font: {fileID: 12800000, guid: 90e00826e6cae8e4f9ddaf9774b05ce2, type: 3}
+    m_FontSize: 40
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 50
+    m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2353,8 +2353,8 @@ MonoBehaviour:
 
     What do you want to do?'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: c377b15a7b0884ac584d92427c372ec5, type: 2}
-  m_sharedMaterial: {fileID: 1615715506258409819, guid: c377b15a7b0884ac584d92427c372ec5, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9f2ae776bc624f143945bc1ac5690e53, type: 2}
+  m_sharedMaterial: {fileID: 4678962729701240233, guid: 9f2ae776bc624f143945bc1ac5690e53, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2477,6 +2477,7 @@ MonoBehaviour:
   noteSpeed: 4
   noteContainer: {fileID: 473242142}
   audioSource: {fileID: 1956723004}
+  scenename: MainMap
   missed: 0
   wrongbutton: 0
   missedText: {fileID: 1963391014}
@@ -2677,8 +2678,8 @@ MonoBehaviour:
     calm can make a big difference in managing anxiety. Use this rhythm as a tool
     for relaxation in your everyday life.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 64142dc98b47e464c926f5b62ba9c081, type: 2}
-  m_sharedMaterial: {fileID: -2146398535203572544, guid: 64142dc98b47e464c926f5b62ba9c081, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c377b15a7b0884ac584d92427c372ec5, type: 2}
+  m_sharedMaterial: {fileID: 1615715506258409819, guid: c377b15a7b0884ac584d92427c372ec5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
