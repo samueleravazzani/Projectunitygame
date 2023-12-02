@@ -87,8 +87,8 @@ public class Collect : MonoBehaviour
             //Invoke("ChangeToMainMap", 5f);
         }
     }
-    
-   /* private void ChangeToMainMap()
+    /*
+    private void ChangeToMainMap()
     {
        // Restaura el tiempo del juego a su velocidad normal antes de cambiar a la escena 'MainMap'.
         //Time.timeScale = 1f;

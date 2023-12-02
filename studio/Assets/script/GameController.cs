@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
     private bool lastSpawn = false;
     public ReactiveProperty<bool> ShowGameOverScreen { get; set; }
     public bool PlayerWon { get; set; } = false;
+    public string scenename;
 
     private float TimeGame; //time to last the game
     public bool missed = false;
@@ -230,5 +231,9 @@ public class GameController : MonoBehaviour
         }
     }
     
+    public void Quit()
+    {
+        SceneManager.LoadScene(scenename);
+    }
 }
 
