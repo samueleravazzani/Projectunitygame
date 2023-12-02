@@ -85,6 +85,15 @@ public class GameManager : MonoBehaviour
         SaveObject saveObject = new SaveObject
         {
             anxiety = anxiety,
+            literacy_inverted = literacy_inverted,
+            climate_change_skepticism = climate_change_skept,
+            sum_parameters = anxiety+literacy_inverted+climate_change_skept,
+            position = new Vector3(0,0,0), //todo /!\ position to change
+            problem_now = problem_now,
+            previous_problem = problem_now,
+            task_index = task_index,
+            tasks_picked = tasks_picked,
+            
         };
         
         string json = JsonUtility.ToJson(saveObject);
@@ -99,8 +108,17 @@ public class GameManager : MonoBehaviour
         if (saveString != null)
         {
             SaveObject saveObject =JsonUtility.FromJson<SaveObject>(saveString);
+            anxiety = saveObject.anxiety;
+            literacy_inverted = saveObject.literacy_inverted;
+            climate_change_skept = saveObject.climate_change_skepticism;
+            sum_parameters = anxiety + literacy_inverted + climate_change_skept;
+            // position = new Vector3(0,0,0), //todo /!\ position to change
+            problem_now = saveObject.problem_now;
+            previous_problem = saveObject.problem_now;
+            task_index = saveObject.task_index;
+            tasks_picked = saveObject.tasks_picked;
         }
-        
+
         
         /* CODICE PER CARICARE LE VARIE COSE */
         
@@ -121,7 +139,7 @@ public class GameManager : MonoBehaviour
         public int problem_now;
         public int previous_problem;
         public int task_index;
-        public string[] task_done;
+        public int[] tasks_picked;
     }
 
     /* 

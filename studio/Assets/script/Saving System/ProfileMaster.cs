@@ -62,6 +62,12 @@ public class ProfileMaster : MonoBehaviour
         input.gameObject.SetActive(false);
         create.gameObject.SetActive(false);
         string profiles = SaveSystem.Load("profiles");
+        if (profiles == null)
+        {
+            return;
+        }
+        
+        // else: finisce
         profileNames = JsonUtility.FromJson<Serialization<string>>(profiles).ToList();
 
         int i = 0;
