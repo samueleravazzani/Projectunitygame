@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: f9a2fff98c219d342a98284aab1d3ed8
+guid: e757e34352cbe254aac48725539dcae6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5510333123701120307
-    second: cielo_0
+      213: 103799223623425778
+    second: seahor-removebg-preview_0
+  - first:
+      213: -6011405132734465779
+    second: seahor-removebg-preview_1
+  - first:
+      213: 5325661919712455574
+    second: seahor-removebg-preview_2
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -98,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cielo_0
+      name: seahor-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 17
         y: 0
-        width: 448
-        height: 442
+        width: 143
+        height: 218
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +118,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dc2e9bf083d5783b0800000000000000
-      internalID: -5510333123701120307
+      spriteID: 2fe190c08d4c07100800000000000000
+      internalID: 103799223623425778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seahor-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 149
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d09f66ea1e2339ca0800000000000000
+      internalID: -6011405132734465779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: seahor-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 126
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69b2946ac4d88e940800000000000000
+      internalID: 5325661919712455574
       vertices: []
       indices: 
       edges: []
@@ -128,8 +176,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      cielo_0: -5510333123701120307
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

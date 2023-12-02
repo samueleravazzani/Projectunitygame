@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f9a2fff98c219d342a98284aab1d3ed8
+guid: efec67d6dde66b14993e2c404ee63748
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5510333123701120307
-    second: cielo_0
+      213: -2431166984550795870
+    second: sfondotetris_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cielo_0
+      name: sfondotetris_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 448
-        height: 442
+        width: 1000
+        height: 672
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dc2e9bf083d5783b0800000000000000
-      internalID: -5510333123701120307
+      spriteID: 2a531382282c24ed0800000000000000
+      internalID: -2431166984550795870
       vertices: []
       indices: 
       edges: []
@@ -129,7 +129,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      cielo_0: -5510333123701120307
+      sfondotetris_0: -2431166984550795870
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
