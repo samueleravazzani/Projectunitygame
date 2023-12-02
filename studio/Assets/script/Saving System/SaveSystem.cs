@@ -30,6 +30,7 @@ public static class SaveSystem // static class can't be instantiated
 
     public static string Load(string profile)
     {
+        InitializeSaveFolder();
         DirectoryInfo directoryInfo = new DirectoryInfo(SAVE_FOLEDER); // create directory info nel SAVE_FOLDER path
         FileInfo[] saveFiles = directoryInfo.GetFiles(".txt"); // returns an array of file info, all the files of type .txt
         FileInfo fileToLoad = null;

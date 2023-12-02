@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ProfileMaster : MonoBehaviour
@@ -12,9 +13,14 @@ public class ProfileMaster : MonoBehaviour
     public static ProfileMaster instance;
     public Button profile_prefab;
     public Transform scrollView_Content;
+
+    public Image input;
+    public Button create;
+
+    private string newname;
     // private float[] button_position = new float[]  {376.5f, -543.5f};
-    private float buttonWidth = 590f;
-    private float button_offset = 604.0f;
+    private float buttonWidth = 520f;
+    private float button_offset = 460.0f;
     void Awake()
     {
         // singleton
@@ -32,6 +38,19 @@ public class ProfileMaster : MonoBehaviour
         SpawnProfiles();
     }
 
+    public void NewProfile()
+    {
+        input.gameObject.SetActive(true);
+        create.gameObject.SetActive(true);
+    }
+
+    public void Create()
+    {
+        newname = input.GetComponentInChildren<TMP_InputField>().text;
+        GameManager.instance.profile = newname;
+        SceneManager.LoadScene("ParameterSliders");
+    }
+
     public void SaveProfile()
     {
         string json = JsonUtility.ToJson(new Serialization<string>(profileNames));
@@ -40,6 +59,8 @@ public class ProfileMaster : MonoBehaviour
     
     public void SpawnProfiles()
     {
+        input.gameObject.SetActive(false);
+        create.gameObject.SetActive(false);
         string profiles = SaveSystem.Load("profiles");
         profileNames = JsonUtility.FromJson<Serialization<string>>(profiles).ToList();
 

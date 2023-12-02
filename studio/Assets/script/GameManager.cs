@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         do
         { 
             problem_now = Random.Range(1, 4);
-        } while (problem_now == previous_problem);
+        } while (problem_now == previous_problem); // faccio in modo che il problema del mondo sia diverso dal precedente
         EnvironmentControl.instance.update_camera_bool = true;
         // setto il futuro previous_problem
         previous_problem = problem_now;
@@ -66,6 +66,13 @@ public class GameManager : MonoBehaviour
         
         // initiliaze position of the player
         //todo: initialize position of the player
+    }
+
+    public void TaskDone(int task_done) // funzione da chiamare dopo che una task è completata
+    {
+        task_index++; // task fatta
+        tasks_picked[task_done] = 0; // segno che l'ho fatta
+        EnvironmentControl.instance.update_camera_bool = true; // aggiorno l'environment
     }
     
     public void Save()
