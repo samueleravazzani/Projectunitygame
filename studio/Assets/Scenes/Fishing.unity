@@ -1965,6 +1965,7 @@ MonoBehaviour:
   particleSystemFriends: {fileID: 1088706640}
   gameOverCanvas: {fileID: 1377819465}
   gameOverCanvas2: {fileID: 1941342967}
+  trashLimit: 4
 --- !u!50 &438418646
 Rigidbody2D:
   serializedVersion: 4
@@ -17191,7 +17192,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1233576718}
-  collectedCount: 5
 --- !u!222 &1638642498
 CanvasRenderer:
   m_ObjectHideFlags: 0
