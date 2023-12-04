@@ -12,19 +12,16 @@ public class QuizManager : MonoBehaviour
     //in the inspector we attach the file csv to this public variable 
     
     public int numberOfQuestionsToSelect; //how many questions should have our quiz game
-    //PAY ATTENTION THIS VARIABLE NOW IS PUBLIC AND DECIDED BY US BUT THEN HAS TO BE EQUAL 
-    //TO THE PARAMETRIZED VALUE ACCORDING TO SLIDERS 
 
     private List<QuestionAndAnswer> qnA = new List<QuestionAndAnswer>(); //objects that stores the loaded questions and answers.
     //rom the other script
 
-    public GameObject[] options; //PAY ATTENTION: I WANTED IT TO BE PRIVATE 
-    //This should represent the number of buttons I can have in my quiz game 
+    public GameObject[] options;  
+    //This represents the number of buttons I can have in my quiz game 
     //by default should be 4 and after in the methods is handled the fact that if there are less
     //answers the button disappears but this variable was needed to fix at maximum 4 the option
-    //I don't now how to handle it private
     private const int maxAnswerOptions = 4; //RELATED TO BEFORE!
-    public int currentQuestion; //nteger to keep track of the current question index.
+    public int currentQuestion; //integer to keep track of the current question index.
     
     public GameObject Quizpanel;
     public GameObject GoPanel;
@@ -38,16 +35,11 @@ public class QuizManager : MonoBehaviour
     int totalQuestions = 0; //integer to store the total number of questions.
     public int score; //An integer to keep track of the player's score.
     public int error; //An integer to keep track of the error's made by the player
-    public bool errormade;
+    public bool errormade; //Bool variable to identify if an error has been done
     
     private List<int> answerIndices = new List<int>(); //A list of integers to store the indices of answer options.
-    //????
     
     public int selectedProblemType; //An integer to store the selected problem type (e.g., 1 for fire, 2 for plastics).
-    //ATTENTION: actually this variable is public but then has to be connected to the randomized choice that is done at the beginning of 
-    //the game 
-    
-    public string sceneName; //A string variable to specify the name of the scene to load after the quiz ends.
     
     // Reference to the AudioSource component
     private AudioSource audioSource;
@@ -61,13 +53,12 @@ public class QuizManager : MonoBehaviour
     public AudioClip correctSound;
     public AudioClip wrongSound;
     
-    public TextMeshProUGUI retryText;
-    public TextMeshProUGUI outroText;
+    public TextMeshProUGUI retryText; //text that appears when ends the game that you made errors
+    public TextMeshProUGUI outroText; //text that appears when you end the game and win
     
     private void Start()
     {
         selectedProblemType= GameManager.instance.problem_now; //Call from the gamemanager to know which problem should regard the questions of the quiz
-        //SetSelectedProblemType(selectedProblemType); // Call the method that sets the selected problem type, stored in the variable selectedproblem type  
         LoadQuestionsFromCSV(selectedProblemType, numberOfQuestionsToSelect); //Call the method that load the questions from the CSV file indicating the problem type so that 
         //questions are the ones that regard that problem and the number of question that has to be done 
         totalQuestions = qnA.Count; //count how many question are in the quiz; this variable will be useful after to handle the display on the total of the score and of the questions
@@ -83,10 +74,7 @@ public class QuizManager : MonoBehaviour
         // Play the audio
         audioSource.Play();
 
-        errormade = false;
-        retryButton.gameObject.SetActive(true);
-        retryText.gameObject.SetActive(false);
-        outroText.gameObject.SetActive(false);
+        errormade = false; //initialize the error bool to false
     }
 
     private void LoadQuestionsFromCSV(int selectedProblemType, int numberOfQuestionsToSelect)
@@ -166,29 +154,25 @@ public class QuizManager : MonoBehaviour
     }
     //Reloads the current scene to restart the quiz.
 
-    public void changeScene()
-    {
-        SceneManager.LoadScene(sceneName);
-    }
-    //Loads a different scene, after the quiz is completed.
-    //In the inspector to sceneName we will put MainMap
-    //I MADE IT PUBLIC AFTER UNDERSTAND IF PRIVATE!
-
     void GameOver()
     {
-        Quizpanel.SetActive(false);
-        retryText.gameObject.SetActive(true);
-        if (!errormade)
+        Quizpanel.SetActive(false); 
+        if (!errormade)//if error wasn't made 
         {
-            retryButton.gameObject.SetActive(false);
-            outroText.gameObject.SetActive(true);
-            retryText.gameObject.SetActive(false);
+            retryButton.gameObject.SetActive(false); //I shouldn't see the retry button but only give the player the possibility to quit
+            outroText.gameObject.SetActive(true); //I should see the outro text
+            retryText.gameObject.SetActive(false); //and not see the retry text because is not the case
         }
-        GoPanel.SetActive(true);
+        else
+        {
+            retryText.gameObject.SetActive(true); //I should see retry button to give the player also the opportunity to play again
+            retryButton.gameObject.SetActive(true); //I should see the text to alert of having done wrong 
+            outroText.gameObject.SetActive(false); //Instead I should not see the outro winning text 
+        }
+        GoPanel.SetActive(true); //Having done the logic above, I can activate the gameover panel
         ScoreTxt.text = score + "/" + totalQuestions;
     }
     //Deactivates the quiz panel and activates the game over panel, displaying the player's score.
-    //Also is created a delay for the switching scene
     
     public void Correct()
     {
@@ -199,10 +183,10 @@ public class QuizManager : MonoBehaviour
     
     public void wrong()
     {
-        error += 1;
+        error += 1; //count the nymber of errors
         if (error == 2)
         {
-            errormade = true;
+            errormade = true; //if errors are two so the game should end so I change the bool variable to alert me on that 
             GameOver();
         }
         qnA.RemoveAt(currentQuestion);

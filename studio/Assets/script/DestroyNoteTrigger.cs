@@ -12,3 +12,5 @@ public class DestroyNoteTrigger : MonoBehaviour
         }
     }
 }
+
+//This script, DestroyNoteTrigger, is responsible for destroying game objects tagged as "Note" when they enter the trigger defined by this script's collider. 

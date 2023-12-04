@@ -30,7 +30,7 @@ public class AnswerScript : MonoBehaviour
         wrongAudioSource = quizManager.gameObject.AddComponent<AudioSource>();
         wrongAudioSource.clip = quizManager.wrongSound;
     }
-    //acquire the beginning color of the button (yellow background) 
+    //acquire the beginning color of the button ( background) 
     
     public void Answer()
     {

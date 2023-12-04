@@ -43,3 +43,8 @@ public class CanvasElementVisibility : MonoBehaviour
         canvasGroup.blocksRaycasts = false;
     }
 }
+
+// This script, intended for UI elements, controls the visibility state using a CanvasGroup.
+// It allows toggling the visibility of the associated canvas element by adjusting alpha transparency, interaction, and raycast blocking.
+// The property Visible controls the visibility state, and the ShowElement() and HideElement() methods modify the CanvasGroup properties to show or hide the associated UI element.
+// The OnValidate() method ensures proper visibility state initialization when the script is loaded or when values are changed in the Inspector.
