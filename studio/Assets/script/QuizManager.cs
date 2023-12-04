@@ -5,13 +5,14 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using Unity.VisualScripting;
 
 public class QuizManager : MonoBehaviour
 {
     public TextAsset questionsCSV; //variable that holds the CSV file containing the quiz questions and answers.
     //in the inspector we attach the file csv to this public variable 
     
-    public int numberOfQuestionsToSelect; //how many questions should have our quiz game
+    private int numberOfQuestionsToSelect; //how many questions should have our quiz game
 
     private List<QuestionAndAnswer> qnA = new List<QuestionAndAnswer>(); //objects that stores the loaded questions and answers.
     //rom the other script
@@ -39,7 +40,7 @@ public class QuizManager : MonoBehaviour
     
     private List<int> answerIndices = new List<int>(); //A list of integers to store the indices of answer options.
     
-    public int selectedProblemType; //An integer to store the selected problem type (e.g., 1 for fire, 2 for plastics).
+    private int selectedProblemType; //An integer to store the selected problem type (e.g., 1 for fire, 2 for plastics).
     
     // Reference to the AudioSource component
     private AudioSource audioSource;
@@ -56,8 +57,15 @@ public class QuizManager : MonoBehaviour
     public TextMeshProUGUI retryText; //text that appears when ends the game that you made errors
     public TextMeshProUGUI outroText; //text that appears when you end the game and win
     
+    public GameObject error1; //image to display the first error
+    public GameObject error2; //image to display the second error made 
+    
+    private float m = 5/9f; //parameter for the calibration
+    private float q = 40/9f; //parameter for the calibration
+    
     private void Start()
     {
+        numberOfQuestionsToSelect = Mathf.RoundToInt(m * GameManager.instance.climate_change_skept + q);
         selectedProblemType= GameManager.instance.problem_now; //Call from the gamemanager to know which problem should regard the questions of the quiz
         LoadQuestionsFromCSV(selectedProblemType, numberOfQuestionsToSelect); //Call the method that load the questions from the CSV file indicating the problem type so that 
         //questions are the ones that regard that problem and the number of question that has to be done 
@@ -74,7 +82,10 @@ public class QuizManager : MonoBehaviour
         // Play the audio
         audioSource.Play();
 
-        errormade = false; //initialize the error bool to false
+        errormade = false; //initialize the error bool to fals
+        //Set the error images to false at beginning
+        error1.gameObject.SetActive(false);
+        error2.gameObject.SetActive(false);
     }
 
     private void LoadQuestionsFromCSV(int selectedProblemType, int numberOfQuestionsToSelect)
@@ -184,10 +195,12 @@ public class QuizManager : MonoBehaviour
     public void wrong()
     {
         error += 1; //count the nymber of errors
+        error1.gameObject.SetActive(true);
         if (error == 2)
         {
+            error2.gameObject.SetActive(true);
             errormade = true; //if errors are two so the game should end so I change the bool variable to alert me on that 
-            GameOver();
+            StartCoroutine(DelayGameOver()); 
         }
         qnA.RemoveAt(currentQuestion);
         StartCoroutine(WaitForNext());
@@ -195,6 +208,12 @@ public class QuizManager : MonoBehaviour
     //Handle the player's response to a question by updating the score and removing the current question from the list of questions.
     //They also trigger a delay before the next question is generated.
     
+    private IEnumerator DelayGameOver()
+    {
+        yield return new WaitForSeconds(1f); // Wait for 1 second
+        GameOver(); // Call GameOver after the delay
+    }
+    //trigger a delay before the next question is generated.
 
     IEnumerator WaitForNext()
     {

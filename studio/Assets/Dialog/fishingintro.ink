@@ -1,4 +1,4 @@
-﻿-> main
+-> main
 
 === main ===
 "Welcome to the Fishing game, a climate change related game. Your objective is to clean the lake from all the rubbish and plastic residues you will encounter.
