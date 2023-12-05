@@ -53,14 +53,14 @@ public class Panelbadge : MonoBehaviour
     }
     
     //Function called in the GameManager when solved the problem 
-    //For example the problem extracted fire -> you call this function and so if false la prima volta tolgo il lock
+    //For example the problem extracted fire 0 -> you call this function and so if false la prima volta tolgo il lock
     //metto il badge e faccio vedere il counter che viene messo a 1 + metto la variabile set a true perchè ho passato il caso della prima volta in vui c'è
     //il lucchetto
-    public void SetVariable(string variable)
+    public void SetVariable(int variable)
     {
         switch (variable)
         {
-            case "fire":
+            case 1:
                 if (!fireSet)
                 {
                     fireLockImage.gameObject.SetActive(false);
@@ -71,7 +71,7 @@ public class Panelbadge : MonoBehaviour
                 fireCounter++;
                 fireCounterText.text = fireCounter.ToString();
                 break;
-            case "water":
+            case 3:
                 if (!waterSet)
                 {
                     waterLockImage.gameObject.SetActive(false);
@@ -82,7 +82,7 @@ public class Panelbadge : MonoBehaviour
                 waterCounter++;
                 waterCounterText.text = waterCounter.ToString();
                 break;
-            case "air":
+            case 4:
                 if (!airSet)
                 {
                     airLockImage.gameObject.SetActive(false);
@@ -93,7 +93,7 @@ public class Panelbadge : MonoBehaviour
                 airCounter++;
                 airCounterText.text = airCounter.ToString();
                 break;
-            case "plastic":
+            case 2:
                 if (!plasticSet)
                 {
                     plasticLockImage.gameObject.SetActive(false);

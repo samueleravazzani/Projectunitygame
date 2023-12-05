@@ -28,6 +28,7 @@ TagManager:
   - Note
   - Water
   - Bever
+  - Wall_30
   layers:
   - Default
   - TransparentFX

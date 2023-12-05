@@ -15,6 +15,9 @@ public class Collect : MonoBehaviour
     public GameObject gameOverCanvas2;
     private int trashCount = 0;
     private int friendsCount = 0;
+    //Nuevo: Variable para el límite de basura
+    public int trashLimit = 6;
+
 
     private void Start()
     {
@@ -24,6 +27,9 @@ public class Collect : MonoBehaviour
         // Deactivate the Canvas object at the start of the game.
         gameOverCanvas.SetActive(false);
         gameOverCanvas2.SetActive(false);
+        
+        // Asigna trashLimit a collectedCount en el inicio.
+        scoreUI.UpdateCount(trashLimit);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -65,15 +71,12 @@ public class Collect : MonoBehaviour
             FindObjectOfType<FriendsScoreUI>().UpdateFriendsCount(1);
         }
 
-        if (trashCount == 5) 
+        // Verifica si collectedCount es igual a trashLimit.
+        if (scoreUI.GetCollectedCount() <= 0)
         {
-            Debug.Log("You either collected 3 friends or all the required rubbish! The game is finished.");
+            Debug.Log("You collected all the required rubbish! The game is finished.");
             gameFinished = true;
-            //Time.timeScale = 0f; // Pause the game.
-            gameOverCanvas.SetActive(true); // Activate the game over Canvas.
-            // Invoca la función para cambiar a la escena 'MainMap' después de 5 segundos.
-            //Invoke("ChangeToMainMap", 5f);
-            
+            gameOverCanvas.SetActive(true);
         }
        
         

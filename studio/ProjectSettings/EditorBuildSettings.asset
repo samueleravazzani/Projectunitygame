@@ -54,6 +54,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PuzzleGame.unity
     guid: c14c0fe31e698f14b9fc428c75df31e9
   - enabled: 1
+    path: Assets/Scenes/PuzzleGameSelectLevel.unity
+    guid: 6bdd338946f0a9843bb904d8c694a2a8
+  - enabled: 1
     path: Assets/Scenes/Questionnaireright.unity
     guid: 29a034415b676e341935f06f8d1b059e
   m_configObjects: {}

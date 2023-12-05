@@ -13,3 +13,6 @@ public class OutOfScreenTrigger : MonoBehaviour
         }
     }
 }
+
+//If a Collider with the tag "Note" enters this trigger area, it retrieves the Note component attached to that GameObject and triggers the OutOfScreen() method from the Note script.
+//This mechanism manages notes moving out of the screen,  missed notes .

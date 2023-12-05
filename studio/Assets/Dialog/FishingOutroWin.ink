@@ -1,4 +1,4 @@
-﻿-> main
+-> main
 
 === main ===
 Game Completed!
@@ -13,4 +13,4 @@ Well done!
 
 
 
--> END
+->main

@@ -4,15 +4,17 @@ using UnityEngine;
 using TMPro; 
 using UnityEngine.SceneManagement;
 
+//This script automatically scrolls the specified text upwards within a TextMeshProUGUI component until it reaches a certain boundary, at which point it loads another scene
+
 public class AutoScroll : MonoBehaviour
 {
-    float speed = 80.0f;
-    float textPosBegin = -550.0f;
-    float boundaryTextEnd = 2400.0f;
+    float speed = 80.0f; // Controls the speed of the text scrolling.
+    float textPosBegin = -550.0f; //Defines the starting position of the text.
+    float boundaryTextEnd = 2400.0f; //Represents the position where the text will stop scrolling.
 
-    private RectTransform myGorectTransform;
+    private RectTransform myGorectTransform; //Reference to the RectTransform component attached to this GameObject.
 
-    [SerializeField] private TextMeshProUGUI mainText;
+    [SerializeField] private TextMeshProUGUI mainText; //Reference to the TextMeshProUGUI component to display text.
 
     private string myText;
 
@@ -23,6 +25,9 @@ public class AutoScroll : MonoBehaviour
         HandleCustomizeText();
         StartCoroutine(AutoscrolLText());
     }
+    //Retrieves the RectTransform component attached to the GameObject.
+    //Calls HandleCustomizeText() to set up the initial text.
+    //Initiates the coroutine AutoscrolLText() for text scrolling
 
     IEnumerator AutoscrolLText()
     {
@@ -35,6 +40,10 @@ public class AutoScroll : MonoBehaviour
         // Load another scene when the text reaches the boundary
         LoadNextScene();
     }
+    
+    // Scrolls the text upwards until it reaches the defined boundaryTextEnd
+    // Uses myGorectTransform.Translate(Vector3.up * speed * Time.deltaTime) to move the text upwards.
+    // Upon reaching the boundary, it initiates the LoadNextScene() method to load another scene.
 
     void HandleCustomizeText()
     {
@@ -47,10 +56,11 @@ public class AutoScroll : MonoBehaviour
         myText = myText + "\nForest creatures count on you. \n<color=#FF7B00><size=100>YOU CAN MAKE IT!</size></color>";
         mainText.text = myText;
     }
+    //Constructs a multiline string containing formatted text using TextMeshPro tags.
 
     void LoadNextScene()
     {
         // Load the next scene here
-        SceneManager.LoadScene("MainMap"); // Replace "NextSceneName" with your scene name
+        SceneManager.LoadScene("MainMap"); // Replace "NextSceneName" with scene name
     }
 }

@@ -7,7 +7,7 @@ public class ScoreUI : MonoBehaviour
     public Text scoreText;
 
     // The current score that will be displayed and updated.
-    public int collectedCount = 0;
+    private int collectedCount = 0;
 
     private void Update()
     {
@@ -21,4 +21,10 @@ public class ScoreUI : MonoBehaviour
         // It increases the collectedCount by the specified amount.
         collectedCount += amount;
     }
+    // Agrega este método para obtener el valor actual de collectedCount.
+    public int GetCollectedCount()
+    {
+        return collectedCount;
+    }
+    
 }
