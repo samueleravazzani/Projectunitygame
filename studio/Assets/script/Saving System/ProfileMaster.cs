@@ -55,7 +55,8 @@ public class ProfileMaster : MonoBehaviour
 
     public void SaveProfileList()
     {
-        string json = JsonUtility.ToJson(new Serialization<string>(profileNames));
+        string[] array = profileNames.ToArray();
+        string json = JsonUtility.ToJson(new Serialization<string>(array));
         SaveSystem.Save("profiles",json);
     }
     
@@ -70,8 +71,11 @@ public class ProfileMaster : MonoBehaviour
         }
         
         // else: finisce
-        Serialization<string> prof = JsonUtility.FromJson<Serialization<string>>(profiles);
-        profileNames = prof.ToList();
+        string[] array = JsonUtility.FromJson<Serialization<string>>(profiles).ToArray();
+        profileNames = new List<string>(array);
+
+        /* Serialization<string> prof = JsonUtility.FromJson<Serialization<string>>(profiles);
+        profileNames = prof.ToList(); */
         Debug.Log(profileNames); ///////// QUI STA
 
         int i = 0;
@@ -87,6 +91,24 @@ public class ProfileMaster : MonoBehaviour
         }
     }
     
+   [System.Serializable]
+    public class Serialization<T>
+    {
+        [SerializeField]
+        private T[] array;
+
+        public Serialization(T[] array)
+        {
+            this.array = array;
+        }
+
+        public T[] ToArray()
+        {
+            return array;
+        }
+    }
+    
+    /*
     [System.Serializable]
     public class Serialization<T>
     {
@@ -98,7 +120,7 @@ public class ProfileMaster : MonoBehaviour
         {
             this.target = target;
         }
-    }
+    } */
    
 
     
