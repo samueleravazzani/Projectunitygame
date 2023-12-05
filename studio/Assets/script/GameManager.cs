@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     // singleton
     public static GameManager instance;
+    public GameObject player;
     public string profile;
 
     // parameters that control environment effects
@@ -39,6 +40,8 @@ public class GameManager : MonoBehaviour
         
         // Save
         SaveSystem.InitializeSaveFolder();
+        player.GetComponent<playerMovement>().enabled = false;
+        player.gameObject.SetActive(false);
     }
 
 

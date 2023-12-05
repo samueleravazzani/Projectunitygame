@@ -36,6 +36,7 @@ public class AnswerManager : MonoBehaviour
                 Debug.LogWarning("find more than one dialogue Manager in the scene");
             }
             instance = this;
+            //DontDestroyOnLoad(this.gameObject);
          }
      
      public static AnswerManager GetInstance()

@@ -4,11 +4,12 @@ using System.Runtime.Serialization; // to work with files
 
 public static class SaveSystem // static class can't be instantiated
 {
-    private static readonly string SAVE_FOLEDER = Application.persistentDataPath + "/Saves/"; // this will be our save folder
-
+    public static readonly string SAVE_FOLEDER = "/Users/samueleravazzani/LOCAL Politecnico di Milano/Local/2 anno M/E-health Methods and Applications/Project/Projectunitygame/studio/Assets" + "/Saves/"; // this will be our save folder
+                                                // Application.persistentDataPath
+    
     public static void InitializeSaveFolder()
     {
-        // check che esiste la riectory
+        // check che esiste la directory
         if (!Directory.Exists(SAVE_FOLEDER)) // se la cartella non esiste
         {
             // create save folder
@@ -24,7 +25,7 @@ public static class SaveSystem // static class can't be instantiated
             saveNumber++;
         } */
         
-        File.WriteAllText(SAVE_FOLEDER + "/save" + profile + ".txt", saveString);
+        File.WriteAllText(SAVE_FOLEDER + profile + ".json", saveString);
         // se esiste già quel file -> lo sovrascrive
     }
 
@@ -32,7 +33,7 @@ public static class SaveSystem // static class can't be instantiated
     {
         InitializeSaveFolder();
         DirectoryInfo directoryInfo = new DirectoryInfo(SAVE_FOLEDER); // create directory info nel SAVE_FOLDER path
-        FileInfo[] saveFiles = directoryInfo.GetFiles(".txt"); // returns an array of file info, all the files of type .txt
+        FileInfo[] saveFiles = directoryInfo.GetFiles(".json"); // returns an array of file info, all the files of type .txt
         FileInfo fileToLoad = null;
         foreach (FileInfo fileInfo in saveFiles) // cerca il file + recente
         {
@@ -44,7 +45,7 @@ public static class SaveSystem // static class can't be instantiated
 
         if (fileToLoad != null) // se != null -> abbiamo un most recent file -> esiste il file da caricare
         {
-            string saveString = File.ReadAllText(SAVE_FOLEDER + fileToLoad.FullName);
+            string saveString = File.ReadAllText(SAVE_FOLEDER + fileToLoad.Name);
             return saveString;
         }
         else

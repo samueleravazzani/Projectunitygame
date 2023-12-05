@@ -48,10 +48,12 @@ public class ProfileMaster : MonoBehaviour
     {
         newname = input.GetComponentInChildren<TMP_InputField>().text;
         GameManager.instance.profile = newname;
+        profileNames.Add(newname);
+        SaveProfileList();
         SceneManager.LoadScene("ParameterSliders");
     }
 
-    public void SaveProfile()
+    public void SaveProfileList()
     {
         string json = JsonUtility.ToJson(new Serialization<string>(profileNames));
         SaveSystem.Save("profiles",json);
@@ -68,7 +70,9 @@ public class ProfileMaster : MonoBehaviour
         }
         
         // else: finisce
-        profileNames = JsonUtility.FromJson<Serialization<string>>(profiles).ToList();
+        Serialization<string> prof = JsonUtility.FromJson<Serialization<string>>(profiles);
+        profileNames = prof.ToList();
+        Debug.Log(profileNames); ///////// QUI STA
 
         int i = 0;
         foreach (string name in profileNames)
