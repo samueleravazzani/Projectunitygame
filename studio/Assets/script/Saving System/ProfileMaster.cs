@@ -76,14 +76,14 @@ public class ProfileMaster : MonoBehaviour
 
         /* Serialization<string> prof = JsonUtility.FromJson<Serialization<string>>(profiles);
         profileNames = prof.ToList(); */
-        Debug.Log(profileNames); ///////// QUI STA
+        Debug.Log(profileNames.ToString()); ///////// QUI STA
 
         int i = 0;
         foreach (string name in profileNames)
         {
             //todo fixare la posizione dei bottoni instantiati
             Button button = Instantiate(profile_prefab, new Vector3(), Quaternion.identity);
-            button.GetComponent<TextMeshProUGUI>().text = name;
+            button.GetComponentInChildren<TextMeshProUGUI>().text = name;
             button.transform.SetParent(scrollView_Content, false);
             Vector2 newPosition = new Vector2(buttonWidth * i, 0);
             ((RectTransform)button.transform).anchoredPosition = newPosition;

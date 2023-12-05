@@ -31,9 +31,10 @@ public static class SaveSystem // static class can't be instantiated
 
     public static string Load(string profile)
     {
+        profile = profile + ".json";
         InitializeSaveFolder();
         DirectoryInfo directoryInfo = new DirectoryInfo(SAVE_FOLEDER); // create directory info nel SAVE_FOLDER path
-        FileInfo[] saveFiles = directoryInfo.GetFiles(".json"); // returns an array of file info, all the files of type .txt
+        FileInfo[] saveFiles = directoryInfo.GetFiles("*.json"); // returns an array of file info, all the files of type .txt
         FileInfo fileToLoad = null;
         foreach (FileInfo fileInfo in saveFiles)
         {
@@ -48,7 +49,7 @@ public static class SaveSystem // static class can't be instantiated
 
         if (fileToLoad != null) // se != null -> abbiamo un file -> esiste il file da caricare
         {
-            string saveString = File.ReadAllText(SAVE_FOLEDER + fileToLoad.FullName);
+            string saveString = File.ReadAllText(SAVE_FOLEDER + fileToLoad.Name);
             return saveString;
         }
         else
