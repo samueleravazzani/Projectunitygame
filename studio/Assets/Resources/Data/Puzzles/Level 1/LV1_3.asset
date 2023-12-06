@@ -10,26 +10,35 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6df02f2dbe62140448ed06e0833d9cab, type: 3}
-  m_Name: LV1_4
+  m_Name: LV1_3
   m_EditorClassIdentifier: 
   timeInSeconds: 0
-  Columns: 3
-  Rows: 3
+  Columns: 4
+  Rows: 4
   Board:
-  - Size: 3
+  - Size: 4
     Row:
     - S
+    - S
+    - R
+    - R
+  - Size: 4
+    Row:
     - I
+    - M
+    - E
+    - W
+  - Size: 4
+    Row:
+    - U
     - F
-  - Size: 3
+    - W
+    - Y
+  - Size: 4
     Row:
     - M
-    - T
-    - L
-  - Size: 3
-    Row:
-    - X
-    - Q
-    - O
+    - U
+    - R
+    - F
   SearchWords:
-  - Word: STO
+  - Word: SIUM
