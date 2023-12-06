@@ -35,10 +35,13 @@ public class SceneSlave : MonoBehaviour
         {
             // profilo appena creato -> inizializzo
             if (SceneManager.GetActiveScene().name == "Home" && GameManager.instance.n_world_saved == 0 &&
-                GameManager.instance.task_index == 0) ;
+                GameManager.instance.task_index == 0)
             {
+                ActivateChangeScene();
                 GameManager.instance.InitializeGameFirstTime();
+                return;
             }
+            
             ActivateChangeScene();
         }
         

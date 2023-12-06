@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     
     // per il managing dei profiles
     public List<string> profileNames = new List<string>();
+    public bool profile_created = false;
 
     // parameters that control environment effects
     public float anxiety = 5; // settato in SliderControl
@@ -55,11 +56,15 @@ public class GameManager : MonoBehaviour
 
     public void InitializeGameFirstTime() // da chiamare solo quando si crea il profilo per la prima volta
     {
-        // aggiungo il player alla lista dei players
-        profileNames.Add(profile);
-        n_world_saved = 0;
-        SaveProfileList(); 
-        
+        if (!profile_created)
+        {
+            // aggiungo il player alla lista dei players
+            profileNames.Add(profile);
+            n_world_saved = 0;
+            SaveProfileList();
+            profile_created = true;
+        }
+
         // inizializzo il gioco
         InitializeGame(); 
     }
@@ -116,6 +121,7 @@ public class GameManager : MonoBehaviour
             task_index = task_index,
             tasks_picked = tasks_picked,
             n_world_saved = n_world_saved,
+            profile_created = profile_created,
         };
         
         string json = JsonUtility.ToJson(saveObject);
@@ -140,6 +146,8 @@ public class GameManager : MonoBehaviour
             previous_problem = saveObject.previous_problem;
             task_index = saveObject.task_index;
             tasks_picked = saveObject.tasks_picked;
+            n_world_saved = saveObject.n_world_saved;
+            profile_created = saveObject.profile_created;
             // cambio scena e attivo il player
             SceneManager.LoadScene("MainMap");
             ActivatePlayer(true);
@@ -167,6 +175,7 @@ public class GameManager : MonoBehaviour
         public int task_index;
         public int[] tasks_picked;
         public int n_world_saved;
+        public bool profile_created;
     }
 
     public void ActivatePlayer(bool state)

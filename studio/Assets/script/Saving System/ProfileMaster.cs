@@ -126,8 +126,9 @@ public class ProfileMaster : MonoBehaviour
             Button button = Instantiate(profile_prefab, scrollView_Content);
             button.GetComponentInChildren<TextMeshProUGUI>().text = name;
             button.transform.SetParent(scrollView_Content, false);
-            Vector2 newPosition = new Vector2((buttonWidth * i)-button_offset, 0);
-            ((RectTransform)button.transform).anchoredPosition = newPosition;
+            /* //Mio modo di farlo prima di scoprire l'Horizontal Layout Group
+             Vector2 newPosition = new Vector2((buttonWidth * i)-button_offset, 0);
+            ((RectTransform)button.transform).anchoredPosition = newPosition; */
             i++;
         }
     }
