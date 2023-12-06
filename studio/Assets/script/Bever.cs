@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Bever : MonoBehaviour
@@ -19,7 +20,12 @@ public class Bever : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(this.gameObject);
     }
-    
+
+    private void Start()
+    {
+        playerTransform = GameObject.Find("player").GetComponent<Transform>();
+    }
+
     void Update()
     {
         if (!IsPlayerInsideTrigger())
