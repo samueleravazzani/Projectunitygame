@@ -73,17 +73,25 @@ public class ProfileMaster : MonoBehaviour
 
    public void Delete()
    {
+       bool found = false;
        string name_to_delete = input.GetComponentInChildren<TMP_InputField>().text;
        foreach (string name in GameManager.instance.profileNames)
        {
            if (name == name_to_delete)
            {
-               GameManager.instance.profileNames.Remove(name_to_delete);
+               found = true;
            }
-           else
-           {
-               Debug.Log("Name not found");
-           }
+       }
+
+       if (found)
+       {
+           GameManager.instance.profileNames.Remove(name_to_delete);
+           GameManager.instance.SaveProfileList();
+           SceneManager.LoadScene("Profiles");
+       }
+       else
+       {
+           Debug.Log("Name not found");
        }
    }
    
@@ -118,8 +126,9 @@ public class ProfileMaster : MonoBehaviour
             Button button = Instantiate(profile_prefab, scrollView_Content);
             button.GetComponentInChildren<TextMeshProUGUI>().text = name;
             button.transform.SetParent(scrollView_Content, false);
-            Vector2 newPosition = new Vector2((buttonWidth * i)-button_offset, 0);
-            ((RectTransform)button.transform).anchoredPosition = newPosition;
+            /* //Mio modo di farlo prima di scoprire l'Horizontal Layout Group
+             Vector2 newPosition = new Vector2((buttonWidth * i)-button_offset, 0);
+            ((RectTransform)button.transform).anchoredPosition = newPosition; */
             i++;
         }
     }

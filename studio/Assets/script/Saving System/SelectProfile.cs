@@ -16,9 +16,9 @@ public class SelectProfile : MonoBehaviour
         GameManager.instance.Load(profileName);
     }
 
-    public void CreateProfile()
+    /*public void CreateProfile()
     {
         profileName = profileSelected.text;
         GameManager.instance.InitializeGameFirstTime();
-    }
+    } */
 }
