@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public float climate_change_skept = 5; // settato in SliderControl
     public float sum_parameters = 15; // settato in SliderControl
     [Header("Task da fare: usare per debuggare, N.B. impostarle prima di startare la MainMap")]
-    public int[] tasks_picked = new int[3]; // vettore di 3 int: [0] per anxiety, [1] per literacy, [2] per climate change
+    public int[] tasks_picked = new int[3] {0,0,0}; // vettore di 3 int: [0] per anxiety, [1] per literacy, [2] per climate change
     // in ciascuno di questi 3 elementi pesco un numero casuale che definisce la task
     // ANXIETY: 0 fatta, 1 breathing, 2 music, 3 word puzzle
     // LITERACY: 0 fatta, 1 postions, 2 sources
@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
         tasks_picked[2] = Random.Range(1, 2); // CCS: 0 fatta, 1 quiz, 2 minigioco legato al problema del mondo
         
         // initiliaze position of the player in the MainMap /!\
-        player.transform.position = new Vector3(-1.75f, 1.65f, 0);
+        player.transform.position = new Vector3(-1.79f, 1.79f, 0);
     }
 
     public void TaskDone(int category) // funzione da chiamare dopo che una task è completata

@@ -145,8 +145,16 @@ PrefabInstance:
       value: 0.039898813
       objectReference: {fileID: 0}
     - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: category
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
       propertyPath: scenetoload
       value: PuzzleGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: minigame_int
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
       propertyPath: playeractive
