@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 2f04e5b19bf424745b4a5293944bc541
+guid: 5d23414c13e86b04bafdb4bc8d65a49d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1502936318033598888
-    second: sfondo3_0
+      213: -1019020977062366651
+    second: NewLevels_0
+  - first:
+      213: 6995440758834843037
+    second: NewLevels_1
+  - first:
+      213: -4704407204083307677
+    second: NewLevels_2
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -98,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sfondo3_0
+      name: NewLevels_0
       rect:
         serializedVersion: 2
-        x: 39
-        y: 98
-        width: 407
-        height: 329
+        x: 17
+        y: 13
+        width: 144
+        height: 106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +118,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 856e293b16f742be0800000000000000
-      internalID: -1502936318033598888
+      spriteID: 542b68302d5bbd1f0800000000000000
+      internalID: -1019020977062366651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewLevels_1
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 13
+        width: 144
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9dc3a58e4cc41160800000000000000
+      internalID: 6995440758834843037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NewLevels_2
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 13
+        width: 143
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36b63d9a29696beb0800000000000000
+      internalID: -4704407204083307677
       vertices: []
       indices: 
       edges: []
@@ -128,8 +176,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      sfondo3_0: -1502936318033598888
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

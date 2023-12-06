@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df02f2dbe62140448ed06e0833d9cab, type: 3}
+  m_Name: LV2_1
+  m_EditorClassIdentifier: 
+  timeInSeconds: 0
+  Columns: 10
+  Rows: 10
+  Board:
+  - Size: 10
+    Row:
+    - S
+    - Z
+    - U
+    - B
+    - V
+    - A
+    - R
+    - F
+    - N
+    - Q
+  - Size: 10
+    Row:
+    - S
+    - E
+    - D
+    - J
+    - Q
+    - N
+    - H
+    - H
+    - X
+    - H
+  - Size: 10
+    Row:
+    - Z
+    - K
+    - R
+    - D
+    - W
+    - H
+    - W
+    - H
+    - E
+    - Z
+  - Size: 10
+    Row:
+    - W
+    - P
+    - Y
+    - E
+    - P
+    - R
+    - K
+    - V
+    - J
+    - Y
+  - Size: 10
+    Row:
+    - A
+    - R
+    - W
+    - R
+    - N
+    - X
+    - D
+    - L
+    - X
+    - I
+  - Size: 10
+    Row:
+    - I
+    - Z
+    - O
+    - Z
+    - S
+    - I
+    - D
+    - B
+    - Q
+    - F
+  - Size: 10
+    Row:
+    - D
+    - V
+    - Y
+    - Y
+    - U
+    - G
+    - T
+    - W
+    - K
+    - Y
+  - Size: 10
+    Row:
+    - M
+    - D
+    - Z
+    - D
+    - Y
+    - U
+    - W
+    - Y
+    - M
+    - Z
+  - Size: 10
+    Row:
+    - N
+    - P
+    - Y
+    - O
+    - P
+    - B
+    - W
+    - I
+    - L
+    - X
+  - Size: 10
+    Row:
+    - Y
+    - L
+    - Q
+    - X
+    - V
+    - D
+    - C
+    - F
+    - U
+    - H
+  SearchWords:
+  - Word: SERENITY

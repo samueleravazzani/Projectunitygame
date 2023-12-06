@@ -1,0 +1,275 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df02f2dbe62140448ed06e0833d9cab, type: 3}
+  m_Name: LV3_1
+  m_EditorClassIdentifier: 
+  timeInSeconds: 0
+  Columns: 15
+  Rows: 15
+  Board:
+  - Size: 15
+    Row:
+    - C
+    - D
+    - H
+    - H
+    - E
+    - Q
+    - E
+    - J
+    - X
+    - U
+    - Z
+    - K
+    - D
+    - H
+    - P
+  - Size: 15
+    Row:
+    - I
+    - C
+    - K
+    - K
+    - I
+    - H
+    - P
+    - W
+    - R
+    - Z
+    - T
+    - P
+    - E
+    - A
+    - J
+  - Size: 15
+    Row:
+    - A
+    - Y
+    - A
+    - Z
+    - E
+    - Z
+    - W
+    - D
+    - Q
+    - O
+    - S
+    - V
+    - J
+    - O
+    - U
+  - Size: 15
+    Row:
+    - O
+    - U
+    - T
+    - B
+    - L
+    - D
+    - B
+    - Z
+    - Z
+    - K
+    - Z
+    - P
+    - K
+    - N
+    - F
+  - Size: 15
+    Row:
+    - H
+    - H
+    - J
+    - I
+    - I
+    - H
+    - J
+    - G
+    - P
+    - P
+    - Y
+    - V
+    - U
+    - S
+    - U
+  - Size: 15
+    Row:
+    - I
+    - G
+    - H
+    - Z
+    - S
+    - E
+    - U
+    - B
+    - K
+    - A
+    - N
+    - E
+    - N
+    - U
+    - B
+  - Size: 15
+    Row:
+    - Q
+    - A
+    - S
+    - L
+    - H
+    - I
+    - X
+    - U
+    - W
+    - X
+    - L
+    - I
+    - M
+    - C
+    - U
+  - Size: 15
+    Row:
+    - V
+    - M
+    - T
+    - G
+    - G
+    - U
+    - L
+    - A
+    - J
+    - W
+    - E
+    - C
+    - A
+    - X
+    - O
+  - Size: 15
+    Row:
+    - A
+    - U
+    - O
+    - T
+    - I
+    - K
+    - T
+    - G
+    - W
+    - M
+    - T
+    - P
+    - R
+    - H
+    - Y
+  - Size: 15
+    Row:
+    - E
+    - P
+    - O
+    - V
+    - E
+    - O
+    - A
+    - V
+    - Z
+    - G
+    - G
+    - S
+    - X
+    - G
+    - R
+  - Size: 15
+    Row:
+    - Y
+    - K
+    - N
+    - Y
+    - C
+    - L
+    - O
+    - M
+    - J
+    - H
+    - B
+    - G
+    - U
+    - B
+    - N
+  - Size: 15
+    Row:
+    - X
+    - W
+    - R
+    - K
+    - P
+    - W
+    - W
+    - E
+    - G
+    - X
+    - E
+    - O
+    - V
+    - G
+    - I
+  - Size: 15
+    Row:
+    - T
+    - Y
+    - P
+    - J
+    - Q
+    - J
+    - F
+    - O
+    - P
+    - S
+    - N
+    - N
+    - C
+    - P
+    - S
+  - Size: 15
+    Row:
+    - O
+    - G
+    - F
+    - H
+    - F
+    - M
+    - G
+    - T
+    - M
+    - P
+    - E
+    - D
+    - J
+    - V
+    - N
+  - Size: 15
+    Row:
+    - N
+    - F
+    - T
+    - V
+    - E
+    - A
+    - O
+    - B
+    - L
+    - V
+    - P
+    - K
+    - L
+    - U
+    - B
+  SearchWords:
+  - Word: CIAO
