@@ -73,17 +73,25 @@ public class ProfileMaster : MonoBehaviour
 
    public void Delete()
    {
+       bool found = false;
        string name_to_delete = input.GetComponentInChildren<TMP_InputField>().text;
        foreach (string name in GameManager.instance.profileNames)
        {
            if (name == name_to_delete)
            {
-               GameManager.instance.profileNames.Remove(name_to_delete);
+               found = true;
            }
-           else
-           {
-               Debug.Log("Name not found");
-           }
+       }
+
+       if (found)
+       {
+           GameManager.instance.profileNames.Remove(name_to_delete);
+           GameManager.instance.SaveProfileList();
+           SceneManager.LoadScene("Profiles");
+       }
+       else
+       {
+           Debug.Log("Name not found");
        }
    }
    
