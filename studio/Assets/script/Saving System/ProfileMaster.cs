@@ -16,6 +16,7 @@ public class ProfileMaster : MonoBehaviour
 
     public Image input;
     public Button create;
+    public Button delete;
 
     private string newname;
     // private float[] button_position = new float[]  {376.5f, -543.5f};
@@ -42,23 +43,57 @@ public class ProfileMaster : MonoBehaviour
     {
         input.gameObject.SetActive(true);
         create.gameObject.SetActive(true);
+        delete.gameObject.SetActive(false);
     }
 
-    public void Create()
-    {
-        newname = input.GetComponentInChildren<TMP_InputField>().text;
-        GameManager.instance.profile = newname; // passo al GameManager il nome del player.
-        GameManager.instance.n_world_saved = 0; // setto a 0 il n° di volte in cui il mondo è stato salvato
-        // Se il player finisce il tutorial: (esce dalla casa -> salvo il suo profilo nell'elenco dei profili e il suo profilo.
-        SceneManager.LoadScene("ParameterSliders");
-    }
+   public void Create()
+   {
+       newname = input.GetComponentInChildren<TMP_InputField>().text;
+       foreach (string name in GameManager.instance.profileNames)
+       {
+           if (name == newname)
+           {
+               Debug.Log("Error: a profile with this name already exists. Change name");
+               return;
+           }
+       }
+        
+       GameManager.instance.profile = newname; // passo al GameManager il nome del player.
+       GameManager.instance.n_world_saved = 0; // setto a 0 il n° di volte in cui il mondo è stato salvato
+       // Se il player finisce il tutorial: (esce dalla casa -> salvo il suo profilo nell'elenco dei profili e il suo profilo.
+       SceneManager.LoadScene("ParameterSliders");
+   }
+   public void DeleteProfile()
+   {
+       input.gameObject.SetActive(true);
+       create.gameObject.SetActive(false);
+       delete.gameObject.SetActive(true);
+   }
 
+
+   public void Delete()
+   {
+       string name_to_delete = input.GetComponentInChildren<TMP_InputField>().text;
+       foreach (string name in GameManager.instance.profileNames)
+       {
+           if (name == name_to_delete)
+           {
+               GameManager.instance.profileNames.Remove(name_to_delete);
+           }
+           else
+           {
+               Debug.Log("Name not found");
+           }
+       }
+   }
+   
     
     
-    public void SpawnProfiles()
-    {
+   public void SpawnProfiles()
+   {
         input.gameObject.SetActive(false);
         create.gameObject.SetActive(false);
+        delete.gameObject.SetActive(false);
         string profiles = SaveSystem.Load("profiles");
         if (profiles == null)
         {
@@ -104,7 +139,7 @@ public class ProfileMaster : MonoBehaviour
         {
             return array;
         }
-    }
+   }
     
     /*
     [System.Serializable]

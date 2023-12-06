@@ -31,7 +31,12 @@ public class SceneMaster : MonoBehaviour
         {
             player.transform.position = playerposition;
         }
-        
+
+        // se la scena da caricare è la MainMap -> salvo
+        if (scenetoload == "MainMap")
+        {
+            GameManager.instance.Save();
+        }
         
     }
 }

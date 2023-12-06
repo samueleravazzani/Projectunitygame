@@ -320,9 +320,9 @@ TextureImporter:
       name: wooden_buttons_9
       rect:
         serializedVersion: 2
-        x: 664
+        x: 680
         y: 119
-        width: 105
+        width: 70
         height: 77
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
