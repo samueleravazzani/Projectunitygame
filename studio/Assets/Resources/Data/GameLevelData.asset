@@ -18,6 +18,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: f2cea6ab275fb134c8b6dc1864842ee1, type: 2}
     - {fileID: 11400000, guid: e13001ce29c9da44a8814945b9c354df, type: 2}
   - categoryName: Level 2
-    boardData: []
+    boardData:
+    - {fileID: 11400000, guid: d15a665092d29144c8b954e77a1e2190, type: 2}
   - categoryName: Level 3
-    boardData: []
+    boardData:
+    - {fileID: 11400000, guid: 55f1d332f5970454d84a0c6b5ef36f17, type: 2}
