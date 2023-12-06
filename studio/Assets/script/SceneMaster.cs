@@ -23,15 +23,17 @@ public class SceneMaster : MonoBehaviour
 
     public void ChangeSchene(string scenetoload, bool playeractive, Vector3 playerposition)
     {
-        if (playeractive) // se serve il player -> setto la posizione
-        {
-            player.transform.position = playerposition;
-            playerMovement.instance.worldBorders = GameObject.Find("WorldBorders").GetComponent<Collider2D>();
-        }
         SceneManager.LoadScene(scenetoload); // carico la scena
         player.gameObject.SetActive(playeractive); // attivo/disattivo il player
         player.GetComponent<playerMovement>().enabled = playeractive; // attivo/disattivo il movimento del player
         Bever.gameObject.SetActive(playeractive);
+        
+        if (playeractive) // se serve il player -> setto la posizione
+        {
+            player.transform.position = playerposition;
+            // non funziona player.GetComponent<playerMovement>().worldBorders = GameObject.Find("WorldBorders").GetComponent<PolygonCollider2D>();
+            Bever.transform.position = playerposition;
+        }
         
         // se la scena da caricare è la MainMap -> salvo
         if (scenetoload == "MainMap")

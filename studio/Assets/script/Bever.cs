@@ -24,6 +24,7 @@ public class Bever : MonoBehaviour
     private void Start()
     {
         playerTransform = GameObject.Find("player").GetComponent<Transform>();
+        SceneMaster.instance.Bever = GameObject.Find("Bever"); // creo Bever -> dico allo SceneMaster dov'è Bever
     }
 
     void Update()

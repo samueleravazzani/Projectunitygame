@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using Random = UnityEngine.Random;
 
 public class EnvironmentControl : MonoBehaviour
 {
@@ -50,6 +52,11 @@ public class EnvironmentControl : MonoBehaviour
         }
 
         instance = this;
+    }
+
+    private void Start()
+    {
+        update_camera_bool = true;
     }
 
     // Update is called once per frame

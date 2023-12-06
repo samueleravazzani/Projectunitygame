@@ -34,9 +34,9 @@ public class SceneSlave : MonoBehaviour
         if (teleport)
         {
             // profilo appena creato -> inizializzo
-            if (SceneManager.GetActiveScene().name == "Home" && GameManager.instance.n_world_saved == 0 &&
-                GameManager.instance.task_index == 0)
+            if (!GameManager.instance.profile_created) // se il profilo non è ancora stato creato
             {
+                // VECCHIA CONDIZIONE: SceneManager.GetActiveScene().name == "Home" && GameManager.instance.n_world_saved == 0 && GameManager.instance.task_index == 0
                 ActivateChangeScene();
                 GameManager.instance.InitializeGameFirstTime();
                 return;

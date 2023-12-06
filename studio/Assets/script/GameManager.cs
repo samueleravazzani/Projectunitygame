@@ -76,7 +76,8 @@ public class GameManager : MonoBehaviour
         { 
             problem_now = Random.Range(1, 4);
         } while (problem_now == previous_problem); // faccio in modo che il problema del mondo sia diverso dal precedente
-        EnvironmentControl.instance.update_camera_bool = true;
+        //// EnvironmentControl.instance.update_camera_bool = true;
+        
         // setto il futuro previous_problem
         previous_problem = problem_now;
         
@@ -86,8 +87,8 @@ public class GameManager : MonoBehaviour
         tasks_picked[1] = Random.Range(1, 2); // LITERACY: 0 fatta, 1 postions, 2 sources
         tasks_picked[2] = Random.Range(1, 2); // CCS: 0 fatta, 1 quiz, 2 minigioco legato al problema del mondo
         
-        // initiliaze position of the player
-        player.transform.position = new Vector3(-9.75f, 10.85f, 0);
+        // initiliaze position of the player in the MainMap /!\
+        player.transform.position = new Vector3(-1.75f, 1.65f, 0);
     }
 
     public void TaskDone(int category) // funzione da chiamare dopo che una task è completata
@@ -97,7 +98,6 @@ public class GameManager : MonoBehaviour
         EnvironmentControl.instance.update_camera_bool = true; // aggiorno l'environment
         if (task_index == 3)
         {
-            task_index = 0;
             n_world_saved++;
         }
     }

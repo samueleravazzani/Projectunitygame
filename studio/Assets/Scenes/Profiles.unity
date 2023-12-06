@@ -4565,7 +4565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6702d2625fa4bfba8e6a7fe6e59230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 323125118}
   Bever: {fileID: 0}
 --- !u!4 &1988018108
 Transform:

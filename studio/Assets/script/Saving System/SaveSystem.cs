@@ -88,6 +88,11 @@ public static class SaveSystem // static class can't be instantiated
             return null;
         } */
     }
+
+    public static void DeleteFile(string filetodelete)
+    {
+        File.Delete(SAVE_FOLEDER+filetodelete+".json");
+    }
     
     
     /* public static void SavePlayer(GameManager gm, string name)

@@ -86,6 +86,7 @@ public class ProfileMaster : MonoBehaviour
        if (found)
        {
            GameManager.instance.profileNames.Remove(name_to_delete);
+           SaveSystem.DeleteFile(name_to_delete);
            GameManager.instance.SaveProfileList();
            SceneManager.LoadScene("Profiles");
        }
@@ -126,6 +127,9 @@ public class ProfileMaster : MonoBehaviour
             Button button = Instantiate(profile_prefab, scrollView_Content);
             button.GetComponentInChildren<TextMeshProUGUI>().text = name;
             button.transform.SetParent(scrollView_Content, false);
+            SelectProfile selectProfile = button.GetComponent<SelectProfile>();
+            button.onClick.AddListener(selectProfile.LoadProfile);
+
             /* //Mio modo di farlo prima di scoprire l'Horizontal Layout Group
              Vector2 newPosition = new Vector2((buttonWidth * i)-button_offset, 0);
             ((RectTransform)button.transform).anchoredPosition = newPosition; */
