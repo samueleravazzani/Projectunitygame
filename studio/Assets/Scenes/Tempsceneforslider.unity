@@ -384,7 +384,6 @@ GameObject:
   m_Component:
   - component: {fileID: 897399353}
   - component: {fileID: 897399355}
-  - component: {fileID: 897399356}
   m_Layer: 5
   m_Name: Climatebar
   m_TagString: Untagged
@@ -460,25 +459,11 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 1
   m_MaxValue: 10
-  m_WholeNumbers: 0
-  m_Value: 10
+  m_WholeNumbers: 1
+  m_Value: 3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &897399356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 897399352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21e7cbae2c31af3489bf5c78064e8a30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 897399355}
-  barType: 2
 --- !u!1 &929090362
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +614,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 952675433}
   m_CullTransparentMesh: 1
---- !u!1 &1042650323
+--- !u!1 &1019151502
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -637,37 +622,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1042650325}
-  - component: {fileID: 1042650324}
+  - component: {fileID: 1019151504}
+  - component: {fileID: 1019151503}
   m_Layer: 0
-  m_Name: Player
+  m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1042650324
+--- !u!114 &1019151503
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042650323}
+  m_GameObject: {fileID: 1019151502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06f25b05a16fb724e988483427eaf2e9, type: 3}
+  m_Script: {fileID: 11500000, guid: aff365a5694dbfd408162c38a1db09c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anxietyBar: {fileID: 1728945047}
-  literacyBar: {fileID: 1804639000}
-  climateBar: {fileID: 897399356}
---- !u!4 &1042650325
+  anxietySlider: {fileID: 1728945046}
+  climateSlider: {fileID: 897399355}
+  literacySlider: {fileID: 1804638999}
+--- !u!4 &1019151504
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1042650323}
+  m_GameObject: {fileID: 1019151502}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1247.3009, y: 650.40906, z: -13.251199}
@@ -1061,7 +1046,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1728945044}
   - component: {fileID: 1728945046}
-  - component: {fileID: 1728945047}
   m_Layer: 5
   m_Name: Anxietybar
   m_TagString: Untagged
@@ -1137,25 +1121,11 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 1
   m_MaxValue: 10
-  m_WholeNumbers: 0
-  m_Value: 10
+  m_WholeNumbers: 1
+  m_Value: 6
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1728945047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1728945043}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21e7cbae2c31af3489bf5c78064e8a30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1728945046}
-  barType: 0
 --- !u!1 &1804638996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,7 +1136,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1804638997}
   - component: {fileID: 1804638999}
-  - component: {fileID: 1804639000}
   m_Layer: 5
   m_Name: Literacybar
   m_TagString: Untagged
@@ -1242,25 +1211,11 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 1
   m_MaxValue: 10
-  m_WholeNumbers: 0
-  m_Value: 10
+  m_WholeNumbers: 1
+  m_Value: 7
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &1804639000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804638996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21e7cbae2c31af3489bf5c78064e8a30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 1804638999}
-  barType: 1
 --- !u!1 &1834528819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1426,6 +1381,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2044071687}
-  - {fileID: 1042650325}
   - {fileID: 738772629}
   - {fileID: 1834528822}
+  - {fileID: 1019151504}
