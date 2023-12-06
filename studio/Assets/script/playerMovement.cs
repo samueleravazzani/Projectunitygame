@@ -53,13 +53,17 @@ public class playerMovement : MonoBehaviour
         Vector2 nextPosition = rb.position + movement * moveSpeed * Time.fixedDeltaTime;
 
         if (SceneManager.GetActiveScene().name == "MainMap") // check the scene is the MainMap
-        { 
-            // Check if the next position is within the specified bounds 
-        if (IsWithinBounds(nextPosition))
         {
-            // Move the player
-            rb.MovePosition(nextPosition);
-        }
+            if (worldBorders == null)
+            {
+                worldBorders = GameObject.Find("WorldBorders").GetComponent<PolygonCollider2D>();
+            }
+            // Check if the next position is within the specified bounds 
+            if (IsWithinBounds(nextPosition))
+            {
+                // Move the player
+                rb.MovePosition(nextPosition);
+            }
         }
         else // if it is not the MainMap = it is a scene with colliders around -> move
         {
@@ -75,6 +79,7 @@ public class playerMovement : MonoBehaviour
                position.y > worldBorders.bounds.min.y + tolerance;
     }
 
+    /*
     private void OnTriggerStay2D(Collider2D coll)
     {
         if (coll.gameObject.CompareTag("To_Cave"))
@@ -132,5 +137,5 @@ public class playerMovement : MonoBehaviour
                 Debug.LogError("SceneLoaderCanvas non trovato nella scena.");
             }
         }
-    }
+    } */
 }

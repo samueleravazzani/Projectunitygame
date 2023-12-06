@@ -8,6 +8,7 @@ public class SceneSlave : MonoBehaviour
 {
     public int category;
     public int minigame_int;
+    public int problemspecific;
     public string scenetoload;
     public bool playeractive;
     public Vector3 playerposition;
@@ -15,17 +16,30 @@ public class SceneSlave : MonoBehaviour
 
     private void Start()
     {
+        // se l'elemento category del vettore tasks_picked (= la task di questa categoria) combacia con quello di questo teleport
         if (GameManager.instance.tasks_picked[category] == minigame_int)
         {
-            gameObject.SetActive(true);
+            // se questo teleport è per un problema specifico che combacia con questo
+            if (category == 2 && GameManager.instance.problem_now == problemspecific)
+            {
+                gameObject.SetActive(true);
+                transform.parent.Find("Circle").gameObject.SetActive(true);
+            }
+            else if (category != 2)
+            {
+                gameObject.SetActive(true);
+                transform.parent.Find("Circle").gameObject.SetActive(true);
+            }
         }
         else if (scenetoload == "Home" || scenetoload == "MainMap")
         {
             gameObject.SetActive(true);
+            transform.parent.Find("Circle").gameObject.SetActive(true);
         }
         else
         {
             gameObject.SetActive(false);
+            transform.parent.Find("Circle").gameObject.SetActive(false);
         }
     }
 
@@ -34,9 +48,9 @@ public class SceneSlave : MonoBehaviour
         if (teleport)
         {
             // profilo appena creato -> inizializzo
-            if (SceneManager.GetActiveScene().name == "Home" && GameManager.instance.n_world_saved == 0 &&
-                GameManager.instance.task_index == 0)
+            if (!GameManager.instance.profile_created) // se il profilo non è ancora stato creato
             {
+                // VECCHIA CONDIZIONE: SceneManager.GetActiveScene().name == "Home" && GameManager.instance.n_world_saved == 0 && GameManager.instance.task_index == 0
                 ActivateChangeScene();
                 GameManager.instance.InitializeGameFirstTime();
                 return;

@@ -4,7 +4,7 @@ using System.Runtime.Serialization; // to work with files
 
 public static class SaveSystem // static class can't be instantiated
 {
-    public static readonly string SAVE_FOLEDER = "/Users/samueleravazzani/LOCAL Politecnico di Milano/Local/2 anno M/E-health Methods and Applications/Project/Projectunitygame/studio/Assets" + "/Saves/"; // this will be our save folder
+    public static readonly string SAVE_FOLEDER = Application.persistentDataPath + "/Saves/"; // this will be our save folder
                                                 // Application.persistentDataPath
     
     public static void InitializeSaveFolder()
@@ -87,6 +87,11 @@ public static class SaveSystem // static class can't be instantiated
         {
             return null;
         } */
+    }
+
+    public static void DeleteFile(string filetodelete)
+    {
+        File.Delete(SAVE_FOLEDER+filetodelete+".json");
     }
     
     
