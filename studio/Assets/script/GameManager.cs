@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,23 +10,30 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public GameObject player;
     public string profile;
+    
+    // per il managing dei profiles
+    public List<string> profileNames = new List<string>();
 
     // parameters that control environment effects
     public float anxiety = 5; // settato in SliderControl
     public float literacy_inverted = 5; // settato in SliderControl
     public float climate_change_skept = 5; // settato in SliderControl
     public float sum_parameters = 15; // settato in SliderControl
+    [Header("Task da fare: usare per debuggare, N.B. impostarle prima di startare la MainMap")]
     public int[] tasks_picked = new int[3]; // vettore di 3 int: [0] per anxiety, [1] per literacy, [2] per climate change
     // in ciascuno di questi 3 elementi pesco un numero casuale che definisce la task
     // ANXIETY: 0 fatta, 1 breathing, 2 music, 3 word puzzle
     // LITERACY: 0 fatta, 1 postions, 2 sources
     // CCS: 0 fatta, 1 quiz, 2 minigioco legato al problema del mondo.
     
+    [Space]
     /* PROBLEMA ATTUALE */
     public int problem_now;
-    public int previous_problem;
+    private int previous_problem;
     /* TASK ATTUALE */
     public int task_index = 0;
+    public int n_world_saved = 0;
+    
     void Awake()
     {
         // singleton
@@ -40,14 +48,20 @@ public class GameManager : MonoBehaviour
         
         // Save
         SaveSystem.InitializeSaveFolder();
-        player.GetComponent<playerMovement>().enabled = false;
-        player.gameObject.SetActive(false);
+
+        ActivatePlayer(false);
     }
 
 
     public void InitializeGameFirstTime() // da chiamare solo quando si crea il profilo per la prima volta
     {
-        InitializeGame();
+        // aggiungo il player alla lista dei players
+        profileNames.Add(profile);
+        n_world_saved = 0;
+        SaveProfileList(); 
+        
+        // inizializzo il gioco
+        InitializeGame(); 
     }
 
     public void InitializeGame()
@@ -68,14 +82,19 @@ public class GameManager : MonoBehaviour
         tasks_picked[2] = Random.Range(1, 2); // CCS: 0 fatta, 1 quiz, 2 minigioco legato al problema del mondo
         
         // initiliaze position of the player
-        //todo: initialize position of the player
+        player.transform.position = new Vector3(-9.75f, 10.85f, 0);
     }
 
-    public void TaskDone(int task_done) // funzione da chiamare dopo che una task è completata
+    public void TaskDone(int category) // funzione da chiamare dopo che una task è completata
     {
         task_index++; // task fatta
-        tasks_picked[task_done] = 0; // segno che l'ho fatta
+        tasks_picked[category] = 0; // segno che l'ho fatta
         EnvironmentControl.instance.update_camera_bool = true; // aggiorno l'environment
+        if (task_index == 3)
+        {
+            task_index = 0;
+            n_world_saved++;
+        }
     }
     
     public void Save()
@@ -91,12 +110,12 @@ public class GameManager : MonoBehaviour
             literacy_inverted = literacy_inverted,
             climate_change_skepticism = climate_change_skept,
             sum_parameters = anxiety+literacy_inverted+climate_change_skept,
-            position = new Vector3(0,0,0), //todo /!\ position to change
+            position = player.transform.position,
             problem_now = problem_now,
-            previous_problem = problem_now,
+            previous_problem = previous_problem,
             task_index = task_index,
             tasks_picked = tasks_picked,
-            
+            n_world_saved = n_world_saved,
         };
         
         string json = JsonUtility.ToJson(saveObject);
@@ -111,15 +130,19 @@ public class GameManager : MonoBehaviour
         if (saveString != null)
         {
             SaveObject saveObject =JsonUtility.FromJson<SaveObject>(saveString);
+            // prendo i dati
             anxiety = saveObject.anxiety;
             literacy_inverted = saveObject.literacy_inverted;
             climate_change_skept = saveObject.climate_change_skepticism;
             sum_parameters = anxiety + literacy_inverted + climate_change_skept;
-            // position = new Vector3(0,0,0), //todo /!\ position to change
+            player.transform.position = saveObject.position;
             problem_now = saveObject.problem_now;
-            previous_problem = saveObject.problem_now;
+            previous_problem = saveObject.previous_problem;
             task_index = saveObject.task_index;
             tasks_picked = saveObject.tasks_picked;
+            // cambio scena e attivo il player
+            SceneManager.LoadScene("MainMap");
+            ActivatePlayer(true);
         }
 
         
@@ -143,8 +166,57 @@ public class GameManager : MonoBehaviour
         public int previous_problem;
         public int task_index;
         public int[] tasks_picked;
+        public int n_world_saved;
     }
 
+    public void ActivatePlayer(bool state)
+    {
+        player.GetComponent<playerMovement>().enabled = state;
+        player.gameObject.SetActive(state);
+    }
+    
+    
+    
+    public void SaveProfileList()
+    {
+        string[] array = profileNames.ToArray();
+        string json = JsonUtility.ToJson(new Serialization<string>(array));
+        SaveSystem.Save("profiles",json);
+    }
+    
+    
+    
+    [System.Serializable]
+    public class Serialization<T>
+    {
+        [SerializeField]
+        private T[] array;
+
+        public Serialization(T[] array)
+        {
+            this.array = array;
+        }
+
+        public T[] ToArray()
+        {
+            return array;
+        }
+    }
+    
+    /*
+    [System.Serializable]
+    public class Serialization<T>
+    {
+        [SerializeField]
+        List<T> target;
+        public List<T> ToList() { return target; }
+
+        public Serialization(List<T> target)
+        {
+            this.target = target;
+        }
+    } */
+    
     /* 
     public void SaveData()
     {

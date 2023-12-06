@@ -12,7 +12,7 @@ public class SliderControl : MonoBehaviour
     public Slider anxiety;
     public Slider literacy;
     [FormerlySerializedAs("ccskepticism")] public Slider climate_change_skept;
-    public string sceneName = "MainMap";
+    private string sceneName = "Home";
     public TextMeshProUGUI anxiety_value;
     public TextMeshProUGUI literacy_value;
     public TextMeshProUGUI climate_change_skept_value;
@@ -65,5 +65,7 @@ public class SliderControl : MonoBehaviour
         GameManager.instance.climate_change_skept = climate_change_skept.value;
         GameManager.instance.sum_parameters = anxiety.value + literacy.maxValue - literacy.value + climate_change_skept.value;
         SceneManager.LoadScene(sceneName);
+        GameManager.instance.ActivatePlayer(true);
+        GameManager.instance.player.transform.position = new Vector3(-9.75f, 10.85f, 0);
     }
 }

@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class ProfileMaster : MonoBehaviour
 {
-    public static List<string> profileNames = new List<string>();
+    
     public static ProfileMaster instance;
     public Button profile_prefab;
     public Transform scrollView_Content;
@@ -20,7 +20,7 @@ public class ProfileMaster : MonoBehaviour
     private string newname;
     // private float[] button_position = new float[]  {376.5f, -543.5f};
     private float buttonWidth = 520f;
-    private float button_offset = 460.0f;
+    private float button_offset = 405f;
     void Awake()
     {
         // singleton
@@ -47,18 +47,13 @@ public class ProfileMaster : MonoBehaviour
     public void Create()
     {
         newname = input.GetComponentInChildren<TMP_InputField>().text;
-        GameManager.instance.profile = newname;
-        profileNames.Add(newname);
-        SaveProfileList();
+        GameManager.instance.profile = newname; // passo al GameManager il nome del player.
+        GameManager.instance.n_world_saved = 0; // setto a 0 il n° di volte in cui il mondo è stato salvato
+        // Se il player finisce il tutorial: (esce dalla casa -> salvo il suo profilo nell'elenco dei profili e il suo profilo.
         SceneManager.LoadScene("ParameterSliders");
     }
 
-    public void SaveProfileList()
-    {
-        string[] array = profileNames.ToArray();
-        string json = JsonUtility.ToJson(new Serialization<string>(array));
-        SaveSystem.Save("profiles",json);
-    }
+    
     
     public void SpawnProfiles()
     {
@@ -72,20 +67,23 @@ public class ProfileMaster : MonoBehaviour
         
         // else: finisce
         string[] array = JsonUtility.FromJson<Serialization<string>>(profiles).ToArray();
-        profileNames = new List<string>(array);
+        if(array != null)
+            GameManager.instance.profileNames = new List<string>(array);
 
-        /* Serialization<string> prof = JsonUtility.FromJson<Serialization<string>>(profiles);
+        /* // OLD serialization
+        Serialization<string> prof = JsonUtility.FromJson<Serialization<string>>(profiles);
         profileNames = prof.ToList(); */
-        Debug.Log(profileNames.ToString()); ///////// QUI STA
+        Debug.Log(GameManager.instance.profileNames.ToString());
 
         int i = 0;
-        foreach (string name in profileNames)
+        foreach (string name in GameManager.instance.profileNames)
         {
+            Debug.Log(name);
             //todo fixare la posizione dei bottoni instantiati
-            Button button = Instantiate(profile_prefab, new Vector3(), Quaternion.identity);
+            Button button = Instantiate(profile_prefab, scrollView_Content);
             button.GetComponentInChildren<TextMeshProUGUI>().text = name;
             button.transform.SetParent(scrollView_Content, false);
-            Vector2 newPosition = new Vector2(buttonWidth * i, 0);
+            Vector2 newPosition = new Vector2((buttonWidth * i)-button_offset, 0);
             ((RectTransform)button.transform).anchoredPosition = newPosition;
             i++;
         }
