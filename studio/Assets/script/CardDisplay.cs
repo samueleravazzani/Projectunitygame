@@ -20,6 +20,9 @@ public class CardDisplay : MonoBehaviour
     public TextMeshProUGUI result;
     public Image result_img;
     public TextMeshProUGUI potions_tf;
+
+    public Image success;
+    public Image fail;
     
     public static CardDisplay instance;
     private void Awake() //creation singleton
@@ -35,6 +38,8 @@ public class CardDisplay : MonoBehaviour
     {
         HideCard();
         HideResult();
+        HideSuccess();
+        HideFail();
     }
 
     public void ShowCard(Medicine_Card card)
@@ -68,7 +73,7 @@ public class CardDisplay : MonoBehaviour
     {
         // se la medicina scelta dal DisplayEnigma (che decide l'enigma) è uguale alla medicine che viene mostrata
         // (che viene passata qui dal ShowCard) e che cambia quella 
-        if (DisplayEnigma.instance.chosen_medicine == card_shown)
+        if (DisplayEnigma.instance.chosen_medicine == card_shown) // GIUSTO
         {
             result.text = "Congratulations! \nYou have chosen the right potion to save the world! \n It was " + card_shown.name;
             DisplayEnigma.instance.medicine_guessed++;
@@ -83,13 +88,10 @@ public class CardDisplay : MonoBehaviour
             }
             
         }
-        else
+        else  // SBAGLIATO
         {
             result.text = "Oh no, you have picked the wrong potion. \nBe careful, it can be dangerous to take the wrong one! \nIt was not " + card_shown.name;
-            if (DisplayEnigma.instance.medicine_guessed == DisplayEnigma.instance.medicines_to_guess){
-                
-                // GameManager.instance.literacy -= GameManager.instance.incremento;
-            }
+            DisplayEnigma.instance.medicine_wrong++;
         }
         result_img.sprite = card_shown.drug_image; // /!\ image.sprite = sprite
         potions_tf.text = "Potions to find: " + (DisplayEnigma.instance.medicines_to_guess - DisplayEnigma.instance.medicine_guessed).ToString();
@@ -100,5 +102,29 @@ public class CardDisplay : MonoBehaviour
     public void HideResult() // start + BACK (2)
     {
         medicine_taken.gameObject.SetActive(false);
+        
+        // SUCCESS
+        if (DisplayEnigma.instance.medicine_guessed == DisplayEnigma.instance.medicines_to_guess){
+            success.gameObject.SetActive(true);
+        }
+        
+        // FAIL
+        if (DisplayEnigma.instance.medicine_wrong == DisplayEnigma.instance.max_errors){
+            fail.gameObject.SetActive(true);
+        }
+    }
+
+    public void HideSuccess()
+    {
+        success.gameObject.SetActive(false);
+    }
+    public void HideFail()
+    {
+        fail.gameObject.SetActive(false);
+    }
+
+    public void ReLoadScene()
+    {
+        
     }
 }
