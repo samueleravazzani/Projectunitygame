@@ -13,263 +13,141 @@ MonoBehaviour:
   m_Name: LV3_1
   m_EditorClassIdentifier: 
   timeInSeconds: 0
-  Columns: 15
-  Rows: 15
+  Columns: 12
+  Rows: 8
   Board:
-  - Size: 15
+  - Size: 8
     Row:
-    - C
-    - D
-    - H
-    - H
-    - E
-    - Q
-    - E
-    - J
-    - X
-    - U
-    - Z
-    - K
-    - D
-    - H
-    - P
-  - Size: 15
-    Row:
-    - I
-    - C
-    - K
-    - K
-    - I
-    - H
-    - P
-    - W
+    - B
     - R
-    - Z
+    - I
+    - G
+    - H
+    - T
+    - T
+    - C
+  - Size: 8
+    Row:
+    - B
+    - L
+    - O
+    - V
+    - E
+    - L
+    - I
+    - O
+  - Size: 8
+    Row:
+    - N
+    - L
+    - O
     - T
     - P
-    - E
-    - A
-    - J
-  - Size: 15
-    Row:
-    - A
-    - Y
-    - A
-    - Z
-    - E
-    - Z
-    - W
-    - D
+    - B
     - Q
-    - O
-    - S
-    - V
-    - J
-    - O
-    - U
-  - Size: 15
-    Row:
-    - O
-    - U
-    - T
-    - B
-    - L
-    - D
-    - B
-    - Z
-    - Z
-    - K
-    - Z
-    - P
-    - K
     - N
-    - F
-  - Size: 15
+  - Size: 8
     Row:
-    - H
-    - H
-    - J
-    - I
-    - I
-    - H
-    - J
-    - G
-    - P
-    - P
-    - Y
-    - V
-    - U
     - S
-    - U
-  - Size: 15
-    Row:
-    - I
-    - G
-    - H
-    - Z
-    - S
-    - E
-    - U
-    - B
-    - K
-    - A
-    - N
-    - E
-    - N
-    - U
-    - B
-  - Size: 15
-    Row:
     - Q
-    - A
-    - S
-    - L
-    - H
     - I
-    - X
     - U
-    - W
-    - X
-    - L
-    - I
-    - M
-    - C
-    - U
-  - Size: 15
-    Row:
-    - V
-    - M
-    - T
-    - G
-    - G
-    - U
-    - L
-    - A
-    - J
-    - W
-    - E
-    - C
-    - A
-    - X
-    - O
-  - Size: 15
-    Row:
-    - A
-    - U
-    - O
-    - T
-    - I
-    - K
-    - T
-    - G
-    - W
-    - M
-    - T
-    - P
-    - R
-    - H
-    - Y
-  - Size: 15
-    Row:
-    - E
-    - P
-    - O
-    - V
-    - E
-    - O
-    - A
-    - V
     - Z
     - G
-    - G
-    - S
-    - X
-    - G
-    - R
-  - Size: 15
-    Row:
-    - Y
-    - K
-    - N
-    - Y
+    - F
     - C
-    - L
-    - O
-    - M
-    - J
-    - H
-    - B
-    - G
-    - U
-    - B
-    - N
-  - Size: 15
+  - Size: 8
     Row:
-    - X
-    - W
-    - R
-    - K
-    - P
-    - W
-    - W
-    - E
-    - G
-    - X
-    - E
-    - O
-    - V
-    - G
-    - I
-  - Size: 15
-    Row:
-    - T
-    - Y
-    - P
-    - J
-    - Q
-    - J
-    - F
-    - O
-    - P
     - S
-    - N
-    - N
-    - C
-    - P
+    - J
+    - Z
     - S
-  - Size: 15
-    Row:
     - O
-    - G
+    - Z
     - F
-    - H
-    - F
-    - M
-    - G
-    - T
-    - M
-    - P
     - E
+  - Size: 8
+    Row:
     - D
-    - J
-    - V
-    - N
-  - Size: 15
-    Row:
-    - N
-    - F
-    - T
-    - V
-    - E
+    - M
+    - D
     - A
-    - O
-    - B
-    - L
-    - V
-    - P
+    - S
+    - Q
+    - X
+    - N
+  - Size: 8
+    Row:
     - K
+    - Q
+    - I
+    - O
+    - Y
+    - W
     - L
+    - T
+  - Size: 8
+    Row:
+    - W
+    - L
+    - J
+    - L
+    - W
+    - V
+    - J
+    - R
+  - Size: 8
+    Row:
+    - Y
+    - S
+    - W
+    - A
+    - E
+    - V
+    - N
+    - A
+  - Size: 8
+    Row:
+    - P
     - U
-    - B
+    - R
+    - E
+    - K
+    - M
+    - V
+    - T
+  - Size: 8
+    Row:
+    - M
+    - D
+    - V
+    - T
+    - G
+    - A
+    - X
+    - E
+  - Size: 8
+    Row:
+    - J
+    - O
+    - Y
+    - H
+    - P
+    - F
+    - D
+    - D
   SearchWords:
-  - Word: CIAO
+  - Found: 1
+    Word: BRIGHT
+  - Found: 1
+    Word: SMILE
+  - Found: 1
+    Word: CONCENTRATED
+  - Found: 1
+    Word: JOY
+  - Found: 1
+    Word: BLISS
+  - Found: 1
+    Word: PURE
+  - Found: 1
+    Word: LOVE

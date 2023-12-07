@@ -135,14 +135,25 @@ public class WordChecker : MonoBehaviour
 
                     if (nextBoardIndex <= 0)
                     {
-                        DataSaver.SaveCategoryData(categoryName,currentBoardIndex);
+                        DataSaver.SaveCategoryData(categoryName, currentBoardIndex);
                     }
                 }
                 else
                 {
-                    SceneManager.LoadScene("PuzzleGameSelectLevel");
+                    // Carica la scena "PuzzleGame"
+                    SceneManager.LoadScene("PuzzleGame");
+
+                    // Trova il bottone "Quit" nella scena e lo attiva
+                    GameObject quitButton = GameObject.Find("Quit_TaskDone");
+                    GameObject quitButton1 = GameObject.Find("Quit");// Assicurati che il nome sia corretto
+                    if (quitButton != null)
+                    {
+                        quitButton.SetActive(true);
+                        quitButton.SetActive(false);
+                    }
                 }
             }
+
             else
             {
                 GameEvents.BoardCompletedMethod();

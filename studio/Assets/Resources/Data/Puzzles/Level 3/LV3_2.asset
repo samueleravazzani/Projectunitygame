@@ -1,0 +1,203 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df02f2dbe62140448ed06e0833d9cab, type: 3}
+  m_Name: LV3_2
+  m_EditorClassIdentifier: 
+  timeInSeconds: 0
+  Columns: 12
+  Rows: 12
+  Board:
+  - Size: 12
+    Row:
+    - E
+    - C
+    - R
+    - R
+    - L
+    - W
+    - F
+    - R
+    - F
+    - T
+    - V
+    - Y
+  - Size: 12
+    Row:
+    - H
+    - A
+    - Y
+    - Y
+    - L
+    - N
+    - C
+    - T
+    - S
+    - U
+    - R
+    - T
+  - Size: 12
+    Row:
+    - S
+    - S
+    - S
+    - W
+    - I
+    - H
+    - B
+    - E
+    - C
+    - N
+    - P
+    - H
+  - Size: 12
+    Row:
+    - C
+    - U
+    - Q
+    - E
+    - H
+    - E
+    - U
+    - I
+    - U
+    - P
+    - W
+    - V
+  - Size: 12
+    Row:
+    - Z
+    - H
+    - O
+    - I
+    - F
+    - S
+    - N
+    - U
+    - F
+    - M
+    - I
+    - A
+  - Size: 12
+    Row:
+    - S
+    - G
+    - E
+    - O
+    - E
+    - U
+    - R
+    - I
+    - I
+    - H
+    - U
+    - L
+  - Size: 12
+    Row:
+    - W
+    - O
+    - D
+    - E
+    - D
+    - X
+    - L
+    - R
+    - Q
+    - Q
+    - S
+    - W
+  - Size: 12
+    Row:
+    - X
+    - F
+    - W
+    - L
+    - R
+    - C
+    - T
+    - W
+    - D
+    - U
+    - W
+    - A
+  - Size: 12
+    Row:
+    - M
+    - F
+    - Q
+    - L
+    - G
+    - H
+    - Z
+    - N
+    - N
+    - D
+    - U
+    - Y
+  - Size: 12
+    Row:
+    - C
+    - C
+    - I
+    - R
+    - A
+    - J
+    - M
+    - E
+    - L
+    - I
+    - M
+    - S
+  - Size: 12
+    Row:
+    - Y
+    - N
+    - B
+    - R
+    - I
+    - G
+    - H
+    - T
+    - M
+    - L
+    - M
+    - Q
+  - Size: 12
+    Row:
+    - Z
+    - E
+    - A
+    - L
+    - D
+    - Q
+    - Y
+    - P
+    - W
+    - M
+    - Q
+    - P
+  SearchWords:
+  - Found: 1
+    Word: TRUST
+  - Found: 1
+    Word: CHEER
+  - Found: 1
+    Word: MIRTH
+  - Found: 1
+    Word: ZEAL
+  - Found: 1
+    Word: EASEFUL
+  - Found: 1
+    Word: ALWAYS
+  - Found: 1
+    Word: SMILE
+  - Found: 1
+    Word: BRIGHT

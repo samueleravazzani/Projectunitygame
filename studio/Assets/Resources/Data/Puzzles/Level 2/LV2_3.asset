@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df02f2dbe62140448ed06e0833d9cab, type: 3}
+  m_Name: LV2_3
+  m_EditorClassIdentifier: 
+  timeInSeconds: 0
+  Columns: 10
+  Rows: 10
+  Board:
+  - Size: 10
+    Row:
+    - J
+    - A
+    - R
+    - E
+    - S
+    - T
+    - Y
+    - E
+    - U
+    - F
+  - Size: 10
+    Row:
+    - X
+    - M
+    - C
+    - S
+    - H
+    - M
+    - W
+    - R
+    - M
+    - K
+  - Size: 10
+    Row:
+    - C
+    - O
+    - H
+    - R
+    - S
+    - X
+    - X
+    - T
+    - O
+    - P
+  - Size: 10
+    Row:
+    - L
+    - C
+    - S
+    - J
+    - U
+    - O
+    - H
+    - J
+    - H
+    - E
+  - Size: 10
+    Row:
+    - A
+    - U
+    - F
+    - H
+    - M
+    - U
+    - L
+    - V
+    - S
+    - A
+  - Size: 10
+    Row:
+    - R
+    - X
+    - J
+    - O
+    - V
+    - R
+    - X
+    - I
+    - Q
+    - C
+  - Size: 10
+    Row:
+    - I
+    - C
+    - V
+    - P
+    - Y
+    - O
+    - J
+    - A
+    - D
+    - E
+  - Size: 10
+    Row:
+    - T
+    - A
+    - W
+    - E
+    - G
+    - N
+    - G
+    - S
+    - W
+    - Z
+  - Size: 10
+    Row:
+    - Y
+    - N
+    - Z
+    - Q
+    - D
+    - H
+    - O
+    - C
+    - R
+    - Y
+  - Size: 10
+    Row:
+    - I
+    - D
+    - H
+    - A
+    - P
+    - P
+    - Y
+    - R
+    - A
+    - M
+  SearchWords:
+  - Found: 1
+    Word: REST
+  - Found: 1
+    Word: PEACE
+  - Found: 1
+    Word: HOPE
+  - Found: 1
+    Word: CLARITY
+  - Found: 1
+    Word: HAPPY
+  - Found: 1
+    Word: SOLID
