@@ -13,32 +13,61 @@ MonoBehaviour:
   m_Name: LV1_3
   m_EditorClassIdentifier: 
   timeInSeconds: 0
-  Columns: 4
-  Rows: 4
+  Columns: 6
+  Rows: 6
   Board:
-  - Size: 4
+  - Size: 6
     Row:
     - S
+    - U
+    - O
+    - J
     - S
-    - R
-    - R
-  - Size: 4
+    - S
+  - Size: 6
     Row:
+    - Z
+    - O
+    - V
+    - Z
+    - G
     - I
-    - M
-    - E
-    - W
-  - Size: 4
+  - Size: 6
     Row:
-    - U
-    - F
-    - W
-    - Y
-  - Size: 4
-    Row:
-    - M
-    - U
+    - V
+    - H
+    - L
+    - P
     - R
-    - F
+    - K
+  - Size: 6
+    Row:
+    - N
+    - H
+    - E
+    - A
+    - A
+    - O
+  - Size: 6
+    Row:
+    - H
+    - O
+    - P
+    - E
+    - C
+    - I
+  - Size: 6
+    Row:
+    - R
+    - L
+    - Q
+    - T
+    - E
+    - E
   SearchWords:
-  - Word: SIUM
+  - Found: 1
+    Word: SOLACE
+  - Found: 1
+    Word: GRACE
+  - Found: 1
+    Word: HOPE

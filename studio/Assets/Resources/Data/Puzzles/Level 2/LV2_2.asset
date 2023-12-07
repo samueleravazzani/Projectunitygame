@@ -1,0 +1,149 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df02f2dbe62140448ed06e0833d9cab, type: 3}
+  m_Name: LV2_2
+  m_EditorClassIdentifier: 
+  timeInSeconds: 0
+  Columns: 10
+  Rows: 10
+  Board:
+  - Size: 10
+    Row:
+    - I
+    - R
+    - S
+    - S
+    - Z
+    - L
+    - S
+    - E
+    - I
+    - C
+  - Size: 10
+    Row:
+    - N
+    - P
+    - X
+    - P
+    - A
+    - O
+    - C
+    - R
+    - W
+    - O
+  - Size: 10
+    Row:
+    - S
+    - N
+    - A
+    - A
+    - U
+    - V
+    - K
+    - F
+    - K
+    - M
+  - Size: 10
+    Row:
+    - P
+    - F
+    - W
+    - T
+    - K
+    - E
+    - K
+    - M
+    - B
+    - P
+  - Size: 10
+    Row:
+    - I
+    - A
+    - F
+    - Y
+    - I
+    - A
+    - G
+    - Z
+    - O
+    - A
+  - Size: 10
+    Row:
+    - R
+    - J
+    - D
+    - N
+    - U
+    - E
+    - P
+    - S
+    - G
+    - S
+  - Size: 10
+    Row:
+    - E
+    - C
+    - D
+    - X
+    - G
+    - A
+    - N
+    - L
+    - L
+    - S
+  - Size: 10
+    Row:
+    - W
+    - O
+    - A
+    - I
+    - A
+    - T
+    - O
+    - C
+    - S
+    - I
+  - Size: 10
+    Row:
+    - E
+    - K
+    - H
+    - O
+    - P
+    - Q
+    - X
+    - X
+    - E
+    - O
+  - Size: 10
+    Row:
+    - C
+    - O
+    - U
+    - R
+    - A
+    - G
+    - E
+    - K
+    - M
+    - N
+  SearchWords:
+  - Found: 1
+    Word: COMPASSION
+  - Found: 1
+    Word: INSPIRE
+  - Found: 1
+    Word: PATIENCE
+  - Found: 1
+    Word: COURAGE
+  - Found: 1
+    Word: LOVE
