@@ -21,7 +21,7 @@ public class DisplayEnigma : MonoBehaviour
     
     /* parametrization */
     public int medicines_to_guess;
-    private static float calibration = 3/9f;
+    private static float calibration = 2/9f;
     public int medicine_guessed = 0;
     public int medicine_wrong = 0;
     public int max_errors = 3;
