@@ -61,6 +61,6 @@ public class AutoScroll : MonoBehaviour
     void LoadNextScene()
     {
         // Load the next scene here
-        SceneManager.LoadScene("MainMap"); // Replace "NextSceneName" with scene name
+        SceneManager.LoadScene("Home"); 
     }
 }

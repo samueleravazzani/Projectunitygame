@@ -12,7 +12,7 @@ public class SliderControl : MonoBehaviour
     public Slider anxiety;
     public Slider literacy;
     [FormerlySerializedAs("ccskepticism")] public Slider climate_change_skept;
-    private string sceneName = "Home";
+    private string sceneName = "Intro";
     public TextMeshProUGUI anxiety_value;
     public TextMeshProUGUI literacy_value;
     public TextMeshProUGUI climate_change_skept_value;

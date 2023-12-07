@@ -28,7 +28,7 @@ public class Initializeslider : MonoBehaviour
     //INVERSIONE
     private float InverseSliderValue(int value)
     {
-        return anxietySlider.maxValue - value + anxietySlider.minValue;
+        return anxietySlider.maxValue - value;
     }
 
     //SETTAGGIO
