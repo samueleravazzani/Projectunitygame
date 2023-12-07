@@ -888,6 +888,7 @@ GameObject:
   - component: {fileID: 414448970}
   - component: {fileID: 414448973}
   - component: {fileID: 414448974}
+  - component: {fileID: 414448975}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: Untagged
@@ -994,6 +995,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelData: {fileID: 11400000, guid: 16d59ad0564207845a3283ca8a3f129b, type: 2}
+--- !u!114 &414448975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414448969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a461fb33dd84d4dbacc7b2618d64f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &535028829
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,7 +1558,7 @@ GameObject:
   - component: {fileID: 809871664}
   - component: {fileID: 809871667}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Play_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1626,16 +1639,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 414448973}
-        m_TargetAssemblyTypeName: NewBehaviourScript, Assembly-CSharp
-        m_MethodName: LoadScene
-        m_Mode: 5
+      - m_Target: {fileID: 414448975}
+        m_TargetAssemblyTypeName: PuzzleGame_Param, Assembly-CSharp
+        m_MethodName: Parametrization
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: PuzzleGameSelectLevel
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &809871665
@@ -2566,7 +2579,7 @@ GameObject:
   - component: {fileID: 1664831296}
   - component: {fileID: 1664831295}
   m_Layer: 5
-  m_Name: Quit (1)
+  m_Name: Quit_TaskDone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
