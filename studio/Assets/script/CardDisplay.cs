@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CardDisplay : MonoBehaviour
@@ -79,9 +80,7 @@ public class CardDisplay : MonoBehaviour
             DisplayEnigma.instance.medicine_guessed++;
             DisplayEnigma.instance.HideLittleChest();
             if (DisplayEnigma.instance.medicine_guessed == DisplayEnigma.instance.medicines_to_guess){
-                // GameManager.instance.task_index++;
-                // EnvironmentControl.instance.update_environment = true;
-                // GameManager.instance.literacy += GameManager.instance.incremento;
+                
             }
             else{
                 DisplayEnigma.instance.ChooseEnigma(); // scelgo un altro enigma solo se ho altri enigmi da trovare
@@ -123,8 +122,15 @@ public class CardDisplay : MonoBehaviour
         fail.gameObject.SetActive(false);
     }
 
-    public void ReLoadScene()
+    public void Retry()
     {
-        
+        SceneManager.LoadScene("Home");
+    }
+
+    public void Quit()
+    {
+        HideSuccess();
+        HideFail();
+        DisplayEnigma.instance.HideLittleChest();
     }
 }
