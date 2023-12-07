@@ -9,9 +9,9 @@ public class SelectProfile : MonoBehaviour
     
     public void LoadProfile()
     {
-        ProfileMaster.instance.ActivateBlackScreen();
         // prendo il nome della casella di testo
         profileName = GetComponentInChildren<TextMeshProUGUI>().text;
+        ProfileMaster.instance.ActivateBlackScreen(profileName);
         // chiamo la funzione Save del GameManager che prende il nome del profilo, crea i dati e li passa al SaveSystem che li salva
         GameManager.instance.Load(profileName);
     }

@@ -153,9 +153,10 @@ public class ProfileMaster : MonoBehaviour
         }
     }
    
-   public void ActivateBlackScreen()
+   public void ActivateBlackScreen(string name)
    {
        blackBackground.gameObject.SetActive(true);
+       blackBackground.GetComponentInChildren<TextMeshProUGUI>().text = "Loading profile of " + name + "...";
    }
     
    [System.Serializable]
