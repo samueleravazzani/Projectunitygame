@@ -1054,7 +1054,7 @@ PrefabInstance:
       objectReference: {fileID: 34643333}
     - target: {fileID: 6190086686435560116, guid: a7ef7c42db5e5fa4191985b570feefff, type: 3}
       propertyPath: moveSpeed
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6190086686435560116, guid: a7ef7c42db5e5fa4191985b570feefff, type: 3}
       propertyPath: worldBorders
