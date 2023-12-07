@@ -41,11 +41,16 @@ public class Initializeslider : MonoBehaviour
     
    IEnumerator UpdateSliders()
     {
+        
+        Debug.Log("anxiety: " + GameManager.instance.anxiety);
+        Debug.Log("literacy: " + GameManager.instance.literacy_inverted);
+        Debug.Log("climate: " + GameManager.instance.climate_change_skept);
+        
         if (GameManager.instance.anxiety!=anxietySlider.value)
         {
             while (GameManager.instance.anxiety != anxietySlider.value)
             {
-                anxietySlider.value = Mathf.MoveTowards(anxietySlider.value, GameManager.instance.anxiety, 1 / 50f);
+                anxietySlider.value = Mathf.MoveTowards(anxietySlider.value, max-GameManager.instance.anxiety, 1 / 50f);
                 yield return null;
             }
         }
@@ -53,15 +58,15 @@ public class Initializeslider : MonoBehaviour
         {
             while (GameManager.instance.literacy_inverted != literacySlider.value)
             {
-                literacySlider.value = Mathf.MoveTowards(literacySlider.value, GameManager.instance.literacy_inverted, 1 / 50f);
+                literacySlider.value = Mathf.MoveTowards(literacySlider.value, max-GameManager.instance.literacy_inverted, 1 / 50f);
                 yield return null;
             }
         }
         if (GameManager.instance.climate_change_skept!=climateSlider.value)
         {
-            while (GameManager.instance.anxiety != anxietySlider.value)
+            while (GameManager.instance.climate_change_skept != climateSlider.value)
             {
-                climateSlider.value = Mathf.MoveTowards(climateSlider.value, GameManager.instance.climate_change_skept, 1 / 50f);
+                climateSlider.value = Mathf.MoveTowards(climateSlider.value, max-GameManager.instance.climate_change_skept, 1 / 50f);
                 yield return null;
             }
         }

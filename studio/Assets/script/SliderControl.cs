@@ -57,11 +57,11 @@ public class SliderControl : MonoBehaviour
     {
         PlayerPrefs.SetFloat("anxiety", anxiety.value);
         // /!\ inverto la literacy per farlo coerente con gli altri -> "quanto poco sei litterato?"
-        PlayerPrefs.SetFloat("literacy_inverted", (literacy.maxValue-literacy.value));
+        PlayerPrefs.SetFloat("literacy_inverted", (Mathf.Clamp(literacy.maxValue-literacy.value, 1, 10)));
         PlayerPrefs.SetFloat("climate_change_skept", climate_change_skept.value);
-        PlayerPrefs.SetFloat("sum_parameters", anxiety.value + literacy.maxValue - literacy.value + climate_change_skept.value);
+        PlayerPrefs.SetFloat("sum_parameters", anxiety.value + Mathf.Clamp(literacy.maxValue-literacy.value, 1, 10) + climate_change_skept.value);
         GameManager.instance.anxiety = anxiety.value;
-        GameManager.instance.literacy_inverted = literacy.maxValue - literacy.value;
+        GameManager.instance.literacy_inverted = Mathf.Clamp(literacy.maxValue-literacy.value, 1, 10);
         GameManager.instance.climate_change_skept = climate_change_skept.value;
         GameManager.instance.sum_parameters = anxiety.value + literacy.maxValue - literacy.value + climate_change_skept.value;
         SceneManager.LoadScene(sceneName);
