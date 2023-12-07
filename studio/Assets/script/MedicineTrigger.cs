@@ -13,7 +13,9 @@ public class MedicineTrigger : MonoBehaviour
     
     private void Update()
     {
-        if (showable && Input.GetKeyDown(KeyCode.Return)) // se è in range e preme spazio -> show
+        if (showable && Input.GetKeyDown(KeyCode.Return) && 
+            DisplayEnigma.instance.medicine_guessed < DisplayEnigma.instance.medicines_to_guess && 
+            DisplayEnigma.instance.medicine_wrong < DisplayEnigma.instance.max_errors) // se è in range e preme spazio -> show
         {
             CardDisplay.instance.ShowCard(medicine);
             // Debug.Log(medicine.name);

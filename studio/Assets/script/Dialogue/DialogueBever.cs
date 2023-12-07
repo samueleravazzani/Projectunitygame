@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class DialogueBever : MonoBehaviour
     
     private static DialogueBever instance;
     public string currentSceneName;
+   
     
     private void Awake() //Creazione del Singleton
     {
@@ -37,6 +39,9 @@ public class DialogueBever : MonoBehaviour
                 break;
             case "Impostor" :
                 DialogeManager.GetInstance().EnterDialogueMode(DialoghiBever[2]);
+                break;
+            case "Home" :
+                DialogeManager.GetInstance().EnterDialogueMode(DialoghiBever[3]);
                 break;
         }
     }
