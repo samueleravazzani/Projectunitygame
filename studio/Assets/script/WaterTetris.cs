@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class WaterTetris : MonoBehaviour
 {
     public Sprite[] objects;
-    public int N_objects = 50;
+    public int N_objects = 40;
     public GameObject obj_prefab;
     public Transform[,] grid = new Transform[TetrisBlock.width, TetrisBlock.height]; // per creare/gestire i blocchi
     public string[,] grid_string = new string[TetrisBlock.width, TetrisBlock.height];
@@ -21,6 +24,9 @@ public class WaterTetris : MonoBehaviour
     private int N_water = 55;   /* PARAMETRIZATION!!!!!!!!!!*/
     private int max_water_spawn_width = 22, max_water_spawn_height = TetrisBlock.height; /* PARAMETRIZATION della width!!!!!!!!!!*/
     public bool ingame;
+    public ParticleSystem rain;
+    public Image success;
+    public Image fail;
 
     public static WaterTetris instance;
 
@@ -37,15 +43,17 @@ public class WaterTetris : MonoBehaviour
 
     void Start()
     {
+        success.gameObject.SetActive(false);
+        fail.gameObject.SetActive(false);
         InitializeGrid(grid_string);
         InitializeGrid(grid_string_houses);
         SetHouses();
         SetObjects();
-        
-        StartGame();
+        rain.gameObject.SetActive(true);
     }
     
     public void StartGame(){
+        rain.gameObject.SetActive(false);
         for (int i = 0; i < N_water; i++)
         {
             CreateNewWater();
@@ -104,6 +112,11 @@ public class WaterTetris : MonoBehaviour
             obj.GetComponent<SpriteRenderer>().sprite = objects[Random.Range(0, objects.Length - 1)];
         }
     }
+
+    public void ReLoadScene()
+    {
+        SceneManager.LoadScene("Water NEW");
+    }
     
 
     // /!\ gestisco l'espansione dell'acqua in TetrisBlock, dal blocco che è appena stato disabilitato
@@ -122,7 +135,13 @@ public class WaterTetris : MonoBehaviour
     public void ExpandWater()
     {
         // Trova tutte le caselle adiacenti all'acqua che non sono ancora acqua
-        GetAdjacentPositions();
+        GetAdjacentPositions(); // riempie nextWaterPosition
+
+        if (!nextwaterPositions.Any())
+        {
+            ingame = false;
+            success.gameObject.SetActive(true);
+        }
 
         // Cambia le caselle adiacenti in "tile_water"
         foreach (Vector3Int pos in nextwaterPositions)
@@ -136,6 +155,7 @@ public class WaterTetris : MonoBehaviour
                 if (grid_string_houses[pos.x, pos.y] == "house")
                 {
                     ingame = false;
+                    fail.gameObject.SetActive(true);
                     Debug.Log("Game Over");
                     return;
                 } 
