@@ -29,6 +29,8 @@ TagManager:
   - Water
   - Bever
   - Wall_30
+  - Cell
+  - Saggio
   layers:
   - Default
   - TransparentFX

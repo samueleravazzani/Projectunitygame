@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
         tasks_picked[2] = Random.Range(1, 2); // CCS: 0 fatta, 1 quiz, 2 minigioco legato al problema del mondo
         
         // initiliaze position of the player in the MainMap /!\
-        player.transform.position = new Vector3(-1.79f, 1.79f, 0);
+        //player.transform.position = new Vector3(-1.79f, 1.79f, 0);
     }
 
     public void TaskDone(int category) // funzione da chiamare dopo che una task è completata

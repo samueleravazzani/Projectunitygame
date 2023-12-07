@@ -40,6 +40,18 @@ public class DialogeTrigger : MonoBehaviour //script attaccato al trigger dell'N
                 {
                     DialogueBever.GetInstance().DialogueBeverManager(inkJSON);
                 }
+
+                if (nameNPC == "Saggio")
+                {
+                    if (GameManager.instance.task_index == 3)
+                    {
+                        DialogeManager.GetInstance().EnterDialogueMode(inkJSON[0]);
+                    }
+                    else
+                    {
+                        DialogeManager.GetInstance().EnterDialogueMode(inkJSON[1]);
+                    }
+                }
                 
                 randomIndex = UnityEngine.Random.Range(0, inkJSON.Length); //genero il numero per scegliere il Dialogo
                 //il numero è compreso tra 0 e la lunghezza del vettore dei dialoghi
@@ -58,7 +70,7 @@ public class DialogeTrigger : MonoBehaviour //script attaccato al trigger dell'N
                 if ((!AnswerManager.GetInstance().impostors.Contains(nameNPC)||
                     (AnswerManager.GetInstance().impostors.Contains(nameNPC) &&
                      !AnswerManager.GetInstance().alreadyTalk[AnswerManager.GetInstance().impostors.IndexOf(nameNPC)]))
-                    && nameNPC !="Bever")
+                    && nameNPC !="Bever" && nameNPC!="Saggio")
                 {
                     DialogeManager.GetInstance().EnterDialogueMode(inkJSON[randomIndex]);
                    
