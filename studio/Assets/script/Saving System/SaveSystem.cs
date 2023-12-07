@@ -26,6 +26,7 @@ public static class SaveSystem // static class can't be instantiated
         } */
         
         File.WriteAllText(SAVE_FOLEDER + profile + ".json", saveString);
+        Debug.Log("Saved: " + Time.time.ToString());
         // se esiste già quel file -> lo sovrascrive
     }
 
