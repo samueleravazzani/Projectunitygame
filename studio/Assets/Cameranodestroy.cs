@@ -22,5 +22,34 @@ public class Cameranodestroy : MonoBehaviour
         // otherwise this object will be destroyed
     }
 
+    void Update()
+    {
+        CinemachineConfiner2D confiner = GetComponent<CinemachineConfiner2D>();
+        Collider2D boundingShape = confiner.m_BoundingShape2D;
+
+        if (GameObject.Find("player") != null && boundingShape == null)
+        {
+            GameObject worldBorders = GameObject.Find("WorldBorders");
+            if (worldBorders != null)
+            {
+                PolygonCollider2D polygonCollider = worldBorders.GetComponent<PolygonCollider2D>();
+                if (polygonCollider != null)
+                {
+                    confiner.m_BoundingShape2D = polygonCollider;
+                }
+            }
+        }
+    
+        /*
+        // se il player è attivo (-> non è null, perché se è disattivato GameObject.Find ritorna null
+        // e il confiner è nullo -> lo prendo
+        if (GameObject.Find("player") != null && 
+            GetComponent<CinemachineConfiner2D>().m_BoundingShape2D == null)
+        {
+            GetComponent<CinemachineConfiner2D>().m_BoundingShape2D =
+                GameObject.Find("WorldBorders").GetComponent<PolygonCollider2D>();
+        } */
+    }
+
     
 }

@@ -24,6 +24,7 @@ public class SceneSlave : MonoBehaviour
             {
                 gameObject.SetActive(true);
                 transform.parent.Find("Circle").gameObject.SetActive(true);
+                GetComponent<SpriteRenderer>().enabled = true;
             }
             else if (category != 2)
             {
@@ -34,7 +35,8 @@ public class SceneSlave : MonoBehaviour
         else if (scenetoload == "Home" || scenetoload == "MainMap")
         {
             gameObject.SetActive(true);
-            transform.parent.Find("Circle").gameObject.SetActive(true);
+            transform.parent.Find("Circle").gameObject.SetActive(false);
+            GetComponent<SpriteRenderer>().enabled = false;
         }
         else
         {

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     // singleton
     public static GameManager instance;
     public GameObject player;
+    public GameObject Bever;
     public string profile;
     
     // per il managing dei profiles
@@ -20,7 +21,8 @@ public class GameManager : MonoBehaviour
     public float literacy_inverted = 5; // settato in SliderControl
     public float climate_change_skept = 5; // settato in SliderControl
     public float sum_parameters = 15; // settato in SliderControl
-    [Header("Task da fare: usare per debuggare, N.B. impostarle prima di startare la MainMap")]
+    [Header("Task da fare: usare per debuggare")]
+    [Header("El 0: anxiety, El 1: literacy, El2: climatechange")]
     public int[] tasks_picked = new int[3] {0,0,0}; // vettore di 3 int: [0] per anxiety, [1] per literacy, [2] per climate change
     // in ciascuno di questi 3 elementi pesco un numero casuale che definisce la task
     // ANXIETY: 0 fatta, 1 breathing, 2 music, 3 word puzzle
@@ -182,6 +184,8 @@ public class GameManager : MonoBehaviour
     {
         player.GetComponent<playerMovement>().enabled = state;
         player.gameObject.SetActive(state);
+        Bever.GetComponent<Bever>().enabled = state;
+        Bever.gameObject.SetActive(state);
     }
     
     

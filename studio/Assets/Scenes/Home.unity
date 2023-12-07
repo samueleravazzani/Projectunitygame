@@ -144,46 +144,6 @@ PrefabInstance:
       propertyPath: minigame_int
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: -6923244741187994302, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
-      propertyPath: m_Size.x
-      value: 0.8599153
-      objectReference: {fileID: 0}
-    - target: {fileID: -6923244741187994302, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
-      propertyPath: m_Size.y
-      value: 1.2964436
-      objectReference: {fileID: 0}
-    - target: {fileID: -6923244741187994302, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.0069541037
-      objectReference: {fileID: 0}
-    - target: {fileID: -6923244741187994302, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.039898813
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
-      propertyPath: category
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
-      propertyPath: scenetoload
-      value: PuzzleGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
-      propertyPath: minigame_int
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
-      propertyPath: playeractive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
-      propertyPath: playerposition.x
-      value: -2.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
-      propertyPath: playerposition.y
-      value: 1.36
-      objectReference: {fileID: 0}
     - target: {fileID: 8260749620247352412, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.37
@@ -224,9 +184,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 366480561866288028, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
-      propertyPath: m_Name
-      value: To_Puzzle
+    - target: {fileID: -6923244741187994302, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.8599153
+      objectReference: {fileID: 0}
+    - target: {fileID: -6923244741187994302, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2964436
+      objectReference: {fileID: 0}
+    - target: {fileID: -6923244741187994302, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0069541037
+      objectReference: {fileID: 0}
+    - target: {fileID: -6923244741187994302, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.039898813
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: category
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: scenetoload
+      value: PuzzleGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: minigame_int
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: playeractive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: playerposition.x
+      value: -2.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: playerposition.y
+      value: 1.36
       objectReference: {fileID: 0}
     - target: {fileID: 2921743636616433168, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
       propertyPath: m_Enabled
@@ -7270,20 +7266,23 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 17.531576, y: 15.98178}
-      - {x: -3.390376, y: 15.967803}
-      - {x: -3.4498396, y: 8.090895}
-      - {x: -2.4452243, y: 4.98326}
-      - {x: -2.4243855, y: -3.950383}
-      - {x: -2.412372, y: -6.939455}
+    - - {x: 19.658344, y: 18.5339}
+      - {x: -11.533817, y: 18.420685}
+      - {x: -11.637861, y: 7.9304733}
+      - {x: -11.651844, y: 6.295065}
+      - {x: -11.6657295, y: -7.3293}
+      - {x: -10.605104, y: -7.232336}
+      - {x: -8.282247, y: -7.2797375}
       - {x: 4.568679, y: -6.950621}
       - {x: 11.560933, y: -6.989077}
       - {x: 11.575585, y: -7.9721546}
       - {x: 14.563837, y: -7.9669166}
       - {x: 14.551628, y: -6.9745026}
-      - {x: 17.533035, y: -6.9629707}
-      - {x: 17.31988, y: -6.039293}
-      - {x: 17.463123, y: 4.9920197}
+      - {x: 19.745916, y: -6.9063835}
+      - {x: 19.787964, y: -6.9078097}
+      - {x: 19.95988, y: -6.9100003}
+      - {x: 19.957071, y: -6.719856}
+      - {x: 19.845102, y: 4.906949}
   m_UseDelaunayMesh: 0
 --- !u!4 &1771451135
 Transform:
