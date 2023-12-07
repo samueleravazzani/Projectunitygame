@@ -17,6 +17,7 @@ public class ProfileMaster : MonoBehaviour
     public Image input;
     public Button create;
     public Button delete;
+    public Image blackBackground;
 
     private string newname;
     // private float[] button_position = new float[]  {376.5f, -543.5f};
@@ -37,6 +38,7 @@ public class ProfileMaster : MonoBehaviour
     private void Start()
     {
         SpawnProfiles();
+        blackBackground.gameObject.SetActive(false);
     }
 
     public void NewProfile()
@@ -150,6 +152,11 @@ public class ProfileMaster : MonoBehaviour
             i++;
         }
     }
+   
+   public void ActivateBlackScreen()
+   {
+       blackBackground.gameObject.SetActive(true);
+   }
     
    [System.Serializable]
     public class Serialization<T>

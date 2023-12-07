@@ -151,7 +151,7 @@ public class GameManager : MonoBehaviour
             n_world_saved = saveObject.n_world_saved;
             profile_created = saveObject.profile_created;
             // cambio scena e attivo il player
-            SceneManager.LoadScene("MainMap");
+            SceneMaster.instance.ChangeSchene("MainMap", true, player.transform.position);
             ActivatePlayer(true);
         }
 
