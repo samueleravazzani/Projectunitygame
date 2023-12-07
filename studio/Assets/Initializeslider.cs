@@ -8,27 +8,29 @@ public class Initializeslider : MonoBehaviour
     public Slider climateSlider;
     public Slider literacySlider;
 
-    //VARIABILE MESSA COSI ADESSO PER PROVARE IN REALTA' SARA' SOSTITUITA DA GAMEMANAGER.INSTANCE.ANXIETY... PER OGNUNA DI LORO 
-    private int initialValue = 10;
-
+    public float max = 10f; 
+    
     private void Start()
     {
-        InitializeSliders(); //ALLO START VENGONO INIZIALIZZATI GL SLIDER 
+            InitializeSliders();
     }
 
     //FUNZIONE DI INIZIALIZZAZIONE DEI TRE SLIDER, DEVE ESSERE PER OGNUNO DEI TRE CON I PROPRI VALORI DAL GAMEMANAGER
     //L'INIZIALIZZAZIONE COMPRENDE UNA FUNZIONE PER INVERTIRE I PARAMETRI + QUELLA DI SETTAGGIO DELLO SLIDER
     private void InitializeSliders()
     {
-        SetSliderValue(anxietySlider, InverseSliderValue(initialValue));
-        SetSliderValue(climateSlider, InverseSliderValue(initialValue - 1));
-        SetSliderValue(literacySlider, InverseSliderValue(initialValue - 2));
+        SetSliderValue(anxietySlider, InverseSliderValue(GameManager.instance.anxiety));
+        SetSliderValue(climateSlider, InverseSliderValue(GameManager.instance.climate_change_skept));
+        SetSliderValue(literacySlider, InverseSliderValue(GameManager.instance.literacy_inverted));
+        
+        
+        
     }
 
     //INVERSIONE
-    private float InverseSliderValue(int value)
+    private float InverseSliderValue(float value)
     {
-        return anxietySlider.maxValue - value;
+        return max - value;
     }
 
     //SETTAGGIO
@@ -36,26 +38,42 @@ public class Initializeslider : MonoBehaviour
     {
         slider.value = Mathf.Clamp(value, slider.minValue, slider.maxValue);
     }
-
-    //QUESTA UPDATE E' LA FUNZIONE CHE DEVE ESSERE GESTITA O IN UN GAMEMANAGER O NEI GIOCHI, DA CAPIRE!
-    private void Update()
+    
+   /* public void UpdateSliders()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (GameManager.instance.anxiety>anxietySlider.value)
         {
             IncrementSliderValue(anxietySlider);
         }
-        else if (Input.GetKeyDown(KeyCode.Return))
+        else if (GameManager.instance.anxiety<anxietySlider.value)
         {
             DecrementSliderValue(anxietySlider);
+        }
+        
+        if (GameManager.instance.literacy_inverted>literacySlider.value)
+        {
+            IncrementSliderValue(literacySlider);
+        }
+        else if (GameManager.instance.literacy_inverted<literacySlider.value)
+        {
+            DecrementSliderValue(literacySlider);
+        }
+        
+        if (GameManager.instance.climate_change_skept>climateSlider.value)
+        {
+            IncrementSliderValue(climateSlider);
+        }
+        else if (GameManager.instance.climate_change_skept<climateSlider.value)
+        {
+            DecrementSliderValue(climateSlider);
         }
     }
 
     //QUANDO SARA' FINITA UNA TASK SE FATTA BENE ALLORA DEVO INCREMENTARE IL VALORE DELLO SLIDER 
     //QUESTA FUNZIONE VIENE CHIAMATA PASSANDO IL NOME DELLO SLIDER DA CAMBIARE
     //L'INREMENTO E' FISSATO A UNO COME AVEVAMO DECISO
-    //ALTRIMENTI SI PUO' GENERALIZZARE PASSANDO UN INT DI CHANGE E AL POSTO DI 1 METTERE CHANGE
     private void IncrementSliderValue(Slider slider)
-    {
+   {
         slider.value = Mathf.Clamp(slider.value + 1, slider.minValue, slider.maxValue);
     }
 
@@ -63,5 +81,5 @@ public class Initializeslider : MonoBehaviour
     private void DecrementSliderValue(Slider slider)
     {
         slider.value = Mathf.Clamp(slider.value - 1, slider.minValue, slider.maxValue);
-    } 
+    } */
 }
