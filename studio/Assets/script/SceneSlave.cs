@@ -81,5 +81,10 @@ public class SceneSlave : MonoBehaviour
     {
         GameManager.instance.TaskDone(category);
     }
+
+    public void TaskFailed()
+    {
+        GameManager.instance.TaskFailed(category); 
+    }
     
 }

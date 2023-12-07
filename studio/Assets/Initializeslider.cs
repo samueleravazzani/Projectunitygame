@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,18 +15,16 @@ public class Initializeslider : MonoBehaviour
     private void Start()
     {
             InitializeSliders();
+            StartCoroutine(UpdateSliders());
     }
 
     //FUNZIONE DI INIZIALIZZAZIONE DEI TRE SLIDER, DEVE ESSERE PER OGNUNO DEI TRE CON I PROPRI VALORI DAL GAMEMANAGER
     //L'INIZIALIZZAZIONE COMPRENDE UNA FUNZIONE PER INVERTIRE I PARAMETRI + QUELLA DI SETTAGGIO DELLO SLIDER
     private void InitializeSliders()
     {
-        SetSliderValue(anxietySlider, InverseSliderValue(GameManager.instance.anxiety));
-        SetSliderValue(climateSlider, InverseSliderValue(GameManager.instance.climate_change_skept));
-        SetSliderValue(literacySlider, InverseSliderValue(GameManager.instance.literacy_inverted));
-        
-        
-        
+        SetSliderValue(anxietySlider, InverseSliderValue(GameManager.instance.oldanxiety));
+        SetSliderValue(climateSlider, InverseSliderValue(GameManager.instance.oldclimate));
+        SetSliderValue(literacySlider, InverseSliderValue(GameManager.instance.oldliteracy));
     }
 
     //INVERSIONE
@@ -39,33 +39,31 @@ public class Initializeslider : MonoBehaviour
         slider.value = Mathf.Clamp(value, slider.minValue, slider.maxValue);
     }
     
-   /* public void UpdateSliders()
+   IEnumerator UpdateSliders()
     {
-        if (GameManager.instance.anxiety>anxietySlider.value)
+        if (GameManager.instance.anxiety!=anxietySlider.value)
         {
-            IncrementSliderValue(anxietySlider);
+            while (GameManager.instance.anxiety != anxietySlider.value)
+            {
+                anxietySlider.value = Mathf.MoveTowards(anxietySlider.value, GameManager.instance.anxiety, 1 / 50f);
+                yield return null;
+            }
         }
-        else if (GameManager.instance.anxiety<anxietySlider.value)
+        if (GameManager.instance.literacy_inverted!=literacySlider.value)
         {
-            DecrementSliderValue(anxietySlider);
+            while (GameManager.instance.literacy_inverted != literacySlider.value)
+            {
+                literacySlider.value = Mathf.MoveTowards(literacySlider.value, GameManager.instance.literacy_inverted, 1 / 50f);
+                yield return null;
+            }
         }
-        
-        if (GameManager.instance.literacy_inverted>literacySlider.value)
+        if (GameManager.instance.climate_change_skept!=climateSlider.value)
         {
-            IncrementSliderValue(literacySlider);
-        }
-        else if (GameManager.instance.literacy_inverted<literacySlider.value)
-        {
-            DecrementSliderValue(literacySlider);
-        }
-        
-        if (GameManager.instance.climate_change_skept>climateSlider.value)
-        {
-            IncrementSliderValue(climateSlider);
-        }
-        else if (GameManager.instance.climate_change_skept<climateSlider.value)
-        {
-            DecrementSliderValue(climateSlider);
+            while (GameManager.instance.anxiety != anxietySlider.value)
+            {
+                climateSlider.value = Mathf.MoveTowards(climateSlider.value, GameManager.instance.climate_change_skept, 1 / 50f);
+                yield return null;
+            }
         }
     }
 
@@ -81,5 +79,5 @@ public class Initializeslider : MonoBehaviour
     private void DecrementSliderValue(Slider slider)
     {
         slider.value = Mathf.Clamp(slider.value - 1, slider.minValue, slider.maxValue);
-    } */
+    } 
 }
