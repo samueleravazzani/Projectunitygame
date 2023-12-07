@@ -4953,6 +4953,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: ebf810aa0da762d48843153ec9b3a5c2, type: 3}
   - {fileID: 4900000, guid: cf4abccb412e9ea48b7ed23fb28a0c84, type: 3}
   - {fileID: 4900000, guid: e257c75fec132f64fae73f56b07e2123, type: 3}
+  - {fileID: 4900000, guid: 39f8d25d6be50a94cb597c6209331fc3, type: 3}
   nameNPC: 
   randomIndex: 0
 --- !u!61 &1964897303
