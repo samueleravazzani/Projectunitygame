@@ -48,9 +48,15 @@ public class ProfileMaster : MonoBehaviour
 
    public void Create()
    {
+       // verifico che non ci siano profili con lo stesso nome
        newname = input.GetComponentInChildren<TMP_InputField>().text;
        foreach (string name in GameManager.instance.profileNames)
        {
+           if (newname == "profiles")
+           {
+               Debug.Log("Name not usable");
+               return;
+           }
            if (name == newname)
            {
                Debug.Log("Error: a profile with this name already exists. Change name");
@@ -75,6 +81,14 @@ public class ProfileMaster : MonoBehaviour
    {
        bool found = false;
        string name_to_delete = input.GetComponentInChildren<TMP_InputField>().text;
+
+       // verifico che non si voglia cancellare l'elenco dei profili
+       if (name_to_delete == "profiles")
+       {
+           Debug.Log("File not deletable");
+           return;
+       }
+       
        foreach (string name in GameManager.instance.profileNames)
        {
            if (name == name_to_delete)
