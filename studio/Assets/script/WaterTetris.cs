@@ -5,18 +5,21 @@ using UnityEngine.Tilemaps;
 
 public class WaterTetris : MonoBehaviour
 {
+    public Sprite[] objects;
+    public int N_objects = 50;
+    public GameObject obj_prefab;
     public Transform[,] grid = new Transform[TetrisBlock.width, TetrisBlock.height]; // per creare/gestire i blocchi
     public string[,] grid_string = new string[TetrisBlock.width, TetrisBlock.height];
     public string[,] grid_string_houses = new string[TetrisBlock.width, TetrisBlock.height];
     public GameObject[] houses;
-    private int min_x_houses = 29, max_x_houses = 35; /* PARAMETRIZATION!!!!!!!!!!*/
+    private int min_x_houses = 30, max_x_houses = 35; /* PARAMETRIZATION!!!!!!!!!!*/
     // a sx crivo le quadre e la virgola per dire che è una matrice
     // a dx scrivo le dimensioni della matrice
     private int probability_threshold = 80;
     private List<Vector3Int> nextwaterPositions = new List<Vector3Int>();
     public GameObject water_prefab; // prefab da inserire
-    private int N_water = 60;   /* PARAMETRIZATION!!!!!!!!!!*/
-    private int max_water_spawn_width = 24, max_water_spawn_height = TetrisBlock.height; /* PARAMETRIZATION della width!!!!!!!!!!*/
+    private int N_water = 55;   /* PARAMETRIZATION!!!!!!!!!!*/
+    private int max_water_spawn_width = 22, max_water_spawn_height = TetrisBlock.height; /* PARAMETRIZATION della width!!!!!!!!!!*/
     public bool ingame;
 
     public static WaterTetris instance;
@@ -37,7 +40,12 @@ public class WaterTetris : MonoBehaviour
         InitializeGrid(grid_string);
         InitializeGrid(grid_string_houses);
         SetHouses();
+        SetObjects();
         
+        StartGame();
+    }
+    
+    public void StartGame(){
         for (int i = 0; i < N_water; i++)
         {
             CreateNewWater();
@@ -87,6 +95,16 @@ public class WaterTetris : MonoBehaviour
             grid_string_houses[roundedX, roundedY] = "house";
         }
     }
+
+    public void SetObjects()
+    {
+        for (int i = 0; i < N_objects; i++)
+        {
+            GameObject obj = Instantiate(obj_prefab, new Vector3(Random.Range(0, max_water_spawn_width), Random.Range(0, TetrisBlock.height), 0), Quaternion.identity);
+            obj.GetComponent<SpriteRenderer>().sprite = objects[Random.Range(0, objects.Length - 1)];
+        }
+    }
+    
 
     // /!\ gestisco l'espansione dell'acqua in TetrisBlock, dal blocco che è appena stato disabilitato
     void Update()
