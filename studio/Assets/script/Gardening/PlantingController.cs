@@ -37,10 +37,10 @@ public class PlantingController : MonoBehaviour
     private Vector3Int CentreTilePosition;
     private int x; //valore di ccs per la retta di calibrazione
     private int y; //valore delle piante che il player deve riuscire a piantare
-    private int m = -3; //coefficiente angolare della retta da me calcolata; voglio che il  massimo
-    //di piante da piantare sia 78 e il minimo 51, più sei scettico (valore CCs più basso, più piante 
+    private int m = 3; //coefficiente angolare della retta da me calcolata; voglio che il  massimo
+    //di piante da piantare sia 78 e il minimo 51, più sei scettico (valore CCs più alto, più piante 
     //dovrai piantare.
-    private int q = 81;//intercetta da me calcolata secondo i parametri precedenti
+    private int q = 48;//intercetta da me calcolata secondo i parametri precedenti
     private int vite = 3;
     private bool lose;
     private bool win;
@@ -151,7 +151,7 @@ public class PlantingController : MonoBehaviour
                     int randomIndex = Random.Range(0, plantTile.Length);
                     plantTilemap.SetTile(fertileTilePosition, plantTile[randomIndex]);
                     score++;
-                    scoreText.text=string.Format("Plant:{0:00}",score);
+                    scoreText.text=string.Format($"Plant:{score}/{y}");
                 }
                 else if(clickedTilePosition == fertileTilePosition && talpaIsPresent)
 
@@ -196,7 +196,7 @@ public class PlantingController : MonoBehaviour
             Destroy(Talpa);
             groundTilemap.SetTile(fertileTilePosition, nonFertileTile);
             score++;
-            scoreText.text=string.Format("Plant:{0:00}",score);
+            scoreText.text=string.Format($"Plant:{score}/{y}");
             
         }
         else
