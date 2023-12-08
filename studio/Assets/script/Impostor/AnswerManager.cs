@@ -32,8 +32,8 @@ public class AnswerManager : MonoBehaviour
     //retta di calibrazione
     private int x;
     private int y;
-    private float m = 4/9f;
-    private float q= 32/9f;
+    private float m = 2/9f;
+    private float q= 34/9f;
 
     private int vite = 3;
     [SerializeField] private TextMeshProUGUI scoreText;

@@ -23,6 +23,8 @@ public class PlantingController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI OutroText;
     [SerializeField] private Canvas OutroCanvas;
     [SerializeField] private Button Retry;
+    [SerializeField] private Button Quit;
+    [SerializeField] private Button Home;
 
     public float fertileInterval = 2f; // Time interval to make a tile fertile
 
@@ -216,6 +218,7 @@ public class PlantingController : MonoBehaviour
         {
             OutroText.text = "Congratulation, you win!";
             Retry.gameObject.SetActive(false);
+            Quit.gameObject.SetActive(false);
             OutroCanvas.enabled = true;
             Debug.Log("Hai vinto!");
             win = true;
@@ -225,6 +228,7 @@ public class PlantingController : MonoBehaviour
         if (miss == vite)
         {
             OutroText.text = "Oh no, you lose!";
+            Home.gameObject.SetActive(false);
             OutroCanvas.enabled = true;
             Debug.Log("Hai perso");
             lose = true;
