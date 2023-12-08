@@ -243,12 +243,16 @@ PrefabInstance:
       value: 1.59
       objectReference: {fileID: 0}
     - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: category
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
       propertyPath: scenetoload
-      value: Introforleaf
+      value: MainMap
       objectReference: {fileID: 0}
     - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
       propertyPath: playeractive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
       propertyPath: playerposition.x
@@ -337,6 +341,10 @@ PrefabInstance:
     - target: {fileID: 2921743636616433168, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
       propertyPath: m_Color.r
       value: 0.77034783
+      objectReference: {fileID: 0}
+    - target: {fileID: 2921743636616433168, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

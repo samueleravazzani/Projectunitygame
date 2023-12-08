@@ -156,6 +156,7 @@ public class WaterTetris : MonoBehaviour
                 {
                     ingame = false;
                     fail.gameObject.SetActive(true);
+                    rain.gameObject.SetActive(true);
                     Debug.Log("Game Over");
                     return;
                 } 

@@ -36,6 +36,11 @@ public class GameManager : MonoBehaviour
     /* TASK ATTUALE */
     public int task_index = 0;
     public int n_world_saved = 0;
+
+    public float oldanxiety;
+    public float oldclimate;
+    public float oldliteracy; 
+    
     
     void Awake()
     {
@@ -65,6 +70,9 @@ public class GameManager : MonoBehaviour
             n_world_saved = 0;
             SaveProfileList();
             profile_created = true;
+            oldanxiety = anxiety;
+            oldliteracy = literacy_inverted;
+            oldclimate = climate_change_skept;
         }
 
         // inizializzo il gioco
@@ -97,10 +105,44 @@ public class GameManager : MonoBehaviour
     {
         task_index++; // task fatta
         tasks_picked[category] = 0; // segno che l'ho fatta
-        EnvironmentControl.instance.update_camera_bool = true; // aggiorno l'environment
+        //EnvironmentControl.instance.update_camera_bool = true; // aggiorno l'environment
         if (task_index == 3)
         {
             n_world_saved++;
+        }
+
+        float tochange = -1f;
+        waitformainmap(category, tochange);
+    }
+    
+    public void TaskFailed(int category) // funzione da chiamare dopo che una task è fallita
+    {
+        float tochange = +0.2f;
+        waitformainmap(category, tochange);
+    }
+    
+    /*public void PostQuestionnaire(float changeanxiety, float changeliteracy, float changeclimate) // funzione da chiamare dopo che faccio il questionario
+    {
+        float tochange = -1;
+        StartCoroutine(waitformainmap(category, tochange));
+    }*/
+
+    public void waitformainmap(int category, float tochange)
+    {
+        if (category == 0)
+        {
+            anxiety += tochange;
+            //oldanxiety = anxiety; // preparo il futuro vecchio valore
+        }
+        if (category == 1)
+        {
+            literacy_inverted += tochange;
+            //oldliteracy = literacy_inverted; // preparo il futuro vecchio valore
+        }
+        if (category == 2)
+        {
+            climate_change_skept += tochange;
+            //oldclimate = climate_change_skept; // preparo il futuro vecchio valore
         }
     }
     
@@ -140,8 +182,11 @@ public class GameManager : MonoBehaviour
             SaveObject saveObject =JsonUtility.FromJson<SaveObject>(saveString);
             // prendo i dati
             anxiety = saveObject.anxiety;
+            oldanxiety = anxiety;
             literacy_inverted = saveObject.literacy_inverted;
+            oldliteracy = literacy_inverted;
             climate_change_skept = saveObject.climate_change_skepticism;
+            oldclimate = climate_change_skept;
             sum_parameters = anxiety + literacy_inverted + climate_change_skept;
             player.transform.position = saveObject.position;
             problem_now = saveObject.problem_now;
