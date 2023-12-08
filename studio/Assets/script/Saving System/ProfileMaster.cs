@@ -37,6 +37,7 @@ public class ProfileMaster : MonoBehaviour
 
     private void Start()
     {
+        // PER CANCELLARE TUTTO (PUZZLE_GAME): PlayerPrefs.DeleteAll();
         SpawnProfiles();
         blackBackground.gameObject.SetActive(false);
     }
@@ -101,9 +102,10 @@ public class ProfileMaster : MonoBehaviour
 
        if (found)
        {
-           GameManager.instance.profileNames.Remove(name_to_delete);
-           SaveSystem.DeleteFile(name_to_delete);
-           GameManager.instance.SaveProfileList();
+           DeletePrefs(name_to_delete); //Cancella PrefsPuzzleGame
+           GameManager.instance.profileNames.Remove(name_to_delete); //Rimuove dall'elenco dei giocatori
+           SaveSystem.DeleteFile(name_to_delete); // Cancella il profilo
+           GameManager.instance.SaveProfileList(); // Salva l'elenco nuovo dei giocatori
            SceneManager.LoadScene("Profiles");
        }
        else
@@ -189,7 +191,12 @@ public class ProfileMaster : MonoBehaviour
             this.target = target;
         }
     } */
-   
+    public void DeletePrefs(string profile)
+    {
+        PlayerPrefs.DeleteKey(profile+"_"+"Level 1");
+        PlayerPrefs.DeleteKey(profile+"_"+"Level 2");
+        PlayerPrefs.DeleteKey(profile+"_"+"Level 3");
+    }
 
     
 }
