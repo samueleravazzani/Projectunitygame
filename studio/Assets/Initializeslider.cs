@@ -57,15 +57,15 @@ public class Initializeslider : MonoBehaviour
         Debug.Log("sliderclimate before: " + climateSlider.value);*/
        
         
-        if (GameManager.instance.anxiety!=anxietySlider.value)
+        if (max-GameManager.instance.anxiety+1 !=anxietySlider.value)
         {
             anxietySlider.value = Mathf.MoveTowards(anxietySlider.value, max-GameManager.instance.anxiety +1, 1 / 50f);
         }
-        if (GameManager.instance.literacy_inverted!=literacySlider.value)
+        if (max-GameManager.instance.literacy_inverted+1!=literacySlider.value)
         {
             literacySlider.value = Mathf.MoveTowards(literacySlider.value, max-GameManager.instance.literacy_inverted + 1, 1 / 50f);
         }
-        if (GameManager.instance.climate_change_skept!=climateSlider.value)
+        if (max-GameManager.instance.climate_change_skept+1!=climateSlider.value)
         {
             climateSlider.value = Mathf.MoveTowards(climateSlider.value, max-GameManager.instance.climate_change_skept + 1, 1 / 50f);
            // Debug.Log("sliderclimate after: " + climateSlider.value);
