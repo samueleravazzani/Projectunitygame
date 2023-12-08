@@ -1,34 +1,41 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Initializeslider : MonoBehaviour
 {
+    
     //DICHIARO CHI SONO GLI SLIDER 
     public Slider anxietySlider;
     public Slider climateSlider;
     public Slider literacySlider;
 
-    //VARIABILE MESSA COSI ADESSO PER PROVARE IN REALTA' SARA' SOSTITUITA DA GAMEMANAGER.INSTANCE.ANXIETY... PER OGNUNA DI LORO 
-    private int initialValue = 10;
+    public float max = 10f;
 
+    public bool start = false; 
+    
     private void Start()
     {
-        InitializeSliders(); //ALLO START VENGONO INIZIALIZZATI GL SLIDER 
+        InitializeSliders();  
+        Debug.Log("Enter: " + GameManager.instance.climate_change_skept);
+       
     }
 
     //FUNZIONE DI INIZIALIZZAZIONE DEI TRE SLIDER, DEVE ESSERE PER OGNUNO DEI TRE CON I PROPRI VALORI DAL GAMEMANAGER
     //L'INIZIALIZZAZIONE COMPRENDE UNA FUNZIONE PER INVERTIRE I PARAMETRI + QUELLA DI SETTAGGIO DELLO SLIDER
     private void InitializeSliders()
     {
-        SetSliderValue(anxietySlider, InverseSliderValue(initialValue));
-        SetSliderValue(climateSlider, InverseSliderValue(initialValue - 1));
-        SetSliderValue(literacySlider, InverseSliderValue(initialValue - 2));
+        SetSliderValue(anxietySlider, InverseSliderValue(GameManager.instance.oldanxiety));
+        SetSliderValue(climateSlider, InverseSliderValue(GameManager.instance.oldclimate));
+        SetSliderValue(literacySlider, InverseSliderValue(GameManager.instance.oldliteracy));
     }
 
     //INVERSIONE
-    private float InverseSliderValue(int value)
+    private float InverseSliderValue(float value)
     {
-        return anxietySlider.maxValue - value;
+        return max - value + 1;
     }
 
     //SETTAGGIO
@@ -37,31 +44,36 @@ public class Initializeslider : MonoBehaviour
         slider.value = Mathf.Clamp(value, slider.minValue, slider.maxValue);
     }
 
-    //QUESTA UPDATE E' LA FUNZIONE CHE DEVE ESSERE GESTITA O IN UN GAMEMANAGER O NEI GIOCHI, DA CAPIRE!
-    private void Update()
+    public void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            IncrementSliderValue(anxietySlider);
-        }
-        else if (Input.GetKeyDown(KeyCode.Return))
-        {
-            DecrementSliderValue(anxietySlider);
-        }
+        UpdateSliders();
     }
-
-    //QUANDO SARA' FINITA UNA TASK SE FATTA BENE ALLORA DEVO INCREMENTARE IL VALORE DELLO SLIDER 
-    //QUESTA FUNZIONE VIENE CHIAMATA PASSANDO IL NOME DELLO SLIDER DA CAMBIARE
-    //L'INREMENTO E' FISSATO A UNO COME AVEVAMO DECISO
-    //ALTRIMENTI SI PUO' GENERALIZZARE PASSANDO UN INT DI CHANGE E AL POSTO DI 1 METTERE CHANGE
-    private void IncrementSliderValue(Slider slider)
+    
+   public void UpdateSliders()
     {
-        slider.value = Mathf.Clamp(slider.value + 1, slider.minValue, slider.maxValue);
+       /* Debug.Log("StartScene");
+        Debug.Log("actualclimate: " + GameManager.instance.climate_change_skept.ToString());
+        Debug.Log("oldclimate: " + GameManager.instance.oldclimate.ToString());
+        Debug.Log("sliderclimate before: " + climateSlider.value);*/
+       
+        
+        if (GameManager.instance.anxiety!=anxietySlider.value)
+        {
+            anxietySlider.value = Mathf.MoveTowards(anxietySlider.value, max-GameManager.instance.anxiety +1, 1 / 50f);
+        }
+        if (GameManager.instance.literacy_inverted!=literacySlider.value)
+        {
+            literacySlider.value = Mathf.MoveTowards(literacySlider.value, max-GameManager.instance.literacy_inverted + 1, 1 / 50f);
+        }
+        if (GameManager.instance.climate_change_skept!=climateSlider.value)
+        {
+            climateSlider.value = Mathf.MoveTowards(climateSlider.value, max-GameManager.instance.climate_change_skept + 1, 1 / 50f);
+           // Debug.Log("sliderclimate after: " + climateSlider.value);
+        }
+
+        GameManager.instance.oldclimate = GameManager.instance.climate_change_skept;
+        GameManager.instance.oldanxiety = GameManager.instance.anxiety;
+        GameManager.instance.oldliteracy = GameManager.instance.literacy_inverted;
     }
-
-    //ANALOGO PER GESTIRE IL CASO DI DECREMENT QUANDO PERDI UN GIOCO
-    private void DecrementSliderValue(Slider slider)
-    {
-        slider.value = Mathf.Clamp(slider.value - 1, slider.minValue, slider.maxValue);
-    } 
+   
 }

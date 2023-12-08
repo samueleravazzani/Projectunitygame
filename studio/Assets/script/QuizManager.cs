@@ -49,6 +49,9 @@ public class QuizManager : MonoBehaviour
     public AudioClip myAudioClip;
     
     public Button retryButton; //button that makes possible to repeat the game 
+    public Button quitcorrectButton;
+    public Button quitwrongButton;
+    
     
     // Make audio clips public to assign them in the Unity inspector
     public AudioClip correctSound;
@@ -173,12 +176,16 @@ public class QuizManager : MonoBehaviour
             retryButton.gameObject.SetActive(false); //I shouldn't see the retry button but only give the player the possibility to quit
             outroText.gameObject.SetActive(true); //I should see the outro text
             retryText.gameObject.SetActive(false); //and not see the retry text because is not the case
+            quitcorrectButton.gameObject.SetActive(true);
+            quitwrongButton.gameObject.SetActive(false);
         }
         else
         {
             retryText.gameObject.SetActive(true); //I should see retry button to give the player also the opportunity to play again
             retryButton.gameObject.SetActive(true); //I should see the text to alert of having done wrong 
             outroText.gameObject.SetActive(false); //Instead I should not see the outro winning text 
+            quitcorrectButton.gameObject.SetActive(false);
+            quitwrongButton.gameObject.SetActive(true);
         }
         GoPanel.SetActive(true); //Having done the logic above, I can activate the gameover panel
         ScoreTxt.text = score + "/" + totalQuestions;

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class PlantingController : MonoBehaviour
@@ -19,23 +20,40 @@ public class PlantingController : MonoBehaviour
     [SerializeField] public Tile[] plantTile;  // Plant tile
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI missText;
+    [SerializeField] private TextMeshProUGUI OutroText;
+    [SerializeField] private Canvas OutroCanvas;
+    [SerializeField] private Button Retry;
 
     public float fertileInterval = 2f; // Time interval to make a tile fertile
 
     private Vector3Int fertileTilePosition; // Position of the current fertile tile
     private bool ok = false;
     private bool firstDone = false;
-    int score = 1;
-    private int miss = 1;
+    int score = 0;
+    private int miss = 0;
     private int randomTile; //sceglie se compare una tile fertile oppure una talpa
     private int randomTalpa;
     private bool talpaIsPresent;
     private Vector3Int CentreTilePosition;
+    private int x; //valore di ccs per la retta di calibrazione
+    private int y; //valore delle piante che il player deve riuscire a piantare
+    private int m = -3; //coefficiente angolare della retta da me calcolata; voglio che il  massimo
+    //di piante da piantare sia 78 e il minimo 51, più sei scettico (valore CCs più basso, più piante 
+    //dovrai piantare.
+    private int q = 81;//intercetta da me calcolata secondo i parametri precedenti
+    private int vite = 3;
+    private bool lose;
+    private bool win;
 
 
     private void Start()
-    {
-        
+    {//creazione della retta di calibrazione prendendo i parametri
+        //salvo il parametro del climate change che mi serve per la pareametrizzazione
+        OutroCanvas.enabled = false;
+        x = Mathf.RoundToInt(GameManager.instance.climate_change_skept);
+        Debug.Log("valore ccs: "+ x.ToString());
+        y = m * x + q; //ottengo il valore di punti da prendere per vincere
+        Debug.Log("valore punteggio: "+ y.ToString());
     }
 
     void Update()
@@ -52,7 +70,7 @@ public class PlantingController : MonoBehaviour
 
     IEnumerator MakeTilesFertilePeriodically()
     {
-        while (true)
+        while (!win && !lose)
         {
             // Make a random non-fertile tile fertile
             MakeTileFertile();
@@ -75,12 +93,14 @@ public class PlantingController : MonoBehaviour
                 Vector3Int position = new Vector3Int(x, y, 0);
 
                 // If the tile is non-fertile, add it to the list
-                if (groundTilemap.GetTile(position) == nonFertileTile || groundTilemap.GetTile(position) == missTile)
+                if (groundTilemap.GetTile(position) == nonFertileTile)
                 {
                     nonFertileTiles.Add(position);
                 }
             }
         }
+        
+        //|| groundTilemap.GetTile(position) == missTile
 
         // If there are non-fertile tiles, make one of them fertile
         if (nonFertileTiles.Count > 0)
@@ -130,12 +150,14 @@ public class PlantingController : MonoBehaviour
                     
                     int randomIndex = Random.Range(0, plantTile.Length);
                     plantTilemap.SetTile(fertileTilePosition, plantTile[randomIndex]);
-                    scoreText.text=string.Format("Plant:{00}",score++);
+                    score++;
+                    scoreText.text=string.Format("Plant:{0:00}",score);
                 }
                 else if(clickedTilePosition == fertileTilePosition && talpaIsPresent)
 
                 {//se clicca sulla tile fertile e c'è la talpa
-                    missText.text=string.Format("Miss:{00}",miss++);
+                    miss++;
+                    missText.text=string.Format("Miss:{0:00}",miss);
                     talpaIsPresent = false;
                     Destroy(Talpa);
                     groundTilemap.SetTile(fertileTilePosition, missTile);
@@ -143,17 +165,21 @@ public class PlantingController : MonoBehaviour
                 else if(talpaIsPresent)
 
                 { //se non clicca su una tile fertile ma era comparsa la talpa
-                    missText.text=string.Format("Miss:{00}",miss++);
+                    miss++;
+                    missText.text=string.Format("Miss:{0:00}",miss);
                     talpaIsPresent = false;
                     Destroy(Talpa);
                     groundTilemap.SetTile(fertileTilePosition, missTile);
                 }
                 else
                 {//se clicca non su una tile fertile
-                    missText.text=string.Format("Miss:{00}",miss++);
+                    miss++;
+                    missText.text=string.Format("Miss:{0:00}",miss);
                     groundTilemap.SetTile(fertileTilePosition, missTile);
 
                 }
+
+                checkScore(score, miss);
 
                 // Exit the coroutine
                 yield break;
@@ -169,13 +195,39 @@ public class PlantingController : MonoBehaviour
             talpaIsPresent = false;
             Destroy(Talpa);
             groundTilemap.SetTile(fertileTilePosition, nonFertileTile);
-            scoreText.text=string.Format("Plant:{00}",score++);
+            score++;
+            scoreText.text=string.Format("Plant:{0:00}",score);
             
         }
         else
         {
-            missText.text = string.Format("Miss:{00}", miss++);
+            miss++;
+            missText.text = string.Format("Miss:{0:00}", miss);
             groundTilemap.SetTile(fertileTilePosition, missTile);
+        }
+        checkScore(score, miss);
+    }
+
+
+    void checkScore(int score, int miss)
+    {
+        //controllo del punteggio
+        if (score == y)
+        {
+            OutroText.text = "Congratulation, you win!";
+            Retry.gameObject.SetActive(false);
+            OutroCanvas.enabled = true;
+            Debug.Log("Hai vinto!");
+            win = true;
+        }
+        Debug.Log("miss: "+ miss.ToString());
+
+        if (miss == vite)
+        {
+            OutroText.text = "Oh no, you lose!";
+            OutroCanvas.enabled = true;
+            Debug.Log("Hai perso");
+            lose = true;
         }
     }
 }
