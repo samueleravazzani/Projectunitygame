@@ -15,14 +15,20 @@ public class WaterTetris : MonoBehaviour
     public string[,] grid_string = new string[TetrisBlock.width, TetrisBlock.height];
     public string[,] grid_string_houses = new string[TetrisBlock.width, TetrisBlock.height];
     public GameObject[] houses;
-    private int min_x_houses = 30, max_x_houses = 35; /* PARAMETRIZATION!!!!!!!!!!*/
     // a sx crivo le quadre e la virgola per dire che è una matrice
     // a dx scrivo le dimensioni della matrice
     private int probability_threshold = 80;
     private List<Vector3Int> nextwaterPositions = new List<Vector3Int>();
     public GameObject water_prefab; // prefab da inserire
-    private int N_water = 55;   /* PARAMETRIZATION!!!!!!!!!!*/
-    private int max_water_spawn_width = 22, max_water_spawn_height = TetrisBlock.height; /* PARAMETRIZATION della width!!!!!!!!!!*/
+    
+    private int N_water;   /* PARAMETRIZATION!!!!!!!!!!*/
+    private float calibratioNwater = 20 / 9f, minN = 30; 
+    
+    private int max_water_spawn_width, max_water_spawn_height = TetrisBlock.height; /* PARAMETRIZATION della width!!!!!!!!!!*/
+    private float calibrationwaterspawn = 7 / 9f, min = 15;
+    
+    private int min_x_houses, max_x_houses = TetrisBlock.width; /* PARAMETRIZATION!!!!!!!!!!*/
+    
     public bool ingame;
     public ParticleSystem rain;
     public Image success;
@@ -43,6 +49,12 @@ public class WaterTetris : MonoBehaviour
 
     void Start()
     {
+        N_water = Mathf.RoundToInt(GameManager.instance.climate_change_skept * calibratioNwater +
+            minN - calibratioNwater);
+        max_water_spawn_width = Mathf.RoundToInt(GameManager.instance.climate_change_skept * calibrationwaterspawn +
+            min - calibrationwaterspawn);
+        min_x_houses = max_water_spawn_width + 8;
+        
         success.gameObject.SetActive(false);
         fail.gameObject.SetActive(false);
         InitializeGrid(grid_string);

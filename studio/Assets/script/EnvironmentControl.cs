@@ -32,11 +32,11 @@ public class EnvironmentControl : MonoBehaviour
     /* PROBLEMS */
     // 1 = fire, 2 = plastic, 3 = water, 4 = pollution, 5 = air, 6 = rain;
      // /!\ ATTUALE PROBLEMA
-    private int[] N_tospawn; // questo cambia durante il gioco /!\
+    /* private int[] N_tospawn; // questo cambia durante il gioco /!\
     private float[] smokeRot;
     private float[] windRot;
     private float[] rainRot;
-    private float[] level_anxiety = new float[] {0,0,0,0};
+    private float[] level_anxiety = new float[] {0,0,0,0}; */
     private  float calibration_anxiety = -70/9f;
     public bool update_camera_bool = true; // /!\ IMPORTANTE, lo devo aggiornare anche dove faccio GameManager.instance.task_index++
     public static bool destroy_obj;
@@ -62,10 +62,10 @@ public class EnvironmentControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-  
+        /*
         if (GameManager.instance.task_index == 0)
         {
-            /* A GIOCO PRONTO */ 
+            //A GIOCO PRONTO
             N_tospawn = new int[] {(int) GameManager.instance.sum_parameters * 14, (int) GameManager.instance.sum_parameters * 9, (int) GameManager.instance.sum_parameters * 6, 0};
             
             smokeRot = new float[] {GameManager.instance.sum_parameters * 4, GameManager.instance.sum_parameters * 3, GameManager.instance.sum_parameters * 2, 0};
@@ -77,7 +77,7 @@ public class EnvironmentControl : MonoBehaviour
             {
                 level_anxiety = new float[] {0,0,0,0};
             }
-        }
+        } */
         
         if (update_camera_bool) // /!\ IMPORTANTE, lo devo aggiornare anche dove faccio GameManager.instance.task_index++
         {
@@ -102,7 +102,7 @@ public class EnvironmentControl : MonoBehaviour
         update_camera_bool = false;
         yield return null; // Wait for the end of the frame
 
-        // Process another case (1, 2, or 3)
+        // Process another case (1, 2, or 3 or 4)
         destroy_obj = false;
         switch (GameManager.instance.problem_now)
         {
@@ -111,33 +111,33 @@ public class EnvironmentControl : MonoBehaviour
                 CameraEnvironment(new Color(1.0f, 1.0f, 1.0f));
                 break;
             case 1: // FIRE
-                SpawnWithinCollider(fire, N_tospawn[GameManager.instance.task_index]);
+                SpawnWithinCollider(fire, GameManager.instance.N_tospawn[GameManager.instance.task_index]);
                 CameraEnvironment(fireColors[GameManager.instance.task_index]);
                 break;
             case 2: // PLASTIC
-                Spawn(plastic, N_tospawn[GameManager.instance.task_index]);
+                Spawn(plastic, GameManager.instance.N_tospawn[GameManager.instance.task_index]);
                 CameraEnvironment(plasticColors[GameManager.instance.task_index]);
                 break;
             case 3: // POLLUTION
                 ParticleSystem ptspoll = Instantiate(pollution, new Vector3(-31.5f, 4.5f, -1f),
                     Quaternion.Euler(0, 90, 90));
                 var emissionpoll = ptspoll.emission; // /!\ PURTROPPO non si può modificare direttamente ma va estratto così
-                emissionpoll.rateOverTime = smokeRot[GameManager.instance.task_index];
+                emissionpoll.rateOverTime = GameManager.instance.smokeRot[GameManager.instance.task_index];
                 CameraEnvironment(pollutionColors[GameManager.instance.task_index]);
                 break;
             case 4: // AIR + RAIN
                 ParticleSystem ptsair = Instantiate(air, new Vector3(-30, -2, -1), Quaternion.Euler(0, 90, 90));
                 var emissionair = ptsair.emission;
-                emissionair.rateOverTime = windRot[GameManager.instance.task_index];
+                emissionair.rateOverTime = GameManager.instance.windRot[GameManager.instance.task_index];
                 ParticleSystem ptsrain = Instantiate(rain, new Vector3(0, 30, -1), transform.rotation);
                 var emissionrain = ptsrain.emission;
-                emissionrain.rateOverTime = rainRot[GameManager.instance.task_index];
+                emissionrain.rateOverTime = GameManager.instance.rainRot[GameManager.instance.task_index];
                 CameraEnvironment(rainColors[GameManager.instance.task_index]);
                 break;
         }
 
         // regulate saturation according to anxiety level
-        CameraAnxiety(level_anxiety[GameManager.instance.task_index] * calibration_anxiety);
+        CameraAnxiety(GameManager.instance.level_anxiety[GameManager.instance.task_index] * calibration_anxiety);
         update_camera_bool = false;
         
     }
