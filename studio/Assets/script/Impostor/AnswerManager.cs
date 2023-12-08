@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using TMPro;
+using UnityEngine.UI;
 
 public class AnswerManager : MonoBehaviour
 {   //SCRIPT CHE MI PERMETTE DI GESTIRE LE RISPOSTE NELLA SCENA IMPOSTOR
@@ -26,6 +28,17 @@ public class AnswerManager : MonoBehaviour
     
     [Header("Castle Door")] [SerializeField]
     private GameObject CastleDoor;
+    
+    //retta di calibrazione
+    private int x;
+    private int y;
+    private float m = 4/9f;
+    private float q= 32/9f;
+
+    private int vite = 3;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI missText;
+    
     
     //CREAZIONE DEL SINGLETON
 
@@ -51,6 +64,11 @@ public class AnswerManager : MonoBehaviour
      {
          alreadyTalk= new bool[impostors.Count]; //inizializzazione del vettore di buleani
          //deve avere la stessa lunghezza della lista di impostori
+         x = Mathf.RoundToInt(GameManager.instance.literacy_inverted);
+         Debug.Log("valore literacy_inverted: "+ x.ToString());
+         y =Mathf.RoundToInt( m * x + q); //ottengo il valore di punti da prendere per vincere
+         Debug.Log("valore risposte corrette da dare: "+ y.ToString());
+         
      }
 
      //FUNZIONE CHE MI PERMETTE DI GESTIRE LE RISPOSTE
@@ -87,16 +105,17 @@ public class AnswerManager : MonoBehaviour
                  case 0: //risposta positiva, allora aumento il correct
                  {
                      correct++;
-                     Debug.Log("indice pari e risposta si" + correct.ToString());
+                     scoreText.text=string.Format($"Score:{correct}/{y}");
                      break;
                  }
                  case 1://risposta negativa aumento l'incorrect
                  {
                      incorrect++; 
-                     Debug.Log("indice pari e risposta no" + incorrect.ToString());
+                     missText.text=string.Format($"Miss:{incorrect}/{vite}");
                      break;
                  }
              }
+             GestioneCanvasImpostor.GetInstance().checkScore(correct, incorrect);
          }
 
          if (impostors.Contains(name) && randomindex % 2 != 0) 
@@ -109,16 +128,18 @@ public class AnswerManager : MonoBehaviour
                  case 0: //risposta positiva, allora aumento l'incorrect
                  {
                      incorrect++;
-                     Debug.Log("indice dispari e risposta si" + incorrect.ToString());
+                     missText.text=string.Format($"Miss:{incorrect}/{vite}");
                      break;
                  }
                  case 1: //risposta negativa, allora aumento il correct
                  {
                      correct++;
-                     Debug.Log("indice dispari e risposta no" + correct.ToString());
+                     scoreText.text=string.Format($"Score:{correct}/{y}");
                      break;
                  }
              }
+
+             GestioneCanvasImpostor.GetInstance().checkScore(correct, incorrect);
          }
 
      }
@@ -131,6 +152,5 @@ public class AnswerManager : MonoBehaviour
          //viene passato il dialogo contenente le possibili risposte nel caso abbia già parlato con
          //quell'NPC
      }
-     
      
 }
