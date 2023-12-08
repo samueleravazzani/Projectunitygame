@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
 
     public void InitializeGame()
     {
-        if (GameManager.instance.task_index == 0)
+        if (task_index == 0)
         {
             /* A GIOCO PRONTO */ 
             N_tospawn = new int[] {(int) sum_parameters * 14, (int) sum_parameters * 9, (int) sum_parameters * 6, 0};

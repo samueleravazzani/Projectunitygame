@@ -59,6 +59,8 @@ public static class SaveSystem // static class can't be instantiated
         }
         
         
+        
+        
         // PARTE PER CARICARE IL FILE PIù recente
         /*
         DirectoryInfo directoryInfo = new DirectoryInfo(SAVE_FOLEDER); // create directory info nel SAVE_FOLDER path
@@ -95,36 +97,17 @@ public static class SaveSystem // static class can't be instantiated
         File.Delete(SAVE_FOLEDER+filetodelete+".json");
     }
     
-    
-    /* public static void SavePlayer(GameManager gm, string name)
+    // alternativa al file che contiene l'elenco di profili
+    // /!\
+    public static void LookForExistingProfiles()
     {
-        string path = Application.persistentDataPath + "/" + name + ".json";
-        FileStream stream = new FileStream(path, FileMode.Create);
-
-        PlayerData data = new PlayerData(gm);
-
-        Formatter.Serialize(stream, data);
-        stream.Close(); 
-        
-        
+        InitializeSaveFolder();
+        DirectoryInfo directoryInfo = new DirectoryInfo(SAVE_FOLEDER); // create directory info nel SAVE_FOLDER path
+        FileInfo[] saveFiles = directoryInfo.GetFiles("*.json"); // returns an array of file info, all the files of type .txt
+        FileInfo fileToLoad = null;
+        foreach (FileInfo fileInfo in saveFiles)
+        {
+            GameManager.instance.profileNames.Add(fileInfo.Name);
+        }
     }
-
-    public static PlayerData LoadPlayer(string name)
-    {
-        string path = Application.persistentDataPath + "/" + name + ".json";
-        if (File.Exists(path))
-        {
-            FileStream stream = new FileStream(path, FileMode.Open);
-            // PlayerData data = (PlayerData)stream;
-            stream.Close();
-
-            return data;
-            return null;
-        }
-        else
-        {
-            Debug.Log("Save file not found in " + path);
-            return null;
-        }
-    } */
 }

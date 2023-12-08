@@ -169,7 +169,11 @@ public class ProfileMaster : MonoBehaviour
         /* // OLD serialization
         Serialization<string> prof = JsonUtility.FromJson<Serialization<string>>(profiles);
         profileNames = prof.ToList(); */
-        Debug.Log(GameManager.instance.profileNames.ToString());
+        for (int j = 0; j < GameManager.instance.profileNames.Count; j++)
+        {
+            Debug.Log(GameManager.instance.profileNames[j]);
+        }
+        
 
         int i = 0;
         foreach (string name in GameManager.instance.profileNames)
