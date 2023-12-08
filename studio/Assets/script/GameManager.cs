@@ -112,13 +112,13 @@ public class GameManager : MonoBehaviour
         }
 
         float tochange = -1f;
-        waitformainmap(category, tochange);
+        UpdateGMParameters(category, tochange);
     }
     
     public void TaskFailed(int category) // funzione da chiamare dopo che una task è fallita
     {
         float tochange = +0.2f;
-        waitformainmap(category, tochange);
+        UpdateGMParameters(category, tochange);
     }
     
     /*public void PostQuestionnaire(float changeanxiety, float changeliteracy, float changeclimate) // funzione da chiamare dopo che faccio il questionario
@@ -127,21 +127,24 @@ public class GameManager : MonoBehaviour
         StartCoroutine(waitformainmap(category, tochange));
     }*/
 
-    public void waitformainmap(int category, float tochange)
+    public void UpdateGMParameters(int category, float tochange)
     {
         if (category == 0)
         {
             anxiety += tochange;
+            anxiety = Mathf.Clamp(anxiety, 1, 10);
             //oldanxiety = anxiety; // preparo il futuro vecchio valore
         }
         if (category == 1)
         {
             literacy_inverted += tochange;
+            literacy_inverted = Mathf.Clamp(literacy_inverted, 1, 10);
             //oldliteracy = literacy_inverted; // preparo il futuro vecchio valore
         }
         if (category == 2)
         {
             climate_change_skept += tochange;
+            climate_change_skept = Mathf.Clamp(climate_change_skept, 1, 10);
             //oldclimate = climate_change_skept; // preparo il futuro vecchio valore
         }
     }
