@@ -646,6 +646,8 @@ MonoBehaviour:
   anxietySlider: {fileID: 1728945046}
   climateSlider: {fileID: 897399355}
   literacySlider: {fileID: 1804638999}
+  max: 10
+  start: 0
 --- !u!4 &1019151504
 Transform:
   m_ObjectHideFlags: 0

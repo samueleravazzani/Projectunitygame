@@ -77,14 +77,21 @@ public class SceneSlave : MonoBehaviour
         teleport = false;
     }
 
-    public void TaskDone()
+    public void TaskDoneAndActivateChangeScene()
     {
         GameManager.instance.TaskDone(category);
+        ActivateChangeScene();
     }
 
-    public void TaskFailed()
+    public void TaskFailedAndActivateChangeScene()
     {
         GameManager.instance.TaskFailed(category); 
+        ActivateChangeScene();
+    }
+    
+     public void TaskRetry()
+     {
+         GameManager.instance.TaskFailed(category);      
     }
     
 }

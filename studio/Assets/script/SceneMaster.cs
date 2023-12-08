@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -81,6 +82,7 @@ public class SceneMaster : MonoBehaviour
         // se la scena da caricare è la MainMap -> salvo
         if (scenetoload == "MainMap")
         {
+            Debug.Log(GameManager.instance.climate_change_skept);
             GameManager.instance.Save();
         }
         

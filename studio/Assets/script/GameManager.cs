@@ -111,14 +111,14 @@ public class GameManager : MonoBehaviour
             n_world_saved++;
         }
 
-        float tochange = 1;
-        StartCoroutine(waitformainmap(category, tochange));
+        float tochange = -1f;
+        waitformainmap(category, tochange);
     }
     
     public void TaskFailed(int category) // funzione da chiamare dopo che una task è fallita
     {
-        float tochange = -1;
-        StartCoroutine(waitformainmap(category, tochange));
+        float tochange = +0.2f;
+        waitformainmap(category, tochange);
     }
     
     /*public void PostQuestionnaire(float changeanxiety, float changeliteracy, float changeclimate) // funzione da chiamare dopo che faccio il questionario
@@ -127,25 +127,23 @@ public class GameManager : MonoBehaviour
         StartCoroutine(waitformainmap(category, tochange));
     }*/
 
-    IEnumerator waitformainmap(int category, float tochange)
+    public void waitformainmap(int category, float tochange)
     {
-        yield return new WaitUntil(() => SceneManager.GetActiveScene().name == "MainMap");
         if (category == 0)
         {
             anxiety += tochange;
-            oldanxiety = anxiety; // preparo il futuro vecchio valore
+            //oldanxiety = anxiety; // preparo il futuro vecchio valore
         }
         if (category == 1)
         {
             literacy_inverted += tochange;
-            oldliteracy = literacy_inverted; // preparo il futuro vecchio valore
+            //oldliteracy = literacy_inverted; // preparo il futuro vecchio valore
         }
         if (category == 2)
         {
             climate_change_skept += tochange;
-            oldclimate = climate_change_skept; // preparo il futuro vecchio valore
+            //oldclimate = climate_change_skept; // preparo il futuro vecchio valore
         }
-        
     }
     
     public void Save()
