@@ -16,6 +16,7 @@ public class DataSaver : MonoBehaviour
     public static void SaveCategoryData(string profile, string categoryName, int currentIndex)
     {
         string key = profile + "_" + categoryName;
+        Debug.Log(key);
         PlayerPrefs.SetInt(key, currentIndex);
         PlayerPrefs.Save();
     }
