@@ -25,11 +25,6 @@ public class SceneMaster : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    void Start()
-    {
-        Bever = GameObject.Find("Bever");
-    }
-
     public void ChangeSchene(string scenetoload, bool playeractive, Vector3 playerposition)
     {
         transition = GameObject.Find("SceneLoaderTransition/Crossfade").GetComponent<Animator>();
@@ -87,4 +82,6 @@ public class SceneMaster : MonoBehaviour
         }
         
     }
+
+    
 }

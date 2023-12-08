@@ -8,7 +8,8 @@ public class SettingsPopUp : MonoBehaviour
   
     public void ClearGameData()
     {
-        DataSaver.ClearGameData(levelData);
+        string profile = GameManager.instance.profile;
+        DataSaver.ClearGameData(profile,levelData);
     }
     
 }

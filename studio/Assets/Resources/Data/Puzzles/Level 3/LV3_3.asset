@@ -1,0 +1,232 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6df02f2dbe62140448ed06e0833d9cab, type: 3}
+  m_Name: LV3_3
+  m_EditorClassIdentifier: 
+  timeInSeconds: 0
+  Columns: 13
+  Rows: 13
+  Board:
+  - Size: 13
+    Row:
+    - B
+    - Q
+    - E
+    - V
+    - D
+    - Y
+    - Q
+    - C
+    - L
+    - B
+    - D
+    - X
+    - A
+  - Size: 13
+    Row:
+    - Y
+    - A
+    - Z
+    - V
+    - H
+    - B
+    - A
+    - O
+    - N
+    - E
+    - O
+    - B
+    - C
+  - Size: 13
+    Row:
+    - B
+    - X
+    - L
+    - E
+    - T
+    - D
+    - A
+    - N
+    - U
+    - B
+    - W
+    - B
+    - C
+  - Size: 13
+    Row:
+    - W
+    - T
+    - Q
+    - A
+    - P
+    - I
+    - W
+    - T
+    - J
+    - Z
+    - H
+    - T
+    - E
+  - Size: 13
+    Row:
+    - I
+    - L
+    - K
+    - G
+    - N
+    - W
+    - L
+    - R
+    - B
+    - G
+    - A
+    - J
+    - P
+  - Size: 13
+    Row:
+    - V
+    - E
+    - U
+    - A
+    - K
+    - C
+    - H
+    - O
+    - Z
+    - U
+    - T
+    - Z
+    - T
+  - Size: 13
+    Row:
+    - W
+    - Z
+    - V
+    - Y
+    - Q
+    - Z
+    - E
+    - L
+    - P
+    - B
+    - Y
+    - S
+    - A
+  - Size: 13
+    Row:
+    - J
+    - A
+    - A
+    - P
+    - S
+    - R
+    - U
+    - U
+    - Z
+    - X
+    - O
+    - Q
+    - N
+  - Size: 13
+    Row:
+    - E
+    - E
+    - H
+    - T
+    - A
+    - E
+    - R
+    - B
+    - M
+    - V
+    - U
+    - A
+    - C
+  - Size: 13
+    Row:
+    - Z
+    - Y
+    - O
+    - Z
+    - S
+    - Y
+    - L
+    - X
+    - D
+    - L
+    - L
+    - K
+    - E
+  - Size: 13
+    Row:
+    - E
+    - P
+    - P
+    - X
+    - B
+    - F
+    - X
+    - K
+    - R
+    - V
+    - O
+    - M
+    - A
+  - Size: 13
+    Row:
+    - N
+    - P
+    - Y
+    - Z
+    - C
+    - I
+    - K
+    - F
+    - N
+    - L
+    - V
+    - A
+    - D
+  - Size: 13
+    Row:
+    - R
+    - E
+    - L
+    - A
+    - X
+    - A
+    - T
+    - I
+    - O
+    - N
+    - E
+    - R
+    - S
+  SearchWords:
+  - Found: 1
+    Word: ACCEPTANCE
+  - Found: 1
+    Word: BALANCE
+  - Found: 1
+    Word: BREATHE
+  - Found: 1
+    Word: CONTROL
+  - Found: 1
+    Word: ZEN
+  - Found: 1
+    Word: DO
+  - Found: 1
+    Word: WHAT
+  - Found: 1
+    Word: YOU
+  - Found: 1
+    Word: LOVE

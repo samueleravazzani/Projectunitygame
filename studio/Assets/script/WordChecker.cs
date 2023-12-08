@@ -97,7 +97,8 @@ public class WordChecker : MonoBehaviour
         if (currentGameData.selectedBoardData.SearchWords.Count == _completedWords)
         {
             var categoryName = currentGameData.selectedCategoryName;
-            var currentBoardIndex = DataSaver.ReadCategoryCurrentIndexValues(categoryName);
+            var profile = GameManager.instance.profile;
+            var currentBoardIndex = DataSaver.ReadCategoryCurrentIndexValues(profile,categoryName);
             var nextBoardIndex = -1;
             var currentCategoryIndex = 0;
             bool readNextLevelName = false;
@@ -106,7 +107,7 @@ public class WordChecker : MonoBehaviour
             {
                 if (readNextLevelName)
                 {
-                    nextBoardIndex = DataSaver.ReadCategoryCurrentIndexValues(gameLevelData.data[index].categoryName);
+                    nextBoardIndex = DataSaver.ReadCategoryCurrentIndexValues(profile,gameLevelData.data[index].categoryName);
                     readNextLevelName = false;
                 }
 
@@ -122,7 +123,7 @@ public class WordChecker : MonoBehaviour
             {
                 currentBoardIndex++;
             }
-            DataSaver.SaveCategoryData(categoryName,currentBoardIndex);
+            DataSaver.SaveCategoryData(profile,categoryName,currentBoardIndex);
 
             if (currentBoardIndex >= currentLevelSize)
             {
@@ -135,14 +136,25 @@ public class WordChecker : MonoBehaviour
 
                     if (nextBoardIndex <= 0)
                     {
-                        DataSaver.SaveCategoryData(categoryName,currentBoardIndex);
+                        DataSaver.SaveCategoryData(profile,categoryName, currentBoardIndex);
                     }
                 }
                 else
                 {
-                    SceneManager.LoadScene("PuzzleGameSelectLevel");
+                    // Carica la scena "PuzzleGame"
+                    SceneManager.LoadScene("PuzzleGame");
+
+                    // Trova il bottone "Quit" nella scena e lo attiva
+                    GameObject quitButton = GameObject.Find("Quit_TaskDone");
+                    GameObject quitButton1 = GameObject.Find("Quit");// Assicurati che il nome sia corretto
+                    if (quitButton != null)
+                    {
+                        quitButton.SetActive(true);
+                        quitButton.SetActive(false);
+                    }
                 }
             }
+
             else
             {
                 GameEvents.BoardCompletedMethod();

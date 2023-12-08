@@ -17,6 +17,7 @@ public class ProfileMaster : MonoBehaviour
     public Image input;
     public Button create;
     public Button delete;
+    public Image blackBackground;
 
     private string newname;
     // private float[] button_position = new float[]  {376.5f, -543.5f};
@@ -36,7 +37,9 @@ public class ProfileMaster : MonoBehaviour
 
     private void Start()
     {
+        // PER CANCELLARE TUTTO (PUZZLE_GAME): PlayerPrefs.DeleteAll();
         SpawnProfiles();
+        blackBackground.gameObject.SetActive(false);
     }
 
     public void NewProfile()
@@ -99,9 +102,10 @@ public class ProfileMaster : MonoBehaviour
 
        if (found)
        {
-           GameManager.instance.profileNames.Remove(name_to_delete);
-           SaveSystem.DeleteFile(name_to_delete);
-           GameManager.instance.SaveProfileList();
+           DeletePrefs(name_to_delete); //Cancella PrefsPuzzleGame
+           GameManager.instance.profileNames.Remove(name_to_delete); //Rimuove dall'elenco dei giocatori
+           SaveSystem.DeleteFile(name_to_delete); // Cancella il profilo
+           GameManager.instance.SaveProfileList(); // Salva l'elenco nuovo dei giocatori
            SceneManager.LoadScene("Profiles");
        }
        else
@@ -150,6 +154,12 @@ public class ProfileMaster : MonoBehaviour
             i++;
         }
     }
+   
+   public void ActivateBlackScreen(string name)
+   {
+       blackBackground.gameObject.SetActive(true);
+       blackBackground.GetComponentInChildren<TextMeshProUGUI>().text = "Loading profile of " + name + "...";
+   }
     
    [System.Serializable]
     public class Serialization<T>
@@ -181,7 +191,12 @@ public class ProfileMaster : MonoBehaviour
             this.target = target;
         }
     } */
-   
+    public void DeletePrefs(string profile)
+    {
+        PlayerPrefs.DeleteKey(profile+"_"+"Level 1");
+        PlayerPrefs.DeleteKey(profile+"_"+"Level 2");
+        PlayerPrefs.DeleteKey(profile+"_"+"Level 3");
+    }
 
     
 }

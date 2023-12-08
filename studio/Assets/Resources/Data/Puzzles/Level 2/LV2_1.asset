@@ -13,128 +13,93 @@ MonoBehaviour:
   m_Name: LV2_1
   m_EditorClassIdentifier: 
   timeInSeconds: 0
-  Columns: 10
-  Rows: 10
+  Columns: 8
+  Rows: 8
   Board:
-  - Size: 10
-    Row:
-    - S
-    - Z
-    - U
-    - B
-    - V
-    - A
-    - R
-    - F
-    - N
-    - Q
-  - Size: 10
-    Row:
-    - S
-    - E
-    - D
-    - J
-    - Q
-    - N
-    - H
-    - H
-    - X
-    - H
-  - Size: 10
-    Row:
-    - Z
-    - K
-    - R
-    - D
-    - W
-    - H
-    - W
-    - H
-    - E
-    - Z
-  - Size: 10
-    Row:
-    - W
-    - P
-    - Y
-    - E
-    - P
-    - R
-    - K
-    - V
-    - J
-    - Y
-  - Size: 10
-    Row:
-    - A
-    - R
-    - W
-    - R
-    - N
-    - X
-    - D
-    - L
-    - X
-    - I
-  - Size: 10
-    Row:
-    - I
-    - Z
-    - O
-    - Z
-    - S
-    - I
-    - D
-    - B
-    - Q
-    - F
-  - Size: 10
-    Row:
-    - D
-    - V
-    - Y
-    - Y
-    - U
-    - G
-    - T
-    - W
-    - K
-    - Y
-  - Size: 10
+  - Size: 8
     Row:
     - M
-    - D
-    - Z
-    - D
-    - Y
-    - U
-    - W
-    - Y
-    - M
-    - Z
-  - Size: 10
-    Row:
-    - N
-    - P
-    - Y
-    - O
-    - P
-    - B
-    - W
     - I
-    - L
-    - X
-  - Size: 10
-    Row:
-    - Y
-    - L
-    - Q
-    - X
-    - V
+    - N
     - D
+    - F
+    - U
+    - L
+    - P
+  - Size: 8
+    Row:
+    - Z
+    - B
+    - F
+    - J
     - C
-    - F
+    - L
+    - G
+    - O
+  - Size: 8
+    Row:
+    - W
+    - I
+    - S
+    - D
+    - O
+    - M
+    - P
+    - S
+  - Size: 8
+    Row:
     - U
-    - H
+    - F
+    - E
+    - F
+    - R
+    - W
+    - V
+    - I
+  - Size: 8
+    Row:
+    - K
+    - I
+    - B
+    - C
+    - I
+    - E
+    - F
+    - T
+  - Size: 8
+    Row:
+    - O
+    - Q
+    - F
+    - N
+    - W
+    - G
+    - L
+    - I
+  - Size: 8
+    Row:
+    - Z
+    - U
+    - U
+    - J
+    - F
+    - Z
+    - D
+    - V
+  - Size: 8
+    Row:
+    - M
+    - A
+    - O
+    - C
+    - O
+    - M
+    - A
+    - E
   SearchWords:
-  - Word: SERENITY
+  - Found: 1
+    Word: MINDFUL
+  - Found: 1
+    Word: POSITIVE
+  - Found: 1
+    Word: WISDOM
