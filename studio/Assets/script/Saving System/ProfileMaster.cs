@@ -18,6 +18,7 @@ public class ProfileMaster : MonoBehaviour
     public Button create;
     public Button delete;
     public Image blackBackground;
+    public Image warning;
 
     private string newname;
     // private float[] button_position = new float[]  {376.5f, -543.5f};
@@ -58,11 +59,13 @@ public class ProfileMaster : MonoBehaviour
            if (newname == "profiles")
            {
                Debug.Log("Name not usable");
+               StartCoroutine(NameNotUsable());
                return;
            }
            if (name == newname)
            {
                Debug.Log("Error: a profile with this name already exists. Change name");
+               StartCoroutine(ProfileNotAvailable());
                return;
            }
        }
@@ -89,6 +92,7 @@ public class ProfileMaster : MonoBehaviour
        if (name_to_delete == "profiles")
        {
            Debug.Log("File not deletable");
+           StartCoroutine(FileNotDeletable());
            return;
        }
        
@@ -111,9 +115,38 @@ public class ProfileMaster : MonoBehaviour
        else
        {
            Debug.Log("Name not found");
+           StartCoroutine(ProfileileNotFound());
        }
    }
-   
+
+   IEnumerator ProfileNotAvailable()
+   {
+       warning.gameObject.SetActive(true);
+       warning.GetComponentInChildren<TextMeshProUGUI>().text = "A profile with this name already exists";
+       yield return new WaitForSeconds(3f);
+       warning.gameObject.SetActive(false);
+   }
+   IEnumerator NameNotUsable()
+   {
+       warning.gameObject.SetActive(true);
+       warning.GetComponentInChildren<TextMeshProUGUI>().text = "Name not usable";
+       yield return new WaitForSeconds(3f);
+       warning.gameObject.SetActive(false);
+   }
+   IEnumerator FileNotDeletable()
+   {
+       warning.gameObject.SetActive(true);
+       warning.GetComponentInChildren<TextMeshProUGUI>().text = "File not deletable";
+       yield return new WaitForSeconds(3f);
+       warning.gameObject.SetActive(false);
+   }
+   IEnumerator ProfileileNotFound()
+   {
+       warning.gameObject.SetActive(true);
+       warning.GetComponentInChildren<TextMeshProUGUI>().text = "Profile not found";
+       yield return new WaitForSeconds(3f);
+       warning.gameObject.SetActive(false);
+   }
     
     
    public void SpawnProfiles()
@@ -121,6 +154,7 @@ public class ProfileMaster : MonoBehaviour
         input.gameObject.SetActive(false);
         create.gameObject.SetActive(false);
         delete.gameObject.SetActive(false);
+        warning.gameObject.SetActive(false);
         string profiles = SaveSystem.Load("profiles");
         if (profiles == null)
         {
@@ -135,7 +169,11 @@ public class ProfileMaster : MonoBehaviour
         /* // OLD serialization
         Serialization<string> prof = JsonUtility.FromJson<Serialization<string>>(profiles);
         profileNames = prof.ToList(); */
-        Debug.Log(GameManager.instance.profileNames.ToString());
+        for (int j = 0; j < GameManager.instance.profileNames.Count; j++)
+        {
+            Debug.Log(GameManager.instance.profileNames[j]);
+        }
+        
 
         int i = 0;
         foreach (string name in GameManager.instance.profileNames)

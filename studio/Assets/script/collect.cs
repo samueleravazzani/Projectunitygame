@@ -13,14 +13,20 @@ public class Collect : MonoBehaviour
     public ParticleSystem particleSystemFriends;
     public GameObject gameOverCanvas; // Reference to the Canvas object that displays the game over message.
     public GameObject gameOverCanvas2;
+    public AudioSource backgroundMusic;
     private int trashCount = 0;
     private int friendsCount = 0;
     //Nuevo: Variable para el límite de basura
-    public int trashLimit = 6;
+    private int trashLimit; //parametrization
+    private float eme = 7 / 9f; //choose this numbers so that if the player is really skeptic needs to collect 10 rubbi, if minimum skept 3
+    private float qu = 20 / 9f;
 
 
     private void Start()
     {
+        trashLimit = Mathf.RoundToInt(GameManager.instance.climate_change_skept * eme + qu);
+                                      
+                                      
         // Find and assign a reference to the ScoreUI script in the scene.
         scoreUI = FindObjectOfType<ScoreUI>();
         scoreUIfriend = FindObjectOfType<ScoreUI>();//
@@ -77,6 +83,7 @@ public class Collect : MonoBehaviour
             Debug.Log("You collected all the required rubbish! The game is finished.");
             gameFinished = true;
             gameOverCanvas.SetActive(true);
+            PauseMusic();
         }
        
         
@@ -86,6 +93,7 @@ public class Collect : MonoBehaviour
             gameFinished = true;
             //Time.timeScale = 0f; // Pause the game.
             gameOverCanvas2.SetActive(true); // Activate the game over Canvas.
+            PauseMusic();
             // Invoca la función para cambiar a la escena 'MainMap' después de 5 segundos.
             //Invoke("ChangeToMainMap", 5f);
         }
@@ -99,4 +107,12 @@ public class Collect : MonoBehaviour
         // Cambia a la escena 'MainMap'
         SceneManager.LoadScene("MainMap");
     }*/
+    private void PauseMusic()
+    {
+        // Pausa la reproducción de la música de fondo.
+        if (backgroundMusic != null)
+        {
+            backgroundMusic.Pause();
+        }
+    }
 }
