@@ -390,7 +390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3839760512362655460, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
       propertyPath: category
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3839760512362655460, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
       propertyPath: scenetoload
@@ -398,7 +398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3839760512362655460, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
       propertyPath: minigame_int
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3839760512362655460, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
       propertyPath: playeractive
@@ -14024,8 +14024,8 @@ MonoBehaviour:
   water_prefab: {fileID: 5828842117743100955, guid: 9348bd05f570e420f99e1dbfb92ddc14, type: 3}
   ingame: 0
   rain: {fileID: 915804733}
-  success: {fileID: 0}
-  fail: {fileID: 0}
+  success: {fileID: 1956140168}
+  fail: {fileID: 978797709}
 --- !u!1 &881316505
 GameObject:
   m_ObjectHideFlags: 0

@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0a07a88db1a37479c7bfd61c692fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 0}
+  inkJSON: {fileID: 4900000, guid: 344a1c232c8b54ddaadae7814febb774, type: 3}
   sceneName: Water NEW
 --- !u!4 &1008295494
 Transform:
