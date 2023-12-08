@@ -22,7 +22,7 @@ public class WaterTetris : MonoBehaviour
     public GameObject water_prefab; // prefab da inserire
     
     private int N_water;   /* PARAMETRIZATION!!!!!!!!!!*/
-    private float calibratioNwater = 25 / 9f, minN = 30; 
+    private float calibratioNwater = 20 / 9f, minN = 30; 
     
     private int max_water_spawn_width, max_water_spawn_height = TetrisBlock.height; /* PARAMETRIZATION della width!!!!!!!!!!*/
     private float calibrationwaterspawn = 7 / 9f, min = 15;

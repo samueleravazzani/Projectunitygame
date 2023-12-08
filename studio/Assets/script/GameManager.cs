@@ -40,7 +40,13 @@ public class GameManager : MonoBehaviour
     public float oldanxiety;
     public float oldclimate;
     public float oldliteracy; 
-    
+    [Space]
+    [Header("Per l'Environment")]
+    public int[] N_tospawn; // questo cambia durante il gioco /!\
+    public float[] smokeRot;
+    public float[] windRot;
+    public float[] rainRot;
+    public float[] level_anxiety = new float[] {0,0,0,0};
     
     void Awake()
     {
@@ -81,6 +87,22 @@ public class GameManager : MonoBehaviour
 
     public void InitializeGame()
     {
+        if (GameManager.instance.task_index == 0)
+        {
+            /* A GIOCO PRONTO */ 
+            N_tospawn = new int[] {(int) sum_parameters * 14, (int) sum_parameters * 9, (int) sum_parameters * 6, 0};
+            
+            smokeRot = new float[] {sum_parameters * 4, sum_parameters * 3, sum_parameters * 2, 0};
+            windRot = new float[] {sum_parameters * 7, sum_parameters * 5, sum_parameters * 3, 0};
+            rainRot = new float[] {sum_parameters * 10, sum_parameters * 6, sum_parameters * 3, 0};
+
+            level_anxiety = new float[] {anxiety, anxiety*2/3, anxiety/3, 0 };
+            if (anxiety == 1) // 1:minimo dell'ansia -> non ha ansia
+            {
+                level_anxiety = new float[] {0,0,0,0};
+            }
+        }
+        
         // set del problema
         do
         { 
@@ -169,6 +191,11 @@ public class GameManager : MonoBehaviour
             tasks_picked = tasks_picked,
             n_world_saved = n_world_saved,
             profile_created = profile_created,
+            N_tospawn = N_tospawn,
+            smokeRot = smokeRot,
+            windRot = windRot,
+            rainRot = rainRot,
+            level_anxiety = level_anxiety,
         };
         
         string json = JsonUtility.ToJson(saveObject);
@@ -198,6 +225,11 @@ public class GameManager : MonoBehaviour
             tasks_picked = saveObject.tasks_picked;
             n_world_saved = saveObject.n_world_saved;
             profile_created = saveObject.profile_created;
+            N_tospawn = saveObject.N_tospawn;
+            smokeRot = saveObject.smokeRot;
+            windRot = saveObject.windRot;
+            rainRot = saveObject.rainRot;
+            level_anxiety = saveObject.level_anxiety;
             // cambio scena e attivo il player
             SceneMaster.instance.ChangeSchene("MainMap", true, player.transform.position);
             ActivatePlayer(true);
@@ -226,6 +258,11 @@ public class GameManager : MonoBehaviour
         public int[] tasks_picked;
         public int n_world_saved;
         public bool profile_created;
+        public int[] N_tospawn; // questo cambia durante il gioco /!\
+        public float[] smokeRot;
+        public float[] windRot;
+        public float[] rainRot;
+        public float[] level_anxiety = new float[] {0,0,0,0};
     }
 
     public void ActivatePlayer(bool state)
