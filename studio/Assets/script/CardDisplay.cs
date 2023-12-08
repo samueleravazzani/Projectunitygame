@@ -24,6 +24,7 @@ public class CardDisplay : MonoBehaviour
 
     public Image success;
     public Image fail;
+    public Image[] errors;
     
     public static CardDisplay instance;
     private void Awake() //creation singleton
@@ -37,6 +38,7 @@ public class CardDisplay : MonoBehaviour
     
     private void Start()
     {
+        HideErrors();
         HideCard();
         HideResult();
         HideSuccess();
@@ -90,6 +92,7 @@ public class CardDisplay : MonoBehaviour
         else  // SBAGLIATO
         {
             result.text = "Oh no, you have picked the wrong potion. \nBe careful, it can be dangerous to take the wrong one! \nIt was not " + card_shown.name;
+            Error(DisplayEnigma.instance.medicine_wrong);
             DisplayEnigma.instance.medicine_wrong++;
         }
         result_img.sprite = card_shown.drug_image; // /!\ image.sprite = sprite
@@ -132,5 +135,18 @@ public class CardDisplay : MonoBehaviour
         HideSuccess();
         HideFail();
         DisplayEnigma.instance.HideLittleChest();
+    }
+
+    public void Error(int number)
+    {
+        errors[number].gameObject.SetActive(true);
+    }
+
+    public void HideErrors()
+    {
+        for (int i = 0; i < errors.Length; i++)
+        {
+            errors[i].gameObject.SetActive(false);
+        }
     }
 }
