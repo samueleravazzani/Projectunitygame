@@ -1964,7 +1964,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1154904595}
         m_TargetAssemblyTypeName: SliderControlQuestionnaire, Assembly-CSharp
-        m_MethodName: ExitGame
+        m_MethodName: changeScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2780,14 +2780,10 @@ MonoBehaviour:
   anxiety_final: {fileID: 373496214}
   literacy_final: {fileID: 172059825}
   climate_change_skept_final: {fileID: 902289927}
-  sceneName: MainMap
   anxiety_value_final: {fileID: 839225985}
   literacy_value_final: {fileID: 1547928052}
   climate_change_skept_value_final: {fileID: 125021596}
   animationduration: 2
-  anxietyValue_final: 0
-  literacyValue_final: 0
-  climateValue_final: 0
 --- !u!1 &1304271373
 GameObject:
   m_ObjectHideFlags: 0

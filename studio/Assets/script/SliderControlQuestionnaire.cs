@@ -12,15 +12,12 @@ public class SliderControlQuestionnaire : MonoBehaviour
     public Slider anxiety_final;
     public Slider literacy_final;
     [FormerlySerializedAs("ccskepticism")] public Slider climate_change_skept_final;
-    public string sceneName = "MainMap";
+    private string sceneName = "MainMap";
     public TextMeshProUGUI anxiety_value_final;
     public TextMeshProUGUI literacy_value_final;
     public TextMeshProUGUI climate_change_skept_value_final;
     public float animationduration=2.0f;
-    public float anxietyValue_final;
-    public float literacyValue_final;
-    public float climateValue_final;
-    
+
     private void Awake()
     {
         anxiety_final.gameObject.SetActive(false);
@@ -56,31 +53,38 @@ public class SliderControlQuestionnaire : MonoBehaviour
     }
     
     // On button down -> save data + change scene
-    public void SaveParameters()
+    public void changeScene()
     {
+        if (GameManager.instance.anxiety < anxiety_final.value)
+        {
+            GameManager.instance.anxiety = GameManager.instance.anxiety + 0.1f * anxiety_final.value;
+        }
+        else if (GameManager.instance.anxiety > anxiety_final.value)
+        {
+            GameManager.instance.anxiety = GameManager.instance.anxiety - 0.1f * anxiety_final.value;
+        }
         
-        // Multiply the slider values by 0.1 and store them in separate variables
-        anxietyValue_final = anxiety_final.value * 0.1f;
-        // /!\ inverto la literacy per farlo coerente con gli altri -> "quanto poco sei litterato?"
-        literacyValue_final = (literacy_final.maxValue - literacy_final.value) * 0.1f;
-        climateValue_final = climate_change_skept_final.value * 0.1f;
-        
-        // sum_parameters = anxietyValue_final + literacyValue_final + climateValue_final; ???????
-        
-        // Debug log statements to print the values
-        Debug.Log("Anxiety Value: " + anxietyValue_final);
-        Debug.Log("Literacy Value: " + literacyValue_final);
-        Debug.Log("Climate Value: " + climateValue_final);
-        
-        //VALUTARE ANCORA SE FARE LA SCALATURA *0,1 DEL VALORE SCLELTO DA SOTTRARRE AI PARAMETRI DEL GAMEMANAGER
+        if (GameManager.instance.literacy_inverted< (literacy_final.maxValue-literacy_final.value +1))
+        {
+            GameManager.instance.literacy_inverted = GameManager.instance.literacy_inverted + 0.1f * (literacy_final.maxValue-literacy_final.value +1);
+        }
+        else if (GameManager.instance.literacy_inverted > (literacy_final.maxValue-literacy_final.value +1))
+        {
+            GameManager.instance.literacy_inverted = GameManager.instance.literacy_inverted - 0.1f * (literacy_final.maxValue-literacy_final.value +1);
+        }
 
-        //CAPIRE COME PRENDERE E USARE I PARAMETRI NEL GAME MANAGER SALVATI IN QUESTE VARIABILI!
+        if (GameManager.instance.climate_change_skept< climate_change_skept_final.value)
+        {
+            GameManager.instance.climate_change_skept = GameManager.instance.climate_change_skept + 0.1f * climate_change_skept_final.value;
+        }
+        else if (GameManager.instance.climate_change_skept > climate_change_skept_final.value)
+        {
+            GameManager.instance.climate_change_skept = GameManager.instance.climate_change_skept - 0.1f * climate_change_skept_final.value;
+        }
+        
+        GameManager.instance.sum_parameters = GameManager.instance.anxiety+GameManager.instance.literacy_inverted+GameManager.instance.climate_change_skept;
+        SceneManager.LoadScene(sceneName);
+        GameManager.instance.ActivatePlayer(true);
+        GameManager.instance.player.transform.position = new Vector3(-32.5f, 30f, 0);
     }
-    
-    public void ExitGame()
-    {
-        // Change scene or quit the application
-        SceneManager.LoadScene(sceneName); // Replace with the scene you want to load
-    }
-    
 }
