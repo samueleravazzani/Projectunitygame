@@ -2116,6 +2116,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3839760512362655460, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
+      propertyPath: minigame_int
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839760512362655460, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
       propertyPath: playerposition.x
       value: -32.5
       objectReference: {fileID: 0}

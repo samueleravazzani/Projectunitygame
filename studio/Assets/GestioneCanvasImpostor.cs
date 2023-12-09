@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GestioneCanvasImpostor : MonoBehaviour
 {
@@ -85,6 +86,11 @@ public class GestioneCanvasImpostor : MonoBehaviour
             Debug.Log("Hai perso");
             lose = true;
         }
+    }
+
+    public void retry()
+    {
+        SceneManager.LoadScene("Impostor");
     }
     
     
