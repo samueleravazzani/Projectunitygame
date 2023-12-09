@@ -2798,6 +2798,8 @@ MonoBehaviour:
   wrongButtonText: {fileID: 327159466}
   outroText: {fileID: 2100362511}
   yourButton: {fileID: 2037090373}
+  quitdoneButton: {fileID: 1169601210}
+  quitfailedButton: {fileID: 648744290}
 --- !u!1 &2037090371
 GameObject:
   m_ObjectHideFlags: 0

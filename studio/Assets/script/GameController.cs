@@ -43,6 +43,8 @@ public class GameController : MonoBehaviour
     public TextMeshProUGUI outroText;
     
     public Button yourButton; //the retry button will be attached to it 
+    public Button quitdoneButton;
+    public Button quitfailedButton; 
 
     private float m = 7.0f; // coefficient of the calibration
     private float q = 23.0f; //for the calibration
@@ -265,16 +267,19 @@ public class GameController : MonoBehaviour
         if (missed)
         {
             missedText.gameObject.SetActive(true);
+            quitdoneButton.gameObject.SetActive(false);
         }
 
         if (wrongbutton)
         {
             wrongButtonText.gameObject.SetActive(true);
+            quitdoneButton.gameObject.SetActive(false);
         }
 
         if (PlayerWon)
         {
             yourButton.gameObject.SetActive(false);
+            quitfailedButton.gameObject.SetActive(false);
             outroText.gameObject.SetActive(true);
         }
         // If missed is true, it activates the missedText UI element to inform the player about missing notes.
