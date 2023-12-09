@@ -14,6 +14,7 @@ public class EnvironmentControl : MonoBehaviour
     public ParticleSystem pollution; // 3
     public ParticleSystem air; // 4
     public ParticleSystem rain; // 4
+    public Transform Environment_effects;
     
     // vettore di colori
     // caso 1
@@ -26,6 +27,7 @@ public class EnvironmentControl : MonoBehaviour
     private Color[] rainColors = {new Color(0.3495016f, 0.6860042f, 0.9622642f), new Color (0.4189569f, 0.7025412f,  0.9245283f), new Color (0.5189569f, 0.7425412f,  0.9245283f)};
     
     private float[] xlim = new float[] {-20f, 28f}, ylim = new float[] {-15f, 20.5f};
+    private List<Vector3> positions = new List<Vector3>();
 
 
     public PolygonCollider2D Locations;
@@ -37,7 +39,7 @@ public class EnvironmentControl : MonoBehaviour
     private float[] windRot;
     private float[] rainRot;
     private float[] level_anxiety = new float[] {0,0,0,0}; */
-    private  float calibration_anxiety = -70/9f;
+    private  float calibration_anxiety = -60/9f;
     public bool update_camera_bool = true; // /!\ IMPORTANTE, lo devo aggiornare anche dove faccio GameManager.instance.task_index++
     public static bool destroy_obj;
 
@@ -85,18 +87,18 @@ public class EnvironmentControl : MonoBehaviour
                 CameraEnvironment(plasticColors[GameManager.instance.task_index]);
                 break;
             case 3: // POLLUTION
-                ParticleSystem ptspoll = Instantiate(pollution, new Vector3(-31.5f, 4.5f, -1f),
-                    Quaternion.Euler(0, 90, 90));
-                var emissionpoll = ptspoll.emission; // /!\ PURTROPPO non si può modificare direttamente ma va estratto così
+                pollution.gameObject.SetActive(true);
+                ParticleSystem.EmissionModule emissionpoll = pollution.emission; // /!\ PURTROPPO non si può modificare direttamente ma va estratto così
+                Debug.Log(GameManager.instance.smokeRot[GameManager.instance.task_index]);
                 emissionpoll.rateOverTime = GameManager.instance.smokeRot[GameManager.instance.task_index];
                 CameraEnvironment(pollutionColors[GameManager.instance.task_index]);
                 break;
             case 4: // AIR + RAIN
-                ParticleSystem ptsair = Instantiate(air, new Vector3(-30, -2, -1), Quaternion.Euler(0, 90, 90));
-                var emissionair = ptsair.emission;
+                air.gameObject.SetActive(true);
+                ParticleSystem.EmissionModule emissionair = air.emission;
                 emissionair.rateOverTime = GameManager.instance.windRot[GameManager.instance.task_index];
-                ParticleSystem ptsrain = Instantiate(rain, new Vector3(0, 30, -1), transform.rotation);
-                var emissionrain = ptsrain.emission;
+                rain.gameObject.SetActive(true);
+                ParticleSystem.EmissionModule emissionrain = rain.emission;
                 emissionrain.rateOverTime = GameManager.instance.rainRot[GameManager.instance.task_index];
                 CameraEnvironment(rainColors[GameManager.instance.task_index]);
                 break;
@@ -132,7 +134,7 @@ public class EnvironmentControl : MonoBehaviour
         for (int i = 0; i < N; i++)
         {
             // random position and sprite
-            Vector3 rnd = new Vector3(Random.Range(xlim[0], xlim[1]+1), Random.Range(ylim[0], ylim[1]+1), 0);
+            Vector3 rnd = new Vector3(Random.Range(xlim[0], xlim[1]), Random.Range(ylim[0], ylim[1]), 0);
             int sprite_rnd = Random.Range(0, obj_s.Length);
             
 
@@ -171,33 +173,33 @@ public class EnvironmentControl : MonoBehaviour
             // creo l'oggetto
             GameObject obj = Instantiate(effect_empty, new Vector3(rndPoint2D.x, rndPoint2D.y,0), transform.rotation);
             obj.GetComponent<SpriteRenderer>().sprite = sprite[sprite_rnd];
+            obj.transform.SetParent(Environment_effects);
             
         }
     }
     
     private Vector3 RandomPointInBounds(PolygonCollider2D collider) // prende un punto qualsiasi nei confini
     {
-        if (collider != null && collider.pathCount > 0)
+        do
         {
             Bounds bounds = collider.bounds;
-            float minX = bounds.min.x;
-            float maxX = bounds.max.x;
-            float minY = bounds.min.y;
-            float maxY = bounds.max.y;
+            int minX = Mathf.RoundToInt(bounds.min.x);
+            int maxX = Mathf.RoundToInt(bounds.max.x);
+            int minY = Mathf.RoundToInt(bounds.min.y);
+            int maxY = Mathf.RoundToInt(bounds.max.y);
 
-            float randomX = Random.Range(minX, maxX+1);
-            float randomY = Random.Range(minY, maxY+1);
+            int randomX = Random.Range(minX, maxX);
+            int randomY = Random.Range(minY, maxY);
 
             Vector3 randomPoint = new Vector3(randomX, randomY, 0);
 
-            if (IsPointInPolygon(collider, randomPoint))
+            if (IsPointInPolygon(collider, randomPoint) && !positions.Contains(randomPoint))
             {
+                positions.Add(randomPoint);
+                // se il punto è contenuto nel collider e non è già occupato
                 return randomPoint;
             }
-        }
-
-        // If no valid point is found, return Vector2.zero
-        return Vector3.zero;
+        } while (true);
     }
 
     bool IsPointInPolygon(PolygonCollider2D collider, Vector3 point)
