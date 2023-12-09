@@ -74,17 +74,19 @@ public class SliderControlQuestionnaire : MonoBehaviour
         {
             GameManager.instance.anxiety = actual_value_a - 0.1f * anxiety_final.value;
         }
-        
-        if (GameManager.instance.literacy_inverted< (literacy_final.maxValue-literacy_final.value +1))
+
+        if (GameManager.instance.literacy_inverted < (literacy_final.maxValue - literacy_final.value + 1))
         {
-            GameManager.instance.literacy_inverted = actual_value_l + 0.1f * (literacy_final.maxValue-literacy_final.value +1);
+            GameManager.instance.literacy_inverted =
+                actual_value_l + 0.1f * (literacy_final.maxValue - literacy_final.value + 1);
         }
-        else if (GameManager.instance.literacy_inverted > (literacy_final.maxValue-literacy_final.value +1))
+        else if (GameManager.instance.literacy_inverted > (literacy_final.maxValue - literacy_final.value + 1))
         {
-            GameManager.instance.literacy_inverted = actual_value_l - 0.1f * (literacy_final.maxValue-literacy_final.value +1);
+            GameManager.instance.literacy_inverted =
+                actual_value_l - 0.1f * (literacy_final.maxValue - literacy_final.value + 1);
         }
 
-        if (GameManager.instance.climate_change_skept< climate_change_skept_final.value)
+        if (GameManager.instance.climate_change_skept < climate_change_skept_final.value)
         {
             GameManager.instance.climate_change_skept = actual_value_c + 0.1f * climate_change_skept_final.value;
         }
@@ -92,19 +94,12 @@ public class SliderControlQuestionnaire : MonoBehaviour
         {
             GameManager.instance.climate_change_skept = actual_value_c - 0.1f * climate_change_skept_final.value;
         }
-        
-        GameManager.instance.sum_parameters = GameManager.instance.anxiety+GameManager.instance.literacy_inverted+GameManager.instance.climate_change_skept;
-        
+
+        GameManager.instance.sum_parameters = GameManager.instance.anxiety + GameManager.instance.literacy_inverted +
+                                              GameManager.instance.climate_change_skept;
+
         Questionnaire.gameObject.SetActive(false);
         Conclusion.gameObject.SetActive(true);
-       
+        GameManager.instance.questionnairedone = true;
     }
-
-    public void changeScene()
-    {
-        SceneManager.LoadScene(sceneName);
-        GameManager.instance.ActivatePlayer(true);
-        GameManager.instance.player.transform.position = new Vector3(-32.5f, 30f, 0);
-    }
-        
- }
+}
