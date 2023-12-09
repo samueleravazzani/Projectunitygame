@@ -58,6 +58,7 @@ public class EnvironmentControl : MonoBehaviour
     // ora non serve la Coroutine etc. perché aggiorna appena la MainMap è caricata
     void Start()
     {
+        StopEnvironment();
         if (GameManager.instance.task_index == 3)
         {
             GameManager.instance.problem_now = 0; // tutto a posto
@@ -80,7 +81,7 @@ public class EnvironmentControl : MonoBehaviour
                 CameraEnvironment(fireColors[GameManager.instance.task_index]);
                 break;
             case 2: // PLASTIC
-                Spawn(plastic, GameManager.instance.N_tospawn[GameManager.instance.task_index]);
+                SpawnWithinCollider(plastic, GameManager.instance.N_tospawn[GameManager.instance.task_index]);
                 CameraEnvironment(plasticColors[GameManager.instance.task_index]);
                 break;
             case 3: // POLLUTION
@@ -104,6 +105,15 @@ public class EnvironmentControl : MonoBehaviour
         // regulate saturation according to anxiety level
         CameraAnxiety(GameManager.instance.level_anxiety[GameManager.instance.task_index] * calibration_anxiety);
     }
+
+    private void StopEnvironment()
+    {
+        rain.gameObject.SetActive(false);
+        air.gameObject.SetActive(false);
+        pollution.gameObject.SetActive(false);
+        
+    }
+    
 
     private void CameraAnxiety(float level) // changes saturation
     {
