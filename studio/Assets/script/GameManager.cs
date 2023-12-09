@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
     // ANXIETY: 0 fatta, 1 breathing, 2 music, 3 word puzzle
     // LITERACY: 0 fatta, 1 postions, 2 sources
     // CCS: 0 fatta, 1 quiz, 2 minigioco legato al problema del mondo.
+    
     
     [Space]
     /* PROBLEMA ATTUALE */
@@ -90,16 +93,16 @@ public class GameManager : MonoBehaviour
         if (task_index == 0)
         {
             /* A GIOCO PRONTO */ 
-            N_tospawn = new int[] {(int) sum_parameters * 14, (int) sum_parameters * 9, (int) sum_parameters * 6, 0};
+            N_tospawn = new int[4] {(int) sum_parameters * 70, (int) sum_parameters * 60, (int) sum_parameters * 50, 0};
             
-            smokeRot = new float[] {sum_parameters * 4, sum_parameters * 3, sum_parameters * 2, 0};
-            windRot = new float[] {sum_parameters * 7, sum_parameters * 5, sum_parameters * 3, 0};
-            rainRot = new float[] {sum_parameters * 10, sum_parameters * 6, sum_parameters * 3, 0};
+            smokeRot = new float[4] {sum_parameters * 5, sum_parameters * 3, sum_parameters * 1, 0};
+            windRot = new float[4] {sum_parameters * 40, sum_parameters * 24, sum_parameters * 10, 0};
+            rainRot = new float[4] {sum_parameters * 75, sum_parameters * 52, sum_parameters * 30, 0};
 
-            level_anxiety = new float[] {anxiety, anxiety*2/3, anxiety/3, 0 };
+            level_anxiety = new float[4] {anxiety, anxiety*2/3, anxiety/3, 0 };
             if (anxiety == 1) // 1:minimo dell'ansia -> non ha ansia
             {
-                level_anxiety = new float[] {0,0,0,0};
+                level_anxiety = new float[4] {0,0,0,0};
             }
         }
         
@@ -263,6 +266,7 @@ public class GameManager : MonoBehaviour
         public float[] windRot;
         public float[] rainRot;
         public float[] level_anxiety = new float[] {0,0,0,0};
+        public DateTime savingtime = DateTime.Now;
     }
 
     public void ActivatePlayer(bool state)

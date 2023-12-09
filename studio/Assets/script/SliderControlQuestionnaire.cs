@@ -17,12 +17,23 @@ public class SliderControlQuestionnaire : MonoBehaviour
     public TextMeshProUGUI literacy_value_final;
     public TextMeshProUGUI climate_change_skept_value_final;
     public float animationduration=2.0f;
-
+    public GameObject Questionnaire;
+    public GameObject Conclusion;
+    private float actual_value_a;
+    private float actual_value_l;
+    private float actual_value_c;
+    
+    
     private void Awake()
     {
         anxiety_final.gameObject.SetActive(false);
         literacy_final.gameObject.SetActive(false);
         climate_change_skept_final.gameObject.SetActive(false);
+        Questionnaire.gameObject.SetActive(true);
+        Conclusion.gameObject.SetActive(false);
+        actual_value_a = GameManager.instance.anxiety;
+        actual_value_l = GameManager.instance.literacy_inverted;
+        actual_value_c = GameManager.instance.climate_change_skept;
     }
 
     // Start is called before the first frame update
@@ -53,38 +64,47 @@ public class SliderControlQuestionnaire : MonoBehaviour
     }
     
     // On button down -> save data + change scene
-    public void changeScene()
+    public void conclusion()
     {
         if (GameManager.instance.anxiety < anxiety_final.value)
         {
-            GameManager.instance.anxiety = GameManager.instance.anxiety + 0.1f * anxiety_final.value;
+            GameManager.instance.anxiety = actual_value_a + 0.1f * anxiety_final.value;
         }
         else if (GameManager.instance.anxiety > anxiety_final.value)
         {
-            GameManager.instance.anxiety = GameManager.instance.anxiety - 0.1f * anxiety_final.value;
+            GameManager.instance.anxiety = actual_value_a - 0.1f * anxiety_final.value;
         }
         
         if (GameManager.instance.literacy_inverted< (literacy_final.maxValue-literacy_final.value +1))
         {
-            GameManager.instance.literacy_inverted = GameManager.instance.literacy_inverted + 0.1f * (literacy_final.maxValue-literacy_final.value +1);
+            GameManager.instance.literacy_inverted = actual_value_l + 0.1f * (literacy_final.maxValue-literacy_final.value +1);
         }
         else if (GameManager.instance.literacy_inverted > (literacy_final.maxValue-literacy_final.value +1))
         {
-            GameManager.instance.literacy_inverted = GameManager.instance.literacy_inverted - 0.1f * (literacy_final.maxValue-literacy_final.value +1);
+            GameManager.instance.literacy_inverted = actual_value_l - 0.1f * (literacy_final.maxValue-literacy_final.value +1);
         }
 
         if (GameManager.instance.climate_change_skept< climate_change_skept_final.value)
         {
-            GameManager.instance.climate_change_skept = GameManager.instance.climate_change_skept + 0.1f * climate_change_skept_final.value;
+            GameManager.instance.climate_change_skept = actual_value_c + 0.1f * climate_change_skept_final.value;
         }
         else if (GameManager.instance.climate_change_skept > climate_change_skept_final.value)
         {
-            GameManager.instance.climate_change_skept = GameManager.instance.climate_change_skept - 0.1f * climate_change_skept_final.value;
+            GameManager.instance.climate_change_skept = actual_value_c - 0.1f * climate_change_skept_final.value;
         }
         
         GameManager.instance.sum_parameters = GameManager.instance.anxiety+GameManager.instance.literacy_inverted+GameManager.instance.climate_change_skept;
+        
+        Questionnaire.gameObject.SetActive(false);
+        Conclusion.gameObject.SetActive(true);
+       
+    }
+
+    public void changeScene()
+    {
         SceneManager.LoadScene(sceneName);
         GameManager.instance.ActivatePlayer(true);
         GameManager.instance.player.transform.position = new Vector3(-32.5f, 30f, 0);
     }
-}
+        
+ }

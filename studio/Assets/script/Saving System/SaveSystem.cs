@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization; // to work with files
@@ -26,7 +27,7 @@ public static class SaveSystem // static class can't be instantiated
         } */
         
         File.WriteAllText(SAVE_FOLEDER + profile + ".json", saveString);
-        Debug.Log("Saved: " + Time.time.ToString());
+        Debug.Log("Saved: " + DateTime.Now.ToString("F"));
         // se esiste già quel file -> lo sovrascrive
     }
 
