@@ -43,6 +43,11 @@ public class SceneSlave : MonoBehaviour
             gameObject.SetActive(true);
             transform.parent.Find("Circle").gameObject.SetActive(true);
         }
+        else if (GameManager.instance.questionnairedone && minigame_int == 200)
+        {
+            gameObject.SetActive(true);
+            transform.parent.Find("Circle").gameObject.SetActive(true);
+        }
         else
         {
             gameObject.SetActive(false);
