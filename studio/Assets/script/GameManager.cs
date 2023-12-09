@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
         // set del problema
         do
         { 
-            problem_now = Random.Range(1, 4);
+            problem_now = Random.Range(1, 4+1);
         } while (problem_now == previous_problem); // faccio in modo che il problema del mondo sia diverso dal precedente
         //// EnvironmentControl.instance.update_camera_bool = true;
         
@@ -115,9 +115,9 @@ public class GameManager : MonoBehaviour
         
         // rimetto le task a 0
         task_index = 0;
-        tasks_picked[0] = Random.Range(1, 3); // ANXIETY: 0 fatta, 1 breathing, 2 music, 3 word puzzle
-        tasks_picked[1] = Random.Range(1, 2); // LITERACY: 0 fatta, 1 postions, 2 sources
-        tasks_picked[2] = Random.Range(1, 2); // CCS: 0 fatta, 1 quiz, 2 minigioco legato al problema del mondo
+        tasks_picked[0] = Random.Range(1, 3+1); // ANXIETY: 0 fatta, 1 breathing, 2 music, 3 word puzzle
+        tasks_picked[1] = Random.Range(1, 2+1); // LITERACY: 0 fatta, 1 postions, 2 sources
+        tasks_picked[2] = Random.Range(1, 2+1); // CCS: 0 fatta, 1 quiz, 2 minigioco legato al problema del mondo
         
         // initiliaze position of the player in the MainMap /!\
         //player.transform.position = new Vector3(-1.79f, 1.79f, 0);

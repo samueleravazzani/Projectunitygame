@@ -70,12 +70,12 @@ public class DisplayEnigma : MonoBehaviour
 
     public void ChooseEnigma()
     {
-        chosen_number = Random.Range(0, medicines.Length - 1);
+        chosen_number = Random.Range(0, medicines.Length);
         {
             // medicina scelta
             chosen_medicine = medicines[chosen_number];
             // enigma scelto
-            chosen_enigma = chosen_medicine.enigmas[Random.Range(0,chosen_medicine.enigmas.Length-1)];
+            chosen_enigma = chosen_medicine.enigmas[Random.Range(0,chosen_medicine.enigmas.Length)];
         }
     }
 

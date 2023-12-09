@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class ProfileMaster : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class ProfileMaster : MonoBehaviour
         // PER CANCELLARE TUTTO (PUZZLE_GAME): PlayerPrefs.DeleteAll();
         SpawnProfiles();
         blackBackground.gameObject.SetActive(false);
+        // StartCoroutine(ProvaRandomNumbers());
     }
 
     public void NewProfile()
@@ -151,6 +153,7 @@ public class ProfileMaster : MonoBehaviour
     
    public void SpawnProfiles()
    {
+       GameManager.instance.profile_created = false;
         input.gameObject.SetActive(false);
         create.gameObject.SetActive(false);
         delete.gameObject.SetActive(false);
@@ -234,6 +237,15 @@ public class ProfileMaster : MonoBehaviour
         PlayerPrefs.DeleteKey(profile+"_"+"Level 1");
         PlayerPrefs.DeleteKey(profile+"_"+"Level 2");
         PlayerPrefs.DeleteKey(profile+"_"+"Level 3");
+    }
+
+    IEnumerator ProvaRandomNumbers()
+    {
+        while (true)
+        {
+            Debug.Log(Random.Range(1, 3+1).ToString());
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     

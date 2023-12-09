@@ -121,7 +121,7 @@ public class WaterTetris : MonoBehaviour
         for (int i = 0; i < N_objects; i++)
         {
             GameObject obj = Instantiate(obj_prefab, new Vector3(Random.Range(0, max_water_spawn_width), Random.Range(0, TetrisBlock.height), 0), Quaternion.identity);
-            obj.GetComponent<SpriteRenderer>().sprite = objects[Random.Range(0, objects.Length - 1)];
+            obj.GetComponent<SpriteRenderer>().sprite = objects[Random.Range(0, objects.Length)];
         }
     }
 
@@ -199,8 +199,8 @@ public class WaterTetris : MonoBehaviour
     private Vector3 GetRandomTerrainPositionInASubGrid()
     {
         // Scegli una casella casuale
-        int randomX = Random.Range(0, max_water_spawn_width);
-        int randomY = Random.Range(0, max_water_spawn_height);
+        int randomX = Random.Range(0, max_water_spawn_width+1); // perché Random.Range con int int esclude l'ultimo
+        int randomY = Random.Range(0, max_water_spawn_height+1);
         Vector3 pos = new Vector3(randomX, randomY, 0);
         // Debug.Log(pos);
         return pos;

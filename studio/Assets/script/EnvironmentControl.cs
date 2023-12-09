@@ -159,7 +159,7 @@ public class EnvironmentControl : MonoBehaviour
         for (int i = 0; i < N; i++)
         {
             // random position and sprite
-            Vector3 rnd = new Vector3(Random.Range(xlim[0], xlim[1]), Random.Range(ylim[0], ylim[1]), 0);
+            Vector3 rnd = new Vector3(Random.Range(xlim[0], xlim[1]+1), Random.Range(ylim[0], ylim[1]+1), 0);
             int sprite_rnd = Random.Range(0, obj_s.Length);
             
 
@@ -212,8 +212,8 @@ public class EnvironmentControl : MonoBehaviour
             float minY = bounds.min.y;
             float maxY = bounds.max.y;
 
-            float randomX = Random.Range(minX, maxX);
-            float randomY = Random.Range(minY, maxY);
+            float randomX = Random.Range(minX, maxX+1);
+            float randomY = Random.Range(minY, maxY+1);
 
             Vector3 randomPoint = new Vector3(randomX, randomY, 0);
 
