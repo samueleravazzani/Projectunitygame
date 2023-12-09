@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 using Random = UnityEngine.Random;
 
-public class EnvironmentControl : MonoBehaviour
+public class OLDEnvironmentControl : MonoBehaviour
 {
     public PostProcessVolume postProcessingVolume;
     public GameObject effect_empty;
@@ -41,7 +41,7 @@ public class EnvironmentControl : MonoBehaviour
     public bool update_camera_bool = true; // /!\ IMPORTANTE, lo devo aggiornare anche dove faccio GameManager.instance.task_index++
     public static bool destroy_obj;
 
-    public static EnvironmentControl instance;
+    public static OLDEnvironmentControl instance;
     void Awake()
     {
         // singleton
@@ -53,22 +53,57 @@ public class EnvironmentControl : MonoBehaviour
 
         instance = this;
     }
-    
 
-    // ora non serve la Coroutine etc. perché aggiorna appena la MainMap è caricata
-    void Start()
+    private void Start()
     {
-        if (GameManager.instance.task_index == 3)
-        {
-            GameManager.instance.problem_now = 0; // tutto a posto
-        }
-        
-        UpdateEnvironment();
+        update_camera_bool = true;
     }
 
-    public void UpdateEnvironment()
+    // Update is called once per frame
+    void Update()
     {
+        /*
+        if (GameManager.instance.task_index == 0)
+        {
+            //A GIOCO PRONTO
+            N_tospawn = new int[] {(int) GameManager.instance.sum_parameters * 14, (int) GameManager.instance.sum_parameters * 9, (int) GameManager.instance.sum_parameters * 6, 0};
+            
+            smokeRot = new float[] {GameManager.instance.sum_parameters * 4, GameManager.instance.sum_parameters * 3, GameManager.instance.sum_parameters * 2, 0};
+            windRot = new float[] {GameManager.instance.sum_parameters * 7, GameManager.instance.sum_parameters * 5, GameManager.instance.sum_parameters * 3, 0};
+            rainRot = new float[] {GameManager.instance.sum_parameters * 10, GameManager.instance.sum_parameters * 6, GameManager.instance.sum_parameters * 3, 0};
+
+            level_anxiety = new float[] { GameManager.instance.anxiety, GameManager.instance.anxiety*2/3, GameManager.instance.anxiety/3, 0 };
+            if (GameManager.instance.anxiety == 1) // 1:minimo dell'ansia -> non ha ansia
+            {
+                level_anxiety = new float[] {0,0,0,0};
+            }
+        } */
+        
+        if (update_camera_bool) // /!\ IMPORTANTE, lo devo aggiornare anche dove faccio GameManager.instance.task_index++
+        {
+            if (GameManager.instance.task_index == 3)
+            {
+                GameManager.instance.problem_now = 0; // tutto a posto
+            }
+            destroy_obj = false; // lo risetto false nella scena dopo
+            
+            StartCoroutine(UpdateEnvironment());
+            
+        }
+    }
+
+    IEnumerator UpdateEnvironment()
+    {
+        destroy_obj = false; // nel caso del secondo giro non distrugge gli oggetti 
+        
+        // Process case 0
+        destroy_obj = true;
+        CameraEnvironment(new Color(1.0f, 1.0f, 1.0f));
+        update_camera_bool = false;
+        yield return null; // Wait for the end of the frame
+
         // Process another case (1, 2, or 3 or 4)
+        destroy_obj = false;
         switch (GameManager.instance.problem_now)
         {
             case 0: // tutto a posto
@@ -103,6 +138,8 @@ public class EnvironmentControl : MonoBehaviour
 
         // regulate saturation according to anxiety level
         CameraAnxiety(GameManager.instance.level_anxiety[GameManager.instance.task_index] * calibration_anxiety);
+        update_camera_bool = false;
+        
     }
 
     private void CameraAnxiety(float level) // changes saturation
@@ -196,4 +233,3 @@ public class EnvironmentControl : MonoBehaviour
         return collider.OverlapPoint(point);
     }
 }
-

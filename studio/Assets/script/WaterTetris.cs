@@ -199,8 +199,8 @@ public class WaterTetris : MonoBehaviour
     private Vector3 GetRandomTerrainPositionInASubGrid()
     {
         // Scegli una casella casuale
-        int randomX = Random.Range(0, max_water_spawn_width+1); // perché Random.Range con int int esclude l'ultimo
-        int randomY = Random.Range(0, max_water_spawn_height+1);
+        int randomX = Random.Range(0, max_water_spawn_width); // perché Random.Range con int int esclude l'ultimo
+        int randomY = Random.Range(0, max_water_spawn_height);
         Vector3 pos = new Vector3(randomX, randomY, 0);
         // Debug.Log(pos);
         return pos;
