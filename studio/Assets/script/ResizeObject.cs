@@ -12,7 +12,7 @@ public class ResizeObject : MonoBehaviour
     public float holdTime1 = 0.5f;
     public float returnTime = 8f;
     private float startTime;
-    public int repeatCount = 3;
+    public int repeatCount;
     private int currentRepeatCount = 0;
     private bool done = false;
     private bool go = false;
@@ -52,6 +52,7 @@ public class ResizeObject : MonoBehaviour
         if (!DialogeManager.GetInstance().dialogueIsPlaying && !done && go)
         {
             done = true;
+            repeatCount = GestioneCanvasBreathing.GetInstance().y;
             StartCoroutine(AnimateObject());
         }
 
@@ -65,12 +66,13 @@ public class ResizeObject : MonoBehaviour
         while (currentRepeatCount < repeatCount)
         {
             RepeatText.text=string.Format("Repeat: {00}",repeatCount-currentRepeatCount);
-            startTime = Time.time;
+            //startTime = Time.time;
             yield return new WaitForSeconds(holdTime1);
+            startTime = Time.time;
 
 
             // Espansione graduale per 4 secondi
-            while (Time.time - startTime < expandTime)
+            while (Time.time - startTime <= expandTime)
             {
                 float progress = (Time.time - startTime) / expandTime;
                 transform.localScale = Vector3.Lerp(initialScale, targetScale, progress);
@@ -82,14 +84,14 @@ public class ResizeObject : MonoBehaviour
 
             startTime = Time.time;
 
-            while (Time.time - startTime < returnTime)
+            while (Time.time - startTime <= returnTime)
             {
                 float progress = (Time.time - startTime) / returnTime;
                 transform.localScale = Vector3.Lerp(targetScale, initialScale, progress);
                 yield return null;
             }
             
-            yield return new WaitForSeconds(holdTime1);
+            //yield return new WaitForSeconds(holdTime1);
             
             currentRepeatCount++;
         }
@@ -97,6 +99,8 @@ public class ResizeObject : MonoBehaviour
         RepeatPanel.SetActive(false);
         PhasePnael.SetActive(false);
         timer.GetInstance().TimerText.text = "DONE!";
+        yield return new WaitForSeconds(1);
+        GestioneCanvasBreathing.GetInstance().winning();
 
     }
 
