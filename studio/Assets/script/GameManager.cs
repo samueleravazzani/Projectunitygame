@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -264,6 +266,7 @@ public class GameManager : MonoBehaviour
         public float[] windRot;
         public float[] rainRot;
         public float[] level_anxiety = new float[] {0,0,0,0};
+        public DateTime savingtime = DateTime.Now;
     }
 
     public void ActivatePlayer(bool state)
