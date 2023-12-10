@@ -32,11 +32,21 @@ public class SceneSlave : MonoBehaviour
                 transform.parent.Find("Circle").gameObject.SetActive(true);
             }
         }
-        else if (scenetoload == "Home" || scenetoload == "MainMap")
+        else if (scenetoload == "Home" || scenetoload == "MainMap" || GameManager.instance.questionnairedone)
         {
             gameObject.SetActive(true);
             transform.parent.Find("Circle").gameObject.SetActive(false);
             GetComponent<SpriteRenderer>().enabled = false;
+        }
+        else if (GameManager.instance.task_index == 3 && minigame_int == 100)
+        {
+            gameObject.SetActive(true);
+            transform.parent.Find("Circle").gameObject.SetActive(true);
+        }
+        else if (GameManager.instance.questionnairedone && minigame_int == 200)
+        {
+            gameObject.SetActive(true);
+            transform.parent.Find("Circle").gameObject.SetActive(true);
         }
         else
         {

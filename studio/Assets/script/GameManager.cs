@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
     public float[] windRot;
     public float[] rainRot;
     public float[] level_anxiety = new float[] {0,0,0,0};
+
+    public bool questionnairedone = false; 
     
     void Awake()
     {
