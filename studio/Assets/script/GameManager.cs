@@ -201,6 +201,7 @@ public class GameManager : MonoBehaviour
             windRot = windRot,
             rainRot = rainRot,
             level_anxiety = level_anxiety,
+            questionnairedone = questionnairedone,
         };
         
         string json = JsonUtility.ToJson(saveObject);
@@ -235,6 +236,7 @@ public class GameManager : MonoBehaviour
             windRot = saveObject.windRot;
             rainRot = saveObject.rainRot;
             level_anxiety = saveObject.level_anxiety;
+            questionnairedone = saveObject.questionnairedone;
             // cambio scena e attivo il player
             SceneMaster.instance.ChangeSchene("MainMap", true, player.transform.position);
             ActivatePlayer(true);
@@ -268,7 +270,8 @@ public class GameManager : MonoBehaviour
         public float[] windRot;
         public float[] rainRot;
         public float[] level_anxiety = new float[] {0,0,0,0};
-        public DateTime savingtime = DateTime.Now;
+        public DateTime savingtime;
+        public bool questionnairedone;
     }
 
     public void ActivatePlayer(bool state)
