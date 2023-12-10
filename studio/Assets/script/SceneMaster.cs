@@ -62,8 +62,8 @@ public class SceneMaster : MonoBehaviour
         player.gameObject.SetActive(playeractive); // attivo/disattivo il player
         player.GetComponent<playerMovement>().enabled = playeractive;
         player.GetComponent<Animator>().enabled = playeractive; // attivo/disattivo il movimento del player
-        
         Bever.gameObject.SetActive(playeractive);
+        Bever.transform.Find("VisualCue").gameObject.SetActive(playeractive);
         
         if (playeractive) // se serve il player -> setto la posizione
         {
@@ -74,8 +74,8 @@ public class SceneMaster : MonoBehaviour
             Bever.GetComponent<SpriteRenderer>().enabled = playeractive;
         }
         
-        // se la scena da caricare è la MainMap -> salvo
-        if (scenetoload == "MainMap")
+        // se la scena da caricare è la MainMap o la schermata home -> salvo
+        if (scenetoload == "MainMap" || scenetoload == "Start_Scene")
         {
             Debug.Log(GameManager.instance.climate_change_skept);
             GameManager.instance.Save();

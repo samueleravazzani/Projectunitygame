@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     /* TASK ATTUALE */
     public int task_index = 0;
     public int n_world_saved = 0;
+    public DateTime savingtime;
 
     public float oldanxiety;
     public float oldclimate;
@@ -51,7 +52,8 @@ public class GameManager : MonoBehaviour
     public float[] rainRot;
     public float[] level_anxiety = new float[] {0,0,0,0};
 
-    public bool questionnairedone = false; 
+    public bool questionnairedone = false;
+    public string scene;
     
     void Awake()
     {
@@ -201,7 +203,9 @@ public class GameManager : MonoBehaviour
             windRot = windRot,
             rainRot = rainRot,
             level_anxiety = level_anxiety,
+            savingtime = DateTime.Now,
             questionnairedone = questionnairedone,
+            scene = SceneManager.GetActiveScene().name,
         };
         
         string json = JsonUtility.ToJson(saveObject);
@@ -236,9 +240,21 @@ public class GameManager : MonoBehaviour
             windRot = saveObject.windRot;
             rainRot = saveObject.rainRot;
             level_anxiety = saveObject.level_anxiety;
+            savingtime = saveObject.savingtime;
             questionnairedone = saveObject.questionnairedone;
             // cambio scena e attivo il player
-            SceneMaster.instance.ChangeSchene("MainMap", true, player.transform.position);
+            if (!questionnairedone) // se il questionario non è ancora stato fatto -> carico la MainMap
+            {
+                SceneMaster.instance.ChangeSchene("MainMap", true, player.transform.position);
+            }
+            else // se il questionario è stato fatto -> segno che non è da rifare (2° volta da salvare il mondo) e riporto player e Bever in casa
+            {
+                questionnairedone = false;
+                SceneMaster.instance.ChangeSchene("Home", true, new Vector3(-9.75f, 11f,0)); // posizione nella casa
+                player.transform.position = new Vector3(-9.75f, 11f, 0);
+                Bever.transform.position = new Vector3(-7.12f, 13.1f, 0);
+            }
+
             ActivatePlayer(true);
         }
 
@@ -272,6 +288,7 @@ public class GameManager : MonoBehaviour
         public float[] level_anxiety = new float[] {0,0,0,0};
         public DateTime savingtime;
         public bool questionnairedone;
+        public string scene;
     }
 
     public void ActivatePlayer(bool state)

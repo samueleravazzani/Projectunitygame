@@ -648,7 +648,7 @@ MonoBehaviour:
   literacy_inverted: 1
   climate_change_skept: 10
   sum_parameters: 12
-  tasks_picked: 030000000000000000000000
+  tasks_picked: 000000000000000000000000
   problem_now: 4
   task_index: 0
   n_world_saved: 0
@@ -665,6 +665,7 @@ MonoBehaviour:
   - 0
   - 0
   questionnairedone: 0
+  scene: 
 --- !u!4 &140320897
 Transform:
   m_ObjectHideFlags: 0
@@ -4119,7 +4120,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1111832223}
   m_HandleRect: {fileID: 1111832222}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
