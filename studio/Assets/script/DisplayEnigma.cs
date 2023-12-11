@@ -83,7 +83,7 @@ public class DisplayEnigma : MonoBehaviour
     {
         enigma.text = chosen_enigma;
         paper.gameObject.SetActive(true);
-        potions_to_find.text = "Potions to find: " + (medicines_to_guess - medicine_guessed).ToString();
+        potions_to_find.text = "Potions left to find: " + (medicines_to_guess - medicine_guessed).ToString();
         
         if (time_enigma_shown == 0)
         {
