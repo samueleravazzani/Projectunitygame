@@ -86,15 +86,6 @@ public class Panelbadge : MonoBehaviour
                             plasticCounterText.text = GameManager.instance.plasticCounter.ToString();
                             break;
                         case 3:
-                            if (GameManager.instance.waterCounter >= 1)
-                            {
-                                waterLockImage.gameObject.SetActive(false);
-                                waterImage.gameObject.SetActive(true);
-                                waterCounterText.gameObject.SetActive(true);
-                            }
-                            waterCounterText.text = GameManager.instance.waterCounter.ToString();
-                            break;
-                        case 4:
                             if (GameManager.instance.airCounter >= 1)
                             {
                                 airLockImage.gameObject.SetActive(false);
@@ -102,6 +93,15 @@ public class Panelbadge : MonoBehaviour
                                 airCounterText.gameObject.SetActive(true);
                             }
                             airCounterText.text = GameManager.instance.airCounter.ToString();
+                            break;
+                        case 4:
+                            if (GameManager.instance.waterCounter >= 1)
+                            {
+                                waterLockImage.gameObject.SetActive(false);
+                                waterImage.gameObject.SetActive(true);
+                                waterCounterText.gameObject.SetActive(true);
+                            }
+                            waterCounterText.text = GameManager.instance.waterCounter.ToString();
                             break;
                         default:
                             Debug.LogWarning("Invalid variable name" +GameManager.instance.problem_now);
