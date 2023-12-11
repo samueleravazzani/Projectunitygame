@@ -88,8 +88,11 @@ public class SceneSlave : MonoBehaviour
         {
             scenetoload = "Outro";
         }
+
+        bool playermovementenabled = GameObject.Find("player").GetComponent<playerMovement>().enabled = false;
         SceneMaster.instance.ChangeSchene(scenetoload, playeractive, playerposition);
         teleport = false;
+        playermovementenabled = true;
     }
 
     public void TaskDoneAndActivateChangeScene()
