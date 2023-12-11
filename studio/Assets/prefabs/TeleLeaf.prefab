@@ -322,6 +322,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1842286858580439261, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.43
+      objectReference: {fileID: 0}
     - target: {fileID: 2711702790985162400, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
       propertyPath: m_Name
       value: Tele_Info
@@ -349,6 +353,18 @@ PrefabInstance:
     - target: {fileID: 2921743636616433168, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099975871798565391, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099975871798565391, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4411595758359705710, guid: a72e57a1a0ede81429df2dcba2a21327, type: 2}
+    - target: {fileID: 7648922133762656829, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

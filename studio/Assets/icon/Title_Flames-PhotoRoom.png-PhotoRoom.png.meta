@@ -152,7 +152,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Title_Flames-PhotoRoom.png-PhotoRoom_0: 6015727163053705272
+      Title_Flames-PhotoRoom.png-PhotoRoom_1: -1647508944276134302
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
