@@ -65,12 +65,10 @@ public class Panelbadge : MonoBehaviour
     //Il problema viene chiamato con previous problem perchè problem now una volta fatte tutte e tre le task si setta a zero 
     public void SetVariable()
     {
-        if (GameManager.instance.task_index == 3)
-        {
              switch (GameManager.instance.previous_problem)
                     {
                         case 1:
-                            if (GameManager.instance.fireCounter == 1)
+                            if (GameManager.instance.fireCounter >= 1)
                             {
                                 fireLockImage.gameObject.SetActive(false);
                                 fireImage.gameObject.SetActive(true);
@@ -79,7 +77,7 @@ public class Panelbadge : MonoBehaviour
                             fireCounterText.text = GameManager.instance.fireCounter.ToString();
                             break;
                         case 2:
-                            if (GameManager.instance.plasticCounter == 1)
+                            if (GameManager.instance.plasticCounter >= 1)
                             {
                                 plasticLockImage.gameObject.SetActive(false);
                                 plasticImage.gameObject.SetActive(true);
@@ -88,7 +86,7 @@ public class Panelbadge : MonoBehaviour
                             plasticCounterText.text = GameManager.instance.plasticCounter.ToString();
                             break;
                         case 3:
-                            if (GameManager.instance.waterCounter == 1)
+                            if (GameManager.instance.waterCounter >= 1)
                             {
                                 waterLockImage.gameObject.SetActive(false);
                                 waterImage.gameObject.SetActive(true);
@@ -97,7 +95,7 @@ public class Panelbadge : MonoBehaviour
                             waterCounterText.text = GameManager.instance.waterCounter.ToString();
                             break;
                         case 4:
-                            if (GameManager.instance.airCounter == 1)
+                            if (GameManager.instance.airCounter >= 1)
                             {
                                 airLockImage.gameObject.SetActive(false);
                                 airImage.gameObject.SetActive(true);
@@ -109,7 +107,5 @@ public class Panelbadge : MonoBehaviour
                             Debug.LogWarning("Invalid variable name" +GameManager.instance.problem_now);
                             break;
                     }
-        }
-       
     }
 }
