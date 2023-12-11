@@ -1,15 +1,19 @@
 -> main
 
 === main ===
-Hello! Welcome to this game
-Here you will take care of the environment and you will plant some wonderfull plant.
-The game is simple: when you see a fertile tile on the ground appear, click on the mouse to grow up a beautiful flora.
-You will see the number of vegetation you plant appearing on the top right on the screen.
-Pay attention though!
-You must be accurate and fast to click on the firtile tile, otherwise the number of missing plant will increase.
-is it all clear?
+Hello! Welcome to this game.
+Here you will take care of the environment and you will plant some wonderfull plants.
+The game is simple: when you see a fertile tile on the ground appear
+you will have a couple of seconds to click on it to grow up a beautiful plant and increase your score!.
+You will see your goal-score appearing on the top right of the screen.
+Pay attention though! Some moles live in this garden and they like to be seen sometimes.
+Be aware not to click on them otherwise your missing counter will increase!
+If you leave them alone instead, your score will increase as well.
+You must be accurate and fast to click on the firtile tile, otherwise the missing counter will increase.
+Remember, if the missing counter reaches the number of 3, you lose.
+Is it all clear?
     + [Yes!]
-        Let's start then.
+        Let's start then, good luck!.
         ->END
     + [No, please repeat]
         ->main
