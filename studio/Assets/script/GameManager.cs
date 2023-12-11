@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
     public bool questionnairedone = false;
     public string scene;
     
-    //counter to display how many times solved the task of the world for each problem //DA SALVARE! AGGIUNTO FEDE
+    //counter to display how many times solved the task of the world for each problem 
     public int fireCounter = 0; 
     public int waterCounter = 0;
     public int airCounter = 0;
@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
         {
             n_world_saved++;
             
-            //The following switch case handles how many times that problem has already been done by the player so to update the badges counter AGGIUNTO FEDE
+            //The following switch case handles how many times that problem has already been done by the player so to update the badges counter 
             switch (problem_now)
             {
                 case 1:
@@ -172,7 +172,7 @@ public class GameManager : MonoBehaviour
     
     public void TaskFailed(int category) // funzione da chiamare dopo che una task è fallita
     {
-        float tochange = +0.2f;
+        float tochange = +0.5f;
         UpdateGMParameters(category, tochange);
     }
     
