@@ -232,6 +232,7 @@ public class GameManager : MonoBehaviour
             savingtime = DateTime.Now,
             questionnairedone = questionnairedone,
             scene = SceneManager.GetActiveScene().name,
+            firecounter = fireCounter,
         };
         
         string json = JsonUtility.ToJson(saveObject);
@@ -268,6 +269,7 @@ public class GameManager : MonoBehaviour
             level_anxiety = saveObject.level_anxiety;
             savingtime = saveObject.savingtime;
             questionnairedone = saveObject.questionnairedone;
+            fireCounter = saveObject.firecounter;
             // cambio scena e attivo il player
             if (!questionnairedone) // se il questionario non è ancora stato fatto -> carico la MainMap
             {
@@ -315,6 +317,7 @@ public class GameManager : MonoBehaviour
         public DateTime savingtime;
         public bool questionnairedone;
         public string scene;
+        public int firecounter;
     }
 
     public void ActivatePlayer(bool state)
