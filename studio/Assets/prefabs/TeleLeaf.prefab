@@ -244,11 +244,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
       propertyPath: category
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
       propertyPath: scenetoload
-      value: MainMap
+      value: Impostor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
+      propertyPath: minigame_int
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
       propertyPath: playeractive
@@ -256,11 +260,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
       propertyPath: playerposition.x
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1293019874825359284, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
       propertyPath: playerposition.y
-      value: 0
+      value: -5.35
       objectReference: {fileID: 0}
     - target: {fileID: 1579415465616815882, guid: f28c15a990e9849e7be38b1eb86e151b, type: 3}
       propertyPath: m_LocalScale.x
