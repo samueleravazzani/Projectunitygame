@@ -88,8 +88,10 @@ public class SceneSlave : MonoBehaviour
         {
             scenetoload = "Outro";
         }
+
         SceneMaster.instance.ChangeSchene(scenetoload, playeractive, playerposition);
         teleport = false;
+        
     }
 
     public void TaskDoneAndActivateChangeScene()

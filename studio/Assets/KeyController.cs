@@ -2,10 +2,15 @@ using UnityEngine;
 
 public class KeyController : MonoBehaviour
 {
-    public GameObject wall; 
+    public GameObject wall;
+    public ParticleSystem particles;
 
     private bool isDragging = false;
-
+    
+    void Start()
+    {
+        particles = particles.GetComponent<ParticleSystem>();
+    }
     private void OnMouseDown()
     {
         isDragging = true;
@@ -44,12 +49,12 @@ public class KeyController : MonoBehaviour
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = 10; // Distanza dal piano rispetto alla camera
             Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePos);
-
-            // Muovi l'oggetto corrente sotto il cursore del mouse
+            
             transform.position = objectPos;
 
-            // Disattiva l'oggetto "wall"
+            
             wall.SetActive(false);
+            particles.Stop();
         }
     }
 }

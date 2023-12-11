@@ -28,6 +28,10 @@ public class GestioneCanvasImpostor : MonoBehaviour
     private float q= 34/9f;
     
     private static GestioneCanvasImpostor instance; //creazione dell'istance per il singleton
+
+    private Vector3 playerposition = new Vector3(-0.5f,-5.35f,0);
+    private GameObject player;
+    private GameObject Bever;
     
     private void Awake()
     {
@@ -54,6 +58,8 @@ public class GestioneCanvasImpostor : MonoBehaviour
         Debug.Log("valore literacy_inverted: "+ x.ToString());
         y =Mathf.RoundToInt( m * x + q); //ottengo il valore di punti da prendere per vincere
         Debug.Log("valore risposte corrette da dare: "+ y.ToString());
+        player = GameObject.Find("player");
+        Bever = GameObject.Find("Bever");
     }
 
     // Update is called once per frame
@@ -68,7 +74,10 @@ public class GestioneCanvasImpostor : MonoBehaviour
         //controllo del punteggio
         if (score == y)
         {
-            OutroText.text = "Congratulation, you win!";
+            OutroText.text = "Congratulation, you win!\nUnderstanding digital health and having good health literacy is" +
+                             " essential for making informed decisions about your well-being." +
+                             " It empowers you to use technology for health purposes and navigate healthcare information," +
+                             " ensuring you can actively manage and advocate for your health effectively.";
             Retry.gameObject.SetActive(false);
             Quit.gameObject.SetActive(false);
             OutroCanvas.enabled = true;
@@ -80,7 +89,9 @@ public class GestioneCanvasImpostor : MonoBehaviour
         if (miss == vite)
         {
             
-            OutroText.text = "Oh no, you lose!";
+            OutroText.text = "Oh no, you lose!\nBeing misinformed about digital health can lead to poor decision-making for your well-being." +
+                             " Inaccurate information may result in using technology ineffectively or misunderstanding health advice, potentially compromising your health outcomes." +
+                             " Staying well-informed is crucial for making sound choices in the digital age.";
             Home.gameObject.SetActive(false);
             OutroCanvas.enabled = true;
             Debug.Log("Hai perso");
@@ -90,6 +101,8 @@ public class GestioneCanvasImpostor : MonoBehaviour
 
     public void retry()
     {
+        player.gameObject.transform.position = playerposition;
+        Bever.gameObject.transform.position = playerposition;
         SceneManager.LoadScene("Impostor");
     }
     

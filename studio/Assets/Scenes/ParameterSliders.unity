@@ -1257,8 +1257,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.8, y: -2}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 44.1677, y: 5.695}
+  m_SizeDelta: {x: 221.6838, y: 46.152}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &776526977
 MonoBehaviour:
@@ -1280,8 +1280,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In a scale out of 10, how much do you think your health and digital literacy
-    level is?
+  m_text: In a scale out of 10, how much do you think your literacy level about health
+    and digital technologies is?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1804,7 +1804,6 @@ MonoBehaviour:
   anxiety: {fileID: 1490703080}
   literacy: {fileID: 1547465576}
   climate_change_skept: {fileID: 555651156}
-  sceneName: MainMap
   anxiety_value: {fileID: 1137326448}
   literacy_value: {fileID: 304461196}
   climate_change_skept_value: {fileID: 1337422275}
