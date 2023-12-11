@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Climate_ChangeFire1_0: 4776698568933223
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

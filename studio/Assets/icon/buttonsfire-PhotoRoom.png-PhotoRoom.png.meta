@@ -344,7 +344,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      buttonsfire-PhotoRoom.png-PhotoRoom_0: 2504123152698215892
+      buttonsfire-PhotoRoom.png-PhotoRoom_1: -3843634173363956118
+      buttonsfire-PhotoRoom.png-PhotoRoom_2: 5105248432915959764
+      buttonsfire-PhotoRoom.png-PhotoRoom_3: -8961090731270552337
+      buttonsfire-PhotoRoom.png-PhotoRoom_4: 7649860026284514372
+      buttonsfire-PhotoRoom.png-PhotoRoom_5: -4281234114307858447
+      buttonsfire-PhotoRoom.png-PhotoRoom_6: -7421927392473163453
+      buttonsfire-PhotoRoom.png-PhotoRoom_7: 3235928445948412237
+      buttonsfire-PhotoRoom.png-PhotoRoom_8: -6740659223275874638
+      buttonsfire-PhotoRoom.png-PhotoRoom_9: -6271933216709392526
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

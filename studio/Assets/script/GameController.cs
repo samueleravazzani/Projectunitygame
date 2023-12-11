@@ -48,6 +48,12 @@ public class GameController : MonoBehaviour
 
     private float m = 7.0f; // coefficient of the calibration
     private float q = 23.0f; //for the calibration
+
+    public Image A; 
+    public Image S;
+    public Image D;
+    public Image F;
+    
     
     private void Awake()
     {
@@ -68,6 +74,10 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        A.gameObject.SetActive(false);
+        F.gameObject.SetActive(false);
+        D.gameObject.SetActive(false);
+        S.gameObject.SetActive(false);
         SetDataForNoteGeneration();
         SpawnNotes();
         // Setup note generation and spawn initial notes
@@ -85,6 +95,10 @@ public class GameController : MonoBehaviour
         if (!GameController.Instance.GameStarted.Value && Input.GetMouseButtonDown(0))
         {
             GameController.Instance.GameStarted.Value = true;
+            A.gameObject.SetActive(true);
+            F.gameObject.SetActive(true);
+            D.gameObject.SetActive(true);
+            S.gameObject.SetActive(true);
         }
     }
     // Detects player input to start the game when the clicking the start button
@@ -262,6 +276,10 @@ public class GameController : MonoBehaviour
     public IEnumerator EndGame()
     {
         GameOver.Value = true; //Sets the GameOver.Value to true, indicating that the game is over.
+        A.gameObject.SetActive(false);
+        F.gameObject.SetActive(false);
+        D.gameObject.SetActive(false);
+        S.gameObject.SetActive(false);
         yield return new WaitForSeconds(0);
         ShowGameOverScreen.Value = true; //Sets the ShowGameOverScreen.Value to true, indicating that the game over screen should be shown
         if (missed)
