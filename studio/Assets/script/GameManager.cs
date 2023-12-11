@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     [Space]
     /* PROBLEMA ATTUALE */
     public int problem_now;
-    private int previous_problem;
+    public int previous_problem;
     /* TASK ATTUALE */
     public int task_index = 0;
     public int n_world_saved = 0;
@@ -54,6 +54,12 @@ public class GameManager : MonoBehaviour
 
     public bool questionnairedone = false;
     public string scene;
+    
+    //counter to display how many times solved the task of the world for each problem //DA SALVARE! AGGIUNTO FEDE
+    public int fireCounter = 0; 
+    public int waterCounter = 0;
+    public int airCounter = 0;
+    public int plasticCounter = 0;
     
     void Awake()
     {
@@ -138,6 +144,26 @@ public class GameManager : MonoBehaviour
         if (task_index == 3)
         {
             n_world_saved++;
+            
+            //The following switch case handles how many times that problem has already been done by the player so to update the badges counter AGGIUNTO FEDE
+            switch (problem_now)
+            {
+                case 1:
+                    fireCounter++;
+                    break;
+                case 2:
+                    plasticCounter++;
+                    break;
+                case 3:
+                    waterCounter++;
+                    break;
+                case 4:
+                    airCounter++;
+                    break;
+                default:
+                    Debug.Log("Problem now value not found");
+                    break;
+            }
         }
 
         float tochange = -1f;
@@ -206,6 +232,7 @@ public class GameManager : MonoBehaviour
             savingtime = DateTime.Now,
             questionnairedone = questionnairedone,
             scene = SceneManager.GetActiveScene().name,
+            firecounter = fireCounter,
         };
         
         string json = JsonUtility.ToJson(saveObject);
@@ -242,6 +269,7 @@ public class GameManager : MonoBehaviour
             level_anxiety = saveObject.level_anxiety;
             savingtime = saveObject.savingtime;
             questionnairedone = saveObject.questionnairedone;
+            fireCounter = saveObject.firecounter;
             // cambio scena e attivo il player
             if (!questionnairedone) // se il questionario non è ancora stato fatto -> carico la MainMap
             {
@@ -289,6 +317,7 @@ public class GameManager : MonoBehaviour
         public DateTime savingtime;
         public bool questionnairedone;
         public string scene;
+        public int firecounter;
     }
 
     public void ActivatePlayer(bool state)
