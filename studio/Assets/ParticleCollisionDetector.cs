@@ -15,7 +15,7 @@ public class ParticleCollisionHandler : MonoBehaviour
         {
             ParticleSystem.CollisionModule collisionModule = particleSystem.collision;
             collisionModule.enabled = true;
-            collisionModule.dampen = 0.0f;
+            collisionModule.bounce = 0.8f;
 
             ParticleCollisionEvent[] collisionEvents =
                 new ParticleCollisionEvent[particleSystem.GetSafeCollisionEventSize()];
@@ -27,8 +27,9 @@ public class ParticleCollisionHandler : MonoBehaviour
                 Vector3 collisionHit = collisionEvents[i].intersection;
                 Debug.Log("Particle collided with wall at: " + collisionHit);
             }
-
-            // Trova l'oggetto "Fire system" nella scena e lo disattiva
+        }
+        if (other.CompareTag("Disattiva"))
+        {
             GameObject fireSystem = GameObject.Find("FireSystems");
             GameObject wall31 = GameObject.Find("Muro (31)");
             if (fireSystem != null)
