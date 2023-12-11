@@ -9,6 +9,7 @@ public class Climate_Change_Param : MonoBehaviour
     {
         if (GameManager.instance.climate_change_skept >= 1 && GameManager.instance.climate_change_skept <= 3)
         {
+            Debug.Log("Arrivato in Climate_Change_Fuoco");
             SceneManager.LoadScene("Climate_Change_Fuoco");
         }
         else if (GameManager.instance.climate_change_skept >= 4 && GameManager.instance.climate_change_skept <= 6)
