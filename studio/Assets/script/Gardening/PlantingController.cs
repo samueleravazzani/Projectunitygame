@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public class PlantingController : MonoBehaviour
 {
@@ -233,5 +234,10 @@ public class PlantingController : MonoBehaviour
             Debug.Log("Hai perso");
             lose = true;
         }
+    }
+    
+    public void retry()
+    {
+        SceneManager.LoadScene("Gardening");
     }
 }
