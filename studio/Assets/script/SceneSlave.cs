@@ -83,8 +83,16 @@ public class SceneSlave : MonoBehaviour
 
     public void ActivateChangeScene()
     {
+        if (scenetoload == "Start_Scene" && GameManager.instance.questionnairedone &&
+            GameManager.instance.n_world_saved == 1)
+        {
+            scenetoload = "Outro";
+        }
+
+        bool playermovementenabled = GameObject.Find("player").GetComponent<playerMovement>().enabled = false;
         SceneMaster.instance.ChangeSchene(scenetoload, playeractive, playerposition);
         teleport = false;
+        playermovementenabled = true;
     }
 
     public void TaskDoneAndActivateChangeScene()

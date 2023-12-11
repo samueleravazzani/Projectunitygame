@@ -127,28 +127,26 @@ public class WaterTetris : MonoBehaviour
 
     public void ReLoadScene()
     {
+        fail.gameObject.SetActive(false);
         SceneManager.LoadScene("Water NEW");
+    }
+
+    public void HideFailSuccess()
+    {
+        fail.gameObject.SetActive(false);
+        success.gameObject.SetActive(false);
     }
     
 
     // /!\ gestisco l'espansione dell'acqua in TetrisBlock, dal blocco che è appena stato disabilitato
-    void Update()
-    {
-        
-        /*
-        if (ingame)
-        {
-            // Espansione dell'acqua
-            ExpandWater();
-        } */
-        
-    }
+    
 
     public void ExpandWater()
     {
         // Trova tutte le caselle adiacenti all'acqua che non sono ancora acqua
         GetAdjacentPositions(); // riempie nextWaterPosition
 
+        // SUCCESS
         if (!nextwaterPositions.Any())
         {
             ingame = false;

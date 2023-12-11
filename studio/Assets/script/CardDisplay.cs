@@ -96,7 +96,7 @@ public class CardDisplay : MonoBehaviour
             DisplayEnigma.instance.medicine_wrong++;
         }
         result_img.sprite = card_shown.drug_image; // /!\ image.sprite = sprite
-        potions_tf.text = "Potions to find: " + (DisplayEnigma.instance.medicines_to_guess - DisplayEnigma.instance.medicine_guessed).ToString();
+        potions_tf.text = "Potions left to find: " + (DisplayEnigma.instance.medicines_to_guess - DisplayEnigma.instance.medicine_guessed).ToString();
         HideCard();
         medicine_taken.gameObject.SetActive(true);
     }
