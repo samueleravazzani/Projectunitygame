@@ -233,6 +233,9 @@ public class GameManager : MonoBehaviour
             questionnairedone = questionnairedone,
             scene = SceneManager.GetActiveScene().name,
             firecounter = fireCounter,
+            watercounter = waterCounter,
+            aircounter = airCounter,
+            plasticcounter = plasticCounter,
         };
         
         string json = JsonUtility.ToJson(saveObject);
@@ -270,6 +273,10 @@ public class GameManager : MonoBehaviour
             savingtime = saveObject.savingtime;
             questionnairedone = saveObject.questionnairedone;
             fireCounter = saveObject.firecounter;
+            waterCounter = saveObject.watercounter;
+            airCounter = saveObject.aircounter;
+            plasticCounter = saveObject.plasticcounter;
+            
             // cambio scena e attivo il player
             if (!questionnairedone) // se il questionario non è ancora stato fatto -> carico la MainMap
             {
@@ -318,6 +325,9 @@ public class GameManager : MonoBehaviour
         public bool questionnairedone;
         public string scene;
         public int firecounter;
+        public int watercounter;
+        public int aircounter;
+        public int plasticcounter;
     }
 
     public void ActivatePlayer(bool state)
