@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 663fc55e06c983e40815c2814599e750
+guid: 20663b9f989aaa440a021b22a7ddab87
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7383027253900127376
-    second: OutroFishBackground_0
+      213: -6420258500999152454
+    second: BackBack_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OutroFishBackground_0
+      name: BackBack_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 3000
-        height: 2000
+        width: 445
+        height: 412
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 09caeb3ab28c57660800000000000000
-      internalID: 7383027253900127376
+      spriteID: abc73c9c8e8a6e6a0800000000000000
+      internalID: -6420258500999152454
       vertices: []
       indices: 
       edges: []
@@ -128,8 +128,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      OutroFishBackground_0: 7383027253900127376
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
