@@ -30,19 +30,16 @@ public class SceneSlave : MonoBehaviour
             {
                 gameObject.SetActive(true);
                 transform.parent.Find("Circle").gameObject.SetActive(true);
-                GetComponent<SpriteRenderer>().enabled = true;
             }
             else if (category != 2)
             {
                 gameObject.SetActive(true);
                 transform.parent.Find("Circle").gameObject.SetActive(true);
-                GetComponent<SpriteRenderer>().enabled = true;
             }
             else
             {
                 gameObject.SetActive(false);
                 transform.parent.Find("Circle").gameObject.SetActive(false);
-                GetComponent<SpriteRenderer>().enabled = false;
             }
         }
         else if (scenetoload == "Home" || scenetoload == "MainMap")
@@ -58,20 +55,17 @@ public class SceneSlave : MonoBehaviour
             // questionnaire
             gameObject.SetActive(true);
             transform.parent.Find("Circle").gameObject.SetActive(true);
-            GetComponent<SpriteRenderer>().enabled = true;
         }
         else if (GameManager.instance.questionnairedone && minigame_int == 200)
         {
             // To start
             gameObject.SetActive(true);
             transform.parent.Find("Circle").gameObject.SetActive(true);
-            GetComponent<SpriteRenderer>().enabled = true;
         }
         else
         {
             gameObject.SetActive(false);
             transform.parent.Find("Circle").gameObject.SetActive(false);
-            GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 
