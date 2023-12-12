@@ -22,7 +22,7 @@ public class Collect : MonoBehaviour
     
     //retta di calibrazione
     private int x;
-    private int y;
+    private int y=5;
     private float m;
     private float q;
     

@@ -24,10 +24,13 @@ public class FishMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (other.gameObject.tag == "red")
+        Debug.Log("collisione");
+        
+        if (collider.gameObject.tag == "red")
         {
+            Debug.Log("collisioneRED");
             Collect.GetInstance().checkforlose();
             Destroy(gameObject);
         }
