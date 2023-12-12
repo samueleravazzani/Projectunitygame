@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class ToInitializeGame1 : MonoBehaviour
 {
-    public void OnTriggerExit2D(Collider2D player)
+    public void OnTriggerEnter2D(Collider2D player)
     {
         if (player.CompareTag("Player") && GameManager.instance.questionnairedone)
         {
+            Debug.Log("SALVATIIIIIIIII");
             GameManager.instance.InitializeGame();
+            GameManager.instance.Save();
         }
     }
 }

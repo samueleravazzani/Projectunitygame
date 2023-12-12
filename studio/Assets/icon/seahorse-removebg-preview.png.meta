@@ -176,7 +176,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      seahorse-removebg-preview_0: 1042580406796277967
+      seahorse-removebg-preview_1: -6858049179950654708
+      seahorse-removebg-preview_2: 1394507925674112143
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

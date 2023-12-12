@@ -92,63 +92,66 @@ public class Panelbadge : MonoBehaviour
     //Il problema viene chiamato con previous problem perchè problem now una volta fatte tutte e tre le task si setta a zero 
     public void SetVariable()
     {
-             switch (GameManager.instance.previous_problem)
-                    {
-                        case 1:
-                            if (GameManager.instance.fireCounter >= 1)
-                            {
-                                fireLockImage.gameObject.SetActive(false);
-                                fireImage.gameObject.SetActive(true);
-                                fireCounterText.gameObject.SetActive(true);
-                                firemapCounterText.gameObject.SetActive(true);
-                                firebadgemap.gameObject.SetActive(true);
-                                firecirclebadgemap.gameObject.SetActive(true);
-                            }
-                            fireCounterText.text = GameManager.instance.fireCounter.ToString();
-                            firemapCounterText.text = GameManager.instance.fireCounter.ToString();
-                            break;
-                        case 2:
-                            if (GameManager.instance.plasticCounter >= 1)
-                            {
-                                plasticLockImage.gameObject.SetActive(false);
-                                plasticImage.gameObject.SetActive(true);
-                                plasticCounterText.gameObject.SetActive(true);
-                                plasticmapCounterText.gameObject.SetActive(true);
-                                plasticbadgemap.gameObject.SetActive(true);
-                                plasticcirclebadgemap.gameObject.SetActive(true);
-                            }
-                            plasticCounterText.text = GameManager.instance.plasticCounter.ToString();
-                            plasticmapCounterText.text = GameManager.instance.plasticCounter.ToString();
-                            break;
-                        case 3:
-                            if (GameManager.instance.airCounter >= 1)
-                            {
-                                airLockImage.gameObject.SetActive(false);
-                                airImage.gameObject.SetActive(true);
-                                airCounterText.gameObject.SetActive(true);
-                                airmapCounterText.gameObject.SetActive(true);
-                                airbadgemap.gameObject.SetActive(true);
-                                aircirclebadgemap.gameObject.SetActive(true);
-                            }
-                            airCounterText.text = GameManager.instance.airCounter.ToString();
-                            airmapCounterText.text = GameManager.instance.airCounter.ToString();
-                            break;
-                        case 4:
-                            if (GameManager.instance.waterCounter >= 1)
-                            {
-                                waterLockImage.gameObject.SetActive(false);
-                                waterImage.gameObject.SetActive(true);
-                                waterCounterText.gameObject.SetActive(true);
-                                watermapCounterText.gameObject.SetActive(true);
-                                waterbadgemap.gameObject.SetActive(true);
-                                watercirclebadgemap.gameObject.SetActive(true);
-                            }
-                            waterCounterText.text = GameManager.instance.waterCounter.ToString();
-                            watermapCounterText.text = GameManager.instance.waterCounter.ToString();
-                            break;
-                        default:
-                            Debug.LogWarning("Invalid variable name" +GameManager.instance.problem_now);
-                            break;
-                    }
+             foreach (var problem in GameManager.instance.problemsEverSorted)
+            {
+                switch (problem)
+                { 
+                    case 1:
+                        if (GameManager.instance.fireCounter >= 1)
+                        {
+                            fireLockImage.gameObject.SetActive(false);
+                            fireImage.gameObject.SetActive(true);
+                            fireCounterText.gameObject.SetActive(true);
+                            firemapCounterText.gameObject.SetActive(true);
+                            firebadgemap.gameObject.SetActive(true);
+                            firecirclebadgemap.gameObject.SetActive(true);
+                        }
+                        fireCounterText.text = GameManager.instance.fireCounter.ToString();
+                        firemapCounterText.text = GameManager.instance.fireCounter.ToString();
+                    break;
+                    case 2:
+                         if (GameManager.instance.plasticCounter >= 1)
+                         {
+                            plasticLockImage.gameObject.SetActive(false);
+                            plasticImage.gameObject.SetActive(true);
+                plasticCounterText.gameObject.SetActive(true);
+                plasticmapCounterText.gameObject.SetActive(true);
+                plasticbadgemap.gameObject.SetActive(true);
+                plasticcirclebadgemap.gameObject.SetActive(true);
+            }
+            plasticCounterText.text = GameManager.instance.plasticCounter.ToString();
+            plasticmapCounterText.text = GameManager.instance.plasticCounter.ToString();
+            break;
+        case 3:
+            if (GameManager.instance.airCounter >= 1)
+            {
+                airLockImage.gameObject.SetActive(false);
+                airImage.gameObject.SetActive(true);
+                airCounterText.gameObject.SetActive(true);
+                airmapCounterText.gameObject.SetActive(true);
+                airbadgemap.gameObject.SetActive(true);
+                aircirclebadgemap.gameObject.SetActive(true);
+            }
+            airCounterText.text = GameManager.instance.airCounter.ToString();
+            airmapCounterText.text = GameManager.instance.airCounter.ToString();
+            break;
+        case 4:
+            if (GameManager.instance.waterCounter >= 1)
+            {
+                waterLockImage.gameObject.SetActive(false);
+                waterImage.gameObject.SetActive(true);
+                waterCounterText.gameObject.SetActive(true);
+                watermapCounterText.gameObject.SetActive(true);
+                waterbadgemap.gameObject.SetActive(true);
+                watercirclebadgemap.gameObject.SetActive(true);
+            }
+            waterCounterText.text = GameManager.instance.waterCounter.ToString();
+            watermapCounterText.text = GameManager.instance.waterCounter.ToString();
+            break;
+        default:
+            Debug.LogWarning("Invalid variable name: " + problem);
+            break;
+    }
+}
     }
 }

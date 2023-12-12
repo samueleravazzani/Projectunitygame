@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
     public int waterCounter = 0;
     public int airCounter = 0;
     public int plasticCounter = 0;
+
+    public int[] problemsEverSorted = new int[5] {0, 0, 0, 0, 0};
     
     void Awake()
     {
@@ -120,6 +122,7 @@ public class GameManager : MonoBehaviour
         do
         { 
             problem_now = Random.Range(1, 4+1);
+            problemsEverSorted[problem_now] = problem_now;
         } while (problem_now == previous_problem); // faccio in modo che il problema del mondo sia diverso dal precedente
         //// EnvironmentControl.instance.update_camera_bool = true;
         
@@ -236,6 +239,7 @@ public class GameManager : MonoBehaviour
             watercounter = waterCounter,
             aircounter = airCounter,
             plasticcounter = plasticCounter,
+            problemsEverSorted = problemsEverSorted
         };
         
         string json = JsonUtility.ToJson(saveObject);
@@ -276,6 +280,7 @@ public class GameManager : MonoBehaviour
             waterCounter = saveObject.watercounter;
             airCounter = saveObject.aircounter;
             plasticCounter = saveObject.plasticcounter;
+            problemsEverSorted = saveObject.problemsEverSorted;
             
             // cambio scena e attivo il player
             if (!questionnairedone) // se il questionario non è ancora stato fatto -> carico la MainMap
@@ -328,6 +333,7 @@ public class GameManager : MonoBehaviour
         public int watercounter;
         public int aircounter;
         public int plasticcounter;
+        public int[] problemsEverSorted;
     }
 
     public void ActivatePlayer(bool state)
