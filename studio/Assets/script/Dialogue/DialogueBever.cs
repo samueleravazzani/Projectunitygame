@@ -32,7 +32,16 @@ public class DialogueBever : MonoBehaviour
         switch (currentSceneName)
         {
             case "MainMap":
-                DialogeManager.GetInstance().EnterDialogueMode(DialoghiBever[0]);
+                if (GameManager.instance.task_index == 3 && GameManager.instance.questionnairedone == false )
+                {
+                    DialogeManager.GetInstance().EnterDialogueMode(DialoghiBever[4]);
+                }
+                else if (GameManager.instance.task_index == 3 && GameManager.instance.questionnairedone)
+                {
+                    DialogeManager.GetInstance().EnterDialogueMode(DialoghiBever[5]);
+                }
+                else 
+                    DialogeManager.GetInstance().EnterDialogueMode(DialoghiBever[0]);
                 break;
             case "Cave":
                 DialogeManager.GetInstance().EnterDialogueMode(DialoghiBever[1]);
