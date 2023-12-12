@@ -17,8 +17,6 @@ public class SliderControlQuestionnaire : MonoBehaviour
     public TextMeshProUGUI literacy_value_final;
     public TextMeshProUGUI climate_change_skept_value_final;
     public float animationduration=2.0f;
-    public GameObject Questionnaire;
-    public GameObject Conclusion;
     private float actual_value_a;
     private float actual_value_l;
     private float actual_value_c;
@@ -29,8 +27,6 @@ public class SliderControlQuestionnaire : MonoBehaviour
         anxiety_final.gameObject.SetActive(false);
         literacy_final.gameObject.SetActive(false);
         climate_change_skept_final.gameObject.SetActive(false);
-        Questionnaire.gameObject.SetActive(true);
-        Conclusion.gameObject.SetActive(false);
         actual_value_a = GameManager.instance.anxiety;
         actual_value_l = GameManager.instance.literacy_inverted;
         actual_value_c = GameManager.instance.climate_change_skept;
@@ -97,9 +93,7 @@ public class SliderControlQuestionnaire : MonoBehaviour
 
         GameManager.instance.sum_parameters = GameManager.instance.anxiety + GameManager.instance.literacy_inverted +
                                               GameManager.instance.climate_change_skept;
-
-        Questionnaire.gameObject.SetActive(false);
-        Conclusion.gameObject.SetActive(true);
+        
         GameManager.instance.questionnairedone = true;
     }
 }

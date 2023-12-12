@@ -17,7 +17,7 @@ public class SceneSlave : MonoBehaviour
     private void Start()
     {
         // se l'elemento category del vettore tasks_picked (= la task di questa categoria) combacia con quello di questo teleport
-        if (GameManager.instance.tasks_picked[category] == minigame_int)
+        if (GameManager.instance.tasks_picked[category] == minigame_int && GameManager.instance.task_index<3)
         {
             // se questo teleport è per un problema specifico che combacia con questo
             if (category == 2 && GameManager.instance.problem_now == problemspecific)
@@ -31,20 +31,27 @@ public class SceneSlave : MonoBehaviour
                 gameObject.SetActive(true);
                 transform.parent.Find("Circle").gameObject.SetActive(true);
             }
+            else
+            {
+                gameObject.SetActive(false);
+                transform.parent.Find("Circle").gameObject.SetActive(false);
+            }
         }
-        else if (scenetoload == "Home" || scenetoload == "MainMap" || GameManager.instance.questionnairedone)
+        else if (scenetoload == "Home" || scenetoload == "MainMap")
         {
             gameObject.SetActive(true);
             transform.parent.Find("Circle").gameObject.SetActive(false);
             GetComponent<SpriteRenderer>().enabled = false;
         }
-        else if (GameManager.instance.task_index == 3 && minigame_int == 100)
+        else if (GameManager.instance.task_index == 3 && minigame_int == 100 && !GameManager.instance.questionnairedone)
         {
+            // questionnaire
             gameObject.SetActive(true);
             transform.parent.Find("Circle").gameObject.SetActive(true);
         }
         else if (GameManager.instance.questionnairedone && minigame_int == 200)
         {
+            // To start
             gameObject.SetActive(true);
             transform.parent.Find("Circle").gameObject.SetActive(true);
         }
