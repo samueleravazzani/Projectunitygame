@@ -11192,6 +11192,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wall: {fileID: 474557871}
   particles: {fileID: 76930781}
+  movesCounter: {fileID: 0}
 --- !u!212 &329158669
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16781,6 +16782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wall: {fileID: 184338595}
   particles: {fileID: 76930781}
+  movesCounter: {fileID: 969426898}
 --- !u!136 &498824054
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -19062,9 +19064,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88fe1f908ffd5ce4ea194da0d073b483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  remainingMoves: 0
   movesText: {fileID: 1922448046}
   key1: {fileID: 498824050}
   popup: {fileID: 364174470}
+  hasMoved: 0
 --- !u!4 &969426899
 Transform:
   m_ObjectHideFlags: 0

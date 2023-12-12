@@ -5,11 +5,11 @@ using TMPro;
 public class MovesCounter : MonoBehaviour
 {
     private int maxMoves = 1;
-    private int remainingMoves;
+    public int remainingMoves;
     public TMPro.TextMeshProUGUI movesText; 
     public GameObject key1;
-    public GameObject popup; 
-    bool hasMoved = false;
+    public GameObject popup;
+    public bool hasMoved = false;
     private List<AudioSource> audioSources = new List<AudioSource>();
 
     void Start()
@@ -34,7 +34,7 @@ public class MovesCounter : MonoBehaviour
         }
     }
 
-    void UpdateMovesText()
+    public void UpdateMovesText()
     {
         if (movesText != null)
         {

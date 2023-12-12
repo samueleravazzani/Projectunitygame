@@ -4,6 +4,7 @@ public class KeyController : MonoBehaviour
 {
     public GameObject wall;
     public ParticleSystem particles;
+    public MovesCounter movesCounter; // Riferimento al componente MovesCounter
 
     private bool isDragging = false;
     
@@ -11,6 +12,7 @@ public class KeyController : MonoBehaviour
     {
         particles = particles.GetComponent<ParticleSystem>();
     }
+
     private void OnMouseDown()
     {
         isDragging = true;
@@ -40,6 +42,15 @@ public class KeyController : MonoBehaviour
     private void OnMouseUp()
     {
         isDragging = false;
+
+        // Chiamiamo il metodo nel MovesCounter quando rilasci l'oggetto
+        if (movesCounter != null && !movesCounter.hasMoved)
+        {
+            movesCounter.remainingMoves--;
+            movesCounter.UpdateMovesText();
+            movesCounter.hasMoved = true;
+            movesCounter.Invoke("ShowPopup", 1f);
+        }
     }
 
     private void Update()
@@ -52,7 +63,6 @@ public class KeyController : MonoBehaviour
             
             transform.position = objectPos;
 
-            
             wall.SetActive(false);
             particles.Stop();
         }
