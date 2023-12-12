@@ -10,6 +10,7 @@ public class BackgroundMovement : MonoBehaviour
     public float speed;
 
     public float minX;
+    public float mstart;
     
     private void Update()
     {
@@ -17,7 +18,7 @@ public class BackgroundMovement : MonoBehaviour
 
         if (transform.position.x <= minX)
         {
-            transform.position = new Vector2(9.75f, transform.position.y);
+            transform.position = new Vector2(mstart, transform.position.y);
         }
     }
 }
