@@ -15,7 +15,7 @@ public class BackgroundMovement : MonoBehaviour
     {
         transform.Translate(Vector2.left * (speed * Time.deltaTime));
 
-        if (transform.position.x <= -16)
+        if (transform.position.x <= minX)
         {
             transform.position = new Vector2(9.75f, transform.position.y);
         }
