@@ -26,6 +26,11 @@ public class SceneSlave : MonoBehaviour
                 transform.parent.Find("Circle").gameObject.SetActive(true);
                 GetComponent<SpriteRenderer>().enabled = true;
             }
+            else if (category == 2 && minigame_int == 1)
+            {
+                gameObject.SetActive(true);
+                transform.parent.Find("Circle").gameObject.SetActive(true);
+            }
             else if (category != 2)
             {
                 gameObject.SetActive(true);
@@ -42,6 +47,8 @@ public class SceneSlave : MonoBehaviour
             gameObject.SetActive(true);
             transform.parent.Find("Circle").gameObject.SetActive(false);
             GetComponent<SpriteRenderer>().enabled = false;
+            transform.Find("Background").gameObject.SetActive(false);
+            transform.Find("Category").gameObject.SetActive(false);
         }
         else if (GameManager.instance.task_index == 3 && minigame_int == 100 && !GameManager.instance.questionnairedone)
         {

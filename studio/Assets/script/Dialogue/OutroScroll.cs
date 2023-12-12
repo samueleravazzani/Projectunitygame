@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class OutroScroll : MonoBehaviour
 {
-    float speed = 25.0f; // Controls the speed of the text scrolling.
+    float speed = 75.0f; // Controls the speed of the text scrolling.
     float textPosBegin = -550.0f; //Defines the starting position of the text.
     float boundaryTextEnd = 1450.0f; //Represents the position where the text will stop scrolling.
 

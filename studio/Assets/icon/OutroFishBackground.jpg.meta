@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      OutroFishBackground_0: 7383027253900127376
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
