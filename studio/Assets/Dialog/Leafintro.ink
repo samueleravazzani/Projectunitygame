@@ -1,7 +1,7 @@
 -> main
 
 === main ===
-Welcome to Leaf Song, a serene experience game. As you immerse yourself in this game, leaves will delicately fall across the screen, inviting you to create an intense melodies.
+Welcome to Leaf Song, a serene experience game. As you immerse yourself in this game, leaves will delicately fall across the screen, inviting you to create an intense melody.
 
 Your mission is simple: tap the leaves to generate segments of a relaxing tune. Here are the guidelines:
 
