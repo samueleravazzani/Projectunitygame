@@ -21,6 +21,12 @@ public class PauseMenu : MonoBehaviour
 
     public void Home()
     {
+        Destroy(GameObject.Find("player"));
+        Destroy(GameObject.Find("Virtual Camera"));
+        Destroy(GameObject.Find("GameManager"));
+        Destroy(GameObject.Find("SceneMaster"));
+        Destroy(GameObject.Find("DialogueManager"));
+        Destroy(GameObject.Find("Bever"));
         Time.timeScale = 1f;
         
     }
