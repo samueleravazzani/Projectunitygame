@@ -42,8 +42,6 @@ public class KeyController : MonoBehaviour
     private void OnMouseUp()
     {
         isDragging = false;
-
-        // Chiamiamo il metodo nel MovesCounter quando rilasci l'oggetto
         if (movesCounter != null && !movesCounter.hasMoved)
         {
             movesCounter.remainingMoves--;
@@ -58,7 +56,7 @@ public class KeyController : MonoBehaviour
         if (isDragging)
         {
             Vector3 mousePos = Input.mousePosition;
-            mousePos.z = 10; // Distanza dal piano rispetto alla camera
+            mousePos.z = 10; 
             Vector3 objectPos = Camera.main.ScreenToWorldPoint(mousePos);
             
             transform.position = objectPos;

@@ -17,18 +17,7 @@ public class MovesCounter : MonoBehaviour
         remainingMoves = maxMoves;
         UpdateMovesText();
     }
-
-    void Update()
-    {
-        if (key1 != null && Input.GetKeyDown(KeyCode.Mouse0) && !hasMoved)
-        {
-            remainingMoves--;
-            UpdateMovesText();
-            hasMoved = true;
-            Invoke("ShowPopup", 1f);
-        }
-    }
-
+    
     public void UpdateMovesText()
     {
         if (movesText != null)
