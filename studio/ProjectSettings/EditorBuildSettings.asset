@@ -80,5 +80,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Climate_ChangeINTRO.unity
     guid: 616f20f0d483bc4479c5cab55f7f2954
+  - enabled: 1
+    path: Assets/Scenes/IntroforCCF.unity
+    guid: 769e3c66f0bf6844c93fec6cae23eebf
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
