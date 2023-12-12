@@ -11,26 +11,28 @@ public class redmovement : MonoBehaviour
     private float maxX = 3f;
     private float minY = -3f;
     private float maxY = 2.5f;
+    
+    public GameObject customPointer;
 
-    private void Update()
+    private void Start()
     {
-        // Mover con el mouse
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetMouseButton(0))
-        {
-            MoveTowardsMouse(mousePos);
-        }
+        Cursor.visible = false;
+    }
 
+    void Update()
+    {
+        // Get the mouse position in screen coordinates
+        Vector3 mousePosition = Input.mousePosition;
+
+        // Convert the screen coordinates to world coordinates
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, 10f));
+
+        // Update the position of your custom GameObject to the calculated world position
+        customPointer.transform.position = worldPosition;
         // Limitar la posición del objeto
         LimitPosition();
     }
-
-    public void MoveTowardsMouse(Vector3 targetPosition)
-    {
-        // Mueve el objeto hacia la posición del mouse con una velocidad específica
-        transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-    }
-
+    
     void LimitPosition()
     {
         // Limita la posición del objeto en los ejes x e y
