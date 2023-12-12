@@ -5,78 +5,53 @@ using TMPro;
 
 public class HistoryOfMissionsManager : MonoBehaviour
 {
-    public GameObject panel; //BADGE PANEL
+    public GameObject minigames; //BADGE PANEL
     
-    public Image fireLockImage; //lock to the fire 
-    public Image waterLockImage; //lock to the water
-    public Image airLockImage; //lock to the air
-    public Image plasticLockImage; //lock to the plastic
+    // secondo implementazione della Fede: lucchetti
+    public Image breathingLockImage; 
+    public Image leafLockImage; 
+    public Image puzzleLockImage;
 
-    public GameObject firebadgemap; 
-    public GameObject waterbadgemap; 
-    public GameObject airbadgemap; 
-    public GameObject plasticbadgemap; 
-    public GameObject firecirclebadgemap; 
-    public GameObject watercirclebadgemap; 
-    public GameObject aircirclebadgemap; 
-    public GameObject plasticcirclebadgemap;
+    public Image potionsLockImage;
+    public Image sourceLockImage;
     
-    public Image fireImage; //firebadge
-    public Image waterImage; //waterebadge
-    public Image airImage; //airbadge
-    public Image plasticImage; //plasticbadge
+    public Image quizLockImage;
+    public Image firepuzzleLockImage;
+    public Image fishingLockImage;
+    public Image gardeningLockImage;
+    public Image tetrisLockImage;
+    
+    // badges dei minigiochi
+    public Image breathingImage; 
+    public Image leafImage; 
+    public Image puzzleImage;
 
-    //tEXTS TO DISPLAY THE VALUE OF THE BADGE , HOW MANY TIMES ALREADY GAINED
-    public TextMeshProUGUI fireCounterText;
-    public TextMeshProUGUI waterCounterText;
-    public TextMeshProUGUI airCounterText;
-    public TextMeshProUGUI plasticCounterText;
+    public Image potionsImage;
+    public Image sourceImage;
     
-    public TextMeshPro firemapCounterText;
-    public TextMeshPro watermapCounterText;
-    public TextMeshPro airmapCounterText;
-    public TextMeshPro plasticmapCounterText;
+    public Image quizImage;
+    public Image firepuzzleImage;
+    public Image fishingImage;
+    public Image gardeningImage;
+    public Image tetrisImage;
 
     void Start()
     {
-        panel.gameObject.SetActive(false);
+        minigames.gameObject.SetActive(false);
         // Initially, display the lock image and hide the badge image with counter
-        fireLockImage.gameObject.SetActive(true);
-        fireImage.gameObject.SetActive(false);
-        fireCounterText.gameObject.SetActive(false);
-        firemapCounterText.gameObject.SetActive(false);
-        waterLockImage.gameObject.SetActive(true);
-        waterImage.gameObject.SetActive(false);
-        waterCounterText.gameObject.SetActive(false);
-        watermapCounterText.gameObject.SetActive(false);
-        airLockImage.gameObject.SetActive(true);
-        airImage.gameObject.SetActive(false);
-        airCounterText.gameObject.SetActive(false);
-        airmapCounterText.gameObject.SetActive(false);
-        plasticLockImage.gameObject.SetActive(true);
-        plasticImage.gameObject.SetActive(false);
-        plasticCounterText.gameObject.SetActive(false);
-        plasticmapCounterText.gameObject.SetActive(false);
-        plasticbadgemap.gameObject.SetActive(false);
-        firebadgemap.gameObject.SetActive(false);
-        airbadgemap.gameObject.SetActive(false);
-        waterbadgemap.gameObject.SetActive(false);
-        plasticcirclebadgemap.gameObject.SetActive(false);
-        firecirclebadgemap.gameObject.SetActive(false);
-        aircirclebadgemap.gameObject.SetActive(false);
-        watercirclebadgemap.gameObject.SetActive(false);
+        
         
     }
 
     //lOGIC TO HANDLE THE BUTTONS TO SHOW AND HIDE THE OANELBADGE 
-    public void Showpanel()
+    public void ShowMinigames()
     {
-        panel.gameObject.SetActive(true);
+        minigames.gameObject.SetActive(true);
     }
 
-    public void Hidepanel()
+    public void HideMinigames()
     {
-        panel.gameObject.SetActive(false);
+        minigames.gameObject.SetActive(false);
     }
     
     //nECESSARY TO CONTINUOSLY BE DONE, SO TO UPDATE THE BADGE PANEL EVERYTIME I AM IN THE MAINMAP 
@@ -92,66 +67,115 @@ public class HistoryOfMissionsManager : MonoBehaviour
     //Il problema viene chiamato con previous problem perchè problem now una volta fatte tutte e tre le task si setta a zero 
     public void SetVariable()
     {
-             foreach (var problem in GameManager.instance.problemsEverSorted)
-            {
-                switch (problem)
-                { 
-                    case 1:
-                        if (GameManager.instance.fireCounter >= 1)
-                        {
-                            fireLockImage.gameObject.SetActive(false);
-                            fireImage.gameObject.SetActive(true);
-                            fireCounterText.gameObject.SetActive(true);
-                            firemapCounterText.gameObject.SetActive(true);
-                            firebadgemap.gameObject.SetActive(true);
-                            firecirclebadgemap.gameObject.SetActive(true);
-                        }
-                        fireCounterText.text = GameManager.instance.fireCounter.ToString();
-                        firemapCounterText.text = GameManager.instance.fireCounter.ToString();
+        // anxiety
+         foreach (var mg in GameManager.instance.anxietyEverSorted)
+        {
+            switch (mg)
+            { 
+                case 1: // Breathing
+                    if (true) // prima implementazione senza counter
+                    {
+                        breathingLockImage.gameObject.SetActive(false);
+                        breathingImage.gameObject.SetActive(true);
+                    }
+                    
+                break;
+                case 2: // Leaf
+                     if (true) // prima implementazione senza counter
+                     {
+                         leafLockImage.gameObject.SetActive(false);
+                         leafImage.gameObject.SetActive(true);
+                     }
+                    
                     break;
-                    case 2:
-                         if (GameManager.instance.plasticCounter >= 1)
-                         {
-                            plasticLockImage.gameObject.SetActive(false);
-                            plasticImage.gameObject.SetActive(true);
-                plasticCounterText.gameObject.SetActive(true);
-                plasticmapCounterText.gameObject.SetActive(true);
-                plasticbadgemap.gameObject.SetActive(true);
-                plasticcirclebadgemap.gameObject.SetActive(true);
+                case 3: // Word puzzle
+                    if (true) // prima implementazione senza counter
+                    {
+                        puzzleLockImage.gameObject.SetActive(false);
+                        puzzleImage.gameObject.SetActive(true);
+                    }
+                    break;
+                
+                default:
+                    Debug.LogWarning("Invalid variable name: " + mg);
+                    break;
             }
-            plasticCounterText.text = GameManager.instance.plasticCounter.ToString();
-            plasticmapCounterText.text = GameManager.instance.plasticCounter.ToString();
-            break;
-        case 3:
-            if (GameManager.instance.airCounter >= 1)
-            {
-                airLockImage.gameObject.SetActive(false);
-                airImage.gameObject.SetActive(true);
-                airCounterText.gameObject.SetActive(true);
-                airmapCounterText.gameObject.SetActive(true);
-                airbadgemap.gameObject.SetActive(true);
-                aircirclebadgemap.gameObject.SetActive(true);
-            }
-            airCounterText.text = GameManager.instance.airCounter.ToString();
-            airmapCounterText.text = GameManager.instance.airCounter.ToString();
-            break;
-        case 4:
-            if (GameManager.instance.waterCounter >= 1)
-            {
-                waterLockImage.gameObject.SetActive(false);
-                waterImage.gameObject.SetActive(true);
-                waterCounterText.gameObject.SetActive(true);
-                watermapCounterText.gameObject.SetActive(true);
-                waterbadgemap.gameObject.SetActive(true);
-                watercirclebadgemap.gameObject.SetActive(true);
-            }
-            waterCounterText.text = GameManager.instance.waterCounter.ToString();
-            watermapCounterText.text = GameManager.instance.waterCounter.ToString();
-            break;
-        default:
-            Debug.LogWarning("Invalid variable name: " + problem);
-            break;
-    }
-}
+        }
+         // literacy
+         foreach (var mg in GameManager.instance.literacyEverSorted)
+         {
+             switch (mg)
+             { 
+                 case 1: // Potions
+                     if (true) // prima implementazione senza counter
+                     {
+                         potionsLockImage.gameObject.SetActive(false);
+                         potionsImage.gameObject.SetActive(true);
+                     }
+                        
+                     break;
+                 case 2: // Sources
+                     if (true) // prima implementazione senza counter
+                     {
+                         sourceLockImage.gameObject.SetActive(false);
+                         sourceImage.gameObject.SetActive(true);
+                     }
+                        
+                     break;
+                 
+                 default:
+                     Debug.LogWarning("Invalid variable name: " + mg);
+                     break;
+             }
+         }
+         // climate
+         foreach (var mg in GameManager.instance.climateEverSorted)
+         {
+             switch (mg)
+             { 
+                 case 1: // Breathing
+                     if (true) // prima implementazione senza counter
+                     {
+                         quizLockImage.gameObject.SetActive(false);
+                         quizImage.gameObject.SetActive(true);
+                     }
+                        
+                     break;
+                 case 2:
+                     if (true) // prima implementazione senza counter
+                     {
+                         firepuzzleLockImage.gameObject.SetActive(false);
+                         firepuzzleImage.gameObject.SetActive(true);
+                     }
+                        
+                     break;
+                 case 3:
+                     if (true) // prima implementazione senza counter
+                     {
+                         fishingLockImage.gameObject.SetActive(false);
+                         fishingImage.gameObject.SetActive(true);
+                     }
+                     break;
+                 case 4:
+                     if (true) // prima implementazione senza counter
+                     {
+                         gardeningLockImage.gameObject.SetActive(false);
+                         gardeningImage.gameObject.SetActive(true);
+                     }
+                     break;
+                 case 5:
+                     if (true) // prima implementazione senza counter
+                     {
+                         tetrisLockImage.gameObject.SetActive(false);
+                         tetrisImage.gameObject.SetActive(true);
+                     }
+                     break;
+                    
+                 default:
+                     Debug.LogWarning("Invalid variable name: " + mg);
+                     break;
+             }
+         }
+             
     }
 }

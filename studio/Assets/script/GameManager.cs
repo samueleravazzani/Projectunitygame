@@ -141,7 +141,10 @@ public class GameManager : MonoBehaviour
         tasks_picked[1] = Random.Range(1, 2+1); // LITERACY: 0 fatta, 1 postions, 2 sources
         literacyEverSorted[tasks_picked[1]] = tasks_picked[1];
         tasks_picked[2] = Random.Range(1, 2+1); // CCS: 0 fatta, 1 quiz, 2 minigioco legato al problema del mondo
-        climateEverSorted[tasks_picked[2]] = tasks_picked[2];
+        if(tasks_picked[2] == 1)
+            climateEverSorted[tasks_picked[2]] = tasks_picked[2];
+        else if(tasks_picked[2] == 2)
+            climateEverSorted[tasks_picked[2]] = tasks_picked[2]+1; // creo una sorta di offset: //1 quiz, 2 fire, 3 fishing etc.
         
         // initiliaze position of the player in the MainMap /!\
         //player.transform.position = new Vector3(-1.79f, 1.79f, 0);
