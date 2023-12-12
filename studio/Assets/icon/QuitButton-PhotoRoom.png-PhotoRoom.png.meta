@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      QuitButton-PhotoRoom.png-PhotoRoom_0: -5812121583596255653
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
