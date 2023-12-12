@@ -33,6 +33,7 @@ public class CameraSwitcher : MonoBehaviour
         // Determina le telecamere coinvolte nella transizione
         CinemachineVirtualCamera fromCamera = isCamera1Active ? camera1 : camera2;
         CinemachineVirtualCamera toCamera = isCamera1Active ? camera2 : camera1;
+        
 
         // Attendere un breve momento prima di iniziare il blending
         //yield return null;
