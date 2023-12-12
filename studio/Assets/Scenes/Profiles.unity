@@ -650,6 +650,7 @@ MonoBehaviour:
   sum_parameters: 12
   tasks_picked: 000000000000000000000000
   problem_now: 0
+  previous_problem: 0
   task_index: 0
   n_world_saved: 0
   oldanxiety: 0
@@ -666,6 +667,10 @@ MonoBehaviour:
   - 0
   questionnairedone: 0
   scene: 
+  fireCounter: 0
+  waterCounter: 0
+  airCounter: 0
+  plasticCounter: 0
 --- !u!4 &140320897
 Transform:
   m_ObjectHideFlags: 0

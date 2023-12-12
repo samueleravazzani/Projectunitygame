@@ -11,6 +11,9 @@ You will also meet the inhabitants of this place: press Enter to talk to them an
 On the top left you will see 3 sliders: those represent your current abilities, that will evolve with time.
 They respectively represent you stregth against anxiety, you literacy level about health and digital technology...
 ... and your climate change awareness. These will be your main powers in this adventure!
+Every mission you complete, you will see the problem of the Enchanted Forest become weaker and weaker!
+However, pay attention: your progress will be saved only once you are in the Enchanted Forest, thus if you interrupt a mission...
+...you will have to start it again!
 Remember this is your home: thus you can always come back here just approaching the door.
 You will see that we will learn a lot together and have a wonderful time!
 Is it all clear?
