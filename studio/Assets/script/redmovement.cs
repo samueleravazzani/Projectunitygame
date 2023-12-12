@@ -7,10 +7,10 @@ public class redmovement : MonoBehaviour
 {
     public float speed;
 
-    private float minX = -7f;
-    private float maxX = 3f;
-    private float minY = -3f;
-    private float maxY = 2.5f;
+    private float minX = -9f;
+    private float maxX = 7f;
+    private float minY = -4f;
+    private float maxY = 4f;
     
     public GameObject customPointer;
 
