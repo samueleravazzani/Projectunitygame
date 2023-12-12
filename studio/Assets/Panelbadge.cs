@@ -31,6 +31,11 @@ public class Panelbadge : MonoBehaviour
     public TextMeshProUGUI waterCounterText;
     public TextMeshProUGUI airCounterText;
     public TextMeshProUGUI plasticCounterText;
+    
+    public TextMeshPro firemapCounterText;
+    public TextMeshPro watermapCounterText;
+    public TextMeshPro airmapCounterText;
+    public TextMeshPro plasticmapCounterText;
 
     void Start()
     {
@@ -39,15 +44,19 @@ public class Panelbadge : MonoBehaviour
         fireLockImage.gameObject.SetActive(true);
         fireImage.gameObject.SetActive(false);
         fireCounterText.gameObject.SetActive(false);
+        firemapCounterText.gameObject.SetActive(false);
         waterLockImage.gameObject.SetActive(true);
         waterImage.gameObject.SetActive(false);
         waterCounterText.gameObject.SetActive(false);
+        watermapCounterText.gameObject.SetActive(false);
         airLockImage.gameObject.SetActive(true);
         airImage.gameObject.SetActive(false);
         airCounterText.gameObject.SetActive(false);
+        airmapCounterText.gameObject.SetActive(false);
         plasticLockImage.gameObject.SetActive(true);
         plasticImage.gameObject.SetActive(false);
         plasticCounterText.gameObject.SetActive(false);
+        plasticmapCounterText.gameObject.SetActive(false);
         plasticbadgemap.gameObject.SetActive(false);
         firebadgemap.gameObject.SetActive(false);
         airbadgemap.gameObject.SetActive(false);
@@ -91,10 +100,12 @@ public class Panelbadge : MonoBehaviour
                                 fireLockImage.gameObject.SetActive(false);
                                 fireImage.gameObject.SetActive(true);
                                 fireCounterText.gameObject.SetActive(true);
+                                firemapCounterText.gameObject.SetActive(true);
                                 firebadgemap.gameObject.SetActive(true);
                                 firecirclebadgemap.gameObject.SetActive(true);
                             }
                             fireCounterText.text = GameManager.instance.fireCounter.ToString();
+                            firemapCounterText.text = GameManager.instance.fireCounter.ToString();
                             break;
                         case 2:
                             if (GameManager.instance.plasticCounter >= 1)
@@ -102,10 +113,12 @@ public class Panelbadge : MonoBehaviour
                                 plasticLockImage.gameObject.SetActive(false);
                                 plasticImage.gameObject.SetActive(true);
                                 plasticCounterText.gameObject.SetActive(true);
+                                plasticmapCounterText.gameObject.SetActive(true);
                                 plasticbadgemap.gameObject.SetActive(true);
                                 plasticcirclebadgemap.gameObject.SetActive(true);
                             }
                             plasticCounterText.text = GameManager.instance.plasticCounter.ToString();
+                            plasticmapCounterText.text = GameManager.instance.plasticCounter.ToString();
                             break;
                         case 3:
                             if (GameManager.instance.airCounter >= 1)
@@ -113,10 +126,12 @@ public class Panelbadge : MonoBehaviour
                                 airLockImage.gameObject.SetActive(false);
                                 airImage.gameObject.SetActive(true);
                                 airCounterText.gameObject.SetActive(true);
+                                airmapCounterText.gameObject.SetActive(true);
                                 airbadgemap.gameObject.SetActive(true);
                                 aircirclebadgemap.gameObject.SetActive(true);
                             }
                             airCounterText.text = GameManager.instance.airCounter.ToString();
+                            airmapCounterText.text = GameManager.instance.airCounter.ToString();
                             break;
                         case 4:
                             if (GameManager.instance.waterCounter >= 1)
@@ -124,10 +139,12 @@ public class Panelbadge : MonoBehaviour
                                 waterLockImage.gameObject.SetActive(false);
                                 waterImage.gameObject.SetActive(true);
                                 waterCounterText.gameObject.SetActive(true);
+                                watermapCounterText.gameObject.SetActive(true);
                                 waterbadgemap.gameObject.SetActive(true);
                                 watercirclebadgemap.gameObject.SetActive(true);
                             }
                             waterCounterText.text = GameManager.instance.waterCounter.ToString();
+                            watermapCounterText.text = GameManager.instance.waterCounter.ToString();
                             break;
                         default:
                             Debug.LogWarning("Invalid variable name" +GameManager.instance.problem_now);

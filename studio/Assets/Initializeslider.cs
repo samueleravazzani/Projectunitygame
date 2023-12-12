@@ -19,8 +19,6 @@ public class Initializeslider : MonoBehaviour
     private void Start()
     {
         InitializeSliders();  
-        Debug.Log("Enter: " + GameManager.instance.climate_change_skept);
-       
     }
 
     //FUNZIONE DI INIZIALIZZAZIONE DEI TRE SLIDER, DEVE ESSERE PER OGNUNO DEI TRE CON I PROPRI VALORI DAL GAMEMANAGER
