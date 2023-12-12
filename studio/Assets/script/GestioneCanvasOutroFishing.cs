@@ -46,7 +46,7 @@ public class GestioneCanvasOutroFishing : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        OutroCanvas.enabled = false;
     }
 
     public void checkScore(int score, int miss)

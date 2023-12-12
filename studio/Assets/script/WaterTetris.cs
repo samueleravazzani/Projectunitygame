@@ -28,7 +28,7 @@ public class WaterTetris : MonoBehaviour
     private float calibrationwaterspawn = 7 / 9f, min = 15;
     
     private int min_x_houses, max_x_houses = TetrisBlock.width; /* PARAMETRIZATION!!!!!!!!!!*/
-    public float calibrationhouses = -10 / 9f;
+    public float calibrationhouses = -5 / 9f;
     public int yminhouses = 35;
     
     public bool ingame;
@@ -56,7 +56,7 @@ public class WaterTetris : MonoBehaviour
         max_water_spawn_width = Mathf.RoundToInt(GameManager.instance.climate_change_skept * calibrationwaterspawn +
             min - calibrationwaterspawn);
         min_x_houses = Mathf.RoundToInt(GameManager.instance.climate_change_skept * calibrationhouses +
-            yminhouses - calibrationhouses);
+            max_water_spawn_width+12 - calibrationhouses);
         
         success.gameObject.SetActive(false);
         fail.gameObject.SetActive(false);
@@ -123,7 +123,7 @@ public class WaterTetris : MonoBehaviour
     {
         for (int i = 0; i < N_objects; i++)
         {
-            GameObject obj = Instantiate(obj_prefab, new Vector3(Random.Range(0, max_water_spawn_width), Random.Range(0, TetrisBlock.height), 0), Quaternion.identity);
+            GameObject obj = Instantiate(obj_prefab, new Vector3(Random.Range(0, TetrisBlock.width), Random.Range(0, TetrisBlock.height), 0), Quaternion.identity);
             obj.GetComponent<SpriteRenderer>().sprite = objects[Random.Range(0, objects.Length)];
         }
     }
