@@ -320,7 +320,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ground-removebg-preview_0: 5431720515084976093
+      Ground-removebg-preview_1: -939207567359512032
+      Ground-removebg-preview_2: 4738821069493406956
+      Ground-removebg-preview_3: 2667404189870949181
+      Ground-removebg-preview_4: 8782644496277692797
+      Ground-removebg-preview_5: 5890939022791907325
+      Ground-removebg-preview_6: 1316502524064208826
+      Ground-removebg-preview_7: 1456032842946030883
+      Ground-removebg-preview_8: 1947583491745141610
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

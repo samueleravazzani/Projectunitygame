@@ -5,7 +5,8 @@ At the moment we are in your house, in this magic land called the Enchanted Fore
 Unfortunately, it is not a good period for the forest...
 Once we have finished talking, go outside and see with your own eyes what is going on.
 However, I know you can save us all! You have the necessary strength to do it.
-Once in the forest, 3 pink magic diamonds will appear in the world: those are the places where you will have to accomplish your missions.
+Once in the forest, 3 pink magic diamonds will appear in the world...
+...those are the places where you will have to accomplish your missions.
 To move in the world you can either press the 4 arrow keys or the W-A-S-D keys. 
 You will also meet the inhabitants of this place: press Enter to talk to them and Space to go on with their conversations.
 On the top left you will see 3 sliders: those represent your current abilities, that will evolve with time.
