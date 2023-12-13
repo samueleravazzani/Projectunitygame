@@ -1,14 +1,15 @@
 using System.Collections;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class CameraSwitcher : MonoBehaviour
 {
     public CinemachineVirtualCamera camera1;
     public CinemachineVirtualCamera camera2;
-    public float transitionDuration = 2f;
+    private float transitionDuration = 0.5f;
     private GameObject VirtualCameraObject;
-    private bool isCamera1Active = true;
+    public static bool isCamera1Active = true;
 
 
     void Start()
@@ -52,12 +53,14 @@ public class CameraSwitcher : MonoBehaviour
 
             yield return null;
         }
-
+        
         // Assicurati che le priorità siano impostate correttamente alla fine
         fromCamera.Priority = 5;
         toCamera.Priority = 10;
-
+        
         // Inverti lo stato della telecamera attiva
         isCamera1Active = !isCamera1Active;
+        Debug.Log(SceneManager.GetActiveScene().name);
+        Debug.Log(isCamera1Active.ToString());
     }
 }
