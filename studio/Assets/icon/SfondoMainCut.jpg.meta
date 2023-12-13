@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      SfondoMainCut_0: -6262423143408986301
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
