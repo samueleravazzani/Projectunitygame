@@ -6,7 +6,7 @@ public class CameraSwitcher : MonoBehaviour
 {
     public CinemachineVirtualCamera camera1;
     public CinemachineVirtualCamera camera2;
-    public float transitionDuration = 2f;
+    private float transitionDuration = 0.5f;
     private GameObject VirtualCameraObject;
     private bool isCamera1Active = true;
 
