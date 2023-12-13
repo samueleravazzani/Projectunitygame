@@ -44,8 +44,8 @@ public class Collect : MonoBehaviour
     public float xmax=10f;
     public float xmin=2f;
     
-    public int NumFishes=1;
-    public int NumTrash = 1;
+    public int NumFishes=0;
+    public int NumTrash =0;
     
     //vettore posizione pesci iniziale
     public Vector3 FishPosition = new Vector3 (10f,0,0);
@@ -56,6 +56,7 @@ public class Collect : MonoBehaviour
     private int randomfishposition_old;
     
     private static Collect instance; //creazione dell'istance per il singleton
+    public int Trashold = 50;
     
     
     private void Awake()
@@ -99,9 +100,9 @@ public class Collect : MonoBehaviour
     {
         while (!win && !lose)
         {
-            for (int i = 0; i < NumFishes; i++)
+            yield return new WaitForSeconds(UnityEngine.Random.Range(1f, 2f));
+            if (NumFishes <= Trashold) //per non avere troppi pesci nella scena
             {
-                yield return new WaitForSeconds(UnityEngine.Random.Range(1f, 2f));
                 FishInstantiator();
                 random = UnityEngine.Random.Range(0, 100);
                 if (random >= 40)
@@ -109,25 +110,21 @@ public class Collect : MonoBehaviour
                     yield return new WaitForSeconds(UnityEngine.Random.Range(1f, 2f));
                     TrashInstantiator();
                 }
-               
             }
 
-            for (int i = 0; i < NumTrash; i++)
+            yield return new WaitForSeconds(UnityEngine.Random.Range(1f, 2f));
+            TrashInstantiator();
+            random = UnityEngine.Random.Range(0, 100);
+            if (random >= 40)
             {
-                yield return new WaitForSeconds(UnityEngine.Random.Range(1f, 2f));
-                TrashInstantiator();
-                random = UnityEngine.Random.Range(0, 100);
-                if (random >= 40)
-                {
                     yield return new WaitForSeconds(UnityEngine.Random.Range(1f, 2f));
                     FishInstantiator();
-                }
-               
             }
 
             yield return null;
         }
         
+        yield return null;
     }
 
     private void TrashInstantiator()
@@ -141,6 +138,7 @@ public class Collect : MonoBehaviour
     
     private void FishInstantiator()
     {
+        NumFishes++; //controllo del numero di pesci nella scena
         randomFishes = UnityEngine.Random.Range(0, Fishes.Length - 1);
         randomfishposition_old = randomfishposition_new;
         randomfishposition_new = UnityEngine.Random.Range(ymin, ymax);
