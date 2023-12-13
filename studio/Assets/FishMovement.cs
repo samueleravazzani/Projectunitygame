@@ -27,7 +27,6 @@ public class FishMovement : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("collisione");
-        
         if (collider.gameObject.tag == "red")
         {
             Debug.Log("collisioneRED");
