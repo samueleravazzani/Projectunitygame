@@ -32,6 +32,7 @@ TagManager:
   - Cell
   - Saggio
   - Disattiva
+  - Retino
   layers:
   - Default
   - TransparentFX

@@ -32,7 +32,7 @@ public class TrashMovement : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "red")
+        if (collider.gameObject.tag == "Retino")
         {
             Collect.GetInstance().checkforwin();
             Destroy(gameObject);

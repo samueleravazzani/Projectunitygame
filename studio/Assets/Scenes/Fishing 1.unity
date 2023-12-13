@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 438418641}
   m_Layer: 0
   m_Name: Retino
-  m_TagString: red
+  m_TagString: Retino
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12687,6 +12687,7 @@ MonoBehaviour:
   NumTrash: 3
   FishPosition: {x: 10, y: 0, z: 0}
   TrashPosition: {x: 0, y: 6, z: 0}
+  Trashold: 50
 --- !u!4 &1832053298
 Transform:
   m_ObjectHideFlags: 0
