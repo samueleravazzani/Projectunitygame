@@ -10847,6 +10847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41bea18e9497f0438f1d443cfe232f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movesCounter: {fileID: 969426898}
 --- !u!82 &268795268
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11204,7 +11205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wall: {fileID: 474557871}
   movesCounter: {fileID: 969426898}
-  particleCollisionHandler: {fileID: 268795267}
+  particleCollisionDetector: {fileID: 268795267}
 --- !u!212 &329158669
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16926,7 +16927,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wall: {fileID: 184338595}
   movesCounter: {fileID: 969426898}
-  particleCollisionHandler: {fileID: 268795267}
+  particleCollisionDetector: {fileID: 268795267}
 --- !u!136 &498824054
 CapsuleCollider:
   m_ObjectHideFlags: 0

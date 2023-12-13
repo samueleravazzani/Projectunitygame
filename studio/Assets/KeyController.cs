@@ -45,11 +45,6 @@ public class KeyController : MonoBehaviour
             movesCounter.remainingMoves--;
             movesCounter.UpdateMovesText();
             movesCounter.hasMoved = true;
-            Debug.Log(movesCounter.remainingMoves);
-            if (movesCounter.remainingMoves == 0 && particleCollisionDetector.SaveStatus() == false)
-            {
-                movesCounter.Invoke("ShowPopup",1f);
-            }
         }
         
         movesCounter.hasMoved = false;

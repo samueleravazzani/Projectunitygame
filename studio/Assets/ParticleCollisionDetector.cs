@@ -5,6 +5,8 @@ public class ParticleCollisionDetector : MonoBehaviour
 {
     private ParticleSystem particleSystem;
     private bool state = false;
+    public MovesCounter movesCounter;
+    
 
     private void Start()
     {
@@ -24,12 +26,7 @@ public class ParticleCollisionDetector : MonoBehaviour
                 new ParticleCollisionEvent[particleSystem.GetSafeCollisionEventSize()];
 
             int numCollisionEvents = particleSystem.GetCollisionEvents(other, collisionEvents);
-
-            for (int i = 0; i < numCollisionEvents; i++)
-            {
-                Vector3 collisionHit = collisionEvents[i].intersection;
-                Debug.Log("Particle collided with wall at: " + collisionHit);
-            }
+            
         }
         if (other.CompareTag("Disattiva"))
         {
@@ -43,11 +40,17 @@ public class ParticleCollisionDetector : MonoBehaviour
                 particleSystem.gameObject.SetActive(false);
             }
         }
+        if (!other.CompareTag("Disattiva"))
+        {
+            Debug.Log(movesCounter.remainingMoves);
+            if (movesCounter.remainingMoves == 0 && state==false)
+            {
+                movesCounter.Invoke("ShowPopup",1f);
+            }
+
+        }
     }
 
-    public bool SaveStatus()
-    {
-        return state;
-    }
+    
     
 }
