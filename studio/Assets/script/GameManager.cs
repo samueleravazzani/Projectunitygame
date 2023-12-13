@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     
     // per il managing dei profiles
     public List<string> profileNames = new List<string>();
+    public List<int> n_worldSsaved = new List<int>(); //todo
     public bool profile_created = false;
 
     // parameters that control environment effects
@@ -62,6 +63,10 @@ public class GameManager : MonoBehaviour
     public int plasticCounter = 0;
 
     public int[] problemsEverSorted = new int[5] {0, 0, 0, 0, 0};
+    
+    public int[] anxietyEverSorted = new int[4]{0, 0, 0, 0};
+    public int[] literacyEverSorted = new int[3]{0, 0, 0};
+    public int[] climateEverSorted = new int[6]{0, 0, 0, 0, 0, 0};
     
     void Awake()
     {
@@ -134,13 +139,25 @@ public class GameManager : MonoBehaviour
         tasks_picked[0] = Random.Range(1, 3+1); // ANXIETY: 0 fatta, 1 breathing, 2 music, 3 word puzzle
         tasks_picked[1] = Random.Range(1, 2+1); // LITERACY: 0 fatta, 1 postions, 2 sources
         tasks_picked[2] = Random.Range(1, 2+1); // CCS: 0 fatta, 1 quiz, 2 minigioco legato al problema del mondo
-        
         // initiliaze position of the player in the MainMap /!\
         //player.transform.position = new Vector3(-1.79f, 1.79f, 0);
     }
 
     public void TaskDone(int category) // funzione da chiamare dopo che una task è completata
     {
+        // segno nei vettori generali che quel minigioco è stato fatto
+        if(category == 0)
+            anxietyEverSorted[tasks_picked[0]] = tasks_picked[0];
+        if(category == 1)
+            literacyEverSorted[tasks_picked[1]] = tasks_picked[1];
+        if (category == 2)
+        {
+            if(tasks_picked[2] == 1)
+                climateEverSorted[tasks_picked[2]] = tasks_picked[2];
+            else if(tasks_picked[2] == 2)
+                climateEverSorted[tasks_picked[2]] = tasks_picked[2]+1; // creo una sorta di offset: //1 quiz, 2 fire, 3 fishing etc.
+        }
+        
         task_index++; // task fatta
         tasks_picked[category] = 0; // segno che l'ho fatta
         //EnvironmentControl.instance.update_camera_bool = true; // aggiorno l'environment
@@ -239,7 +256,10 @@ public class GameManager : MonoBehaviour
             watercounter = waterCounter,
             aircounter = airCounter,
             plasticcounter = plasticCounter,
-            problemsEverSorted = problemsEverSorted
+            problemsEverSorted = problemsEverSorted,
+            anxietyEverSorted = anxietyEverSorted,
+            literacyEverSorted = literacyEverSorted,
+            climateEverSorted = climateEverSorted,
         };
         
         string json = JsonUtility.ToJson(saveObject);
@@ -281,6 +301,9 @@ public class GameManager : MonoBehaviour
             airCounter = saveObject.aircounter;
             plasticCounter = saveObject.plasticcounter;
             problemsEverSorted = saveObject.problemsEverSorted;
+            anxietyEverSorted = saveObject.anxietyEverSorted;
+            literacyEverSorted = saveObject.literacyEverSorted;
+            climateEverSorted = saveObject.climateEverSorted;
             
             // cambio scena e attivo il player
             if (!questionnairedone) // se il questionario non è ancora stato fatto -> carico la MainMap
@@ -334,6 +357,9 @@ public class GameManager : MonoBehaviour
         public int aircounter;
         public int plasticcounter;
         public int[] problemsEverSorted;
+        public int[] anxietyEverSorted = new int[4]{0, 0, 0, 0};
+        public int[] literacyEverSorted = new int[3]{0, 0, 0};
+        public int[] climateEverSorted = new int[6]{0, 0, 0, 0, 0, 0};
     }
 
     public void ActivatePlayer(bool state)
