@@ -78,11 +78,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Outro.unity
     guid: af8315ee040b24932a393458697c502b
   - enabled: 1
+    path: Assets/Scenes/Climate_ChangeINTRO.unity
+    guid: 616f20f0d483bc4479c5cab55f7f2954
+  - enabled: 1
     path: Assets/Scenes/Climate_Change_Fuoco.unity
     guid: 6ce1b704cd5ff3e4e9ca1d53d344dd9b
   - enabled: 1
-    path: Assets/Scenes/Climate_ChangeINTRO.unity
-    guid: 616f20f0d483bc4479c5cab55f7f2954
+    path: Assets/Scenes/Climate_Change_Fuoco1.unity
+    guid: c1c098785c710f24c85282b2297bc135
   - enabled: 1
     path: Assets/Scenes/IntroforCCF.unity
     guid: 769e3c66f0bf6844c93fec6cae23eebf

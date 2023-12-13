@@ -3,25 +3,24 @@ using UnityEngine;
 public class KeyController : MonoBehaviour
 {
     public GameObject wall;
-    public ParticleSystem particles;
-    public MovesCounter movesCounter; // Riferimento al componente MovesCounter
-
-    private bool isDragging = false;
+    public MovesCounter movesCounter;
+    public ParticleCollisionDetector particleCollisionDetector;
     
-    void Start()
-    {
-        particles = particles.GetComponent<ParticleSystem>();
-    }
+    private bool isDragging = false;
+    private bool hasCollided = false;
 
+    private void Start()
+    {
+        movesCounter.hasMoved = false;
+    }
+    
+    
     private void OnMouseDown()
     {
         isDragging = true;
-
-        // Ottieni l'Animator o l'Animation collegata all'oggetto
         Animator animator = GetComponent<Animator>();
         if (animator != null)
         {
-            // Disattiva l'animazione
             animator.enabled = false;
         }
         else
@@ -29,7 +28,6 @@ public class KeyController : MonoBehaviour
             Animation animation = GetComponent<Animation>();
             if (animation != null)
             {
-                // Disattiva l'animazione
                 animation.enabled = false;
             }
             else
@@ -47,9 +45,16 @@ public class KeyController : MonoBehaviour
             movesCounter.remainingMoves--;
             movesCounter.UpdateMovesText();
             movesCounter.hasMoved = true;
-            movesCounter.Invoke("ShowPopup", 1f);
+            Debug.Log(movesCounter.remainingMoves);
+            if (movesCounter.remainingMoves == 0 && particleCollisionDetector.SaveStatus() == false)
+            {
+                movesCounter.Invoke("ShowPopup",1f);
+            }
         }
+        
+        movesCounter.hasMoved = false;
     }
+
 
     private void Update()
     {
@@ -62,7 +67,7 @@ public class KeyController : MonoBehaviour
             transform.position = objectPos;
 
             wall.SetActive(false);
-            particles.Stop();
         }
     }
+    
 }

@@ -49,6 +49,7 @@ public class SceneSlave : MonoBehaviour
             GetComponent<SpriteRenderer>().enabled = false;
             transform.Find("Background").gameObject.SetActive(false);
             transform.Find("Category").gameObject.SetActive(false);
+            transform.Find("MainMapCircle").gameObject.SetActive(false);
         }
         else if (GameManager.instance.task_index == 3 && minigame_int == 100 && !GameManager.instance.questionnairedone)
         {
@@ -83,6 +84,33 @@ public class SceneSlave : MonoBehaviour
             }
             
             ActivateChangeScene();
+        }
+        
+        
+        // se sono nella MainMap e viene attivata la mappa dall'alto
+        if (SceneManager.GetActiveScene().name == "MainMap")
+        {
+            if (CameraSwitcher.isCamera1Active == false)
+            {
+                var spriteRenderer = transform.Find("MainMapCircle").GetComponent<SpriteRenderer>();
+                Color newColor = spriteRenderer.color;
+                newColor.a = 170;
+                spriteRenderer.color = newColor;
+            }
+            else
+            {
+                var spriteRenderer = transform.Find("MainMapCircle").GetComponent<SpriteRenderer>();
+                Color newColor = spriteRenderer.color;
+                newColor.a = 0;
+                spriteRenderer.color = newColor;
+            }
+        }
+        else
+        {
+            var spriteRenderer = transform.Find("MainMapCircle").GetComponent<SpriteRenderer>();
+            Color newColor = spriteRenderer.color;
+            newColor.a = 0;
+            spriteRenderer.color = newColor;
         }
         
     }
