@@ -137,21 +137,27 @@ public class GameManager : MonoBehaviour
         // rimetto le task a 0
         task_index = 0;
         tasks_picked[0] = Random.Range(1, 3+1); // ANXIETY: 0 fatta, 1 breathing, 2 music, 3 word puzzle
-        anxietyEverSorted[tasks_picked[0]] = tasks_picked[0];
         tasks_picked[1] = Random.Range(1, 2+1); // LITERACY: 0 fatta, 1 postions, 2 sources
-        literacyEverSorted[tasks_picked[1]] = tasks_picked[1];
         tasks_picked[2] = Random.Range(1, 2+1); // CCS: 0 fatta, 1 quiz, 2 minigioco legato al problema del mondo
-        if(tasks_picked[2] == 1)
-            climateEverSorted[tasks_picked[2]] = tasks_picked[2];
-        else if(tasks_picked[2] == 2)
-            climateEverSorted[tasks_picked[2]] = tasks_picked[2]+1; // creo una sorta di offset: //1 quiz, 2 fire, 3 fishing etc.
-        
         // initiliaze position of the player in the MainMap /!\
         //player.transform.position = new Vector3(-1.79f, 1.79f, 0);
     }
 
     public void TaskDone(int category) // funzione da chiamare dopo che una task è completata
     {
+        // segno nei vettori generali che quel minigioco è stato fatto
+        if(category == 0)
+            anxietyEverSorted[tasks_picked[0]] = tasks_picked[0];
+        if(category == 1)
+            literacyEverSorted[tasks_picked[1]] = tasks_picked[1];
+        if (category == 2)
+        {
+            if(tasks_picked[2] == 1)
+                climateEverSorted[tasks_picked[2]] = tasks_picked[2];
+            else if(tasks_picked[2] == 2)
+                climateEverSorted[tasks_picked[2]] = tasks_picked[2]+1; // creo una sorta di offset: //1 quiz, 2 fire, 3 fishing etc.
+        }
+        
         task_index++; // task fatta
         tasks_picked[category] = 0; // segno che l'ho fatta
         //EnvironmentControl.instance.update_camera_bool = true; // aggiorno l'environment
