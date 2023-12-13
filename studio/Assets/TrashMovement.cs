@@ -20,11 +20,8 @@ public class TrashMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!collisionFondo)
-        {
-            transform.Translate(Vector2.left * (speed * Time.deltaTime));
-        }
-        else if (transform.position.x < minX || transform.position.y < minY)
+        transform.Translate(Vector2.left * (speed * Time.deltaTime));
+        if (transform.position.x <= minX || transform.position.y <= minY)
         {
             Destroy(gameObject);
         }
@@ -32,7 +29,7 @@ public class TrashMovement : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "Retino")
+        if (collider.gameObject.tag == "Retino" && !collisionFondo)
         {
             Collect.GetInstance().checkforwin();
             Destroy(gameObject);
@@ -40,7 +37,6 @@ public class TrashMovement : MonoBehaviour
         if (collider.gameObject.tag == "Fondo")
         {
             collisionFondo = true;
-            collider.isTrigger = false;
         }
     }
 }

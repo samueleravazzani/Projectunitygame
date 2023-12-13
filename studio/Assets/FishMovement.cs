@@ -9,11 +9,8 @@ public class FishMovement : MonoBehaviour
     public float minX;
     public float mstart;
 
-    public float amplitute = 0.5f;
-
-    public float frequency = 1.0f;
-
     private Vector3 StartPos;
+    public float oscillationRange = 0.7f; // Range of oscillation
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +20,12 @@ public class FishMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float x = Mathf.Sin(Time.time * frequency) * amplitute;
-        float y = Mathf.Sin(Time.time * frequency * 2) * amplitute / 2;
-        transform.Translate((StartPos + new Vector3(x, y, 0) )* speed * Time.deltaTime);
+        float oscillation = Mathf.Sin(Time.time) * oscillationRange;
+        // Move left with a constant speed
+        transform.Translate(Vector3.left* (speed * Time.deltaTime));
+        transform.position=new Vector3(transform.position.x, StartPos.y + oscillation, 0);
+
+        // Oscillate up and down around the initial position
         if (transform.position.x <= minX)
         {
             transform.position = new Vector2(mstart, transform.position.y);

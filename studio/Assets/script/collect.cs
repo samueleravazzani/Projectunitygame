@@ -42,7 +42,7 @@ public class Collect : MonoBehaviour
     public int ymin;
     
     public float xmax=10f;
-    public float xmin=2f;
+    public float xmin=0f;
     
     public int NumFishes=0;
     public int NumTrash =0;

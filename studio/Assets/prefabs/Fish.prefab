@@ -148,6 +148,7 @@ MonoBehaviour:
   speed: 3
   minX: -30
   mstart: 30
+  oscillationRange: 0.5
 --- !u!50 &-2229867724735272473
 Rigidbody2D:
   serializedVersion: 4
