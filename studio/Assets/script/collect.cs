@@ -22,9 +22,9 @@ public class Collect : MonoBehaviour
     
     //retta di calibrazione
     private int x;
-    private int y=5;
-    private float m;
-    private float q;
+    private int y;
+    private float m=7;
+    private float q=43;
     
     //pesci e spazzatura
     public Sprite[] Fishes; 
@@ -78,7 +78,11 @@ public class Collect : MonoBehaviour
     private void Start()
     {
        //retta di calibrazione 
-       
+       x = Mathf.RoundToInt(GameManager.instance.climate_change_skept);
+       Debug.Log("valore ccs: "+ x.ToString());
+       y =Mathf.RoundToInt(m * x + q); //ottengo il valore di punti da prendere per vincere
+       Debug.Log("valore punteggio da ottenere: "+ y.ToString());
+
     }
 
 

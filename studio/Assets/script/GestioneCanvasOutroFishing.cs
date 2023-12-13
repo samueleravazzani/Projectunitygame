@@ -14,13 +14,7 @@ public class GestioneCanvasOutroFishing : MonoBehaviour
     [SerializeField] private Button Retry;
     [SerializeField] private Button Quit;
     [SerializeField] private Button Home;
-    private int vite = 3;
     
-    //retta di calibrazione
-    private int x;
-    private int y;
-    private float m = 2/9f;
-    private float q= 34/9f;
     
     private static GestioneCanvasOutroFishing instance; //creazione dell'istance per il singleton
     
@@ -32,7 +26,7 @@ public class GestioneCanvasOutroFishing : MonoBehaviour
             Debug.LogWarning("find more than one dialogue Manager in the scene");
         }
         instance = this;
-        //DontDestroyOnLoad(this.gameObject);
+        
     }
      
     public static GestioneCanvasOutroFishing GetInstance()
