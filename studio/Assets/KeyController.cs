@@ -3,7 +3,8 @@ using UnityEngine;
 public class KeyController : MonoBehaviour
 {
     public GameObject wall;
-    public MovesCounter movesCounter; 
+    public MovesCounter movesCounter;
+    public ParticleCollisionDetector particleCollisionDetector;
     
     private bool isDragging = false;
     private bool hasCollided = false;
@@ -45,8 +46,10 @@ public class KeyController : MonoBehaviour
             movesCounter.UpdateMovesText();
             movesCounter.hasMoved = true;
             Debug.Log(movesCounter.remainingMoves);
-            if(movesCounter.remainingMoves==0)
+            if (movesCounter.remainingMoves == 0 && particleCollisionDetector.SaveStatus() == false)
+            {
                 movesCounter.Invoke("ShowPopup",1f);
+            }
         }
         
         movesCounter.hasMoved = false;
