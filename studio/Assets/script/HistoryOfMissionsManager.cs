@@ -39,7 +39,26 @@ public class HistoryOfMissionsManager : MonoBehaviour
     {
         minigames.gameObject.SetActive(false);
         // Initially, display the lock image and hide the badge image with counter
-        
+        breathingLockImage.gameObject.SetActive(true);
+        breathingImage.gameObject.SetActive(false);
+        leafLockImage.gameObject.SetActive(true);
+        leafImage.gameObject.SetActive(false);
+        puzzleLockImage.gameObject.SetActive(true);
+        puzzleImage.gameObject.SetActive(false);
+        potionsLockImage.gameObject.SetActive(true);
+        potionsImage.gameObject.SetActive(false);
+        sourceLockImage.gameObject.SetActive(true);
+        sourceImage.gameObject.SetActive(false);
+        quizLockImage.gameObject.SetActive(true);
+        quizImage.gameObject.SetActive(false);
+        firepuzzleLockImage.gameObject.SetActive(true);
+        firepuzzleImage.gameObject.SetActive(false);
+        fishingLockImage.gameObject.SetActive(true);
+        fishingImage.gameObject.SetActive(false);
+        gardeningLockImage.gameObject.SetActive(true);
+        gardeningImage.gameObject.SetActive(false);
+        tetrisLockImage.gameObject.SetActive(true);
+        tetrisImage.gameObject.SetActive(false);
         
     }
 
