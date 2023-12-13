@@ -117,8 +117,11 @@ public class Collect : MonoBehaviour
             random = UnityEngine.Random.Range(0, 100);
             if (random >= 40)
             {
+                if (NumFishes <= Trashold)
+                {
                     yield return new WaitForSeconds(UnityEngine.Random.Range(1f, 2f));
                     FishInstantiator();
+                }
             }
 
             yield return null;
