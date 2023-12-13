@@ -595,12 +595,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Oh no, wrong button pressed
+  m_text: 'Oh no, wrong button pressed!
 
     What do you want to do?'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9f2ae776bc624f143945bc1ac5690e53, type: 2}
-  m_sharedMaterial: {fileID: 4678962729701240233, guid: 9f2ae776bc624f143945bc1ac5690e53, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c377b15a7b0884ac584d92427c372ec5, type: 2}
+  m_sharedMaterial: {fileID: 1615715506258409819, guid: c377b15a7b0884ac584d92427c372ec5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1300,12 +1300,12 @@ RectTransform:
   m_Children:
   - {fileID: 339991071}
   - {fileID: 1092146625}
-  - {fileID: 1218935132}
   - {fileID: 1956723005}
   - {fileID: 1422460602}
   - {fileID: 1881631717}
   - {fileID: 1847394471}
   - {fileID: 1417825241}
+  - {fileID: 1218935132}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2354,7 +2354,7 @@ RectTransform:
   m_GameObject: {fileID: 1417825240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 709071867}
@@ -2429,7 +2429,7 @@ RectTransform:
   m_GameObject: {fileID: 1422460601}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 709071867}
@@ -2671,7 +2671,7 @@ RectTransform:
   m_GameObject: {fileID: 1847394470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 709071867}
@@ -2746,7 +2746,7 @@ RectTransform:
   m_GameObject: {fileID: 1881631716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 709071867}
@@ -2979,12 +2979,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Oh no,  leaf missed
+  m_text: 'Oh no,  leaf missed!
 
     What do you want to do?'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9f2ae776bc624f143945bc1ac5690e53, type: 2}
-  m_sharedMaterial: {fileID: 4678962729701240233, guid: 9f2ae776bc624f143945bc1ac5690e53, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c377b15a7b0884ac584d92427c372ec5, type: 2}
+  m_sharedMaterial: {fileID: 1615715506258409819, guid: c377b15a7b0884ac584d92427c372ec5, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3298,7 +3298,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 80}
+  m_AnchoredPosition: {x: 0, y: 85}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2100362511
@@ -3321,9 +3321,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Just as you've found peace in the music, remember that small moments of
-    calm can make a big difference in managing anxiety. Use this rhythm as a tool
-    for relaxation in your everyday life.
+  m_text: 'Just as you''ve found peace in the music, remember that small moments
+    of calm can make a big difference in managing anxiety.
+
+    Use this rhythm as
+    a tool for relaxation in your everyday life.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c377b15a7b0884ac584d92427c372ec5, type: 2}
   m_sharedMaterial: {fileID: 1615715506258409819, guid: c377b15a7b0884ac584d92427c372ec5, type: 2}
@@ -3386,7 +3388,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -14.689789, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
