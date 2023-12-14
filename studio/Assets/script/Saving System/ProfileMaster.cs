@@ -109,9 +109,11 @@ public class ProfileMaster : MonoBehaviour
        if (found)
        {
            DeletePrefs(name_to_delete); //Cancella PrefsPuzzleGame
+           Debug.Log("Name to delete: " + name_to_delete);
+           GameManager.instance.DeletePublicInfoProfiles(name_to_delete); //rimuovo il suo n di mondi salvati e il suo salvataggio prima di rimuovere il profilo
            GameManager.instance.profileNames.Remove(name_to_delete); //Rimuove dall'elenco dei giocatori
            SaveSystem.DeleteFile(name_to_delete); // Cancella il profilo
-           GameManager.instance.SaveProfileList(); // Salva l'elenco nuovo dei giocatori
+           GameManager.instance.DeletePublicInfoProfiles(name_to_delete); // Salva l'elenco nuovo dei giocatori
            SceneManager.LoadScene("Profiles");
        }
        else
@@ -158,16 +160,40 @@ public class ProfileMaster : MonoBehaviour
         create.gameObject.SetActive(false);
         delete.gameObject.SetActive(false);
         warning.gameObject.SetActive(false);
+        
+        // carico i PROFILI
         string profiles = SaveSystem.Load("profiles");
         if (profiles == null)
         {
             return;
         }
         
-        // else: finisce
+        // else: finisce (se non ci sono profili da caricare
         string[] array = JsonUtility.FromJson<Serialization<string>>(profiles).ToArray();
         if(array != null)
             GameManager.instance.profileNames = new List<string>(array);
+        
+        // carico gli N
+        string n = SaveSystem.Load("n_worldS_Saved");
+        if (n != null)
+        {
+            // else: finisce
+            int[] narray = JsonUtility.FromJson<Serialization<int>>(n).ToArray();
+            if(array != null)
+                GameManager.instance.n_worldS_Saved = new List<int>(narray);
+        }
+        
+        // carico i saving times
+        string ns = SaveSystem.Load("saving_Times");
+        if (ns != null)
+        {
+            // else: finisce
+            DateTime[] nsarray = JsonUtility.FromJson<Serialization<DateTime>>(ns).ToArray();
+            if(array != null)
+                GameManager.instance.saving_Times = new List<DateTime>(nsarray);
+        }
+        
+        
 
         /* // OLD serialization
         Serialization<string> prof = JsonUtility.FromJson<Serialization<string>>(profiles);
@@ -184,8 +210,31 @@ public class ProfileMaster : MonoBehaviour
             Debug.Log(name);
             //todo fixare la posizione dei bottoni instantiati
             Button button = Instantiate(profile_prefab, scrollView_Content);
-            button.GetComponentInChildren<TextMeshProUGUI>().text = name;
-            button.transform.SetParent(scrollView_Content, false);
+            button.transform.Find("Name").GetComponentInChildren<TextMeshProUGUI>().text = name; // set name
+            button.transform.SetParent(scrollView_Content, false); // set parent (scrollView)
+            if (n != null)
+            {
+                button.transform.Find("N").GetComponent<TextMeshProUGUI>().text =
+                    GameManager.instance.n_worldS_Saved[i].ToString(); // set n_world_saved
+            }
+            else
+            {
+                button.transform.Find("N").GetComponent<TextMeshProUGUI>().text =
+                    "NaN";
+            }
+
+            if (ns != null)
+            {
+                button.transform.Find("SavingTime").GetComponent<TextMeshProUGUI>().text =
+                    GameManager.instance.saving_Times[i].ToString("g"); // set n_world_saved
+            }
+            else
+            {
+                button.transform.Find("SavingTime").GetComponent<TextMeshProUGUI>().text =
+                    "Unknown";
+            }
+
+            // rendilo cliccabile
             SelectProfile selectProfile = button.GetComponent<SelectProfile>();
             button.onClick.AddListener(selectProfile.LoadProfile);
 
