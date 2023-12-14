@@ -96,8 +96,12 @@ public class Collect : MonoBehaviour
        Debug.Log("valore ccs: "+ x.ToString());
        y =Mathf.RoundToInt(m * x + q); //ottengo il valore di punti da prendere per vincere
        Debug.Log("valore punteggio da ottenere: "+ y.ToString());*/
-        
 
+
+        //Rende il cursore del mouse invisibile. per farlo avvenire devi essere in modalità playmode
+        //per farlo devi fare doppio click sullo schermo di gioco.
+        Cursor.visible = false;
+        
         //SUDDIVISIONE DELL'OBIETTIVO
         y = 12; //questo è per debug
         Debug.Log("valore y: "+ y.ToString());
@@ -211,6 +215,7 @@ public class Collect : MonoBehaviour
         if (score == y)
         { 
             win = true;
+            Cursor.visible = true;
             LevelLoader.GetInstance().distruzione();// distuggo gli oggetti in scena
            GestioneCanvasOutroFishing.GetInstance().win();
         }
@@ -226,6 +231,7 @@ public class Collect : MonoBehaviour
         if (miss == vite)
         {
             lose = true;
+            Cursor.visible = true;
             LevelLoader.GetInstance().distruzione();// distuggo gli oggetti in scena
             GestioneCanvasOutroFishing.GetInstance().lose();
         }
