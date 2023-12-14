@@ -14,6 +14,7 @@ public class EnvironmentControl : MonoBehaviour
     public ParticleSystem pollution; // 3
     public ParticleSystem air; // 4
     public ParticleSystem rain; // 4
+    public ParticleSystem fireworks;
     public Transform Environment_effects;
     
     // vettore di colori
@@ -64,6 +65,7 @@ public class EnvironmentControl : MonoBehaviour
         if (GameManager.instance.task_index == 3)
         {
             GameManager.instance.problem_now = 0; // tutto a posto
+            StartCoroutine(Fireworks());
         }
         
         UpdateEnvironment();
@@ -113,9 +115,15 @@ public class EnvironmentControl : MonoBehaviour
         rain.gameObject.SetActive(false);
         air.gameObject.SetActive(false);
         pollution.gameObject.SetActive(false);
-        
+        fireworks.gameObject.SetActive(false);
     }
-    
+
+    IEnumerator Fireworks()
+    {
+        fireworks.gameObject.SetActive(true);
+        yield return new WaitForSeconds(40.0f);
+        fireworks.gameObject.SetActive(false);
+    }
 
     private void CameraAnxiety(float level) // changes saturation
     {
