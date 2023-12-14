@@ -28,8 +28,8 @@ public class WaterTetris : MonoBehaviour
     private float calibrationwaterspawn = 7 / 9f, min = 15;
     
     private int min_x_houses, max_x_houses = TetrisBlock.width; /* PARAMETRIZATION!!!!!!!!!!*/
-    public float calibrationhouses = -5 / 9f;
-    public int yminhouses = 35;
+    private float calibrationhouses = -5 / 9f;
+    private int yminhouses = 35;
     
     public bool ingame;
     public ParticleSystem rain;
@@ -56,7 +56,7 @@ public class WaterTetris : MonoBehaviour
         max_water_spawn_width = Mathf.RoundToInt(GameManager.instance.climate_change_skept * calibrationwaterspawn +
             min - calibrationwaterspawn);
         min_x_houses = Mathf.RoundToInt(GameManager.instance.climate_change_skept * calibrationhouses +
-            max_water_spawn_width+12 - calibrationhouses);
+            max_water_spawn_width+15 - calibrationhouses);
         
         success.gameObject.SetActive(false);
         fail.gameObject.SetActive(false);
