@@ -59,7 +59,6 @@ public class HistoryOfMissionsManager : MonoBehaviour
         gardeningImage.gameObject.SetActive(false);
         tetrisLockImage.gameObject.SetActive(true);
         tetrisImage.gameObject.SetActive(false);
-        
     }
 
     //lOGIC TO HANDLE THE BUTTONS TO SHOW AND HIDE THE OANELBADGE 
@@ -97,7 +96,6 @@ public class HistoryOfMissionsManager : MonoBehaviour
                         breathingLockImage.gameObject.SetActive(false);
                         breathingImage.gameObject.SetActive(true);
                     }
-                    
                 break;
                 case 2: // Leaf
                      if (true) // prima implementazione senza counter
@@ -105,7 +103,6 @@ public class HistoryOfMissionsManager : MonoBehaviour
                          leafLockImage.gameObject.SetActive(false);
                          leafImage.gameObject.SetActive(true);
                      }
-                    
                     break;
                 case 3: // Word puzzle
                     if (true) // prima implementazione senza counter
@@ -114,7 +111,6 @@ public class HistoryOfMissionsManager : MonoBehaviour
                         puzzleImage.gameObject.SetActive(true);
                     }
                     break;
-                
                 default:
                     Debug.LogWarning("Invalid variable name: " + mg);
                     break;
