@@ -138,9 +138,6 @@ public class HistoryOfMissionsManager : MonoBehaviour
                         
                      break;
                  
-                 default:
-                     Debug.LogWarning("Invalid variable name: " + mg);
-                     break;
              }
          }
          // climate
@@ -185,10 +182,7 @@ public class HistoryOfMissionsManager : MonoBehaviour
                          tetrisImage.gameObject.SetActive(true);
                      }
                      break;
-                    
-                 default:
-                     Debug.LogWarning("Invalid variable name: " + mg);
-                     break;
+                
              }
          }
              
