@@ -10,13 +10,9 @@ public class TrashMovement : MonoBehaviour
     private float minY = -7f;
 
     private bool collisionFondo;
+   
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
@@ -34,9 +30,15 @@ public class TrashMovement : MonoBehaviour
             Collect.GetInstance().checkforwin();
             Destroy(gameObject);
         }
-        if (collider.gameObject.tag == "Fondo")
+        if ( collider.gameObject.tag == "Fondo")
         {
-            collisionFondo = true;
+            Debug.Log("collisione trash-fondo");
+            collisionFondo = true; 
+            if (Collect.GetInstance().level == 3)
+            {
+                Debug.Log("collisione livello 3");
+                Collect.GetInstance().checkforlose();
+            }
         }
     }
 }
