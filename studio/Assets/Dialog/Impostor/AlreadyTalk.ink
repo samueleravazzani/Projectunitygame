@@ -1,2 +1,2 @@
-{~You have already talk to me, go to someone else|I had a nice conversation with you!|You know a lot of stuff!|Have you already met the other hosts?}
+{~You already talked to me, go around to meet someone else.|I had a nice conversation with you!|You know a lot of stuff!}
 ->END

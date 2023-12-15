@@ -2,12 +2,12 @@
 
 //file JSON indice dispari
 ===main===
-True or False:Using your smartphone while it's charging can lead to an explosion.
-According to an urban legend circulating on social media, charging your phone and using it simultaneously poses a serious explosion risk.
+True or False: Using your smartphone while it's charging can lead to an explosion.
+According to an urban legend circulating on social media, using your phone while it’s charging poses a serious risk of explosion.
     + [True]
-        Incorrect,->answer
+        Incorrect. ->answer
     +[False]
-        Correct,->answer
+        Correct! ->answer
 
 
 ===answer===

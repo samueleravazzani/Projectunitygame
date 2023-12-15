@@ -4,9 +4,9 @@
 ===main===
 True or False: Digital health literacy includes the ability to critically evaluate online health information.
     + [True]
-        Correct,->answer
+        Correct! ->answer
     +[False]
-        Incorrect,->answer
+        Incorrect. ->answer
 
 
 ===answer===

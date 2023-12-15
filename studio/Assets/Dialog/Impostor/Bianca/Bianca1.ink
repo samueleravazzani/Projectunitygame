@@ -4,9 +4,9 @@
 ===main===
 True or False: Telemedicine refers exclusively to video consultations between doctors and patients.
     + [True]
-        Incorrect,->answer
+        Incorrect. ->answer
     +[False]
-        Correct,->answer
+        Correct! ->answer
 
 
 ===answer===

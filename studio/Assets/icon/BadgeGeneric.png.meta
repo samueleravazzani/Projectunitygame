@@ -152,7 +152,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BadgeGeneric_0: -8341883513551842304
+      BadgeGeneric_1: 4743492806424779
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -4,9 +4,9 @@
 ===main===
 Ordering medication is the primary purpose of a "health chatbot" in digital health applications.
     + [True]
-        Incorrect,->answer
+        Incorrect. ->answer
     +[False]
-        Correct,->answer
+        Correct! ->answer
 
 
 ===answer===

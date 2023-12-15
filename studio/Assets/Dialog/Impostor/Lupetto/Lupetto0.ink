@@ -2,11 +2,11 @@
 
 //file JSON indice pari
 ===main===
-True or False: "Telemonitoring" involves the use of wearable devices to track and transmit health data to healthcare providers.
+True or False: "Telemonitoring" involves using wearable devices to track and transmit health data to healthcare providers.
     + [True]
-        Correct,->answer
+        Correct! ->answer
     +[False]
-        Incorrect,->answer
+        Incorrect.->answer
 
 
 ===answer===

@@ -1,4 +1,4 @@
-{~Bathroom is occopied!|The castle is so big, you can loose yourself|I love the pictures on the wall, did you see them?}
+{~Bathroom is occupied!|The castle is so big that you can loose yourself.|I love pictures on the wall; have a look to them.}
 
 
 

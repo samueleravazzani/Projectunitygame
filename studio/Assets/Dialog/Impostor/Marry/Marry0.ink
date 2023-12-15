@@ -1,4 +1,4 @@
-{~You are doing great!|there are so many hosts you can talk to!|This castle is amazing!|Did you talk with the guard outside the castle?}
+{~You are doing great!|There are so many hosts you can talk to!|This castle is amazing!}
 
 
 ->END
