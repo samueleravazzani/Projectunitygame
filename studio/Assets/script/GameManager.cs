@@ -174,10 +174,10 @@ public class GameManager : MonoBehaviour
                     plasticCounter++;
                     break;
                 case 3:
-                    waterCounter++;
+                    airCounter++;
                     break;
                 case 4:
-                    airCounter++;
+                    waterCounter++;
                     break;
                 default:
                     Debug.Log("Problem now value not found");
