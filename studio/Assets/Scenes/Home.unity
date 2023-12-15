@@ -7628,6 +7628,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3554218140442809946, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.88
+      objectReference: {fileID: 0}
     - target: {fileID: 3839760512362655460, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
       propertyPath: category
       value: 0
@@ -7652,6 +7656,10 @@ PrefabInstance:
       propertyPath: playerposition.y
       value: 1.35
       objectReference: {fileID: 0}
+    - target: {fileID: 4025452671855359488, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.16
+      objectReference: {fileID: 0}
     - target: {fileID: 4274930863863176210, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
       propertyPath: m_Size.x
       value: 2.9074473
@@ -7666,12 +7674,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4274930863863176210, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
       propertyPath: m_Offset.y
-      value: 0.34502316
+      value: 3.9
       objectReference: {fileID: 0}
     - target: {fileID: 7097367790852717407, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      objectReference: {fileID: 4411595758359705710, guid: a72e57a1a0ede81429df2dcba2a21327, type: 2}
     - target: {fileID: 8260749620247352412, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.6054335
