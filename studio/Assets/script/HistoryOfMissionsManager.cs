@@ -111,9 +111,7 @@ public class HistoryOfMissionsManager : MonoBehaviour
                         puzzleImage.gameObject.SetActive(true);
                     }
                     break;
-                default:
-                    Debug.LogWarning("Invalid variable name: " + mg);
-                    break;
+              
             }
         }
          // literacy

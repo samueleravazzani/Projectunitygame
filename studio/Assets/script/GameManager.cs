@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     // per il managing dei profiles
     public List<string> profileNames = new List<string>();
     public List<int> n_worldS_Saved = new List<int>(); //todo
-    public List<DateTime> saving_Times = new List<DateTime>();
+    public List<string> saving_Times = new List<string>();
     public bool profile_created = false;
 
     // parameters that control environment effects
@@ -96,8 +96,9 @@ public class GameManager : MonoBehaviour
             profileNames.Add(profile); // aggiunto il profilo
             n_world_saved = 0;
             n_worldS_Saved.Add(n_world_saved); // aggiungo quanti mondi ha salvato
-            saving_Times.Add(DateTime.Now); // aggiungo l'il primo salvataggio
+            saving_Times.Add(DateTime.Now.ToString("g")); // aggiungo l'il primo salvataggio
             SaveProfileList();
+            SavePublicInfoProfiles();
             profile_created = true;
             oldanxiety = anxiety;
             oldliteracy = literacy_inverted;
@@ -267,6 +268,7 @@ public class GameManager : MonoBehaviour
         string json = JsonUtility.ToJson(saveObject);
         SaveSystem.Save(profile, json); // passo il profilo + i dati
         SavePublicInfoProfiles();
+        SavePublicInfoProfiles();
     }
 
     public void Load(string profile)
@@ -394,9 +396,9 @@ public class GameManager : MonoBehaviour
         SaveSystem.Save("n_worldS_Saved", json1);
         
         // salvo l'ultimo salvataggio
-        saving_Times[index] = DateTime.Now;
-        DateTime[] array2 = saving_Times.ToArray();
-        string json2 = JsonUtility.ToJson(new Serialization<DateTime>(array2));
+        saving_Times[index] = DateTime.Now.ToString("g");
+        string[] arrays = saving_Times.ToArray();
+        string json2 = JsonUtility.ToJson(new Serialization<string>(arrays));
         SaveSystem.Save("saving_Times", json2);
     }
     
@@ -405,21 +407,28 @@ public class GameManager : MonoBehaviour
         // trovo l'indice corrispondente
         int index = profileNames.FindIndex(x => x == name_to_delete);
         Debug.Log(index);
-        if (index >= 0+5) // l'elemento esiste
+        if (index >= 0) // l'elemento esiste
         {
             // salvo il numero di mondi salvati
             n_worldS_Saved.RemoveAt(index);
-            int[] array1 = n_worldS_Saved.ToArray();
-            string json1 = JsonUtility.ToJson(new Serialization<int>(array1));
-            SaveSystem.Save("n_worldS_Saved", json1);
-
-
+            
             // salvo l'ultimo salvataggio
             saving_Times.RemoveAt(index);
-            DateTime[] array2 = saving_Times.ToArray();
-            string json2 = JsonUtility.ToJson(new Serialization<DateTime>(array2));
-            SaveSystem.Save("n_worldS_Saved", json2);
+            
+            SavePublicInfoProfiles();
         }
+    }
+
+
+    public string[] SerializeDateTime(List<DateTime> list)
+    {
+        string[] timesStrings = new string[list.Count];
+        for(int i=0; i<list.Count; i++)
+        {
+            timesStrings[i] = list[i].ToString("g");
+        }
+
+        return timesStrings;
     }
     
     
@@ -440,7 +449,13 @@ public class GameManager : MonoBehaviour
             return array;
         }
     }
-    
+
+    [Serializable]
+    private class DateTimeWrapper
+    {
+        public DateTime[] dateTimeArray;
+    }
+
     /*
     [System.Serializable]
     public class Serialization<T>

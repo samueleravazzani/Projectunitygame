@@ -35,6 +35,13 @@ public class ProfileMaster : MonoBehaviour
         }
 
         instance = this;
+        //IN CASO DI EMERGENCY PER CANCELLARE TUTTO
+        /*SaveSystem.DeleteFile("profiles");
+         
+        SaveSystem.DeleteFile("n_worldS_Saved");
+        SaveSystem.DeleteFile("saving_Times");
+        SaveSystem.DeleteFile("prova");*/
+        
     }
 
     private void Start()
@@ -58,7 +65,7 @@ public class ProfileMaster : MonoBehaviour
        newname = input.GetComponentInChildren<TMP_InputField>().text;
        foreach (string name in GameManager.instance.profileNames)
        {
-           if (newname == "profiles")
+           if (newname == "") // todo
            {
                Debug.Log("Name not usable");
                StartCoroutine(NameNotUsable());
@@ -113,7 +120,8 @@ public class ProfileMaster : MonoBehaviour
            GameManager.instance.DeletePublicInfoProfiles(name_to_delete); //rimuovo il suo n di mondi salvati e il suo salvataggio prima di rimuovere il profilo
            GameManager.instance.profileNames.Remove(name_to_delete); //Rimuove dall'elenco dei giocatori
            SaveSystem.DeleteFile(name_to_delete); // Cancella il profilo
-           GameManager.instance.DeletePublicInfoProfiles(name_to_delete); // Salva l'elenco nuovo dei giocatori
+           GameManager.instance.SaveProfileList(); // Salva l'elenco nuovo dei giocatori
+           GameManager.instance.SavePublicInfoProfiles(); // salvo le corrispettive
            SceneManager.LoadScene("Profiles");
        }
        else
@@ -168,7 +176,7 @@ public class ProfileMaster : MonoBehaviour
             return;
         }
         
-        // else: finisce (se non ci sono profili da caricare
+        // else: finisce (se non ci sono profili da caricare)
         string[] array = JsonUtility.FromJson<Serialization<string>>(profiles).ToArray();
         if(array != null)
             GameManager.instance.profileNames = new List<string>(array);
@@ -179,18 +187,30 @@ public class ProfileMaster : MonoBehaviour
         {
             // else: finisce
             int[] narray = JsonUtility.FromJson<Serialization<int>>(n).ToArray();
-            if(array != null)
+            if (narray != null)
+            {
                 GameManager.instance.n_worldS_Saved = new List<int>(narray);
+                Debug.Log("narray is not tull");
+            }
+            else
+            {
+                Debug.Log("narray is null");
+            }
+
         }
         
         // carico i saving times
         string ns = SaveSystem.Load("saving_Times");
         if (ns != null)
         {
+            Debug.Log("saving_");
             // else: finisce
-            DateTime[] nsarray = JsonUtility.FromJson<Serialization<DateTime>>(ns).ToArray();
-            if(array != null)
-                GameManager.instance.saving_Times = new List<DateTime>(nsarray);
+            string[] nsstring = JsonUtility.FromJson<Serialization<string>>(ns).ToArray();
+            GameManager.instance.saving_Times = new List<string>(nsstring);
+        }
+        else
+        {
+            Debug.Log("not found");
         }
         
         
@@ -212,26 +232,36 @@ public class ProfileMaster : MonoBehaviour
             Button button = Instantiate(profile_prefab, scrollView_Content);
             button.transform.Find("Name").GetComponentInChildren<TextMeshProUGUI>().text = name; // set name
             button.transform.SetParent(scrollView_Content, false); // set parent (scrollView)
-            if (n != null)
+            if (GameManager.instance.n_worldS_Saved.Count !=0)
             {
-                button.transform.Find("N").GetComponent<TextMeshProUGUI>().text =
-                    GameManager.instance.n_worldS_Saved[i].ToString(); // set n_world_saved
+                if (!string.IsNullOrEmpty(GameManager.instance.n_worldS_Saved[i].ToString()))
+                {
+                    button.transform.Find("N").GetComponent<TextMeshProUGUI>().text =
+                        GameManager.instance.n_worldS_Saved[i].ToString(); // set n_world_saved
+                }
+                else
+                {
+                    button.transform.Find("N").GetComponent<TextMeshProUGUI>().text =
+                        "NaN";
+                }
             }
-            else
+            
+            
+            if (GameManager.instance.saving_Times.Count !=0)
             {
-                button.transform.Find("N").GetComponent<TextMeshProUGUI>().text =
-                    "NaN";
-            }
-
-            if (ns != null)
-            {
-                button.transform.Find("SavingTime").GetComponent<TextMeshProUGUI>().text =
-                    GameManager.instance.saving_Times[i].ToString("g"); // set n_world_saved
-            }
-            else
-            {
-                button.transform.Find("SavingTime").GetComponent<TextMeshProUGUI>().text =
-                    "Unknown";
+                
+                
+                if (!string.IsNullOrEmpty(GameManager.instance.saving_Times[i]))
+                {
+                    Debug.Log(i);
+                    button.transform.Find("SavingTime").GetComponent<TextMeshProUGUI>().text =
+                        GameManager.instance.saving_Times[i]; // set n_world_saved
+                }
+                else
+                {
+                    button.transform.Find("SavingTime").GetComponent<TextMeshProUGUI>().text =
+                        "Unknown";
+                }
             }
 
             // rendilo cliccabile
@@ -295,6 +325,12 @@ public class ProfileMaster : MonoBehaviour
             Debug.Log(Random.Range(1, 3+1).ToString());
             yield return new WaitForSeconds(1f);
         }
+    }
+
+    [Serializable]
+    private class DateTimeWrapper
+    {
+        public DateTime[] dateTimeArray;
     }
 
     
