@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PompaAntincendio_0: 7873648820520055212
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
