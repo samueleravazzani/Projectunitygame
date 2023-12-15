@@ -9,8 +9,8 @@ public class BackgroundMovement : MonoBehaviour
 {
     public float speed;
 
-    private float minX=-14.8f;
-    private float mstart=20.58f;
+    private float minX=-17.96f;
+    private float mstart=17.96f;
     
     private void Update()
     {
