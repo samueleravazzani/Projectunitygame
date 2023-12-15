@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
             profileNames.Add(profile); // aggiunto il profilo
             n_world_saved = 0;
             n_worldS_Saved.Add(n_world_saved); // aggiungo quanti mondi ha salvato
-            saving_Times.Add(DateTime.Now.ToString("g")); // aggiungo l'il primo salvataggio
+            saving_Times.Add(DateTime.Now.ToString("dd/MM/yyyy HH:mm")); // aggiungo l'il primo salvataggio
             SaveProfileList();
             SavePublicInfoProfiles();
             profile_created = true;
@@ -396,7 +396,7 @@ public class GameManager : MonoBehaviour
         SaveSystem.Save("n_worldS_Saved", json1);
         
         // salvo l'ultimo salvataggio
-        saving_Times[index] = DateTime.Now.ToString("g");
+        saving_Times[index] = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
         string[] arrays = saving_Times.ToArray();
         string json2 = JsonUtility.ToJson(new Serialization<string>(arrays));
         SaveSystem.Save("saving_Times", json2);
@@ -425,7 +425,7 @@ public class GameManager : MonoBehaviour
         string[] timesStrings = new string[list.Count];
         for(int i=0; i<list.Count; i++)
         {
-            timesStrings[i] = list[i].ToString("g");
+            timesStrings[i] = list[i].ToString("dd/MM/yyyy HH:mm");
         }
 
         return timesStrings;
