@@ -64,8 +64,5 @@ public class CameraSwitcher : MonoBehaviour
         diamondCircle.gameObject.SetActive(isCamera1Active);
         // Inverti lo stato della telecamera attiva
         isCamera1Active = !isCamera1Active;
-        
-        Debug.Log(SceneManager.GetActiveScene().name);
-        Debug.Log(isCamera1Active.ToString());
     }
 }
