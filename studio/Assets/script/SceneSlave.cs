@@ -17,7 +17,7 @@ public class SceneSlave : MonoBehaviour
     private void Start()
     {
         // se l'elemento category del vettore tasks_picked (= la task di questa categoria) combacia con quello di questo teleport
-        if (GameManager.instance.tasks_picked[category] == minigame_int && GameManager.instance.task_index<3)
+        if (GameManager.instance.tasks_picked[category] == minigame_int && GameManager.instance.task_index<3 || (scenetoload == "Home" && GameManager.instance.questionnairedone))
         {
             // se questo teleport è per un problema specifico che combacia con questo
             if (category == 2 && GameManager.instance.problem_now == problemspecific)
@@ -94,7 +94,7 @@ public class SceneSlave : MonoBehaviour
             {
                 var spriteRenderer = transform.Find("MainMapCircle").GetComponent<SpriteRenderer>();
                 Color newColor = spriteRenderer.color;
-                newColor.a = 170;
+                newColor.a = 140;
                 spriteRenderer.color = newColor;
             }
             else

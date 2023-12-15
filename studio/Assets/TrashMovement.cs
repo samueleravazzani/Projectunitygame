@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,11 +11,15 @@ public class TrashMovement : MonoBehaviour
     private float minY = -7f;
 
     private bool collisionFondo;
+    private BoxCollider2D trashcollider;
     
-    // Start is called before the first frame update
-    void Start()
+    
+    
+    //start
+
+    private void Start()
     {
-        
+        trashcollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -34,9 +39,16 @@ public class TrashMovement : MonoBehaviour
             Collect.GetInstance().checkforwin();
             Destroy(gameObject);
         }
-        if (collider.gameObject.tag == "Fondo")
+        if ( collider.gameObject.tag == "Fondo")
         {
+            Debug.Log("collisione trash-fondo");
             collisionFondo = true;
+            trashcollider.isTrigger = false;
+            if (Collect.GetInstance().level == 3)
+            {
+                Debug.Log("collisione livello 3");
+                Collect.GetInstance().checkforlose();
+            }
         }
     }
 }
