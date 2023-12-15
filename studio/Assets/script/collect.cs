@@ -15,7 +15,7 @@ public class Collect : MonoBehaviour
     
     //variabili per tenere traccia del punteggio
     private int score= 0;
-    private int miss = 0;
+    public int miss = 0;
     private int vite=3;
     //Canvas per tenere traccia del punteggio
     [SerializeField] private TextMeshProUGUI ScoreText;
