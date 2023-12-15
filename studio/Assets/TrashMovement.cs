@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class TrashMovement : MonoBehaviour
 {
-    public float speed;
+    private float speed=2.5f;
     private float minX = -12f;
     private float maxX = 7f;
     private float minY = -7f;
 
     private bool collisionFondo;
     private BoxCollider2D trashcollider;
+
+    private int level;
+    private Rigidbody2D gravity;
     
     
     
@@ -20,6 +23,29 @@ public class TrashMovement : MonoBehaviour
     private void Start()
     {
         trashcollider = GetComponent<BoxCollider2D>();
+        level = Collect.GetInstance().level;
+        gravity=GetComponent<Rigidbody2D>();
+        
+        
+        switch (level)
+        {
+            case 1:
+            {
+                gravity.gravityScale = 0.1f;
+                break;
+            }
+            case 2:
+            {
+                gravity.gravityScale = 0.2f;
+                break;
+            }
+            case 3:
+            {
+                gravity.gravityScale = 0.3f;
+                break;
+            }
+        }
+
     }
 
     // Update is called once per frame

@@ -43,6 +43,7 @@ public class GestioneCanvasOutroFishing : MonoBehaviour
 
     public void win()
     {
+        LevelLoader.GetInstance().distruzione();
         OutroText.text = "Congratulation, you win!";
         Retry.gameObject.SetActive(false);
         Quit.gameObject.SetActive(false);
@@ -52,6 +53,7 @@ public class GestioneCanvasOutroFishing : MonoBehaviour
 
     public void lose()
     {
+        LevelLoader.GetInstance().distruzione();
         OutroText.text = "Oh no, you lose!.";
         Home.gameObject.SetActive(false);
         OutroCanvas.enabled = true;
