@@ -153,7 +153,7 @@ MonoBehaviour:
     - C
   - Size: 13
     Row:
-    - Z
+    - P
     - Y
     - O
     - Z
@@ -168,7 +168,7 @@ MonoBehaviour:
     - E
   - Size: 13
     Row:
-    - E
+    - U
     - P
     - P
     - X
@@ -183,7 +183,7 @@ MonoBehaviour:
     - A
   - Size: 13
     Row:
-    - N
+    - P
     - P
     - Y
     - Z
@@ -220,8 +220,6 @@ MonoBehaviour:
     Word: BREATHE
   - Found: 1
     Word: CONTROL
-  - Found: 1
-    Word: ZEN
   - Found: 1
     Word: DO
   - Found: 1

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ButtonState1 : MonoBehaviour
+public class ButtonState_CCF1 : MonoBehaviour
 {
     public GameObject buttonToActivate;
     public GameObject buttonToDeactivate;
@@ -10,8 +10,8 @@ public class ButtonState1 : MonoBehaviour
     {
         buttonToDeactivate.SetActive(true);
         buttonToActivate.SetActive(false);
-        int currentState = ButtonState.GetButtonState();
-        if (currentState==1)
+        int currentState_CCF = ButtonState_CCF.GetButtonState_CCF();
+        if (currentState_CCF==1)
         {
             buttonToDeactivate.SetActive(false);
             buttonToActivate.SetActive(true);

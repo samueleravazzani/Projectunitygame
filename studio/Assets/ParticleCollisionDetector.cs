@@ -40,7 +40,7 @@ public class ParticleCollisionDetector : MonoBehaviour
                 fireSystem.SetActive(false);
                 wall31.SetActive(false);
                 particleSystem.gameObject.SetActive(false);
-                SceneManager.LoadScene("Climate_Change_Fuoco"); 
+                SceneManager.LoadScene("OutroCCF"); 
 
             }
         }
