@@ -36,11 +36,10 @@ public class ProfileMaster : MonoBehaviour
 
         instance = this;
         //IN CASO DI EMERGENCY PER CANCELLARE TUTTO
-        /*SaveSystem.DeleteFile("profiles");
-         
+        /*SaveSystem.DeleteFile("profiles");         
         SaveSystem.DeleteFile("n_worldS_Saved");
         SaveSystem.DeleteFile("saving_Times");
-        SaveSystem.DeleteFile("prova");*/
+        SaveSystem.DeleteFile("provissima"); */
         
     }
 
@@ -204,9 +203,11 @@ public class ProfileMaster : MonoBehaviour
         if (ns != null)
         {
             Debug.Log("saving_");
-            // else: finisce
             string[] nsstring = JsonUtility.FromJson<Serialization<string>>(ns).ToArray();
-            GameManager.instance.saving_Times = new List<string>(nsstring);
+            if(nsstring!=null)
+            {
+                GameManager.instance.saving_Times = new List<string>(nsstring);
+            }
         }
         else
         {
