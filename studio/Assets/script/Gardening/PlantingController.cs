@@ -40,10 +40,10 @@ public class PlantingController : MonoBehaviour
     private Vector3Int CentreTilePosition;
     private int x; //valore di ccs per la retta di calibrazione
     private int y; //valore delle piante che il player deve riuscire a piantare
-    private int m = 3; //coefficiente angolare della retta da me calcolata; voglio che il  massimo
+    private float m = 25/9f; //coefficiente angolare della retta da me calcolata; voglio che il  massimo
     //di piante da piantare sia 78 e il minimo 51, più sei scettico (valore CCs più alto, più piante 
     //dovrai piantare.
-    private int q = 48;//intercetta da me calcolata secondo i parametri precedenti
+    private float q = 200/9f;//intercetta da me calcolata secondo i parametri precedenti
     private int vite = 3;
     private bool lose;
     private bool win;
@@ -55,7 +55,7 @@ public class PlantingController : MonoBehaviour
         OutroCanvas.enabled = false;
         x = Mathf.RoundToInt(GameManager.instance.climate_change_skept);
         Debug.Log("valore ccs: "+ x.ToString());
-        y = m * x + q; //ottengo il valore di punti da prendere per vincere
+        y = Mathf.RoundToInt(m * x + q); //ottengo il valore di punti da prendere per vincere
         Debug.Log("valore punteggio: "+ y.ToString());
     }
 
