@@ -94,15 +94,15 @@ public class SceneSlave : MonoBehaviour
             {
                 var spriteRenderer = transform.Find("MainMapCircle").GetComponent<SpriteRenderer>();
                 Color newColor = spriteRenderer.color;
-                newColor.a = 140;
-                spriteRenderer.color = newColor;
+                newColor.a = 0.75f;
+                transform.Find("MainMapCircle").GetComponent<SpriteRenderer>().color = newColor;
             }
             else
             {
                 var spriteRenderer = transform.Find("MainMapCircle").GetComponent<SpriteRenderer>();
                 Color newColor = spriteRenderer.color;
                 newColor.a = 0;
-                spriteRenderer.color = newColor;
+                transform.Find("MainMapCircle").GetComponent<SpriteRenderer>().color = newColor;
             }
         }
         else

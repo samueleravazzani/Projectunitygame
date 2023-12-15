@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CameraSwitcher : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class CameraSwitcher : MonoBehaviour
     private float transitionDuration = 0.5f;
     private GameObject VirtualCameraObject;
     public static bool isCamera1Active = true;
+    public Image diamondCircle;
 
 
     void Start()
@@ -17,6 +19,7 @@ public class CameraSwitcher : MonoBehaviour
         // Assicurati che le telecamere siano assegnate nell'Inspector
         VirtualCameraObject=GameObject.Find("Virtual Camera");
         camera1=VirtualCameraObject.GetComponent<CinemachineVirtualCamera>();
+        diamondCircle.gameObject.SetActive(false);
         if (camera1 == null || camera2 == null)
         {
             Debug.LogError("Assegna le telecamere nel componente CameraSwitcher nell'Inspector.");
@@ -58,8 +61,10 @@ public class CameraSwitcher : MonoBehaviour
         fromCamera.Priority = 5;
         toCamera.Priority = 10;
         
+        diamondCircle.gameObject.SetActive(isCamera1Active);
         // Inverti lo stato della telecamera attiva
         isCamera1Active = !isCamera1Active;
+        
         Debug.Log(SceneManager.GetActiveScene().name);
         Debug.Log(isCamera1Active.ToString());
     }
