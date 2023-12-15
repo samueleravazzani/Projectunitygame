@@ -361,8 +361,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.5, y: -22}
-  m_SizeDelta: {x: 1800, y: 140}
+  m_AnchoredPosition: {x: -77.95123, y: -32.866425}
+  m_SizeDelta: {x: 1613.0977, y: 161.7328}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &105113869
 MonoBehaviour:
@@ -1191,8 +1191,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -16, y: 267}
-  m_SizeDelta: {x: 440, y: 37}
+  m_AnchoredPosition: {x: -83.701, y: 266}
+  m_SizeDelta: {x: 406.15, y: 37.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &406461937
 MonoBehaviour:
@@ -1472,7 +1472,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -2739,7 +2739,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In a scale out of 10, how much have you felt relaxed in saving the Enchanted
+  m_text: On a scale of 1 to 10, how relaxed do you feel after having saved the Enchanted
     Forest?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2773,7 +2773,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2803,7 +2803,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -98.203476, y: 16.71228, z: -96.09906, w: 9.8754425}
+  m_margin: {x: -85.6068, y: 16.71228, z: -85.87482, w: 9.8754425}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3002,8 +3002,6 @@ MonoBehaviour:
   literacy_value_final: {fileID: 1547928052}
   climate_change_skept_value_final: {fileID: 125021596}
   animationduration: 2
-  Questionnaire: {fileID: 227250877}
-  Conclusion: {fileID: 867844797}
 --- !u!1 &1304271373
 GameObject:
   m_ObjectHideFlags: 0
@@ -3338,7 +3336,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In a scale out of 10, how much have you felt to help in solving environmental
+  m_text: On a scale of 1 to 10, how influential do you feel in solving environmental
     problems?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3372,7 +3370,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3402,7 +3400,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -131.62558, y: 10.63509, z: -107.62396, w: 11.39473}
+  m_margin: {x: -107.380356, y: 10.63509, z: -81.3855, w: 11.39473}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3931,8 +3929,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: In a scale out of 10, how much have you felt confident in helping with
-    trustful information in the health decisions game?
+  m_text: On a scale of 1 to 10, how capable do you feel in making health decisions
+    after the literacy game?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3965,7 +3963,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -3995,7 +3993,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -94.59895, y: 3.798233, z: -103.825745, w: 6.836838}
+  m_margin: {x: -82.645905, y: 3.798233, z: -97.30585, w: 6.836838}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
