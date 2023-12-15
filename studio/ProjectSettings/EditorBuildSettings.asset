@@ -90,6 +90,9 @@ EditorBuildSettings:
     path: Assets/Scenes/IntroforCCF.unity
     guid: 769e3c66f0bf6844c93fec6cae23eebf
   - enabled: 1
+    path: Assets/Scenes/OutroCCF.unity
+    guid: 2d925d41ab73e104aae05bd31dfdddbe
+  - enabled: 1
     path: Assets/Scenes/Fishing 1.unity
     guid: 658446cfffd06e54ebb8429de42eb563
   m_configObjects: {}

@@ -1,4 +1,3 @@
-// Codice per la seconda scena (Scene2)
 using UnityEngine;
 
 public class ButtonState1 : MonoBehaviour
