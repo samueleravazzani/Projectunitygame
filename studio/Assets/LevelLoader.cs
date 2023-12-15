@@ -69,6 +69,7 @@ public class LevelLoader : MonoBehaviour
     public void distruzione()
     {
         //identifico gli oggetti in scena
+        
         FishprefabInstances = GameObject.FindGameObjectsWithTag(FishPrefabToDestroy.tag);
         TrashprefabInstances = GameObject.FindGameObjectsWithTag(TrashPrefabToDestroy.tag);
         
@@ -79,6 +80,14 @@ public class LevelLoader : MonoBehaviour
             {
                 Destroy(instance);
             }
+            if (TrashprefabInstances != null)
+            {
+                foreach (GameObject instance in TrashprefabInstances)
+                { 
+                    instance.GetComponent<Collider2D>().isTrigger=false;
+                }
+            }
+            
         }
 
         if (TrashprefabInstances != null)

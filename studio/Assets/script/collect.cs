@@ -27,8 +27,8 @@ public class Collect : MonoBehaviour
     private int y1; //parametro per identificare 1/3 del punteggio totale da raggiungere
     private int y2; //parametro per identificare 2/3 del punteggio totale da raggiungere
     private int y; //parametro per identificare 3/3 del punteggio totale da raggiungere
-    private float m=7;
-    private float q=43;
+    private float m=30/9f;
+    private float q=240/9f;
     
     //pesci 
     public Sprite[] Fishes; 
@@ -92,10 +92,10 @@ public class Collect : MonoBehaviour
     private void Start()
     {
        //retta di calibrazione da implementare
-/*       x = Mathf.RoundToInt(GameManager.instance.climate_change_skept);
+       x = Mathf.RoundToInt(GameManager.instance.climate_change_skept);
        Debug.Log("valore ccs: "+ x.ToString());
        y =Mathf.RoundToInt(m * x + q); //ottengo il valore di punti da prendere per vincere
-       Debug.Log("valore punteggio da ottenere: "+ y.ToString());*/
+       Debug.Log("valore punteggio da ottenere: "+ y.ToString());
 
 
         //Rende il cursore del mouse invisibile. per farlo avvenire devi essere in modalità playmode
@@ -103,7 +103,7 @@ public class Collect : MonoBehaviour
         Cursor.visible = false;
         
         //SUDDIVISIONE DELL'OBIETTIVO
-        y = 12; //questo è per debug
+       // y = 12; //questo è per debug
         Debug.Log("valore y: "+ y.ToString());
         y1 = Mathf.RoundToInt(y/3);
         y2 = Mathf.RoundToInt(y/3 * 2);
@@ -159,6 +159,7 @@ public class Collect : MonoBehaviour
 
             yield return null;
         }
+        LevelLoader.GetInstance().distruzione();
         
         yield return null;
     }
@@ -214,10 +215,11 @@ public class Collect : MonoBehaviour
         //controllo per la vittoria
         if (score == y)
         { 
+            LevelLoader.GetInstance().distruzione();// distuggo gli oggetti in scena
             win = true;
             Cursor.visible = true;
-            LevelLoader.GetInstance().distruzione();// distuggo gli oggetti in scena
            GestioneCanvasOutroFishing.GetInstance().win();
+           LevelLoader.GetInstance().distruzione();
         }
 
     }
@@ -230,10 +232,11 @@ public class Collect : MonoBehaviour
         missText.text=string.Format("Miss:{0:00}",miss);
         if (miss == vite)
         {
+            LevelLoader.GetInstance().distruzione();// distuggo gli oggetti in scena
             lose = true;
             Cursor.visible = true;
-            LevelLoader.GetInstance().distruzione();// distuggo gli oggetti in scena
             GestioneCanvasOutroFishing.GetInstance().lose();
+            LevelLoader.GetInstance().distruzione();// distuggo gli oggetti in scena
         }
 
     }

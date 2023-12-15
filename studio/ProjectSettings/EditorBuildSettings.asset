@@ -95,5 +95,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fishing 1.unity
     guid: 658446cfffd06e54ebb8429de42eb563
+  - enabled: 1
+    path: Assets/Scenes/Introforfishing 1.unity
+    guid: e69b92554627b6a4caa169aa1c55d840
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
