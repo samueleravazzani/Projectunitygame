@@ -11,12 +11,13 @@ public class Help : MonoBehaviour
 
     void Start()
     {
-        help.gameObject.SetActive(false);
+        help.gameObject.SetActive(true);
+        Info();
     }
 
     private void Update()
     {
-        Info();
+        
     }
 
     public void Info()

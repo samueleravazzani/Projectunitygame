@@ -5562,7 +5562,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5264131917494443776, guid: 051ed0f71c7076d458af6c8587e1c5ab, type: 3}
       propertyPath: m_Name
-      value: Muro (40)
+      value: Muro (31)
       objectReference: {fileID: 0}
     - target: {fileID: 5264131917494443776, guid: 051ed0f71c7076d458af6c8587e1c5ab, type: 3}
       propertyPath: m_TagString
@@ -18136,7 +18136,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Climate_Change_Fuoco1
+          m_StringArgument: Climate_Change_Fuoco2
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1270896918}
@@ -30503,7 +30503,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5264131917494443776, guid: 051ed0f71c7076d458af6c8587e1c5ab, type: 3}
       propertyPath: m_Name
-      value: Muro (31)
+      value: Muro (311)
       objectReference: {fileID: 0}
     - target: {fileID: 5264131917494443776, guid: 051ed0f71c7076d458af6c8587e1c5ab, type: 3}
       propertyPath: m_IsActive
