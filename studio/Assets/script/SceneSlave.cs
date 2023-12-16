@@ -17,7 +17,7 @@ public class SceneSlave : MonoBehaviour
     private void Start()
     {
         // se l'elemento category del vettore tasks_picked (= la task di questa categoria) combacia con quello di questo teleport
-        if (GameManager.instance.tasks_picked[category] == minigame_int && GameManager.instance.task_index<3 || (scenetoload == "Home" && GameManager.instance.questionnairedone))
+        if (GameManager.instance.tasks_picked[category] == minigame_int && GameManager.instance.task_index<3)
         {
             // se questo teleport è per un problema specifico che combacia con questo
             if (category == 2 && GameManager.instance.problem_now == problemspecific)
@@ -42,11 +42,18 @@ public class SceneSlave : MonoBehaviour
                 transform.parent.Find("Circle").gameObject.SetActive(false);
             }
         }
-        else if (scenetoload == "Home" || scenetoload == "MainMap")
+        else if (scenetoload == "Home" && GameManager.instance.questionnairedone) // questionario fatto, devo andare a dormire
         {
             gameObject.SetActive(true);
             transform.parent.Find("Circle").gameObject.SetActive(false);
-            GetComponent<SpriteRenderer>().enabled = false;
+            transform.Find("Background").gameObject.SetActive(false);
+            transform.Find("Category").gameObject.SetActive(false);
+        }
+        else if (scenetoload == "Home" || scenetoload == "MainMap") // se è per andare a casa
+        {
+            gameObject.SetActive(true);
+            transform.parent.Find("Circle").gameObject.SetActive(false);
+            GetComponent<SpriteRenderer>().color = new Color(16, 255, 0);
             transform.Find("Background").gameObject.SetActive(false);
             transform.Find("Category").gameObject.SetActive(false);
             transform.Find("MainMapCircle").gameObject.SetActive(false);
@@ -90,7 +97,13 @@ public class SceneSlave : MonoBehaviour
         // se sono nella MainMap e viene attivata la mappa dall'alto
         if (SceneManager.GetActiveScene().name == "MainMap")
         {
-            if (CameraSwitcher.isCamera1Active == false)
+            if (CameraSwitcher.isCamera1Active == false && scenetoload == "Home" && !GameManager.instance.questionnairedone) // se vai a casa
+            {
+                Color newColor = new Color(16, 255, 0);
+                newColor.a = 0.75f;
+                transform.Find("MainMapCircle").GetComponent<SpriteRenderer>().color = newColor;
+            }
+            else if (CameraSwitcher.isCamera1Active == false) // di solito entri qui
             {
                 var spriteRenderer = transform.Find("MainMapCircle").GetComponent<SpriteRenderer>();
                 Color newColor = spriteRenderer.color;

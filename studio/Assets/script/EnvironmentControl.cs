@@ -44,6 +44,8 @@ public class EnvironmentControl : MonoBehaviour
     public bool update_camera_bool = true; // /!\ IMPORTANTE, lo devo aggiornare anche dove faccio GameManager.instance.task_index++
     public static bool destroy_obj;
 
+    public float timer = 0.0f;
+
     public static EnvironmentControl instance;
     void Awake()
     {
@@ -61,14 +63,24 @@ public class EnvironmentControl : MonoBehaviour
     // ora non serve la Coroutine etc. perché aggiorna appena la MainMap è caricata
     void Start()
     {
+        Fireworks(false);
         StopEnvironment();
         if (GameManager.instance.task_index == 3)
         {
             GameManager.instance.problem_now = 0; // tutto a posto
-            StartCoroutine(Fireworks());
+            Fireworks(true);
         }
         
         UpdateEnvironment();
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        if (timer > 40)
+        {
+            Fireworks(false);
+        }
     }
 
     public void UpdateEnvironment()
@@ -118,11 +130,9 @@ public class EnvironmentControl : MonoBehaviour
         fireworks.gameObject.SetActive(false);
     }
 
-    IEnumerator Fireworks()
+    public void Fireworks(bool state)
     {
-        fireworks.gameObject.SetActive(true);
-        yield return new WaitForSeconds(40.0f);
-        fireworks.gameObject.SetActive(false);
+        fireworks.gameObject.SetActive(state);
     }
 
     private void CameraAnxiety(float level) // changes saturation

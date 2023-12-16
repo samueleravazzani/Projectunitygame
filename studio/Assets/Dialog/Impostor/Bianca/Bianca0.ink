@@ -5,9 +5,9 @@
 True or False:
 "Digital Health Literacy" includes the ability to navigate online health resources and distinguish credible information from misinformation.
     + [True]
-        Correct,->answer
+        Correct! ->answer
     +[False]
-        Incorrect,->answer
+        Incorrect. ->answer
 
 
 ===answer===

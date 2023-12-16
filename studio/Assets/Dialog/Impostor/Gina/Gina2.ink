@@ -2,12 +2,11 @@
 
 //file JSON indice pari
 ===main===
-Question: How many hours of sleep should the average adult aim for each night?
-Research from the National Sleep Foundation recommends a solid 8 hours of quality sleep for optimal well-being.
+Question: What is the recommended amount of sleep for an average adult each night? According to research from the National Sleep Foundation, a solid eight hours of quality sleep is advised for optimal well-being.
     + [True]
-        Correct,->answer
+        Correct! ->answer
     +[False]
-        Incorrect,->answer
+        Incorrect. ->answer
 
 
 ===answer===

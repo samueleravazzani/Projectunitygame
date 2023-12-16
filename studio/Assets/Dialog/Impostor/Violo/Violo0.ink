@@ -1,4 +1,4 @@
-{~I love the fornitures of the castle!|Which plant do you like most?|I am the gardener here}
+{~I love the fornitures of the castle!|Plants here in the castle are astonishing.|I am the gardener here.}
 
 
 

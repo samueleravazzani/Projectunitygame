@@ -4,11 +4,11 @@
 ===main===
 True or False: Wearable fitness trackers can provide real-time monitoring of blood pressure.
     + [True]
-        Incorrect,->answer
+        Incorrect. ->answer
     +[False]
-        Correct,->answer
+        Correct! ->answer
 
 
 ===answer===
-Wearable fitness trackers typically focus on metrics like heart rate, but blood pressure monitoring is less common.
+Wearable fitness trackers typically focus on heart rate, but blood pressure monitoring is less common.
 ->END

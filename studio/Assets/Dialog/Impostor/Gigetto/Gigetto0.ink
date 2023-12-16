@@ -5,9 +5,9 @@
 Question: Consuming fish oil supplements daily can help prevent heart disease.
 This information is based on a report by the National Oceanic and Atmospheric Administration (NOAA).
     + [True]
-        Correct,->answer
+        Correct! ->answer
     +[False]
-        Incorrect,->answer
+        Incorrect. ->answer
 
 
 ===answer===

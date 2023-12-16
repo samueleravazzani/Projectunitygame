@@ -48,10 +48,10 @@ public class MovesCounter : MonoBehaviour
                 maxMoves = 1;
                 break;
             case 2:
-                maxMoves = 3;
+                maxMoves = 2;
                 break;
             case 3:
-                maxMoves = 7;
+                maxMoves = 3;
                 break;
             default:
                 break;

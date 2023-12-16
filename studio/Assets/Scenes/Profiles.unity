@@ -643,7 +643,8 @@ MonoBehaviour:
   Bever: {fileID: 1843436218}
   profile: 
   profileNames: []
-  n_worldSsaved: 
+  n_worldS_Saved: 
+  saving_Times: []
   profile_created: 0
   anxiety: 1
   literacy_inverted: 1
@@ -1597,8 +1598,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.1272, y: 13.0036}
-  m_SizeDelta: {x: 939.8931, y: 541.2249}
+  m_AnchoredPosition: {x: 12.673, y: -3.9766}
+  m_SizeDelta: {x: 1153.0432, y: 855.3336}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &756116967
 MonoBehaviour:
@@ -1620,7 +1621,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1502936318033598888, guid: 2f04e5b19bf424745b4a5293944bc541, type: 3}
+  m_Sprite: {fileID: -192268854334654422, guid: a3e94c3ad6b8943ada89a5bd228f3366, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

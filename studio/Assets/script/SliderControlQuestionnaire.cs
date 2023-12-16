@@ -62,33 +62,41 @@ public class SliderControlQuestionnaire : MonoBehaviour
     // On button down -> save data + change scene
     public void conclusion()
     {
-        if (GameManager.instance.anxiety < anxiety_final.value)
+        float a_final;
+        float l_final;
+        float c_final;
+        
+        a_final = 10f - anxiety_final.value + 1f;
+        l_final = 10f - literacy_final.value + 1f; 
+        c_final = 10f - climate_change_skept_final.value + 1f;
+        
+        if (GameManager.instance.anxiety < a_final)
         {
-            GameManager.instance.anxiety = actual_value_a + 0.1f * anxiety_final.value;
+            GameManager.instance.anxiety = actual_value_a + 0.1f * a_final;
         }
-        else if (GameManager.instance.anxiety > anxiety_final.value)
+        else if (GameManager.instance.anxiety > a_final)
         {
-            GameManager.instance.anxiety = actual_value_a - 0.1f * anxiety_final.value;
-        }
-
-        if (GameManager.instance.literacy_inverted < (literacy_final.maxValue - literacy_final.value + 1))
-        {
-            GameManager.instance.literacy_inverted =
-                actual_value_l + 0.1f * (literacy_final.maxValue - literacy_final.value + 1);
-        }
-        else if (GameManager.instance.literacy_inverted > (literacy_final.maxValue - literacy_final.value + 1))
-        {
-            GameManager.instance.literacy_inverted =
-                actual_value_l - 0.1f * (literacy_final.maxValue - literacy_final.value + 1);
+            GameManager.instance.anxiety = actual_value_a - 0.1f * a_final;
         }
 
-        if (GameManager.instance.climate_change_skept < climate_change_skept_final.value)
+        if (GameManager.instance.literacy_inverted < l_final)
         {
-            GameManager.instance.climate_change_skept = actual_value_c + 0.1f * climate_change_skept_final.value;
+            GameManager.instance.literacy_inverted =
+                actual_value_l + 0.1f * l_final;
         }
-        else if (GameManager.instance.climate_change_skept > climate_change_skept_final.value)
+        else if (GameManager.instance.literacy_inverted > l_final)
         {
-            GameManager.instance.climate_change_skept = actual_value_c - 0.1f * climate_change_skept_final.value;
+            GameManager.instance.literacy_inverted =
+                actual_value_l - 0.1f * l_final;
+        }
+
+        if (GameManager.instance.climate_change_skept <  c_final)
+        {
+            GameManager.instance.climate_change_skept = actual_value_c + 0.1f *  c_final;
+        }
+        else if (GameManager.instance.climate_change_skept >  c_final)
+        {
+            GameManager.instance.climate_change_skept = actual_value_c - 0.1f *  c_final;
         }
 
         GameManager.instance.sum_parameters = GameManager.instance.anxiety + GameManager.instance.literacy_inverted +
