@@ -5,7 +5,7 @@ using System.Runtime.Serialization; // to work with files
 
 public static class SaveSystem // static class can't be instantiated
 {
-    public static readonly string SAVE_FOLEDER = Application.persistentDataPath + "/Saves/"; // this will be our save folder
+    public static readonly string SAVE_FOLEDER = Application.persistentDataPath; // this will be our save folder
                                                 // Application.persistentDataPath
     
     public static void InitializeSaveFolder()
