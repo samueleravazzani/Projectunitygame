@@ -45,11 +45,18 @@ public class SceneSlave : MonoBehaviour
         else if (scenetoload == "Home" && GameManager.instance.questionnairedone) // questionario fatto, devo andare a dormire
         {
             gameObject.SetActive(true);
-            transform.parent.Find("Circle").gameObject.SetActive(false);
+            transform.parent.Find("Circle").gameObject.SetActive(true);
             transform.Find("Background").gameObject.SetActive(false);
             transform.Find("Category").gameObject.SetActive(false);
         }
-        else if (scenetoload == "Home" || scenetoload == "MainMap") // se è per andare a casa
+        else if (scenetoload == "MainMap" && !GameManager.instance.questionnairedone) // se è per andare da casa alla MainMap
+        {
+            gameObject.SetActive(true);
+            transform.parent.Find("Circle").gameObject.SetActive(true);
+            transform.Find("Background").gameObject.SetActive(false);
+            transform.Find("Category").gameObject.SetActive(false);
+        }
+        else if (scenetoload == "Home") // se è per andare a casa
         {
             gameObject.SetActive(true);
             transform.parent.Find("Circle").gameObject.SetActive(false);
