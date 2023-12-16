@@ -26,17 +26,6 @@ MonoBehaviour:
   drug_image: {fileID: 21300004, guid: ddfbfa9216e072f42a7ce092e7779067, type: 3}
   enigmas:
   - 'Cannot be managed either by too young people, or old people because it can have
-    metabolic compilcations. It is for people with glucose problems. '
-  - This is specifically designed for managing type 2 diabetes mellitus in both adults
-    and pediatric patients over 10 years old, emphasizing its role as an adjunct
-    to diet and exercise for glycemic control.
-  - Classified under Antidiabetic Agents, this belongs to a class focused on addressing
-    the unique needs of individuals with diabetes, setting it apart from treatments
-    for pain or inflammation.
-  - ' A critical warning accompanies this medication, highlighting the rare but severe
-    risk of lactic acidosis, a metabolic complication associated with metformin accumulation.
-    This distinguishes it from others with different metabolic profiles.'
-  - If you're considering initiating treatment with this medicine and the patient
-    is 80 years or older, exercise caution, as renal function should be assessed
-    to ensure they are not more susceptible to the potentially fatal lactic acidosis
-    complication.
+    metabolic complications. It is for people with glucose problems. '
+  - It can help to control glycemia in adults and teenagers with diabetes II.
+  - Very old people should not start taking this medicine to treat diabetes.

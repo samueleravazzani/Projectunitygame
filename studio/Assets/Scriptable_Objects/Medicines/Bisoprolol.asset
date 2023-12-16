@@ -25,14 +25,6 @@ MonoBehaviour:
   enigmas:
   - It helps cardiovascular tension problems, but needs attention for people with
     other heart issues.
-  - This takes center stage in the treatment of mild to moderate hypertension, showcasing
-    its primary indication in managing blood pressure levels.
-  - As a member of the Beta-Adrenergic Receptor Antagonists class, this is distinctly
-    positioned among drugs that work on beta receptors, differentiating it from other
-    therapeutic categories such as pain relievers or anti-inflammatories.
-  - A set of strict contraindications separates this from others, signaling that
-    it should not be used in patients with cardiogenic shock, overt cardiac failure,
-    second or third degree AV block, or marked sinus bradycardia.
-  - For individuals with a history of severe heart failure, administering this requires
-    special caution, providing an additional layer of information to distinguish
-    it from medications not associated with such precautions.
+  - It is a beta-adrenerginc receptor antagonist not suggested for marked sinus bradycardia.
+  - It helps with hypertension but it should pay attention with people who had heart
+    failure episodes in the past.
