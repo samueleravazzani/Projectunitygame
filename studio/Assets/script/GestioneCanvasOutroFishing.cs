@@ -44,7 +44,7 @@ public class GestioneCanvasOutroFishing : MonoBehaviour
     public void win()
     {
         LevelLoader.GetInstance().distruzione();
-        OutroText.text = "Congratulation, you won!";
+        OutroText.text = "Congratulation, you won!\nYour efforts make a positive impact on the environment and contribute to the well-being of our oceans. Gratitude for being a part of the solution!";
         Retry.gameObject.SetActive(false);
         Quit.gameObject.SetActive(false);
         OutroCanvas.enabled = true;
@@ -54,7 +54,7 @@ public class GestioneCanvasOutroFishing : MonoBehaviour
     public void lose()
     {
         LevelLoader.GetInstance().distruzione();
-        OutroText.text = "Oh no, you lost!.";
+        OutroText.text = "Oh no, you lost!\nClean seas are crucial for marine life, biodiversity, and human well-being. Plastic pollution disrupts ecosystems, harms marine species, and affects the food chain. Beyond environmental impact, it threatens fisheries, tourism, and human health, emphasizing the global responsibility to curb plastic pollution for a sustainable future.";
         Home.gameObject.SetActive(false);
         OutroCanvas.enabled = true;
         Debug.Log("Hai perso");

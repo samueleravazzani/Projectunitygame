@@ -14433,6 +14433,7 @@ MonoBehaviour:
   Trashold1: 70
   Trashold2: 90
   level: 1
+  retino: {fileID: 438418638}
 --- !u!4 &1832053298
 Transform:
   m_ObjectHideFlags: 0
