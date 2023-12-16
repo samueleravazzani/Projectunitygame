@@ -53,7 +53,7 @@ public class SceneSlave : MonoBehaviour
         {
             gameObject.SetActive(true);
             transform.parent.Find("Circle").gameObject.SetActive(false);
-            GetComponent<SpriteRenderer>().color = new Color(16, 255, 0);
+            GetComponent<SpriteRenderer>().color = new Color(0.1647f, 1f, 0f);
             transform.Find("Background").gameObject.SetActive(false);
             transform.Find("Category").gameObject.SetActive(false);
             transform.Find("MainMapCircle").gameObject.SetActive(false);
@@ -99,7 +99,7 @@ public class SceneSlave : MonoBehaviour
         {
             if (CameraSwitcher.isCamera1Active == false && scenetoload == "Home" && !GameManager.instance.questionnairedone) // se vai a casa
             {
-                Color newColor = new Color(16, 255, 0);
+                Color newColor = new Color(0.1647f, 1f, 0f);
                 newColor.a = 0.75f;
                 transform.Find("MainMapCircle").GetComponent<SpriteRenderer>().color = newColor;
             }
