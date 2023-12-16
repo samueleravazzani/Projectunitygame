@@ -130,8 +130,9 @@ public class GameManager : MonoBehaviour
         tasks_picked[2] = Random.Range(1, 2+1); // CCS: 0 fatta, 1 quiz, 2 minigioco legato al problema del mondo
         // initiliaze position of the player in the MainMap /!\
         //player.transform.position = new Vector3(-1.79f, 1.79f, 0);
+
+        sum_parameters = anxiety + literacy_inverted + climate_change_skept;
         
-   
         /* A GIOCO PRONTO */ 
         N_tospawn = new int[4] {(int) sum_parameters * 70, (int) sum_parameters * 60, (int) sum_parameters * 50, 0};
         
@@ -372,8 +373,8 @@ public class GameManager : MonoBehaviour
         public int[] anxietyEverSorted = new int[4]{0, 0, 0, 0};
         public int[] literacyEverSorted = new int[3]{0, 0, 0};
         public int[] climateEverSorted = new int[6]{0, 0, 0, 0, 0, 0};
-        public bool newminigame;
-        public bool newbadge;
+        public bool newminigame = false;
+        public bool newbadge = false;
     }
 
     public void ActivatePlayer(bool state)
