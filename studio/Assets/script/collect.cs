@@ -67,6 +67,8 @@ public class Collect : MonoBehaviour
     public int Trashold2=90;
 
     public int level; //variabile che tiene traccia del livello in cui sono
+
+    public GameObject retino;
     
     
     
@@ -214,7 +216,8 @@ public class Collect : MonoBehaviour
         }
         //controllo per la vittoria
         if (score == y)
-        { 
+        {
+            retino.GetComponent<BoxCollider2D>().isTrigger = false;
             LevelLoader.GetInstance().distruzione();// distuggo gli oggetti in scena
             win = true;
             Cursor.visible = true;
