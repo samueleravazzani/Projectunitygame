@@ -2052,6 +2052,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 632386820}
     m_Modifications:
+    - target: {fileID: 841070334531148928, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.7838
+      objectReference: {fileID: 0}
+    - target: {fileID: 841070334531148928, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 1964838796200679148, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2086,11 +2094,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1964838796200679148, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1964838796200679148, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1964838796200679148, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
       propertyPath: m_LocalScale.z
@@ -2144,6 +2152,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3410725906983444818, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
+      propertyPath: m_text
+      value: "The screen shows you a question and different possible answers. Only
+        one is correct; tap it!\r\nWhen you answer a question correctly, you'll see
+        it becoming green.\r\nHowever, if your response is incorrect, you'll see
+        it red, but is shown also the correct one. \r\nYou have maximum 2 possibilities
+        to make errors otherwise you loose. \nYou will see an indicator to outline
+        errors on the upper left screen. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410725906983444818, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
+      propertyPath: m_margin.x
+      value: -12.486404
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410725906983444818, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
+      propertyPath: m_margin.z
+      value: -7.2225494
+      objectReference: {fileID: 0}
     - target: {fileID: 3980815415065970448, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
       propertyPath: help
       value: 
@@ -2189,12 +2214,20 @@ PrefabInstance:
       value: -5.8
       objectReference: {fileID: 0}
     - target: {fileID: 7947382865791859953, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947382865791859953, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 7947382865791859953, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 890
+      value: 433
       objectReference: {fileID: 0}
     - target: {fileID: 7947382865791859953, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -429
+      value: -259
       objectReference: {fileID: 0}
     - target: {fileID: 8828186344736488004, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
       propertyPath: m_Name
