@@ -217,7 +217,7 @@ public class PlantingController : MonoBehaviour
         //controllo del punteggio
         if (score == y)
         {
-            OutroText.text = "Congratulation, you win!\nPlanting plants is like giving a gift to the environment and the" +
+            OutroText.text = "Congratulation, you won!\nPlanting plants is like giving a gift to the environment and the" +
                              " animals that live in it. When we plant, we create homes for birds, insects, and other creatures." +
                              " The plants also help clean the air by taking in carbon dioxide and giving out oxygen." +
                              " It's a way of making sure the Earth stays healthy and full of life for everyone, including us!";
@@ -231,7 +231,7 @@ public class PlantingController : MonoBehaviour
 
         if (miss == vite)
         {
-            OutroText.text = "Oh no, you lose!\nHere a curiosity for you:think of plants as the Earth's lungs. When there are only a few of them, it's like the Earth can't breathe well." +
+            OutroText.text = "Oh no, you lost!\nHere a curiosity for you:think of plants as the Earth's lungs. When there are only a few of them, it's like the Earth can't breathe well." +
                              " Plants, especially trees, help clean the air by taking in a gas called carbon dioxide and giving out oxygen." +
                              " If there are only a few plants, they can't keep up with all the carbon dioxide, and the air becomes less healthy for us and the animals.";
             
