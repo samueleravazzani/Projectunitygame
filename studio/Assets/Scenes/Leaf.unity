@@ -2742,9 +2742,15 @@ PrefabInstance:
         finger on A. \r\n\rWhen a leaf falls to the left, press the 'A'. For the
         middle left leaf, press 'S'. Use the 'D' for the middle right leaf, and 'F'
         for the leaf on the right. You will find letters to distinguish the falling
-        column on the screen. \r\n\rRemember, if you miss a leaf by letting it fall
-        down all over the screen without pressing the keyboard, or if you press the
-        wrong key, the game ends. "
+        column on the screen. \nNote you can press the keyboard as soon as you see
+        the leaf, not waiting to reach the A, S, D, F. That letters are there only
+        as remind for you.\r\n\rRemember, if you miss a leaf by letting it fall down
+        all over the screen without pressing the keyboard, or if you press the wrong
+        key, the game ends. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410725906983444818, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
+      propertyPath: m_fontSize
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3410725906983444818, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
       propertyPath: m_margin.x
@@ -2752,7 +2758,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3410725906983444818, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
       propertyPath: m_margin.z
-      value: -105.818184
+      value: -90.7078
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410725906983444818, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 3980815415065970448, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
       propertyPath: help
