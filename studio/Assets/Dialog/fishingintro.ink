@@ -1,14 +1,15 @@
 -> main
 
 === main ===
-"Welcome to the Fishing game, a climate change related game. Your objective is to clean the lake from all the rubbish and plastic residues you will encounter.
-
-As the game evolves pieces of rubbish are going to fall down the screen. Pay atention to the number of pieces of rubbish you need to collect.
-
-In order to control the fishing net you have to move your mouse. The maximum number of fishes you are allowed to catch is 3, so be careful.
-
-Remember, you do not have to catch the fish, just the rubbish! If you catch a fish you will be penalized and when you reach the tolerance of  maximum number of fishs collected you will loose the game.
-
+Hello, welcome to this game! Here you will help us cleaning our sea and restore the beauty of this environment.
+The sea, once a sanctuary of life and diversity, now faces a dire threat – plastic pollution.
+Our oceans are drowning in a deluge of discarded plastic, from bags to bottles, endangering marine life and ecosystems.
+This plastic not only chokes and entangles sea creatures but also breaks down into microscopic particles, infiltrating the entire food chain.
+Your duty is to clean up the water from trash using a fishing net before it touches the seabed.
+The amount of rubbish you will have to collect is indicated in the botton-left of the screen.
+Pay attention not to catch the fish though! if you do so, the missing counter will increase and if it reaches three you lose.
+The game is divided in three levels with the difficulty ramping up as you advance.
+In the third and last level if the trash touch the seabed the missing counter will increase.
 Does everything seem clear?
 + [Yes!]
 Let's start!.
