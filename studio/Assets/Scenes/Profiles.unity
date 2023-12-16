@@ -677,6 +677,8 @@ MonoBehaviour:
   anxietyEverSorted: 00000000000000000000000000000000
   literacyEverSorted: 000000000000000000000000
   climateEverSorted: 000000000000000000000000000000000000000000000000
+  newminigame: 0
+  newbadge: 0
 --- !u!4 &140320897
 Transform:
   m_ObjectHideFlags: 0
