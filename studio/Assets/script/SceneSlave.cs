@@ -104,13 +104,7 @@ public class SceneSlave : MonoBehaviour
         // se sono nella MainMap e viene attivata la mappa dall'alto
         if (SceneManager.GetActiveScene().name == "MainMap")
         {
-            if (CameraSwitcher.isCamera1Active == false && scenetoload == "Home" && !GameManager.instance.questionnairedone) // se vai a casa
-            {
-                Color newColor = new Color(0.9069856f, 1f, 0f);
-                newColor.a = 0.75f;
-                transform.Find("MainMapCircle").GetComponent<SpriteRenderer>().color = newColor;
-            }
-            else if (CameraSwitcher.isCamera1Active == false) // di solito entri qui
+           if (CameraSwitcher.isCamera1Active == false) // di solito entri qui
             {
                 var spriteRenderer = transform.Find("MainMapCircle").GetComponent<SpriteRenderer>();
                 Color newColor = spriteRenderer.color;
@@ -146,13 +140,26 @@ public class SceneSlave : MonoBehaviour
     public void ActivateChangeScene()
     {
         if (scenetoload == "Start_Scene" && GameManager.instance.questionnairedone &&
-            GameManager.instance.n_world_saved == 1)
+            (GameManager.instance.n_world_saved == 1 || GameManager.instance.n_world_saved%10==0))
         {
             scenetoload = "Outro";
         }
 
+        if((scenetoload == "Start_Scene" || scenetoload == "Outro")&& GameManager.instance.questionnairedone)
+        {
+            SceneMaster.instance.ChangeSchene(scenetoload, true, new Vector3(-50, -50, 0));
+            teleport = false;
+            Destroy(GameObject.Find("player"));
+            Destroy(GameObject.Find("Virtual Camera"));
+            Destroy(GameObject.Find("GameManager"));
+            Destroy(GameObject.Find("SceneMaster"));
+            Destroy(GameObject.Find("Bever"));
+            return;
+        }
+        
         SceneMaster.instance.ChangeSchene(scenetoload, playeractive, playerposition);
         teleport = false;
+        
         
     }
 

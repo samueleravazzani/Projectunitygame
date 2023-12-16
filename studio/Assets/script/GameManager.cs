@@ -160,7 +160,7 @@ public class GameManager : MonoBehaviour
             if(tasks_picked[2] == 1)
                 climateEverSorted[tasks_picked[2]] = tasks_picked[2];
             else if(tasks_picked[2] == 2)
-                climateEverSorted[tasks_picked[2]] = tasks_picked[2]+1; // creo una sorta di offset: //1 quiz, 2 fire, 3 fishing etc.
+                climateEverSorted[tasks_picked[2]+1] = tasks_picked[2]+1; // creo una sorta di offset: //1 quiz, 2 fire, 3 fishing etc.
         }
 
         newminigame = true; // nuovo badge dei minigame
