@@ -83,6 +83,7 @@ public class ProfileMaster : MonoBehaviour
        // Se il player finisce il tutorial: (esce dalla casa -> salvo il suo profilo nell'elenco dei profili e il suo profilo.
        SceneManager.LoadScene("ParameterSliders");
    }
+   
    public void DeleteProfile()
    {
        input.gameObject.SetActive(true);
@@ -116,11 +117,10 @@ public class ProfileMaster : MonoBehaviour
        {
            DeletePrefs(name_to_delete); //Cancella PrefsPuzzleGame
            Debug.Log("Name to delete: " + name_to_delete);
-           GameManager.instance.DeletePublicInfoProfiles(name_to_delete); //rimuovo il suo n di mondi salvati e il suo salvataggio prima di rimuovere il profilo
+           GameManager.instance.DeletePublicInfoProfiles(name_to_delete); //rimuovo il suo n di mondi salvati e il suo salvataggio prima di rimuovere il profilo e salva
            GameManager.instance.profileNames.Remove(name_to_delete); //Rimuove dall'elenco dei giocatori
            SaveSystem.DeleteFile(name_to_delete); // Cancella il profilo
            GameManager.instance.SaveProfileList(); // Salva l'elenco nuovo dei giocatori
-           GameManager.instance.SavePublicInfoProfiles(); // salvo le corrispettive
            SceneManager.LoadScene("Profiles");
        }
        else

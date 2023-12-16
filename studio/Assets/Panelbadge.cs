@@ -148,9 +148,6 @@ public class Panelbadge : MonoBehaviour
                     waterCounterText.text = GameManager.instance.waterCounter.ToString();
                     watermapCounterText.text = GameManager.instance.waterCounter.ToString();
                     break;
-                default:
-                    Debug.Log("Invalid variable name: " + problem);
-                    break;
             }
         }
     }
