@@ -11,6 +11,7 @@ public class timer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI PhaseText;
     [SerializeField] private TextMeshProUGUI RepeatText;
     private float elapsedTime;
+    [SerializeField] private GameObject phasepanel;
     public int seconds { get; private set; }
     private int phase;
     private int repetition;
@@ -26,7 +27,12 @@ public class timer : MonoBehaviour
     {
         return instance;
     }
-    
+
+    private void Start()
+    {
+        phasepanel.gameObject.SetActive(false);
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -38,12 +44,14 @@ public class timer : MonoBehaviour
             if (seconds == 0)
             {
                 TimerText.text = "GO!";
+                phasepanel.gameObject.SetActive(false);
                 PhaseText.text = "";
             }
 
             if (seconds>=1 && seconds <= 4)
             {
                         PhaseText.text = "inhale";
+                        phasepanel.gameObject.SetActive(true);
                         TimerText.text = string.Format("{0:00}", seconds);
             }
             
@@ -60,6 +68,7 @@ public class timer : MonoBehaviour
             
             if (seconds == 20)
             {
+                        phasepanel.gameObject.SetActive(false);
                         PhaseText.text = "";
                         TimerText.text = "00";
                         elapsedTime = 0;
