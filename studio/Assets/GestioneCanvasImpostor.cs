@@ -74,7 +74,7 @@ public class GestioneCanvasImpostor : MonoBehaviour
         //controllo del punteggio
         if (score == y)
         {
-            OutroText.text = "Congratulation, you win!\nUnderstanding digital health and having good health literacy is" +
+            OutroText.text = "Congratulation, you won!\nUnderstanding digital health and having good health literacy is" +
                              " essential for making informed decisions about your well-being." +
                              " It empowers you to use technology for health purposes and navigate healthcare information," +
                              " ensuring you can actively manage and advocate for your health effectively.";
@@ -89,7 +89,7 @@ public class GestioneCanvasImpostor : MonoBehaviour
         if (miss == vite)
         {
             
-            OutroText.text = "Oh no, you lose!\nBeing misinformed about digital health can lead to poor decision-making for your well-being." +
+            OutroText.text = "Oh no, you lost!\nBeing misinformed about digital health can lead to poor decision-making for your well-being." +
                              " Inaccurate information may result in using technology ineffectively or misunderstanding health advice, potentially compromising your health outcomes." +
                              " Staying well-informed is crucial for making sound choices in the digital age.";
             Home.gameObject.SetActive(false);
