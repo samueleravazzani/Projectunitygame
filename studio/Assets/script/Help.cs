@@ -7,19 +7,13 @@ using UnityEngine.UI;
 public class Help : MonoBehaviour
 {
     public Image help;
-    public bool active = false;
+    public bool active = true;
 
     void Start()
     {
-        help.gameObject.SetActive(true);
-        Info();
+        help.gameObject.SetActive(false);
     }
-
-    private void Update()
-    {
-        
-    }
-
+    
     public void Info()
     {
         active = !active;
