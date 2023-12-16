@@ -62,6 +62,10 @@ public class SliderControlQuestionnaire : MonoBehaviour
     // On button down -> save data + change scene
     public void conclusion()
     {
+        anxiety_final.value = 10f - anxiety_final.value + 1f;
+        literacy_final.value = 10f - literacy_final.value + 1f; 
+        climate_change_skept_final.value = 10f - climate_change_skept_final.value + 1f;
+        
         if (GameManager.instance.anxiety < anxiety_final.value)
         {
             GameManager.instance.anxiety = actual_value_a + 0.1f * anxiety_final.value;
@@ -71,15 +75,15 @@ public class SliderControlQuestionnaire : MonoBehaviour
             GameManager.instance.anxiety = actual_value_a - 0.1f * anxiety_final.value;
         }
 
-        if (GameManager.instance.literacy_inverted < (literacy_final.maxValue - literacy_final.value + 1))
+        if (GameManager.instance.literacy_inverted < literacy_final.value)
         {
             GameManager.instance.literacy_inverted =
-                actual_value_l + 0.1f * (literacy_final.maxValue - literacy_final.value + 1);
+                actual_value_l + 0.1f * literacy_final.value;
         }
-        else if (GameManager.instance.literacy_inverted > (literacy_final.maxValue - literacy_final.value + 1))
+        else if (GameManager.instance.literacy_inverted > literacy_final.value)
         {
             GameManager.instance.literacy_inverted =
-                actual_value_l - 0.1f * (literacy_final.maxValue - literacy_final.value + 1);
+                actual_value_l - 0.1f * literacy_final.value;
         }
 
         if (GameManager.instance.climate_change_skept < climate_change_skept_final.value)
