@@ -31,16 +31,6 @@ MonoBehaviour:
   enigmas:
   - It can be used to treat cardiovascular problems, but may lead to important losses
     of liquids.
-  - This takes the spotlight in treating edema associated with congestive heart failure,
-    cirrhosis of the liver, and renal diseases, encompassing both adult and pediatric
-    patients.
-  - Classified under Diuretics and Medicines used in heart failure, this is specifically
-    designed to address fluid retention and heart-related issues, setting it apart
-    from others with different therapeutic focuses.
-  - A potent diuretic, if administered excessively, it can lead to profound diuresis,
-    risking water and electrolyte depletion. This cautionary note distinguishes it
-    from others with different mechanisms of action or potential side effects.
-  - Patients using this should be vigilant for signs and symptoms of electrolyte
-    imbalance, including weakness, dizziness, fatigue, and muscle cramps. This emphasis
-    on monitoring and reporting specific symptoms serves as a crucial identifier
-    for this.
+  - 'It is used in heart failure but the effects of electrolyte imbalance should
+    be known by patients. '
+  - 'It is used for renal diseases thanks to its diuretic effect. '
