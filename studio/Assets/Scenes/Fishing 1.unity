@@ -14297,11 +14297,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3839760512362655460, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
       propertyPath: playerposition.x
-      value: 18
+      value: 18.89
       objectReference: {fileID: 0}
     - target: {fileID: 3839760512362655460, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
       propertyPath: playerposition.y
-      value: 7.8
+      value: 7.889762
       objectReference: {fileID: 0}
     - target: {fileID: 5989077363645705042, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
       propertyPath: m_Enabled
