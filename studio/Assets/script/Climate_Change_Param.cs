@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Climate_Change_Param : MonoBehaviour
 {
+    public void Start()
+    {
+        Debug.Log(GameManager.instance.climate_change_skept);
+    }
+
     public void Parametrization()
     {
         if (GameManager.instance.climate_change_skept >= 1 && GameManager.instance.climate_change_skept <= 3)
@@ -13,12 +18,12 @@ public class Climate_Change_Param : MonoBehaviour
             PlayerPrefs.SetInt("CCSLevel", 1);
             SceneManager.LoadScene("Climate_Change_Fuoco");
         }
-        else if (GameManager.instance.climate_change_skept >= 4 && GameManager.instance.climate_change_skept <= 6)
+        if (GameManager.instance.climate_change_skept >= 4 && GameManager.instance.climate_change_skept <= 6)
         {
             SceneManager.LoadScene("Climate_Change_Fuoco1");
             PlayerPrefs.SetInt("CCSLevel", 2);
         }
-        else if (GameManager.instance.climate_change_skept >= 7 && GameManager.instance.climate_change_skept <= 9)
+        if (GameManager.instance.climate_change_skept >= 7 && GameManager.instance.climate_change_skept <= 10)
         {
             SceneManager.LoadScene("Climate_Change_Fuoco2");
             PlayerPrefs.SetInt("CCSLevel", 3);
