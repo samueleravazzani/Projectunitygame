@@ -4,6 +4,7 @@ public class ButtonState : MonoBehaviour
 {
     private static int buttonState = 0; // Variabile statica per lo stato del pulsante
 
+
     public void OnButtonClick()
     { 
         buttonState = 1; // Imposta lo stato del pulsante a 1 quando viene cliccato
