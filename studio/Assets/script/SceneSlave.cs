@@ -139,8 +139,8 @@ public class SceneSlave : MonoBehaviour
 
     public void ActivateChangeScene()
     {
-        if (scenetoload == "Start_Scene" && GameManager.instance.questionnairedone &&
-            GameManager.instance.n_world_saved == 1)
+        if (scenetoload == "SeeYouTomorrow" && GameManager.instance.questionnairedone &&
+            (GameManager.instance.n_world_saved == 1 || GameManager.instance.n_world_saved%15==0))
         {
             scenetoload = "Outro";
         }
