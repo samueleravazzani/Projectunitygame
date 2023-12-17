@@ -68,6 +68,9 @@ public class GameManager : MonoBehaviour
     public int[] anxietyEverSorted = new int[4]{0, 0, 0, 0};
     public int[] literacyEverSorted = new int[3]{0, 0, 0};
     public int[] climateEverSorted = new int[6]{0, 0, 0, 0, 0, 0};
+
+    public bool newminigame = false;
+    public bool newbadge = false;
     
     void Awake()
     {
@@ -127,8 +130,9 @@ public class GameManager : MonoBehaviour
         tasks_picked[2] = Random.Range(1, 2+1); // CCS: 0 fatta, 1 quiz, 2 minigioco legato al problema del mondo
         // initiliaze position of the player in the MainMap /!\
         //player.transform.position = new Vector3(-1.79f, 1.79f, 0);
+
+        sum_parameters = anxiety + literacy_inverted + climate_change_skept;
         
-   
         /* A GIOCO PRONTO */ 
         N_tospawn = new int[4] {(int) sum_parameters * 70, (int) sum_parameters * 60, (int) sum_parameters * 50, 0};
         
@@ -156,8 +160,10 @@ public class GameManager : MonoBehaviour
             if(tasks_picked[2] == 1)
                 climateEverSorted[tasks_picked[2]] = tasks_picked[2];
             else if(tasks_picked[2] == 2)
-                climateEverSorted[tasks_picked[2]] = tasks_picked[2]+1; // creo una sorta di offset: //1 quiz, 2 fire, 3 fishing etc.
+                climateEverSorted[tasks_picked[2]+1] = problem_now+1; // creo una sorta di offset: //1 quiz, 2 fire, 3 fishing etc.
         }
+
+        newminigame = true; // nuovo badge dei minigame
         
         task_index++; // task fatta
         tasks_picked[category] = 0; // segno che l'ho fatta
@@ -165,6 +171,7 @@ public class GameManager : MonoBehaviour
         if (task_index == 3)
         {
             n_world_saved++;
+            newbadge = true; // nuovo badge
             
             //The following switch case handles how many times that problem has already been done by the player so to update the badges counter 
             switch (problem_now)
@@ -261,6 +268,8 @@ public class GameManager : MonoBehaviour
             anxietyEverSorted = anxietyEverSorted,
             literacyEverSorted = literacyEverSorted,
             climateEverSorted = climateEverSorted,
+            newminigame = newminigame,
+            newbadge = newbadge,
         };
         
         string json = JsonUtility.ToJson(saveObject);
@@ -306,6 +315,8 @@ public class GameManager : MonoBehaviour
             anxietyEverSorted = saveObject.anxietyEverSorted;
             literacyEverSorted = saveObject.literacyEverSorted;
             climateEverSorted = saveObject.climateEverSorted;
+            newminigame = saveObject.newminigame;
+            newbadge = saveObject.newbadge;
             
             // cambio scena e attivo il player
             if (!questionnairedone) // se il questionario non è ancora stato fatto -> carico la MainMap
@@ -362,6 +373,8 @@ public class GameManager : MonoBehaviour
         public int[] anxietyEverSorted = new int[4]{0, 0, 0, 0};
         public int[] literacyEverSorted = new int[3]{0, 0, 0};
         public int[] climateEverSorted = new int[6]{0, 0, 0, 0, 0, 0};
+        public bool newminigame = false;
+        public bool newbadge = false;
     }
 
     public void ActivatePlayer(bool state)

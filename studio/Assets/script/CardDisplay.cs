@@ -127,7 +127,7 @@ public class CardDisplay : MonoBehaviour
 
     public void Retry()
     {
-        SceneManager.LoadScene("Home");
+        SceneManager.LoadScene("Cave");
     }
 
     public void Quit()

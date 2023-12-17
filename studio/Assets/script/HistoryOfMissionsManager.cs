@@ -35,6 +35,9 @@ public class HistoryOfMissionsManager : MonoBehaviour
     public Image gardeningImage;
     public Image tetrisImage;
 
+    public Image notification;
+    public Image newbadgenotification;
+    
     void Start()
     {
         minigames.gameObject.SetActive(false);
@@ -59,17 +62,38 @@ public class HistoryOfMissionsManager : MonoBehaviour
         gardeningImage.gameObject.SetActive(false);
         tetrisLockImage.gameObject.SetActive(true);
         tetrisImage.gameObject.SetActive(false);
+
+        if (GameManager.instance.newminigame)
+        {
+            notification.gameObject.SetActive(true);
+        }
+        else
+        {
+            notification.gameObject.SetActive(false); 
+        }
+
+        newbadgenotification.gameObject.SetActive(false);
     }
 
     //lOGIC TO HANDLE THE BUTTONS TO SHOW AND HIDE THE OANELBADGE 
     public void ShowMinigames()
     {
         minigames.gameObject.SetActive(true);
+        GameManager.instance.newminigame = false; // setto che ha guardato la notifica
+        notification.gameObject.SetActive(false); // faccio scomparire il pallino
+
+        if (GameManager.instance.newbadge)
+        {
+            newbadgenotification.gameObject.SetActive(true); // se ho nuovo badge: lo setto a true
+            GameManager.instance.newbadge = false;
+        }
     }
 
     public void HideMinigames()
     {
         minigames.gameObject.SetActive(false);
+        newbadgenotification.gameObject.SetActive(false);
+        
     }
     
     //nECESSARY TO CONTINUOSLY BE DONE, SO TO UPDATE THE BADGE PANEL EVERYTIME I AM IN THE MAINMAP 
@@ -85,6 +109,7 @@ public class HistoryOfMissionsManager : MonoBehaviour
     //Il problema viene chiamato con previous problem perchè problem now una volta fatte tutte e tre le task si setta a zero 
     public void SetVariable()
     {
+        
         // anxiety
          foreach (var mg in GameManager.instance.anxietyEverSorted)
         {

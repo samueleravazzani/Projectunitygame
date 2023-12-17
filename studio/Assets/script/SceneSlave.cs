@@ -60,7 +60,7 @@ public class SceneSlave : MonoBehaviour
         {
             gameObject.SetActive(true);
             transform.parent.Find("Circle").gameObject.SetActive(false);
-            GetComponent<SpriteRenderer>().color = new Color(0.1647f, 1f, 0f);
+            GetComponent<SpriteRenderer>().color = new Color(0.9069856f, 1f, 0f);
             transform.Find("Background").gameObject.SetActive(false);
             transform.Find("Category").gameObject.SetActive(false);
             transform.Find("MainMapCircle").gameObject.SetActive(false);
@@ -104,13 +104,7 @@ public class SceneSlave : MonoBehaviour
         // se sono nella MainMap e viene attivata la mappa dall'alto
         if (SceneManager.GetActiveScene().name == "MainMap")
         {
-            if (CameraSwitcher.isCamera1Active == false && scenetoload == "Home" && !GameManager.instance.questionnairedone) // se vai a casa
-            {
-                Color newColor = new Color(0.1647f, 1f, 0f);
-                newColor.a = 0.75f;
-                transform.Find("MainMapCircle").GetComponent<SpriteRenderer>().color = newColor;
-            }
-            else if (CameraSwitcher.isCamera1Active == false) // di solito entri qui
+           if (CameraSwitcher.isCamera1Active == false) // di solito entri qui
             {
                 var spriteRenderer = transform.Find("MainMapCircle").GetComponent<SpriteRenderer>();
                 Color newColor = spriteRenderer.color;
@@ -145,14 +139,15 @@ public class SceneSlave : MonoBehaviour
 
     public void ActivateChangeScene()
     {
-        if (scenetoload == "Start_Scene" && GameManager.instance.questionnairedone &&
-            GameManager.instance.n_world_saved == 1)
+        if (scenetoload == "SeeYouTomorrow" && GameManager.instance.questionnairedone &&
+            (GameManager.instance.n_world_saved == 1 || GameManager.instance.n_world_saved%15==0))
         {
             scenetoload = "Outro";
         }
 
         SceneMaster.instance.ChangeSchene(scenetoload, playeractive, playerposition);
         teleport = false;
+        
         
     }
 

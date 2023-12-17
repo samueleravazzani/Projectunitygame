@@ -2259,6 +2259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentGameData: {fileID: 11400000, guid: 2b82ce1e26d8ce147a2aa6c150f0190e, type: 2}
   gameLevelData: {fileID: 11400000, guid: 16d59ad0564207845a3283ca8a3f129b, type: 2}
+  popup: {fileID: 979253131}
 --- !u!1 &1616765036
 GameObject:
   m_ObjectHideFlags: 0
