@@ -13,6 +13,7 @@ public class Pausa : MonoBehaviour
     public Button button1; 
     public Button button2;
     public Button button3;
+    private bool premuto = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,5 +40,19 @@ public class Pausa : MonoBehaviour
     {
         // Unpause the audio
         AudioListener.pause = false;
+    }
+
+    public void music()
+    {
+        if (!premuto)
+        {
+            AudioListener.pause = true;
+            premuto = true;
+        }
+        else
+        {
+            AudioListener.pause = false;
+            premuto = false;
+        }
     }
 }
