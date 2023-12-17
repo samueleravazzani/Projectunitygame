@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DialogueBever : MonoBehaviour
 {
@@ -26,12 +27,14 @@ public class DialogueBever : MonoBehaviour
         return instance;
     }
 
+    
     public void DialogueBeverManager(TextAsset[] DialoghiBever)
     {
         currentSceneName = SceneManager.GetActiveScene().name;
         switch (currentSceneName)
         {
             case "MainMap":
+                MainMapTutorial.GetInstance().talked();
                 if (GameManager.instance.task_index == 3 && GameManager.instance.questionnairedone == false )
                 {
                     DialogeManager.GetInstance().EnterDialogueMode(DialoghiBever[4]);

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class redmovement : MonoBehaviour
@@ -11,8 +12,12 @@ public class redmovement : MonoBehaviour
     private float maxX = 7f;
     private float minY = -4f;
     private float maxY = 4f;
+
+    private float xbuttonarea=-6f;
+    private float ybuttonarea=1f;
     
     public GameObject customPointer;
+    public GameObject pause;
 
     private void Start()
     {
@@ -31,6 +36,7 @@ public class redmovement : MonoBehaviour
         customPointer.transform.position = worldPosition;
         // Limitar la posición del objeto
         LimitPosition();
+        checkposition(worldPosition);
     }
     
     void LimitPosition()
@@ -41,5 +47,27 @@ public class redmovement : MonoBehaviour
 
         // Asigna la posición limitada al objeto
         transform.position = new Vector3(clampedX, clampedY, transform.position.z);
+    }
+
+    void checkposition( Vector3 worldPosition)
+    {
+        if (worldPosition.x < xbuttonarea && worldPosition.y > ybuttonarea)
+        {
+            Cursor.visible = true;
+        }
+        else if (pause.gameObject.activeSelf)
+        {
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.visible = false;
+        }
+        
+    }
+
+    public void visiblecursor()
+    {
+        Cursor.visible = true;
     }
 }

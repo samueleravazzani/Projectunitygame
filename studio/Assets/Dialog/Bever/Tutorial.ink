@@ -21,6 +21,7 @@ In addition, within every game, you possess the option to pause it. You're given
 Nevertheless, opting to return to the forest incurs a penalty.
  In the event of a loss, you have the opportunity to retry the game or exit, but both options come with penalties attached.
 Remember this is your home: thus you can always come back here just approaching the door.
+Don't hesitate to talk to me if you need to. If I have something important to say to you, a red dot on my icon in the botton-right will appear.
 You will see that we will learn a lot together and have a wonderful time!
 Is it all clear?
     + [Yes]
