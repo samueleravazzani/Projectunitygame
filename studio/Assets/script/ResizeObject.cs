@@ -65,7 +65,7 @@ public class ResizeObject : MonoBehaviour
         begin = true;
         while (currentRepeatCount < repeatCount)
         {
-            RepeatText.text=string.Format("Repetitions left: {00}",repeatCount-currentRepeatCount);
+            RepeatText.text=string.Format("Repetitions\n left: {00}",repeatCount-currentRepeatCount);
             //startTime = Time.time;
             yield return new WaitForSeconds(holdTime1);
             startTime = Time.time;
