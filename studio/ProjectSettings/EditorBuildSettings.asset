@@ -101,5 +101,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Introforfishing 1.unity
     guid: e69b92554627b6a4caa169aa1c55d840
+  - enabled: 1
+    path: Assets/Scenes/SeeYouTomorrow.unity
+    guid: 5bc660a21c62345a9a6990c93f35d404
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
