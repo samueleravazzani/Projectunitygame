@@ -1,6 +1,5 @@
 ->main
 ===main===
-Look for the diadomnds! 
-Click on the map in the bottom right to see better where they are.
-
+Search for the diamonds! 
+Click on the map located at the bottom right of the screen to see their positions.
 ->END

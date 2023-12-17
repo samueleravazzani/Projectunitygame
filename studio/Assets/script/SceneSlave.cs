@@ -104,13 +104,7 @@ public class SceneSlave : MonoBehaviour
         // se sono nella MainMap e viene attivata la mappa dall'alto
         if (SceneManager.GetActiveScene().name == "MainMap")
         {
-            if (CameraSwitcher.isCamera1Active == false && scenetoload == "Home" && !GameManager.instance.questionnairedone) // se vai a casa
-            {
-                Color newColor = new Color(0.9069856f, 1f, 0f);
-                newColor.a = 0.75f;
-                transform.Find("MainMapCircle").GetComponent<SpriteRenderer>().color = newColor;
-            }
-            else if (CameraSwitcher.isCamera1Active == false) // di solito entri qui
+           if (CameraSwitcher.isCamera1Active == false) // di solito entri qui
             {
                 var spriteRenderer = transform.Find("MainMapCircle").GetComponent<SpriteRenderer>();
                 Color newColor = spriteRenderer.color;
@@ -153,6 +147,7 @@ public class SceneSlave : MonoBehaviour
 
         SceneMaster.instance.ChangeSchene(scenetoload, playeractive, playerposition);
         teleport = false;
+        
         
     }
 
