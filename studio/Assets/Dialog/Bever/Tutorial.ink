@@ -14,9 +14,12 @@ They respectively represent your strength against anxiety, your literacy level a
 ... and your climate change awareness. These will be your main powers in this adventure, which will grow mission after mission!
 On bottom right you have two buttons: one lets you see the map and highlight the magic diamonds representing your missions;
 the other one is your collection of personal badges: both for your missions and your awards. Collect them all!
-Every mission you complete, you will see the problem of the Enchanted Forest become weaker and weaker!
+Every mission you complete, you will see the problem of the Enchanted Forest become weaker and weaker and your paramters increase!
 However, pay attention: your progress will be saved only once you are in the Enchanted Forest, thus if you interrupt a mission...
 ...you will have to start it again!
+In addition, within every game, you possess the option to pause it. You're given the choice to either resume the game or return to the forest. 
+Nevertheless, opting to return to the forest incurs a penalty.
+ In the event of a loss, you have the opportunity to retry the game or exit, but both options come with penalties attached.
 Remember this is your home: thus you can always come back here just approaching the door.
 You will see that we will learn a lot together and have a wonderful time!
 Is it all clear?
