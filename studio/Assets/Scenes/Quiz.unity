@@ -2162,8 +2162,16 @@ PrefabInstance:
         errors on the upper left screen. "
       objectReference: {fileID: 0}
     - target: {fileID: 3410725906983444818, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
+      propertyPath: m_margin.w
+      value: -17.348366
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410725906983444818, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
       propertyPath: m_margin.x
-      value: -12.486404
+      value: 5.698807
+      objectReference: {fileID: 0}
+    - target: {fileID: 3410725906983444818, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
+      propertyPath: m_margin.y
+      value: -29.49231
       objectReference: {fileID: 0}
     - target: {fileID: 3410725906983444818, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
       propertyPath: m_margin.z
