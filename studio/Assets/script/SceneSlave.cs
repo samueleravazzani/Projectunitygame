@@ -140,23 +140,11 @@ public class SceneSlave : MonoBehaviour
     public void ActivateChangeScene()
     {
         if (scenetoload == "Start_Scene" && GameManager.instance.questionnairedone &&
-            (GameManager.instance.n_world_saved == 1 || GameManager.instance.n_world_saved%10==0))
+            GameManager.instance.n_world_saved == 1)
         {
             scenetoload = "Outro";
         }
 
-        if((scenetoload == "Start_Scene" || scenetoload == "Outro")&& GameManager.instance.questionnairedone)
-        {
-            SceneMaster.instance.ChangeSchene(scenetoload, true, new Vector3(-50, -50, 0));
-            teleport = false;
-            Destroy(GameObject.Find("player"));
-            Destroy(GameObject.Find("Virtual Camera"));
-            Destroy(GameObject.Find("GameManager"));
-            Destroy(GameObject.Find("SceneMaster"));
-            Destroy(GameObject.Find("Bever"));
-            return;
-        }
-        
         SceneMaster.instance.ChangeSchene(scenetoload, playeractive, playerposition);
         teleport = false;
         
