@@ -300,7 +300,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!212 &30745503
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -544,7 +543,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!61 &142962504
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -728,7 +726,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!212 &183239853
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1055,7 +1052,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!1 &228711625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,7 +1177,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!1 &239901432
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,6 +1898,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  customPointer: {fileID: 0}
+  pause: {fileID: 0}
 --- !u!61 &438418644
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1961,11 +1958,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e665e36d6113240bd6ec6c1f18c29e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleSystem: {fileID: 1289655475}
-  particleSystemFriends: {fileID: 1088706640}
-  gameOverCanvas: {fileID: 1377819465}
-  gameOverCanvas2: {fileID: 1941342967}
-  backgroundMusic: {fileID: 511696192}
+  miss: 0
+  ScoreText: {fileID: 0}
+  missText: {fileID: 0}
+  Fishes: []
+  Fish_Prefab: {fileID: 0}
+  Trashes: []
+  Trash_Prefab: {fileID: 0}
+  ymax: 0
+  ymin: 0
+  xmax: 10
+  xmin: 0
+  FishPosition: {x: 10, y: 0, z: 0}
+  TrashPosition: {x: 0, y: 6, z: 0}
+  NumFishes: 0
+  Trashold: 50
+  Trashold1: 70
+  Trashold2: 90
+  level: 0
+  retino: {fileID: 0}
 --- !u!50 &438418646
 Rigidbody2D:
   serializedVersion: 4
@@ -2073,7 +2084,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!212 &469611823
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3009,7 +3019,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!212 &738702529
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3375,7 +3384,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!212 &893425140
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3541,7 +3549,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!1 &956512860
 GameObject:
   m_ObjectHideFlags: 0
@@ -3688,7 +3695,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!1 &981946064
 GameObject:
   m_ObjectHideFlags: 0
@@ -8790,12 +8796,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -9090,7 +9096,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!212 &1111984804
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9283,7 +9288,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!1 &1126001585
 GameObject:
   m_ObjectHideFlags: 0
@@ -9497,7 +9501,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!212 &1129605704
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9816,7 +9819,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!212 &1212774423
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10164,7 +10166,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!1 &1254910390
 GameObject:
   m_ObjectHideFlags: 0
@@ -16059,12 +16060,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -16311,12 +16312,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -16461,7 +16462,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!212 &1443485495
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17488,7 +17488,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!1 &1693467825
 GameObject:
   m_ObjectHideFlags: 0
@@ -17537,12 +17536,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -17765,7 +17764,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!1 &1742041848
 GameObject:
   m_ObjectHideFlags: 0
@@ -17797,7 +17795,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!212 &1742041850
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18074,7 +18071,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2942900357144147544, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9b7dc6467a3c43d47bb7e4024b15efa2, type: 3}
 --- !u!1 &1812765334
 GameObject:
@@ -18214,7 +18214,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!61 &1833526106
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18383,7 +18382,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!212 &1843063432
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18912,7 +18910,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!212 &1881134158
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19105,7 +19102,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!1 &1941342967
 GameObject:
   m_ObjectHideFlags: 0
@@ -19155,12 +19151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -19330,7 +19326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!1 &2037627127
 GameObject:
   m_ObjectHideFlags: 0
@@ -19544,7 +19539,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  minX: 0
 --- !u!212 &2075851491
 SpriteRenderer:
   m_ObjectHideFlags: 0
