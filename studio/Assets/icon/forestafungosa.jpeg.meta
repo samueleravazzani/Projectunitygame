@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      forestafungosa_0: 8741129318426158383
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
