@@ -69,6 +69,6 @@ public class OutroScroll : MonoBehaviour
 
     void LoadNextScene()
     {
-        SceneManager.LoadScene("Start_Scene"); 
+        SceneManager.LoadScene("SeeYouTomorrow"); 
     }
 }
