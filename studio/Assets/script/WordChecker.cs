@@ -8,6 +8,7 @@ public class WordChecker : MonoBehaviour
 {
     public GameData currentGameData;
     public GameLevelData gameLevelData;
+    public GameObject popup;
     private int count=0;
     private string _word;
     private int _assignedPoint = 0;
@@ -141,17 +142,7 @@ public class WordChecker : MonoBehaviour
                 }
                 else
                 {
-                    // Carica la scena "PuzzleGame"
-                    SceneManager.LoadScene("PuzzleGame");
-
-                    // Trova il bottone "Quit" nella scena e lo attiva
-                    GameObject quitButton = GameObject.Find("Quit_TaskDone");
-                    GameObject quitButton1 = GameObject.Find("Quit");// Assicurati che il nome sia corretto
-                    if (quitButton != null)
-                    {
-                        quitButton.SetActive(true);
-                        quitButton.SetActive(false);
-                    }
+                    popup.SetActive(true);
                 }
             }
 
