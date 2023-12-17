@@ -404,50 +404,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1968876315465564893, guid: d1c5f25595228c84980566673767ddc1, type: 3}
   m_PrefabInstance: {fileID: 213203321}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &442910538
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 442910539}
-  - component: {fileID: 442910540}
-  m_Layer: 0
-  m_Name: Distruzione
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &442910539
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442910538}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 994.108, y: 195.3772, z: -4.383684}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &442910540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442910538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d41da1179f1b14c198d34254fc30a1a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &579084269
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,4 +893,3 @@ SceneRoots:
   - {fileID: 186782825}
   - {fileID: 749616834}
   - {fileID: 1163394369}
-  - {fileID: 442910539}
