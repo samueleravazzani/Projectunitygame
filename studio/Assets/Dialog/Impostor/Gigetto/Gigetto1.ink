@@ -3,7 +3,7 @@
 //file JSON indice dispari
 ===main===
 Did you know that drinking eight glasses of water per day is the recommended amount for optimal health?
-This information comes from a recent study published in the Journal of Hydration Studies.
+This information comes from a recent study published in the Journal of Hydration Studies. (Press 'Space' to choose)
     + [True]
         Incorrect. ->answer
     +[False]

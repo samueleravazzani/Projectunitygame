@@ -2,7 +2,7 @@
 
 //file JSON indice dispari
 ===main===
-True or False: Wearable fitness trackers can provide real-time monitoring of blood pressure.
+True or False: Wearable fitness trackers can provide real-time monitoring of blood pressure. (Press 'Space' to choose)
     + [True]
         Incorrect. ->answer
     +[False]

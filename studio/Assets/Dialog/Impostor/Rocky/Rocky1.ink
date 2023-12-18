@@ -3,7 +3,7 @@
 //file JSON indice dispari
 ===main===
 True or False: Regularly changing your computer's desktop wallpaper can improve its performance.
-This tech advice was recently featured in a tech blog focused on optimizing digital experiences.
+This tech advice was recently featured in a tech blog focused on optimizing digital experiences. (Press 'Space' to choose)
     + [True]
         Incorrect. ->answer
     +[False]

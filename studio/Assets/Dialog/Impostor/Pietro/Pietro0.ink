@@ -3,7 +3,7 @@
 //file JSON indice pari
 ===main===
 Question: For a balanced diet, what is the suggested daily consumption of fruits and vegetables? 
-According to nutritional guidelines from the World Health Organization (WHO), adults should aim for at least 5 servings per day.
+According to nutritional guidelines from the World Health Organization (WHO), adults should aim for at least 5 servings per day. (Press 'Space' to choose)
     + [True]
         Correct! ->answer
     +[False]

@@ -6,7 +6,7 @@ It works like Tetris Game, but here the blocks will move from right to left and 
 Press the up, left and down keys to respectively move the block upwards, to the left or downwards, and the space bar to rotate it.
 If you succeed in stopping the water, you win.
 Viceversa if the water reaches the houses, you will loose and the poor inhabitants of the Enchanted Forest will loose their homes...
-Are you ready to help them?
+Are you ready to help them? (Press 'Space' to choose)
 + [Yes!]
 Let's go!
 ->END

@@ -12,7 +12,7 @@ Then, with your lips closed, inhale silently through your nose as you count to f
 Then, for seven seconds, hold your breath.
 This is the hard part to manage, but I am confident you can do it!
 To conclude, exhale from your mouth for eight seconds straight.
-Is it all clear?    
+Is it all clear? (Press 'Space' to choose)  
     + [Yes!]
         Let's start then.
         ->END

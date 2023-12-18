@@ -3,7 +3,7 @@
 //file JSON indice pari
 ===main===
 Question: Regular handwashing is one of the most effective ways to prevent infections.
-This health tip is supported by several health organizations worldwide, including the World Health Organization (WHO).
+This health tip is supported by several health organizations worldwide, including the World Health Organization (WHO). (Press 'Space' to choose)
     + [True]
         Correct! ->answer
     +[False]

@@ -2,7 +2,7 @@
 
 //file JSON indice pari
 ===main===
-"PHR" stands for Personal Health Record in the context of healthcare informatics.
+"PHR" stands for Personal Health Record in the context of healthcare informatics.(Press 'Space' to choose)
     + [True]
         Correct! ->answer
     +[False]

@@ -3,7 +3,7 @@
 //file JSON indice dispari
 ===main===
 True or False: Holding the breath for extended periods can increase your lung capacity.
-A recent fitness trend suggests that breath-holding exercises can significantly enhance respiratory function.
+A recent fitness trend suggests that breath-holding exercises can significantly enhance respiratory function. (Press 'Space' to choose)
     + [True]
         Incorrect. ->answer
     +[False]

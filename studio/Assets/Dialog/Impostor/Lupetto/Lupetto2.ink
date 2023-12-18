@@ -3,7 +3,7 @@
 //file JSON indice pari
 ===main===
 Question: Regular physical activity can improve your mood by triggering endorphins. 
-This health benefit is supported by many studies from the World Health Organization (WHO).
+This health benefit is supported by many studies from the World Health Organization (WHO). (Press 'Space' to choose)
     + [True]
         Correct. ->answer
     +[False]

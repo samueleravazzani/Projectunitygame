@@ -6,7 +6,7 @@ This minigame aims to illuminate the calamity that's devastating the 'Enchanted 
 Inside this maze lie keys, yet only a precise sequence of key movements will allow you to achieve the goal: extinguishing the fire and saving the forest.
 
 This isn't just a test; it's an avenue to broaden your comprehension of climate change and its multifaceted dimensions.
-Is it all clear?   
+Is it all clear? (Press 'Space' to choose)
     + [Yes!]
         Let's start then.
         ->END

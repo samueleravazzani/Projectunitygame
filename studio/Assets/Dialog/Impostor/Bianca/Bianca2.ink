@@ -5,7 +5,7 @@
 Digital Literacy Question:
 What is the purpose of a "CAPTCHA" on websites?
 CAPTCHA (Completely Automated Public Turing test to tell Computers and Humans Apart)
-is used to differentiate between human and automated bot interactions on websites.
+is used to differentiate between human and automated bot interactions on websites. (Press 'Space' to choose)
     + [True]
         Correct!->answer
     +[False]

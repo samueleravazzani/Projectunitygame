@@ -3,7 +3,7 @@
 //file JSON indice dispari
 ===main===
 True or False: Using your smartphone while it's charging can lead to an explosion.
-According to an urban legend circulating on social media, using your phone while it’s charging poses a serious risk of explosion.
+According to an urban legend circulating on social media, using your phone while it’s charging poses a serious risk of explosion. (Press 'Space' to choose)
     + [True]
         Incorrect. ->answer
     +[False]

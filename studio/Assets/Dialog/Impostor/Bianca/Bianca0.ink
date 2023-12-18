@@ -3,7 +3,7 @@
 //file JSON indice pari
 ===main===
 True or False:
-"Digital Health Literacy" includes the ability to navigate online health resources and distinguish credible information from misinformation.
+"Digital Health Literacy" includes the ability to navigate online health resources and distinguish credible information from misinformation. (Press 'Space' to choose)
     + [True]
         Correct! ->answer
     +[False]

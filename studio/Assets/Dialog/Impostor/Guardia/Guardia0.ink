@@ -2,7 +2,7 @@
 
 //file JSON indice pari
 ===main===
-Nature exposure is linked to improved mental well-being.
+Nature exposure is linked to improved mental well-being. (Press 'Space' to choose)
     + [True]
         Correct! ->answer
     +[False]

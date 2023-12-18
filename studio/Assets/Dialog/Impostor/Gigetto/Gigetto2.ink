@@ -3,7 +3,7 @@
 //file JSON indice pari
 ===main===
 Question: Laughter is the best medicine.
-Scientifically proven, laughter releases endorphins and reduces stress, as highlighted by the Journal of Happiness Studies.
+Scientifically proven, laughter releases endorphins and reduces stress, as highlighted by the Journal of Happiness Studies. (Press 'Space' to choose)
     + [True]
         Correct. ->answer
     +[False]

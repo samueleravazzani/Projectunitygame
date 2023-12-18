@@ -3,7 +3,7 @@
 //file JSON indice pari
 ===main===
 Digital Literacy Question: What does "URL" stand for?
-URL stands for Universal Resource Locator, a term coined by computer scientists in the early days of the internet.
+URL stands for Universal Resource Locator, a term coined by computer scientists in the early days of the internet. (Press 'Space' to choose)
     + [True]
         Correct! ->answer
     +[False]

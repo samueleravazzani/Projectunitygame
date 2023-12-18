@@ -16,7 +16,7 @@ Remember, if you miss a leaf by letting it fall down all over the screen without
 
 But don't worry - view it as an opportunity to embrace calmness. You can always restart whenever you're ready!
 
-Does everything seem clear?
+Does everything seem clear? (Press 'Space' to choose)
 + [Yes!]
 Let's start the journey.
 ->END

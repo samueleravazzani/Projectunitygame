@@ -11,7 +11,7 @@ Be aware not to click on them otherwise your missing counter will increase!
 If you leave them alone instead, your score will increase as well.
 You must be accurate and fast to click on the firtile tile, otherwise the missing counter will increase.
 Remember, if the missing counter reaches the number of 3, you lose.
-Is it all clear?
+Is it all clear? (Press 'Space' to choose)
     + [Yes!]
         Let's start then, good luck!
         ->END

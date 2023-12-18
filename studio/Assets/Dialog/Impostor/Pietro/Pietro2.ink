@@ -2,7 +2,7 @@
 
 //file JSON indice pari
 ===main===
-True or False: Digital health literacy includes the ability to critically evaluate online health information.
+True or False: Digital health literacy includes the ability to critically evaluate online health information. (Press 'Space' to choose)
     + [True]
         Correct! ->answer
     +[False]

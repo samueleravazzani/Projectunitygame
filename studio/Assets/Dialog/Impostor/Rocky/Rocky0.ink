@@ -3,7 +3,7 @@
 //file JSON indice pari
 ===main===
 Question: Reading before bedtime can improve sleep quality.
-This health advice, supported by sleep specialists, promotes the practice of relaxing with a good book for improved sleep.
+This health advice, supported by sleep specialists, promotes the practice of relaxing with a good book for improved sleep. (Press 'Space' to choose)
     + [True]
         Correct! ->answer
     +[False]

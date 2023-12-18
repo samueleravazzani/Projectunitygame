@@ -10,7 +10,7 @@ The amount of rubbish you will have to collect is indicated in the botton-left o
 Pay attention not to catch the fish though! if you do so, the missing counter will increase and if it reaches three you lose.
 The game is divided in three levels with the difficulty ramping up as you advance.
 In the third and last level if the trash touch the seabed the missing counter will increase.
-Does everything seem clear?
+Does everything seem clear? (Press 'Space' to choose)
 + [Yes!]
 Let's start!.
 ->END

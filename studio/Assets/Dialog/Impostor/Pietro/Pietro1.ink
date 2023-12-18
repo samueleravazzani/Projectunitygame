@@ -3,7 +3,7 @@
 //file JSON indice dispari
 ===main===
 Digital Literacy Question: What does the term "phishing" refer to?
-Phishing is a cyber-technique where hackers use a virtual fishing rod to catch personal information.
+Phishing is a cyber-technique where hackers use a virtual fishing rod to catch personal information. (Press 'Space' to choose)
     + [True]
         Incorrect. ->answer
     +[False]
