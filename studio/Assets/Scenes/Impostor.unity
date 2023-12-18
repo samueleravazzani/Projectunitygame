@@ -2391,6 +2391,10 @@ PrefabInstance:
       value: -146
       objectReference: {fileID: 0}
     - target: {fileID: 4163995922419398262, guid: 66d1f11f0d216479fae70833cb82d2b6, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163995922419398262, guid: 66d1f11f0d216479fae70833cb82d2b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1465565671}
@@ -2399,6 +2403,10 @@ PrefabInstance:
       value: TaskFailedAndActivateChangeScene
       objectReference: {fileID: 0}
     - target: {fileID: 4901441605609427116, guid: 66d1f11f0d216479fae70833cb82d2b6, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8469564660853908768, guid: 66d1f11f0d216479fae70833cb82d2b6, type: 3}
       propertyPath: m_Navigation.m_Mode
       value: 0
       objectReference: {fileID: 0}
