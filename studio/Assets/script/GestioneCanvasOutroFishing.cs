@@ -6,6 +6,7 @@ using UnityEngine.Serialization;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class GestioneCanvasOutroFishing : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class GestioneCanvasOutroFishing : MonoBehaviour
 
     public void win()
     {
+        Cursor.visible = true;
         LevelLoader.GetInstance().distruzione();
         OutroText.text = "Congratulation, you won!\nYour efforts make a positive impact on the environment and contribute to the well-being of our oceans. Gratitude for being a part of the solution!";
         Retry.gameObject.SetActive(false);
@@ -53,6 +55,7 @@ public class GestioneCanvasOutroFishing : MonoBehaviour
 
     public void lose()
     {
+        Cursor.visible = true;
         LevelLoader.GetInstance().distruzione();
         OutroText.text = "Oh no, you lost!\nClean seas are crucial for marine life, biodiversity, and human well-being. Plastic pollution disrupts ecosystems, harms marine species, and affects the food chain. Beyond environmental impact, it threatens fisheries, tourism, and human health, emphasizing the global responsibility to curb plastic pollution for a sustainable future.";
         Home.gameObject.SetActive(false);

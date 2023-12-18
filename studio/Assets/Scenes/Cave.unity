@@ -5029,10 +5029,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC_wizard
       objectReference: {fileID: 0}
+    - target: {fileID: 1945953164291997125, guid: be6074682f924da4191471b68d36b689, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1945953164291997125, guid: be6074682f924da4191471b68d36b689, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2601768275860892093, guid: be6074682f924da4191471b68d36b689, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -550732012, guid: 68ad2a8f16c1f3a4d93bd87597c15ca3, type: 3}
+    - target: {fileID: 4466914630196928883, guid: be6074682f924da4191471b68d36b689, type: 3}
+      propertyPath: m_Size.y
+      value: 0.99439347
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466914630196928883, guid: be6074682f924da4191471b68d36b689, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.08325666
+      objectReference: {fileID: 0}
     - target: {fileID: 5384478151559890178, guid: be6074682f924da4191471b68d36b689, type: 3}
       propertyPath: inkJSON.Array.size
       value: 1
@@ -7393,7 +7409,7 @@ Tilemap:
       - {fileID: -929864772, guid: 9e0d88770e70fa248828953c61c6e351, type: 3}
       - {fileID: 2083318591, guid: 9e0d88770e70fa248828953c61c6e351, type: 3}
       - {fileID: -404341913, guid: 9e0d88770e70fa248828953c61c6e351, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -1, y: 5, z: 0}

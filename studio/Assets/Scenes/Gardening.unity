@@ -3457,7 +3457,7 @@ Tilemap:
       - {fileID: 452622848, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
       - {fileID: 1554640037, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
       - {fileID: 831551130, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -9, y: 1, z: 0}
@@ -3547,7 +3547,7 @@ Tilemap:
       - {fileID: 452622848, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
       - {fileID: 1554640037, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
       - {fileID: 831551130, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -9, y: 3, z: 0}
@@ -3757,7 +3757,7 @@ Tilemap:
       - {fileID: 452622848, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
       - {fileID: 1554640037, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
       - {fileID: 831551130, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -5, y: 5, z: 0}
@@ -3772,7 +3772,7 @@ Tilemap:
       - {fileID: 452622848, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
       - {fileID: 1554640037, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
       - {fileID: 831551130, guid: f81c2caaa12468148a4a8e0689e5c159, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -4, y: 5, z: 0}
@@ -5465,6 +5465,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneLoaderTransition
       objectReference: {fileID: 0}
+    - target: {fileID: 8676559845666438844, guid: 03568727100f5ad40bfa989a5e0af52f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5798,8 +5802,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 223.6304, y: 72.99998}
-  m_SizeDelta: {x: -476.0334, y: -333.2996}
+  m_AnchoredPosition: {x: 216.45164, y: 78.150955}
+  m_SizeDelta: {x: -461.6758, y: -359.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1398935422
 MonoBehaviour:
@@ -7797,7 +7801,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
@@ -8696,8 +8700,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30.992, y: 13.2765}
-  m_SizeDelta: {x: 261.98, y: 76.553}
+  m_AnchoredPosition: {x: -56.630535, y: 13.2765}
+  m_SizeDelta: {x: 313.257, y: 76.553}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1868687157
 MonoBehaviour:
@@ -8782,7 +8786,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 9.371696, y: 0, z: -54.66812, w: -20.305279}
+  m_margin: {x: 9.371696, y: -18.45977, z: -118.25168, w: -36.713867}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
