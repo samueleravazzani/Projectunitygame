@@ -7393,7 +7393,7 @@ Tilemap:
       - {fileID: -929864772, guid: 9e0d88770e70fa248828953c61c6e351, type: 3}
       - {fileID: 2083318591, guid: 9e0d88770e70fa248828953c61c6e351, type: 3}
       - {fileID: -404341913, guid: 9e0d88770e70fa248828953c61c6e351, type: 3}
-      m_AnimationSpeed: 6
+      m_AnimationSpeed: 6.0000005
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: -1, y: 5, z: 0}
@@ -7543,7 +7543,7 @@ Tilemap:
       - {fileID: -929864772, guid: 9e0d88770e70fa248828953c61c6e351, type: 3}
       - {fileID: 2083318591, guid: 9e0d88770e70fa248828953c61c6e351, type: 3}
       - {fileID: -404341913, guid: 9e0d88770e70fa248828953c61c6e351, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 23, y: 26, z: 0}
@@ -7633,7 +7633,7 @@ Tilemap:
       - {fileID: -929864772, guid: 9e0d88770e70fa248828953c61c6e351, type: 3}
       - {fileID: 2083318591, guid: 9e0d88770e70fa248828953c61c6e351, type: 3}
       - {fileID: -404341913, guid: 9e0d88770e70fa248828953c61c6e351, type: 3}
-      m_AnimationSpeed: 6.0000005
+      m_AnimationSpeed: 6
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 4, y: 45, z: 0}
@@ -10112,31 +10112,32 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Arrow keys/ W-A-S-D keys: move
 
-        Enter: talk to Eldrah and interract
-        with the chest
+        Enter: interract with the chest
+        and see a potion description
 
-        Space: go on with the conversation of Eldrah
+        Button E: talk to Eldrah
 
-
-        Go
-        to the chest to find the enigma to solve
-
-        Go in the cave and look
-        for the potions fitting the enigma
-
-        Enter: see a potion description
-
-        Take
-        button: select this medicine
-
-        Back button: try to look for other
-        medicines
-
-        Chest button: resee the enigma given by the chest
+        Space:
+        go on with the conversation of Eldrah
 
 
-        Go
-        back to the chest for the following enigma'
+        Go to the chest to find the
+        enigma to solve
+
+        Go in the cave and look for the potions fitting
+        the enigma
+
+
+        Take button: select this medicine
+
+        Back button:
+        try to look for other medicines
+
+        Chest button: resee the enigma given
+        by the chest
+
+
+        Go back to the chest for the following enigma'
       objectReference: {fileID: 0}
     - target: {fileID: 3410725906983444818, guid: 02c01edc40fe34836bc079574010cfcc, type: 3}
       propertyPath: m_fontSize

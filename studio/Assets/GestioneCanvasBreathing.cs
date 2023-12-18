@@ -95,7 +95,7 @@ public class GestioneCanvasBreathing : MonoBehaviour
 
     public void winning()
     {
-        OutroText.text = "Well Done! I hope you enjoy your breathing session";
+        OutroText.text = "Well Done! I hope you enjoyed your breathing session";
         OutroCanvas.enabled = true;
         
     }

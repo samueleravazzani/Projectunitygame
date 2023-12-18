@@ -25,6 +25,9 @@ public class CardDisplay : MonoBehaviour
     public Image success;
     public Image fail;
     public Image[] errors;
+    private GameObject Bever;
+    private GameObject player;
+    private Vector3 playerPosition=new Vector3(1.28f,-4.3f,0.0f);
     
     public static CardDisplay instance;
     private void Awake() //creation singleton
@@ -38,6 +41,8 @@ public class CardDisplay : MonoBehaviour
     
     private void Start()
     {
+        player=GameObject.Find("player");
+        Bever=GameObject.Find("Bever");
         HideErrors();
         HideCard();
         HideResult();
@@ -127,7 +132,10 @@ public class CardDisplay : MonoBehaviour
 
     public void Retry()
     {
+        player.gameObject.transform.position=playerPosition;
+        Bever.gameObject.transform.position=playerPosition;
         SceneManager.LoadScene("Cave");
+
     }
 
     public void Quit()
