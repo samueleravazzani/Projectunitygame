@@ -32,7 +32,7 @@ public class DialogeTrigger : MonoBehaviour //script attaccato al trigger dell'N
             
             visualCue.SetActive(true); //attivazione del cubo sopra l'NPC
             
-            if (Input.GetKeyDown(KeyCode.Return)) //comando di interazione con NPC, bottone invio.
+            if (Input.GetKeyDown(KeyCode.E)) //comando di interazione con NPC, bottone invio.
             {
                 nameNPC = gameObject.tag;//salvo il nome dell'NPC con cui ho interagito
                 Debug.Log("sono " + nameNPC.ToString());
