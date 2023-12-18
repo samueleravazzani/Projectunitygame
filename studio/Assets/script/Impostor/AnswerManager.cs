@@ -68,7 +68,9 @@ public class AnswerManager : MonoBehaviour
          Debug.Log("valore literacy_inverted: "+ x.ToString());
          y =Mathf.RoundToInt( m * x + q); //ottengo il valore di punti da prendere per vincere
          Debug.Log("valore risposte corrette da dare: "+ y.ToString());
-         
+         correct = 0;
+         incorrect = 0;
+
      }
 
      //FUNZIONE CHE MI PERMETTE DI GESTIRE LE RISPOSTE
