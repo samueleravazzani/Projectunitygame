@@ -1271,7 +1271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2204,6 +2204,10 @@ PrefabInstance:
       value: -77
       objectReference: {fileID: 0}
     - target: {fileID: 4163995922419398262, guid: 66d1f11f0d216479fae70833cb82d2b6, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4163995922419398262, guid: 66d1f11f0d216479fae70833cb82d2b6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 646355940}
@@ -2214,6 +2218,10 @@ PrefabInstance:
     - target: {fileID: 4518450005711040820, guid: 66d1f11f0d216479fae70833cb82d2b6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 67.600006
+      objectReference: {fileID: 0}
+    - target: {fileID: 4901441605609427116, guid: 66d1f11f0d216479fae70833cb82d2b6, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7799590229726258271, guid: 66d1f11f0d216479fae70833cb82d2b6, type: 3}
       propertyPath: m_fontSize
@@ -2242,6 +2250,10 @@ PrefabInstance:
     - target: {fileID: 8098363598199631717, guid: 66d1f11f0d216479fae70833cb82d2b6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 97
+      objectReference: {fileID: 0}
+    - target: {fileID: 8469564660853908768, guid: 66d1f11f0d216479fae70833cb82d2b6, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8817562231635275616, guid: 66d1f11f0d216479fae70833cb82d2b6, type: 3}
       propertyPath: m_Pivot.x
@@ -2460,7 +2472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4141,7 +4153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}

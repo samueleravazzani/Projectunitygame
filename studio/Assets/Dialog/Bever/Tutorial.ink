@@ -8,7 +8,7 @@ However, I know you can save us all! You have the necessary strength to do it.
 Once in the forest, 3 pink magic diamonds will appear in the world...
 ...those are the places where you will have to accomplish your missions.
 To move in the world you can either press the 4 arrow keys or the W-A-S-D keys. You can either press or keep pressed.  
-You will also meet the inhabitants of this place: press Enter to talk to them and Space to go on with their conversations or select an answer.
+You will also meet the inhabitants of this place: press E to talk to them and Space to go on with their conversations or select an answer.
 On the top left you will see 3 sliders: those represent your current abilities, that will evolve with time.
 They respectively represent your strength against anxiety, your literacy level about health and digital technology...
 ... and your climate change awareness. These will be your main powers in this adventure, which will grow mission after mission!
