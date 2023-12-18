@@ -67,7 +67,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Arrow keys/ W-A-S-D keys: move
 
-    Enter: talk to inhabitants
+    Button E: talk to inhabitants
 
     Space:
     go on with their conversation
