@@ -7,8 +7,8 @@ using TMPro;
 public class Collect : MonoBehaviour
 {
     //Booleani di fine gioco
-    private bool win = false;
-    private bool lose = false;
+    public bool win = false;
+    public bool lose = false;
     
     //Booleano per inizializzare la Coroutine
     private bool start = false;
@@ -161,7 +161,9 @@ public class Collect : MonoBehaviour
 
             yield return null;
         }
+
         LevelLoader.GetInstance().distruzione();
+        Cursor.visible=true;
         
         yield return null;
     }

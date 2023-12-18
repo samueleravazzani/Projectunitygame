@@ -59,10 +59,15 @@ public class redmovement : MonoBehaviour
         {
             Cursor.visible = true;
         }
+        else if (Collect.GetInstance().win || Collect.GetInstance().lose)
+        {
+            Cursor.visible = true;
+        }
         else
         {
-            Cursor.visible = false;
+            Cursor.visible=false;
         }
+
         
     }
 
